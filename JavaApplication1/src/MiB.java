@@ -9,8 +9,8 @@
  */
 public class MiB {
     
-
-        test
+private int alder;
+     
         
              
 }
