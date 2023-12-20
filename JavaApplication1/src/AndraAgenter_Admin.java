@@ -45,6 +45,11 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         });
 
         jButton2.setText("Hämta information om agent");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Ta bort agent");
 
@@ -135,19 +140,23 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 RegistreringAndringavAgent AndraAgent= new RegistreringAndringavAgent();
         AndraAgent.show(); //visa InloggningAgenter
-        
-        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 //Avbryt
         this.setVisible(false);
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+//Hämta Information Om Agenter
+        InformationAgenter InfoAgent= new InformationAgenter();
+        InfoAgent.show(); 
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
