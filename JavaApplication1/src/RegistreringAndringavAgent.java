@@ -66,22 +66,30 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
         jLabel1.setText("Registrering och ändring av Agent");
 
-        jLabel2.setText("Namn");
+        jLabel2.setText("Namn:");
 
-        jLabel3.setText("Agent ID");
+        jLabel3.setText("Agent ID:");
 
-        jLabel4.setText("Telefon");
+        jLabel4.setText("Telefon:");
 
-        jLabel5.setText("Anställningsdatum");
+        jLabel5.setText("Anställningsdatum:");
 
-        jLabel6.setText("Admin");
+        jLabel6.setText("Admin:");
 
-        jLabel7.setText("E-post");
+        jLabel7.setText("E-post:");
 
-        jLabel8.setText("Lösenord");
+        jLabel8.setText("Lösenord:");
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -126,7 +134,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
             .addGroup(layout.createSequentialGroup()
