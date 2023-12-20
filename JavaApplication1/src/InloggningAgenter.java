@@ -178,6 +178,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
         
+        
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

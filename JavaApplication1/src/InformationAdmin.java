@@ -5,7 +5,7 @@
 
 /**
  *
- * @author Admin
+ * @author Rikard Söderek
  */
 public class InformationAdmin extends javax.swing.JFrame {
 
