@@ -170,6 +170,10 @@ public class InloggningAliens extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
+        NyAlien.show(); //Registrera Nya Aliens
+        
+        dispose();  
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -68,6 +68,11 @@ public class InformationAgenter extends javax.swing.JFrame {
         jButton3.setText("Spara");
 
         jButton4.setText("Registrera utrustning");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Avbryt");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +207,10 @@ public class InformationAgenter extends javax.swing.JFrame {
         //Avbryt
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
