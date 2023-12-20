@@ -66,6 +66,11 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         jTextField4.setText("2010-06-17");
 
         jButton1.setText("Hitta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Avbryt");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +154,14 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//Öppna InformationAliens
+        InformationAliens LogInAD = new InformationAliens();
+        LogInAD.show(); //visar InformationAliens
+        
+        dispose(); //stänga det tidigare fönstret        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
