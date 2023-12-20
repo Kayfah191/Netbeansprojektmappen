@@ -106,6 +106,11 @@ public class AdminVal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
+        alltOmAgent.show(); //visa InloggningAgenter
+        
+        dispose();  //Stänga det tidigare fönstret
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
