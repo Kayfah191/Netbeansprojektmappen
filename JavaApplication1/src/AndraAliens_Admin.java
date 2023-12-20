@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Admin
@@ -47,6 +48,11 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
         });
 
         jButton3.setText("Ta bort alien");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Avbryt");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -106,12 +112,18 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
-        NyAlien.show(); //Registrera Nya Aliens
+    RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
+        NyAlien.show(); //Registrera Nya Besökare
         
-        dispose();  
-       // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame("Ta bort Besökare");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill ta bort denna Besökare?",
+                "Ta bort Besökare", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
