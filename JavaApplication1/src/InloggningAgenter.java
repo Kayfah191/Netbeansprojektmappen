@@ -1,3 +1,8 @@
+
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,11 +14,21 @@
  */
 public class InloggningAgenter extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form InloggningAgenter
      */
     public InloggningAgenter() {
         initComponents();
+        
+        try{
+            idb = new InfDB("\"C:\\Users\\Rikard\\Documents\\NetBeansProjects\\DatabasfilerMedlemsDB\\MedlemsDB_script.sql\"");
+        }
+        
+        catch(InfException ettUndantag){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+      
     }
 
     /**
