@@ -59,6 +59,11 @@ public class InformationAgenter extends javax.swing.JFrame {
         jLabel4.setText("Region:");
 
         jButton1.setText("Registrera ny Besökare");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Kontaktperson till:");
@@ -232,6 +237,11 @@ public class InformationAgenter extends javax.swing.JFrame {
         //Öppnar ett fönster för att hitta specifika besökare
         
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+RegistreraNyaAliens RegAlien= new RegistreraNyaAliens();
+        RegAlien.show(); //Registrera Nya Aliens
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

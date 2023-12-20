@@ -75,6 +75,11 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         jLabel1.setText("Ändra information om Agenter:");
 
         jButton8.setText("Spara");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Avbryt");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +177,10 @@ JFrame frame = new JFrame("Ta bort Agent");
                 "Ta bort Agent", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
