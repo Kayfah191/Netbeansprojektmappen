@@ -77,6 +77,11 @@ public class InloggningVal extends javax.swing.JFrame {
         jLabel2.setText("Välj typ av användare:");
 
         jButton4.setText("Avbryt");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,6 +148,11 @@ public class InloggningVal extends javax.swing.JFrame {
         
         dispose(); //stänga det tidigare fönstret
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Avbryt
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

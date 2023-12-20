@@ -68,6 +68,11 @@ public class InloggningAgenter extends javax.swing.JFrame {
         });
 
         jButton1.setText("Logga in");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Glömt lösenord?");
 
@@ -146,8 +151,17 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+         //Avbryt
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        InformationAgenter InfoAG = new InformationAgenter();
+        InfoAG.show();  //Öppnar infromationsfönstret till Agenter
+        
+        dispose(); //Stänger tidigare fönster
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
