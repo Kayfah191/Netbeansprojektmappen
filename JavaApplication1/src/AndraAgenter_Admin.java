@@ -60,6 +60,11 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         jButton8.setText("Spara");
 
         jButton9.setText("Avbryt");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,6 +133,12 @@ RegistreringAndringavAgent AndraAgent= new RegistreringAndringavAgent();
         
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+//Avbryt
+        this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
