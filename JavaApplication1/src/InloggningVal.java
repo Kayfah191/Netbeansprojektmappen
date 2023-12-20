@@ -10,7 +10,7 @@
 public class InloggningVal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Inloggning
+     * Creates new form InloggningVal
      */
     public InloggningVal() {
         initComponents();
