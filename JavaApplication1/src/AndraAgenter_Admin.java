@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +54,11 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         });
 
         jButton4.setText("Ta bort agent");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Gör till admin");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +163,15 @@ RegistreringAndringavAgent AndraAgent= new RegistreringAndringavAgent();
         InformationAgenter InfoAgent= new InformationAgenter();
         InfoAgent.show(); 
 
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+JFrame frame = new JFrame("Ta bort Agent");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill ta bort denna Agent?",
+                "Ta bort Agent", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
