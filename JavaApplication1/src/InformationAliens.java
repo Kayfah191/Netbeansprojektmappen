@@ -51,7 +51,7 @@ public class InformationAliens extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Mina Sidor [Alien]");
 
-        jLabel11.setText("Efternman");
+        jLabel11.setText("Efternamn");
 
         jLabel5.setText("Områdeschef");
 

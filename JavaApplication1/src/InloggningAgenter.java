@@ -34,6 +34,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jButton3.setText("Avbryt");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +84,13 @@ public class InloggningAgenter extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Gå tillbaka");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +104,8 @@ public class InloggningAgenter extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 191, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
@@ -131,7 +140,8 @@ public class InloggningAgenter extends javax.swing.JFrame {
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -156,12 +166,20 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Öppnar InformationAgenter
         InformationAgenter InfoAG = new InformationAgenter();
         InfoAG.show();  //Öppnar infromationsfönstret till Agenter
         
         dispose(); //Stänger tidigare fönster
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Tillbakaknapp till InloggningVal
+        InloggningVal LogInVal = new InloggningVal();
+        LogInVal.show();
+        
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,6 +218,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
