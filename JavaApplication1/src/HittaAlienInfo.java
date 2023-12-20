@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Rikard Söderek
@@ -156,11 +157,10 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//Öppna InformationAliens
-        InformationAliens LogInAD = new InformationAliens();
-        LogInAD.show(); //visar InformationAliens
-        
-        dispose(); //stänga det tidigare fönstret        // TODO add your handling code here:
+  // TODO add your handling code here:
+        JFrame frame = new JFrame("Besökarinformation");
+        if(JOptionPane.showConfirmDialog(frame, "",
+                "Besökarinformation", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
