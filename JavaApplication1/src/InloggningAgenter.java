@@ -22,7 +22,8 @@ public class InloggningAgenter extends javax.swing.JFrame {
         initComponents();
         
         try{
-            idb = new InfDB("C:\\Systemutvecklingsprojekt databas\\MySQL-Resurser\\lib\\mibdb_komplett.sql");
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            System.out.println("JIPPI!!!");
         }
         
         catch(InfException ettUndantag){
