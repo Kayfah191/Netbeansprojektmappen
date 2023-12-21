@@ -21,15 +21,15 @@ public class InloggningAgenter extends javax.swing.JFrame {
     public InloggningAgenter() {
         initComponents();
         
-        try{
-            idb = new InfDB("C:\\Systemutvecklingsprojekt databas\\MySQL-Resurser\\lib\\mibdb_komplett.sql");
-        }
+          try{
+            idb = new InfDB("mibdb","3306","mibdba","mibkey");
+      }
         
         catch(InfException ettUndantag){
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
-      
+    
     }
 
     /**
