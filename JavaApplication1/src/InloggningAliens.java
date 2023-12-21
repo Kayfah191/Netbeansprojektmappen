@@ -1,6 +1,8 @@
 
 import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,18 +14,25 @@ import javax.swing.JOptionPane;
  * @author Rikard Söderek
  */
 public class InloggningAliens extends javax.swing.JFrame {
-Connection alog=null;
-ResultSet rs=null;
-PreparedStatement ps=null;
+private  InfDB idb;
 
     /**
      * Creates new form InloggningAliens
      */
     public InloggningAliens() {
         initComponents();
-        con=
+       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
+       try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            System.out.println("Allt fungerar (hittills))");
+        }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+      
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -191,19 +200,26 @@ RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       String an=jan.getText();
-String lösen=jlösen.getText();
-
-
-
-
-  
-        
-        InformationAliens InfoAL = new InformationAliens();
-        InfoAL.show();  //öppnar informationsfönster till Besökare
-        
-        dispose();  //stänger tidigare fönster
+ // TODO add your handling code here:
+       String användarnamn = jan.getText();
+        String lösenord = new String(jlösen.getPassword());
+        try {
+            // Kontrollera inloggning med InfDB
+            String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
+            String[] params = {användarnamn, lösenord}; 
+            if (idb.fetchSingle(query, params)) {
+                JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Inloggning lyckades!");
+                // Öppna informationsfönstret eller annan funktionalitet här
+                InformationAliens infoAL = new InformationAliens();
+                infoAL.show();
+                dispose(); // Stänger tidigare fönster
+            }
+        } catch (InfException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
