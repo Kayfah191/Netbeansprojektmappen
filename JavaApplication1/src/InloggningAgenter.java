@@ -9,7 +9,7 @@ import oru.inf.InfException;
  */
 
 /**
- *fsdfsdf
+ *
  * @author Rikard Söderek
  */
 public class InloggningAgenter extends javax.swing.JFrame {
@@ -23,7 +23,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
-            System.out.println("JIPPI!!!");
+            System.out.println("Allt fungerar (hittills))");
         }
         
         catch(InfException ettUndantag){
