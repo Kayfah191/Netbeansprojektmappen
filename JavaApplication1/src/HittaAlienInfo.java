@@ -15,6 +15,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
      */
     public HittaAlienInfo() {
         initComponents();
+    
     }
 
     /**
