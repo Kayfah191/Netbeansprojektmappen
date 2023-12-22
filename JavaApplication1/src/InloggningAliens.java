@@ -201,25 +201,28 @@ RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  // TODO add your handling code here:
-       String användarnamn = jan.getText();
+       String namn = jan.getText();
         String lösenord = new String(jlösen.getPassword());
         try {
             // Kontrollera inloggning med InfDB
-            String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
-            String[] params = {användarnamn, lösenord}; 
-            if (idb.fetchSingle(query, params)) {
-                JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Inloggning lyckades!");
-                // Öppna informationsfönstret eller annan funktionalitet här
-                InformationAliens infoAL = new InformationAliens();
-                infoAL.show();
-                dispose(); // Stänger tidigare fönster
-            }
-        } catch (InfException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
-        }
+            String s1 = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
+            String[] params = {namn, lösenord}; 
+           // Anropa fetchSingle och kontrollera resultatet
+    boolean loginSuccessful = idb.fetchSingle(s1)
+
+    if (loginSuccessful) {
+        JOptionPane.showMessageDialog(this, "Inloggning lyckades!");
+        // Öppna informationsfönstret eller annan funktionalitet här
+        InformationAliens infoAL = new InformationAliens();
+        infoAL.show();
+        dispose(); // Stänger tidigare fönster
+    } else {
+        JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
+    }
+} catch (InfException ex) {
+    ex.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
