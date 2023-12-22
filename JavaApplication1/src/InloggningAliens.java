@@ -3,6 +3,7 @@ import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.sql.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -203,23 +204,26 @@ RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
  // TODO add your handling code here:
        String namn = jan.getText();
         String lösenord = new String(jlösen.getPassword());
-        try {
-            // Kontrollera inloggning med InfDB
-            String s1 = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
-            String[] params = {namn, lösenord}; 
-           // Anropa fetchSingle och kontrollera resultatet
-    boolean loginSuccessful = idb.fetchSingle(s1)
+        
+        String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
 
-    if (loginSuccessful) {
+        try {
+            // Anropa fetchSingle och få resultatet som en sträng
+    String resultNamn = idb.fetchSingle(query, namn);
+    String resultLosenord = idb.fetchSingle(query, lösenord);
+
+   if ("true".equals(resultNamn & resultLosenord)) {
         JOptionPane.showMessageDialog(this, "Inloggning lyckades!");
         // Öppna informationsfönstret eller annan funktionalitet här
         InformationAliens infoAL = new InformationAliens();
         infoAL.show();
         dispose(); // Stänger tidigare fönster
+  
     } else {
         JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
     }
-} catch (InfException ex) {
+} 
+        catch (InfException ex) {
     ex.printStackTrace();
     JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
 }
