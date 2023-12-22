@@ -48,6 +48,11 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         jLabel2.setText("Område:");
 
         jTextField1.setText("1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Ras:");
@@ -152,17 +157,21 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//Avbryt
+    //Avbryt
         this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  // TODO add your handling code here:
+    //Hitta
         JFrame frame = new JFrame("Besökarinformation");
         if(JOptionPane.showConfirmDialog(frame, "",
                 "Besökarinformation", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
