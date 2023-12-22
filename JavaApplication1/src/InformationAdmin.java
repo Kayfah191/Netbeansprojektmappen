@@ -116,12 +116,11 @@ public class InformationAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
-        alltOmAgent.show(); //visa InloggningAgenter
-        
-        dispose();  //Stänga det tidigare fönstret
-
-        // TODO add your handling code here:
+        //visa InloggningAgenter
+        AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
+        alltOmAgent.show(); 
+        //Stänga det tidigare fönstret
+        dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -130,10 +129,11 @@ public class InformationAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       AndraAliens_Admin InfoAlien = new AndraAliens_Admin();
-        InfoAlien.show(); //visa Info På Aliens
-        
-        dispose();  //Stänga det tidigare fönstret
+        //visa Info På Aliens
+        AndraAliens_Admin InfoAlien = new AndraAliens_Admin();
+        InfoAlien.show(); 
+        //Stänga det tidigare fönstret
+        dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

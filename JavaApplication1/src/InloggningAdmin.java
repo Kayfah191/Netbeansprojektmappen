@@ -157,8 +157,8 @@ public class InloggningAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         InformationAdmin InfoAD = new InformationAdmin();
         InfoAD.show();  //öppnar informationsfönser till Admin
-        
-        dispose(); //stänger tidigare fönster
+        //stänger tidigare fönster
+        dispose(); 
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -167,7 +167,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-        
+        //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
