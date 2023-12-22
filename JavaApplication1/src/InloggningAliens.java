@@ -1,39 +1,52 @@
 
-import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
-import oru.inf.InfDB;
-import oru.inf.InfException;
-import java.sql.*;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Rikard Söderek
  */
 public class InloggningAliens extends javax.swing.JFrame {
-private  InfDB idb;
+java.sql.Connection conn=null;
+ResultSet rs=null;
+Statement st;
+private JFrame frame;
+
+    //private  InfDB idb;
+    
 
     /**
      * Creates new form InloggningAliens
      */
-    public InloggningAliens() {
-        initComponents();
-       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
-       try{
-            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
-            System.out.println("Allt fungerar (hittills))");
+    public InloggningAliens()
+{initComponents();
+
+//       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
+//       try{
+//            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+//            System.out.println("Allt fungerar (hittills))");
+//        }
+//        
+//        catch(InfException ex){
+//            JOptionPane.showMessageDialog(null, "Något gick fel!");
+//            System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-        
-        catch(InfException ex){
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
+
+  
       
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -202,30 +215,42 @@ RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  // TODO add your handling code here:
-       String namn = jan.getText();
-        String lösenord = new String(jlösen.getPassword());
-        
-        String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
+        String namn=jan.getText();
+        String lösenord = jlösen.getText();
 
         try {
-            // Anropa fetchSingle och få resultatet som en sträng
-    String resultNamn = idb.fetchSingle(query, namn);
-    String resultLosenord = idb.fetchSingle(query, lösenord);
+            int log = 1;
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
+            st = (Statement) conn.createStatement();
+            rs = st.executeQuery("SELECT * FROM alien");
 
-   if ("true".equals(resultNamn & resultLosenord)) {
-        JOptionPane.showMessageDialog(this, "Inloggning lyckades!");
-        // Öppna informationsfönstret eller annan funktionalitet här
-        InformationAliens infoAL = new InformationAliens();
-        infoAL.show();
-        dispose(); // Stänger tidigare fönster
-  
-    } else {
-        JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
+            while (rs.next()) {
+                if (rs.getString(1).equals(namn) && rs.getString(2).equals(lösenord)) {
+                    log = 0;
+                    break;
+                }
+            }
+
+            if (log == 0) {
+                CloseMe();
+                InformationAliens infoAL = new InformationAliens();
+                infoAL.show();
+                dispose(); // Stänger tidigare fönster
+            } else {
+                JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InloggningAliens.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
+        }
     }
-} 
-        catch (InfException ex) {
-    ex.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
+
+
+ private void CloseMe() {
+     
+WindowEvent meClose=new WindowEvent(this,WindowEvent.WINDOW_CLOSING);   
+Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
 }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -233,8 +258,9 @@ RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-        
-        dispose();
+       
+
+       dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
