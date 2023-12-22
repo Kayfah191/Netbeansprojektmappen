@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-/**
+/**wrwr
  *
  * @author Rikard Söderek
  */
@@ -214,17 +214,17 @@ private JFrame frame;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-<<<<<<< HEAD
+
  // TODO add your handling code here:
         String namn=jan.getText();
         String lösenord = jlösen.getText();
-=======
+
 
        String namn = jan.getText();
         String lösenord = new String(jlösen.getPassword());
         
         String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
->>>>>>> 7d804136bc4949c7ecc8ede787a8edc4d42910e4
+
 
         try {
             int log = 1;
@@ -266,14 +266,9 @@ Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-<<<<<<< HEAD
-       
-
-       dispose();
-=======
         //Stänger tidigare fönster
         dispose();
->>>>>>> 7d804136bc4949c7ecc8ede787a8edc4d42910e4
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
