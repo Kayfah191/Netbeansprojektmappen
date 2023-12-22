@@ -46,12 +46,12 @@ public class InloggningAgenter extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        jPassword = new javax.swing.JPasswordField();
+        jLogInB = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jExitB = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jButton3.setText("Avbryt");
@@ -69,36 +69,36 @@ public class InloggningAgenter extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("E-post/Användarnamn:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jUserActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Lösenord:");
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        jPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                jPasswordActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Logga in");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLogInB.setText("Logga in");
+        jLogInB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jLogInBActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Glömt lösenord?");
 
-        jButton4.setText("Avbryt");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jExitB.setText("Avbryt");
+        jExitB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jExitBActionPerformed(evt);
             }
         });
 
@@ -124,9 +124,9 @@ public class InloggningAgenter extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4)))
+                                .addComponent(jExitB)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jLogInB)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,10 +134,10 @@ public class InloggningAgenter extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -148,17 +148,17 @@ public class InloggningAgenter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4)
+                    .addComponent(jLogInB)
+                    .addComponent(jExitB)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -166,74 +166,70 @@ public class InloggningAgenter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        //Kolla Eposten som matas in
-        
-        
-//        try {
-//            
-//            String fraga =  "SELECT Epost from agent";
-//            String svar = idb.fetchSingle(fraga);
-//            String resultat = svar;
-//            jTextField1.setText(resultat);
-//        }
-//        catch(InfException ex){
-//            JOptionPane.showMessageDialog(null, "Något gick fel!");
-//            System.out.println("Fel!" + ex.getMessage());
-//        }
-        
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
+        //Eposten som matas in
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+        
+    }//GEN-LAST:event_jUserActionPerformed
+
+    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
+        //Lösenordet som matas in
+        
+        
+    }//GEN-LAST:event_jPasswordActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         //Avbryt
+    private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
+         //Avbrytknapp
         this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jExitBActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Öppnar InformationAgenter
+    private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
+        //Öppnar InformationAgenter (Login knapp)
+        try {            
+            //Om Epost är tom ger den felmeddelande
+              if(jUser.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
+            }
+            //Om Lösenord är tom ger den felmeddelande
+            else if(jPassword.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
+            }
+            //SQL-frågan som tar datan från databasen
+            else {
+                String sqlQuery = "SELECT Epost, Losenord FROM agent WHERE Epost = ? AND Losenord = ?";
+                PreparedStatement statement = idb.prepareStatement(sqlQuery); 
+                statement.setString(1, jUser.getText());        //Användarens Epost/Användarnamn
+                statement.setString(2, jPassword.getText());    //Användarens Lösenord
+                
+                ResultSet resultSet = statement.executeQuery();
+                
+            if(resultSet.next()){
+               JOptionPane.showMessageDialog(null, "Inloggning lyckades!");
+            
+                    InformationAgenter InfoAG = new InformationAgenter();
+                    InfoAG.show();  //Öppnar infromationsfönstret till Agenter
+                }
+
+                    else {
+                        JOptionPane.showMessageDialog(null, "Fel E-post eller Lösenord!"); 
+                    } 
+                }
+            }
+            catch(InfException ex) {
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
         
-        InformationAgenter InfoAG = new InformationAgenter();
-        InfoAG.show();  //Öppnar infromationsfönstret till Agenter
-        
-        dispose(); //Stänger tidigare fönster
-    }//GEN-LAST:event_jButton1ActionPerformed
+//         dispose(); //Stänger tidigare fönster
+    }//GEN-LAST:event_jLogInBActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Tillbakaknapp till InloggningVal
-
-        
-        try {
-            
-            String fraga1 = "SELECT Epost from agent";
-            String svar1 = idb.fetchSingle(fraga1);
-            String resultat1 = svar1;
-            jTextField1.setText(resultat1);
-            
-            String fraga2 = "SELECT Losenord from agent";
-            String svar2 = idb.fetchSingle(fraga2);
-            String resultat2 = svar2;
-            jPasswordField1.setText(resultat2);
-            
+        //Tillbakaknapp till InloggningVal (gå tillbaka)
             InloggningVal LogInVal = new InloggningVal();
             LogInVal.show();
-            
-        }
-        catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
-            System.out.println("Fel!" + ex.getMessage());
-        }
-        
-        
-        
-        
         
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -274,15 +270,15 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jExitB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jLogInB;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jUser;
     // End of variables declaration//GEN-END:variables
 }
