@@ -220,12 +220,6 @@ private JFrame frame;
         String lösenord = jlösen.getText();
 
 
-       String namn = jan.getText();
-        String lösenord = new String(jlösen.getPassword());
-        
-        String query = "SELECT * FROM alien WHERE namn = ? AND lösenord = ?";
-
-
         try {
             int log = 1;
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
