@@ -129,25 +129,24 @@ public class InloggningVal extends javax.swing.JFrame {
         //Öppna InloggningAgenter
         InloggningAgenter LogInAG = new InloggningAgenter();
         LogInAG.show(); //visa InloggningAgenter
-        
+        //Stänga det tidigare fönstret
         dispose();
-          //Stänga det tidigare fönstret
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Öppna InloggningAliens
         InloggningAliens LogInAL = new InloggningAliens();
         LogInAL.show(); //visa InloggningAliens
-        
-        dispose(); //stänga det tidigare fönstret
+        //Stänga det tidigare fönstret
+        dispose(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Öppna InloggningAdmin
         InloggningAdmin LogInAD = new InloggningAdmin();
-        LogInAD.show(); //visar InloggningAdmin
-        
-        dispose(); //stänga det tidigare fönstret
+        LogInAD.show(); //visa InloggningAdmin
+        //Stänga det tidigare fönstret
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

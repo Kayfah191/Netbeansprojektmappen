@@ -12,11 +12,21 @@ import oru.inf.InfException;
  */
 public class InloggningAdmin extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form InloggningAdmin
      */
     public InloggningAdmin() {
         initComponents();
+        try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            System.out.println("Allt fungerar (hittills))");
+        }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
     }
 
     /**
@@ -141,7 +151,9 @@ public class InloggningAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // TODO
+        
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -157,8 +169,8 @@ public class InloggningAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         InformationAdmin InfoAD = new InformationAdmin();
         InfoAD.show();  //öppnar informationsfönser till Admin
-        
-        dispose(); //stänger tidigare fönster
+        //stänger tidigare fönster
+        dispose(); 
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -167,7 +179,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-        
+        //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
