@@ -5,10 +5,15 @@ import java.sql.ResultSet;
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
+import java.sql.*;
+import java.util.HashMap;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,10 +24,11 @@ import java.util.logging.Logger;
  * @author Rikard Söderek
  */
 public class InloggningAliens extends javax.swing.JFrame {
-java.sql.Connection conn=null;
-ResultSet rs=null;
-Statement st;
+//java.sql.Connection conn=null;
+//ResultSet rs=null;
+//Statement st;
 private JFrame frame;
+private InfDB idb;
 
     //private  InfDB idb;
     
@@ -30,21 +36,28 @@ private JFrame frame;
     /**
      * Creates new form InloggningAliens
      */
-    public InloggningAliens()
-{initComponents();
-
-//       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
-//       try{
-//            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+    public InloggningAliens() {
+initComponents();
+    
+        //Kommer att finnas i Main så behövs kanske inte
+        try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
 //            System.out.println("Allt fungerar (hittills))");
-//        }
-//        
-//        catch(InfException ex){
-//            JOptionPane.showMessageDialog(null, "Något gick fel!");
-//            System.out.println("Internt felmeddelande" + ex.getMessage());
         }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+      
+    }
 
-  
+//try 
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
+//            st = (Statement) conn.createStatement();
+//            
+////       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
+ 
       
    
     /**
@@ -214,46 +227,39 @@ private JFrame frame;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+//PreparedStatement statement = ;
  // TODO add your handling code here:
-        String namn=jan.getText();
-        String lösenord = jlösen.getText();
-
-
-        try {
-            int log = 1;
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
-            st = (Statement) conn.createStatement();
-            rs = st.executeQuery("SELECT * FROM alien");
-
-            while (rs.next()) {
-                if (rs.getString(1).equals(namn) && rs.getString(2).equals(lösenord)) {
-                    log = 0;
-                    break;
-                }
-            }
-
-            if (log == 0) {
-                CloseMe();
-                InformationAliens infoAL = new InformationAliens();
-                infoAL.show();
-                dispose(); // Stänger tidigare fönster
-            } else {
-                JOptionPane.showMessageDialog(this, "Ogiltigt användarnamn eller lösenord. Försök igen.");
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(InloggningAliens.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Fel vid inloggning. Försök igen.");
-        }
+    if (jan.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
     }
+    
+    if (jlösen.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
+    } 
+    
+    try {
+        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jan.getText());
+        System.out.println(query);        
+        HashMap<String, String> rad =  idb.fetchRow(query);
+        //String Epost = rad.get("Epost");
+        String lösenord = rad.get("Losenord");
+        System.out.println("rad hittad");
+        if(jlösen.getText().equals(lösenord)) {
+             InformationAliens infoAlien = new InformationAliens();
+        infoAlien.show();
+        //Stänger tidigare fönster
+        dispose();
+        }
+        else {
+            throw new Exception();
+        }
+       
+        
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
 
-
- private void CloseMe() {
-     
-WindowEvent meClose=new WindowEvent(this,WindowEvent.WINDOW_CLOSING);   
-Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
-}
+        
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

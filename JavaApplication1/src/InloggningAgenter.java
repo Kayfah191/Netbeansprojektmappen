@@ -2,8 +2,8 @@
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-
 import java.sql.*;
+import java.util.HashMap;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -191,41 +191,32 @@ public class InloggningAgenter extends javax.swing.JFrame {
 
     private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
         //Öppnar InformationAgenter (Login knapp)
-        try {            
-            //Om Epost är tom ger den felmeddelande
-              if(jUser.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
-            }
-            //Om Lösenord är tom ger den felmeddelande
-            else if(jPassword.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
-            }
-            //SQL-frågan som tar datan från databasen
-            else {
-                String sqlQuery = "SELECT Epost, Losenord FROM agent WHERE Epost = ? AND Losenord = ?";
-                PreparedStatement statement = idb.prepareStatement(sqlQuery); 
-                statement.setString(1, jUser.getText());        //Användarens Epost/Användarnamn
-                statement.setString(2, jPassword.getText());    //Användarens Lösenord
-                
-                ResultSet resultSet = statement.executeQuery();
-                
-            if(resultSet.next()){
-               JOptionPane.showMessageDialog(null, "Inloggning lyckades!");
-            
-                    InformationAgenter InfoAG = new InformationAgenter();
-                    InfoAG.show();  //Öppnar infromationsfönstret till Agenter
-                }
-                    //Visar felmeddelande om Epost eller lösenord inte finns eller är fleskrivna
-                    else {
-                        JOptionPane.showMessageDialog(null, "Fel E-post eller Lösenord!"); 
-                    } 
-                }
-            }
-            catch(InfException ex) {
-            System.out.println("Internt felmeddelande" + ex.getMessage());
+       
+    if (jUser.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
+    }
+    if (jPassword.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
+    } 
+    
+    try {
+        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());
+        System.out.println(query);        
+        HashMap<String, String> rad =  idb.fetchRow(query);
+        //String Epost = rad.get("Epost");
+        String lösenord = rad.get("Losenord");
+        System.out.println("rad hittad");
+        if(jPassword.getText().equals(lösenord)) {
+             InformationAgenter agentInfo = new InformationAgenter();
+        agentInfo.show();
+        //Stänger tidigare fönster
+        dispose();
         }
-     
-//         dispose(); //Stänger tidigare fönster
+        else {
+            throw new Exception();
+        }
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
     }//GEN-LAST:event_jLogInBActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
