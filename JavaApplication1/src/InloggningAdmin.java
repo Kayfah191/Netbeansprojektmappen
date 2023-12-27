@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -38,9 +39,9 @@ public class InloggningAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        adminnamn = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        adminlösenord = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -50,20 +51,20 @@ public class InloggningAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        adminnamn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        adminnamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                adminnamnActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Lösenord:");
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        adminlösenord.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        adminlösenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                adminlösenordActionPerformed(evt);
             }
         });
 
@@ -111,10 +112,10 @@ public class InloggningAdmin extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(adminlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addComponent(jLabel2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(adminnamn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 156, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -132,11 +133,11 @@ public class InloggningAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(adminnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(adminlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(79, 79, 79)
@@ -150,15 +151,15 @@ public class InloggningAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void adminnamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminnamnActionPerformed
         // TODO
         
         
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_adminnamnActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void adminlösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminlösenordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_adminlösenordActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Avbryt
@@ -166,13 +167,39 @@ public class InloggningAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        InformationAdmin InfoAD = new InformationAdmin();
+
+         if (adminnamn.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
+    }
+    
+    if (adminlösenord.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
+    } 
+    
+    try {
+        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
+        System.out.println(query);        
+        HashMap<String, String> rad =  idb.fetchRow(query);
+        //String Epost = rad.get("Epost");
+        String lösenord = rad.get("Losenord");
+        System.out.println("rad hittad");
+        if(adminlösenord.getText().equals(lösenord)) {
+            InformationAdmin InfoAD = new InformationAdmin();
         InfoAD.show();  //öppnar informationsfönser till Admin
         //stänger tidigare fönster
         dispose(); 
         
+        }
+        else {
+            throw new Exception();
+        }
+       
         
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
+
+        
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -219,6 +246,8 @@ public class InloggningAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField adminlösenord;
+    private javax.swing.JTextField adminnamn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -226,7 +255,5 @@ public class InloggningAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

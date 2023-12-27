@@ -27,7 +27,6 @@ public class InloggningAliens extends javax.swing.JFrame {
 //java.sql.Connection conn=null;
 //ResultSet rs=null;
 //Statement st;
-private JFrame frame;
 private InfDB idb;
 
     //private  InfDB idb;
