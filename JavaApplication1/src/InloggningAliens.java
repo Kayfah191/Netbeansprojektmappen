@@ -255,14 +255,13 @@ WindowEvent meClose=new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
 Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
 }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    //Ska den vara private?
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-        //Stänger tidigare fönster
-        dispose();
 
+        dispose();   //Stänger tidigare fönster
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
