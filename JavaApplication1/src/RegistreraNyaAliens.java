@@ -381,7 +381,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             String mondatum = Integer.toString(mdatum);
             String yeardatum = Integer.toString(ydatum);
              String datum = yeardatum+ "-" + mondatum + "-" + dagdatum;
- ff
+ 
             String getAgentid = "SELECT AGENT_ID from AGENT where NAMN like '" + agent + "'";
             String getAgentNamn = "SELECT NAMN from AGENT where NAMN like '" + agent + "'";
             String hamtaAgentId=idb.fetchSingle(getAgentid);
