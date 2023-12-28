@@ -34,6 +34,8 @@ public class InloggningAgenter extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
       
+   
+        
     }
 
     /**
@@ -214,7 +216,15 @@ public class InloggningAgenter extends javax.swing.JFrame {
         if(jPassword.getText().equals(lösenord)) {
              InformationAgenter agentInfo = new InformationAgenter();
         agentInfo.show();
+        System.out.println("Inloggning lyckades!");
         //Stänger tidigare fönster
+//        
+//        // När inloggningen är framgångsrik
+//     String userId = getUserIdFromEpost(Epost); // Antag att denna metod hämtar korrekt ID baserat på e-post
+//     MainFrame mainFrame = new MainFrame(userId); // Skicka ID till MainFrame
+//     mainFrame.setVisible(true);
+//     this.setVisible(false); // Dölj LoginFrame
+//        
         dispose();
         }
         else {
@@ -222,6 +232,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         }
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
+      System.out.println("Felmeddelande: " + e.getMessage());
     }//GEN-LAST:event_jLogInBActionPerformed
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

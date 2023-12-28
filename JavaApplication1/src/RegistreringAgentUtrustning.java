@@ -72,12 +72,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Avbryt
-                        JFrame frame = new JFrame("Avbryt");
-        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
-        {
-            System.exit(0);
-        }
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
