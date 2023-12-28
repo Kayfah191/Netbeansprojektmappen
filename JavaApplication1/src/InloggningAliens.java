@@ -1,16 +1,7 @@
 
 import javax.swing.JOptionPane;
-import java.sql.Statement;
-import java.sql.ResultSet;
 import javax.swing.JFrame;
-import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
-//import java.sql.DriverManager;
-//import java.sql.SQLException;
-import java.sql.*;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -51,14 +42,6 @@ initComponents();
         }
       
     }
-
-//try 
-//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
-//            st = (Statement) conn.createStatement();
-//            
-////       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
- 
-      
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,9 +53,9 @@ initComponents();
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -85,20 +68,20 @@ initComponents();
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Inloggning [Aliens]");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jUserActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Lösenord:");
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        jPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                jPasswordActionPerformed(evt);
             }
         });
 
@@ -165,8 +148,8 @@ initComponents();
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jUser, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -179,11 +162,11 @@ initComponents();
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(95, 95, 95)
@@ -230,22 +213,22 @@ initComponents();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //PreparedStatement statement = ;
  // TODO add your handling code here:
-    if (jan.getText().isEmpty()) {
+    if (jUser.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
     }
     
-    if (jlösen.getText().isEmpty()) {
+    if (jPassword.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
     } 
     
     try {
-        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jan.getText());
+        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
-        if(jlösen.getText().equals(lösenord)) {
+        if(jPassword.getText().equals(lösenord)) {
              InformationAliens infoAlien = new InformationAliens();
         infoAlien.show();
         //Stänger tidigare fönster
@@ -316,7 +299,7 @@ initComponents();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jUser;
     // End of variables declaration//GEN-END:variables
 }
