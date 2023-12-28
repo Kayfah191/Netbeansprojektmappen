@@ -179,20 +179,16 @@ public class InloggningAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-         if (adminnamn.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
+         
+    
+    try {if (adminnamn.getText().isEmpty()&& adminlösenord.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
     }
-    
-    if (adminlösenord.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
-    } 
-    
-    try {
-        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
+        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = administrator like'%j%', \"%s\"", adminnamn.getText());
         System.out.println(query);        
-        HashMap<String, String> rad =  idb.fetchRow(query);
+        HashMap<String, String> rad3 =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
-        String lösenord = rad.get("Losenord");
+        String lösenord = rad3.get("Losenord");
         System.out.println("rad hittad");
         if(adminlösenord.getText().equals(lösenord)) {
             InformationAdmin InfoAD = new InformationAdmin();
