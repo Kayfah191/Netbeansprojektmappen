@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
+import javax.swing.JFrame;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -129,15 +130,15 @@ public class InloggningAgenter extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLogInB))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(jLabel2)
-                            .addComponent(jUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2)
+                                .addComponent(jUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -150,13 +151,13 @@ public class InloggningAgenter extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(79, 79, 79)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLogInB)
                     .addComponent(jExitB)
@@ -185,7 +186,12 @@ public class InloggningAgenter extends javax.swing.JFrame {
 
     private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
          //Avbrytknapp
-        this.setVisible(false);
+                JFrame frame = new JFrame("Avbryt");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jExitBActionPerformed
 
     private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
@@ -194,12 +200,12 @@ public class InloggningAgenter extends javax.swing.JFrame {
     if (jUser.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
     }
-    if (jPassword.getText().isEmpty()) {
+    else if (jPassword.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
     } 
     
     try {
-        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());
+        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");

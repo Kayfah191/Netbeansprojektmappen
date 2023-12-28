@@ -7,6 +7,9 @@ import java.util.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -243,50 +246,48 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                    .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jCheckBox1)
+                        .addGap(32, 32, 32)
+                        .addComponent(jCheckBox2)
+                        .addGap(31, 31, 31)
+                        .addComponent(jCheckBox3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(118, 118, 118)
+                        .addComponent(lösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jområde, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telefon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel3))
+                            .addComponent(jras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addGap(32, 32, 32)
-                                .addComponent(jCheckBox2)
-                                .addGap(31, 31, 31)
-                                .addComponent(jCheckBox3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ansvarigagent, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(kön, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(118, 118, 118)
-                                .addComponent(lösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(195, 195, 195)
-                                .addComponent(jLabel14))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jområde, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telefon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel3))
-                                    .addComponent(jras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ansvarigagent, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel9)
-                                            .addComponent(kön, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(118, 118, 118)
-                                        .addComponent(jTextField3)))
-                                .addGap(1, 1, 1)))
-                        .addGap(75, 75, 75)))
+                                .addComponent(jTextField3)))
+                        .addGap(1, 1, 1)))
+                .addGap(81, 81, 81))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -351,11 +352,11 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -449,11 +450,11 @@ if(mdatum<1)
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void namnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namnActionPerformed
-        // TODO add your handling code here:
+        // Skriv in Besökares namn
     }//GEN-LAST:event_namnActionPerformed
 
     private void ansvarigagentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ansvarigagentActionPerformed
-        // TODO add your handling code here:
+        // Skriv in den ansvariga Agenten
     }//GEN-LAST:event_ansvarigagentActionPerformed
 
     private void jrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrasActionPerformed
@@ -461,7 +462,7 @@ if(mdatum<1)
     }//GEN-LAST:event_jrasActionPerformed
 
     private void epostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_epostActionPerformed
-        // TODO add your handling code here:
+        // Besökare E-post
     }//GEN-LAST:event_epostActionPerformed
 
     private void lösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lösenordActionPerformed
@@ -469,7 +470,7 @@ if(mdatum<1)
     }//GEN-LAST:event_lösenordActionPerformed
 
     private void registeringdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registeringdActionPerformed
-        // TODO add your handling code here:
+        // Skriv in registreringsdatum
     }//GEN-LAST:event_registeringdActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -481,24 +482,29 @@ if(mdatum<1)
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void könActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_könActionPerformed
-        // TODO add your handling code here:
+        // Besökare kön
     }//GEN-LAST:event_könActionPerformed
 
     private void alienidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienidActionPerformed
-        // TODO add your handling code here:
+        // Besökares ID
     }//GEN-LAST:event_alienidActionPerformed
 
     private void ålderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ålderActionPerformed
-        // TODO add your handling code here:
+        // Besökares ålder
     }//GEN-LAST:event_ålderActionPerformed
 
     private void jområdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jområdeActionPerformed
-        // TODO add your handling code here:
+        // Området som en Besökare befinner sig i
     }//GEN-LAST:event_jområdeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Avbryt
-        this.setVisible(false);
+                JFrame frame = new JFrame("Avbryt");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
