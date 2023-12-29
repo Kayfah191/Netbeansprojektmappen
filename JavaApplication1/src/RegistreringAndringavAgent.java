@@ -313,9 +313,8 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_AgentIdTextfieldActionPerformed
 
     private void VisaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAgentActionPerformed
+        //Knapp för att visa alla registerade agenter
         try {
-            // Ska visa alla registerade agenter
-
             con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
         } catch (SQLException ex) {
             Logger.getLogger(RegistreringAndringavAgent.class.getName()).log(Level.SEVERE, null, ex);
@@ -330,7 +329,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
             while(rs.next()){
             model.addRow(new String[] { rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8) });            }
         }catch(Exception ex){
-            System.out.println("Error : " +ex.getMessage());
+            System.out.println("Error : " + ex.getMessage());
         }
     }//GEN-LAST:event_VisaAgentActionPerformed
 

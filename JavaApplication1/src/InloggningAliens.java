@@ -50,15 +50,7 @@ initComponents();
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
       
-    }
-
-//try 
-//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
-//            st = (Statement) conn.createStatement();
-//            
-////       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
- 
-      
+    } 
    
     /**
      * This method is called from within the constructor to initialize the form.
