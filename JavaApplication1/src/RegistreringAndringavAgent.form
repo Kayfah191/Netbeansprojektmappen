@@ -369,7 +369,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="F&#xf6;r att L&#xe4;gga till, Ta bort &amp; Uppdatera - tryck nedan"/>
+        <Property name="text" type="java.lang.String" value="F&#xf6;r att L&#xe4;gga till, Uppdatera &amp; Ta bort - tryck nedan"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Rensa">

@@ -163,7 +163,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
         OmradeLabel.setText("Område:");
 
-        jLabel1.setText("För att Lägga till, Ta bort & Uppdatera - tryck nedan");
+        jLabel1.setText("För att Lägga till, Uppdatera & Ta bort - tryck nedan");
 
         Rensa.setText("Rensa");
         Rensa.addActionListener(new java.awt.event.ActionListener() {
@@ -336,8 +336,13 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
     private void SparaAndringarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparaAndringarActionPerformed
         //Uppdatera AgentInfo
+       
+        if(AgentIdTextfield.getText().equals("")||NamnTextfield.getText().equals("")|| TelefonTextfield.getText().equals("")||AnstDatumTextfield.getText().equals("")||AdminTextfield.getText().equals("")||EpostTextfield.getText().equals("")||LosenordTextfield.getText().equals("")||OmradeTextfield.getText().equals(""))
+            
+           //Om någon av fälten lämnas tomma
+           {JOptionPane.showMessageDialog(this, "Var god välj rad från tabellen!");}
         
-       DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
+        else{DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
         
        String AgentID = AgentIdTextfield.getText();
        String Namn = NamnTextfield.getText();
@@ -358,6 +363,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
        tblModel.setValueAt(Omrade, Table.getSelectedRow(), 7);
        
        JOptionPane.showMessageDialog(this, "Uppdatering lyckades!");
+        }
         
     }//GEN-LAST:event_SparaAndringarActionPerformed
 
