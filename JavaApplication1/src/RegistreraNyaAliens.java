@@ -74,9 +74,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         plats1 = new javax.swing.JComboBox<>();
-        jMonth = new com.toedter.calendar.JMonthChooser();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
-        jDay = new com.toedter.calendar.JDayChooser();
+        jTextField1 = new javax.swing.JTextField();
 
         jTextField4.setText("jTextField4");
 
@@ -174,6 +172,13 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(plats1);
 
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,7 +196,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addComponent(jLabel12)
                         .addGap(200, 200, 200))
                     .addGroup(layout.createSequentialGroup()
@@ -204,6 +209,12 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(alienid)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -212,26 +223,12 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(118, 118, 118)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))))
-                .addContainerGap(108, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton1)))
-                .addGap(52, 52, 52))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lösenord, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(jLabel11)
+                            .addComponent(jTextField1)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,13 +272,9 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -297,20 +290,16 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Registrera
-        int ddatum = jDay.getDay();
-            int mdatum = jMonth.getMonth();
-            int ydatum = jYearChooser1.getYear();
             String password = lösenord.getText();
             String namn1=namn.getText();
             String telefon1 = telefon.getText();
             int plats = plats1.getSelectedIndex();
             String agent = ansvarigagent.getText();
             String nextId = idb.getAutoIncrement("ALIEN","ALIEN_ID");
-            String dagdatum = Integer.toString(ddatum);
-            String mondatum = Integer.toString(mdatum);
-            String yeardatum = Integer.toString(ydatum);
-             String datum = yeardatum+ "-" + mondatum + "-" + dagdatum;
- 
+//            String dagdatum = Integer.toString(ddatum);
+//            String mondatum = Integer.toString(mdatum);
+//            String yeardatum = Integer.toString(ydatum);
+            
             String getAgentid = "SELECT AGENT_ID from AGENT where NAMN like '" + agent + "'";
             String getAgentNamn = "SELECT NAMN from AGENT where NAMN like '" + agent + "'";
             String hamtaAgentId=idb.fetchSingle(getAgentid);
@@ -318,7 +307,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 int countLosen = password.length();
 
 if (agent.equals(hamtaAgentNamn)) {
-    if (plats < 1 || ddatum < 1 || mdatum < 1 || namn1.isBlank() || password.isBlank()) {
+    if (plats1 < 1 || namn.isBlank() || lösenord.isBlank()) {
         JOptionPane.showMessageDialog(null, "Du måste fylla i alla obligatoriska fält");
     } else if (countLosen < 6) {
         JOptionPane.showMessageDialog(null, "Lösenordet är för kort, minst 6 tecken krävs");
@@ -329,16 +318,13 @@ if (agent.equals(hamtaAgentNamn)) {
 
 try {String alieninsertfraga = String.format(
     "INSERT INTO alien VALUES (%s, '%s', '%s', '%s', '%s', %d, %s)",
-    nextId, datum, password, namn1, telefon1, plats, hamtaAgentId
-);
-    int row = idb.update(alieninsertfraga); 
+   
+  
 // Antag att idb.update hanterar din uppdateringslogik
 
-    if (row > 0) {
-        JOptionPane.showMessageDialog(null, "Alien är registrerad i databasen");
-    } else {
+    if {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
-    }
+    };
 } catch (Exception e) {
     e.printStackTrace();
     // Hantera fel här
@@ -394,6 +380,10 @@ try {String alieninsertfraga = String.format(
         // TODO add your handling code here:
     }//GEN-LAST:event_plats1AncestorAdded
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -437,7 +427,6 @@ try {String alieninsertfraga = String.format(
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDayChooser jDay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -448,10 +437,9 @@ try {String alieninsertfraga = String.format(
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private com.toedter.calendar.JMonthChooser jMonth;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
-    private com.toedter.calendar.JYearChooser jYearChooser1;
     private javax.swing.JFormattedTextField lösenord;
     private javax.swing.JFormattedTextField namn;
     private javax.swing.JComboBox<String> plats1;

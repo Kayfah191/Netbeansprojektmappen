@@ -1,23 +1,37 @@
 
+import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Kayhan
  */
 public class InformationAliens extends javax.swing.JFrame {
-
+private InfDB idb;
     /**
      * Creates new form AlienInfo
      */
     public InformationAliens() {
         initComponents();
+        
+        try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            System.out.println("Allt fungerar (hittills))");
+        }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+        
+    
     }
 
     /**
@@ -47,8 +61,8 @@ public class InformationAliens extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,12 +99,17 @@ public class InformationAliens extends javax.swing.JFrame {
 
         jLabel18.setText("jLabel18");
 
-        jLabel19.setText("jLabel19");
-
         jButton1.setText("Avbryt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -122,8 +141,8 @@ public class InformationAliens extends javax.swing.JFrame {
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel19))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton2))
+                        .addContainerGap(84, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -192,8 +211,8 @@ public class InformationAliens extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -210,6 +229,27 @@ public class InformationAliens extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+HashMap<String,String> OmradesChefer;
+        try {
+
+            OmradesChefer = idb.fetchRows("SELECT agent.namn,agent.telefon from Agent  "
+                    + "JOIN omradeschef ON agent.`Agent_ID`= omradeschef.`Agent_ID` "
+                    + "JOIN omrade ON omrade.`Omrades_ID`= omradeschef.`Omrade` "
+                    + "JOIN plats on omrade.`Omrades_ID` = plats.`Finns_I` "
+                    + "JOIN alien On alien.`Plats` = plats.`Plats_ID` "
+                    + "where alien.`Alien_ID` = '" + alien_id + "';");
+
+            for(Hashmap<String, String> agent: OmradesChefer)
+                }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel");
+            System.out.println("Internet felmeddelande" + e.getMessage());
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +289,7 @@ public class InformationAliens extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -259,7 +300,6 @@ public class InformationAliens extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
