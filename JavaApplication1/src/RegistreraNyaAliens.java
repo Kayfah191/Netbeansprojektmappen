@@ -172,7 +172,6 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(plats1);
 
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -295,7 +294,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             String telefon1 = telefon.getText();
             int plats = plats1.getSelectedIndex();
             String agent = ansvarigagent.getText();
-            String nextId = idb.getAutoIncrement("ALIEN","ALIEN_ID");
+            //String nextId = idb.getAutoIncrement("ALIEN","ALIEN_ID");
 //            String dagdatum = Integer.toString(ddatum);
 //            String mondatum = Integer.toString(mdatum);
 //            String yeardatum = Integer.toString(ydatum);
@@ -322,7 +321,7 @@ try {String alieninsertfraga = String.format(
   
 // Antag att idb.update hanterar din uppdateringslogik
 
-    if {
+    if{
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
     };
 } catch (Exception e) {
