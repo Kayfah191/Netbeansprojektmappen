@@ -21,23 +21,38 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
+
 public class RegistreringAndringavAgent extends javax.swing.JFrame {
     
     private InfDB idb;
     Connection con;
+        
 
+
+
+
+
+//try {
+//            con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(RegistreringAndringavAgent.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
+    
     /**
      * Creates new form NyregistreringAvAgent
      */
     public RegistreringAndringavAgent() {
         initComponents();
+//        initDBConnection();
         
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
         
-        catch(InfException ex){
+        catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
@@ -314,11 +329,6 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
     private void VisaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAgentActionPerformed
         //Knapp för att visa alla registerade agenter
-        try {
-            con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
-        } catch (SQLException ex) {
-            Logger.getLogger(RegistreringAndringavAgent.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         String sql ="SELECT * FROM Agent";
         try{

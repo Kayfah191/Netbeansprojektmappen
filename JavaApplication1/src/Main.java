@@ -16,6 +16,7 @@ import oru.inf.InfException;
 public class Main {
     
     private static InfDB idb;
+    private String userId;
     
      public static void main(String[] args) throws InfException {
          
@@ -27,12 +28,30 @@ public class Main {
          catch (InfException ex) {
              Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
               System.out.println("Internt felmeddelande" + ex.getMessage());
-         }
-         
+         } 
      }
      
-     public void setNamn() {
-         
-     }
+     public Main(String userId) {   //Kontruktor
+        this.userId = userId;
+        initializeUserInfo();
+    }
      
-}
+     public  void initializeUserInfo(String userID) {
+        // userID används för att hämta all information om användaren och initialisera gränssnittet
+        
+        try {
+            String query = "SELECT * from " + userID + ";";
+            HashMap<String, String> user = idb.fetchRow(query);
+                
+            if(user != null){
+                
+            }
+        }
+        catch(Exception ex){
+            System.out.println("Internt felmeddelande: " + ex.getMessage());
+        }
+        
+        
+    }
+      
+     }
