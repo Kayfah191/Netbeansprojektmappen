@@ -1,4 +1,5 @@
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -10,11 +11,11 @@ import oru.inf.InfException;
  */
 
 /**
- *
+ *ff
  * @author Kayhan
  */
 public class Main {
-    
+     private HashMap<String,RegistreraNyaAliens> list;
     private static InfDB idb;
     
      public static void main(String[] args) throws InfException {
