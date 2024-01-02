@@ -302,7 +302,7 @@ try {
     String q2="Insert into alien('" + id + "', '" + registreringsDatum1 + "', '" + epost1 + "', '" + losenord + "', '"+namn1 + "', '" + telefon1 + "', '" + plats + "', '" + agent + "')";
     
 idb.insert(q2);
-} catch (Exception e) {
+} catch (InfException e) {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
 
