@@ -314,7 +314,7 @@ public class InformationAgenter extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Registrera Nya Aliens
-        RegistreraNyaAliens RegAlien= new RegistreraNyaAliens();
+        RegistreraNyaAliensGammal RegAlien= new RegistreraNyaAliensGammal();
         RegAlien.show(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 

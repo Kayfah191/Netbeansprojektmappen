@@ -121,7 +121,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      //Registrera Nya Besökare
-        RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
+        RegistreraNyaAliensGammal NyAlien= new RegistreraNyaAliensGammal();
         NyAlien.show(); 
         
     }//GEN-LAST:event_jButton1ActionPerformed
