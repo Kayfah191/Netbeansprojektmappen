@@ -9,9 +9,7 @@ import oru.inf.InfException;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
- *ff
  * @author Kayhan
  */
 public class Main {
@@ -33,26 +31,8 @@ public class Main {
      }
      
      public Main(String userId) {   //Kontruktor
-        this.userId = userId;
-        initializeUserInfo();
-    }
-     
-     public  void initializeUserInfo(String userID) {
-        // userID används för att hämta all information om användaren och initialisera gränssnittet
-        
-        try {
-            String query = "SELECT * from " + userID + ";";
-            HashMap<String, String> user = idb.fetchRow(query);
-                
-            if(user != null){
-                
-            }
-        }
-        catch(Exception ex){
-            System.out.println("Internt felmeddelande: " + ex.getMessage());
-        }
-        
         
     }
-      
-     }
+   
+    }
+}
