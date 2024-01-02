@@ -296,7 +296,6 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             String id=alienid.getText();
             String epost1=epost.getText();
             String registreringsDatum1=registreringsDatum.getText();
-         boolean epostkorrekt=Validering.epostFromat(epost1);
 
 try {
     String q2="Insert into alien('" + id + "', '" + registreringsDatum1 + "', '" + epost1 + "', '" + losenord + "', '"+namn1 + "', '" + telefon1 + "', '" + plats + "', '" + agent + "')";
