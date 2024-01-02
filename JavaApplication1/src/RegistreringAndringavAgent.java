@@ -70,7 +70,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
         LaggTill = new javax.swing.JButton();
         TaBortAgent = new javax.swing.JButton();
-        SparaAndringar = new javax.swing.JButton();
+        UppdateraAgent = new javax.swing.JButton();
         RegistreraAndraAgent = new javax.swing.JLabel();
         NamnLabel = new javax.swing.JLabel();
         TelefonTextfield = new javax.swing.JTextField();
@@ -88,7 +88,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         LosenordTextfield = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        Avbryt = new javax.swing.JButton();
         VisaAgent = new javax.swing.JButton();
         OmradeTextfield = new javax.swing.JTextField();
         OmradeLabel = new javax.swing.JLabel();
@@ -101,36 +101,38 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         Tableomradeschef = new javax.swing.JTable();
         Agenter = new javax.swing.JLabel();
-        Chefomradelabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        ChefKontorjTextField1 = new javax.swing.JTextField();
-        ChefOmradejTextField2 = new javax.swing.JTextField();
+        ChefKontorlabel = new javax.swing.JLabel();
+        OmradejLabel2 = new javax.swing.JLabel();
+        ChefOmradejTextField1 = new javax.swing.JTextField();
+        ChefKontorjTextField2 = new javax.swing.JTextField();
+        UppdateraKontorsChef = new javax.swing.JButton();
+        UppdateraOmradesChef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        LaggTill.setText("Lägg till");
+        LaggTill.setText("Lägg till agent");
         LaggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LaggTillActionPerformed(evt);
             }
         });
 
-        TaBortAgent.setText("Ta bort");
+        TaBortAgent.setText("Ta bort agent");
         TaBortAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TaBortAgentActionPerformed(evt);
             }
         });
 
-        SparaAndringar.setText("Uppdatera");
-        SparaAndringar.addActionListener(new java.awt.event.ActionListener() {
+        UppdateraAgent.setText("Uppdatera agent");
+        UppdateraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SparaAndringarActionPerformed(evt);
+                UppdateraAgentActionPerformed(evt);
             }
         });
 
         RegistreraAndraAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        RegistreraAndraAgent.setText("Registrering, ändring och borttagelse av Agent");
+        RegistreraAndraAgent.setText("Registrering och borttagelse av agenter samt ändring av agenter & chefer");
 
         NamnLabel.setText("Namn:");
 
@@ -170,10 +172,10 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table);
 
-        jButton4.setText("Avbryt");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Avbryt.setText("Avbryt");
+        Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                AvbrytActionPerformed(evt);
             }
         });
 
@@ -192,7 +194,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
 
         OmradeLabel.setText("Område:");
 
-        jLabel1.setText("För att Lägga till, Uppdatera & Ta bort - tryck nedan");
+        jLabel1.setText("För att Lägga till, Uppdatera eller Ta bort - tryck nedan");
 
         Rensa.setText("Rensa");
         Rensa.addActionListener(new java.awt.event.ActionListener() {
@@ -201,14 +203,14 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
             }
         });
 
-        Kontorschef.setText("Ändra/Visa kontorschef");
+        Kontorschef.setText("Visa kontorschef");
         Kontorschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KontorschefActionPerformed(evt);
             }
         });
 
-        Omradeschef.setText("Ändra/Visa Områdeschef");
+        Omradeschef.setText("Visa Områdeschef");
         Omradeschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OmradeschefActionPerformed(evt);
@@ -226,6 +228,11 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                 "Agent ID", "Kontor"
             }
         ));
+        TableKontorschef.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableKontorschefMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TableKontorschef);
 
         Tableomradeschef.setModel(new javax.swing.table.DefaultTableModel(
@@ -239,17 +246,36 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                 "Agent ID", "Område"
             }
         ));
+        Tableomradeschef.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableomradeschefMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(Tableomradeschef);
 
         Agenter.setText("Agenter");
 
-        Chefomradelabel.setText("Chef över område:");
+        ChefKontorlabel.setText("Chef över kontor:");
 
-        jLabel2.setText("Chef över kontor:");
+        OmradejLabel2.setText("Chef över område:");
 
-        ChefKontorjTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ChefOmradejTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChefKontorjTextField1ActionPerformed(evt);
+                ChefOmradejTextField1ActionPerformed(evt);
+            }
+        });
+
+        UppdateraKontorsChef.setText("Uppdatera kontorschef");
+        UppdateraKontorsChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UppdateraKontorsChefActionPerformed(evt);
+            }
+        });
+
+        UppdateraOmradesChef.setText("Uppdatera områdeschef");
+        UppdateraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UppdateraOmradesChefActionPerformed(evt);
             }
         });
 
@@ -266,27 +292,33 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                             .addComponent(AgentIDLabel)
                             .addComponent(TelefonLabel)
                             .addComponent(AnstDatumLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(EpostLabel)
-                                .addComponent(AdminLabel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(OmradeLabel)
-                                    .addComponent(LosenordLabel))))
+                                    .addComponent(LosenordLabel)
+                                    .addComponent(EpostLabel)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(AdminLabel)
+                                .addGap(64, 64, 64)))
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EpostTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OmradeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LosenordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(NamnTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TelefonTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(AnstDatumTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(AdminTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AgentIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(AgentIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EpostTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(111, 111, 111)
+                                        .addComponent(Kontorschef)
+                                        .addGap(53, 53, 53)
+                                        .addComponent(VisaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(Omradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -300,40 +332,41 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                                                 .addComponent(Agenter)
                                                 .addGap(251, 251, 251)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(Chefomradelabel)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(ChefOmradejTextField2))
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ChefKontorjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(111, 111, 111)
-                                        .addComponent(Kontorschef)
-                                        .addGap(53, 53, 53)
-                                        .addComponent(VisaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(Omradeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(13, Short.MAX_VALUE))
+                                                .addGap(10, 10, 10)
+                                                .addComponent(ChefKontorlabel)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(ChefKontorjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(12, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(UppdateraKontorsChef)
+                                                            .addComponent(UppdateraOmradesChef)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(OmradejLabel2)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(ChefOmradejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGap(0, 0, Short.MAX_VALUE))
+                                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                .addContainerGap())))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(OmradeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LosenordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LaggTill)
-                                .addGap(38, 38, 38)
-                                .addComponent(SparaAndringar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(231, 231, 231)
-                                .addComponent(Rensa)
-                                .addGap(54, 54, 54)
-                                .addComponent(TaBortAgent)))
+                        .addComponent(LaggTill)
+                        .addGap(38, 38, 38)
+                        .addComponent(UppdateraAgent)
+                        .addGap(31, 31, 31)
+                        .addComponent(Rensa)
+                        .addGap(26, 26, 26)
+                        .addComponent(TaBortAgent)
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(Avbryt)
                         .addGap(53, 53, 53))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -345,56 +378,59 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(86, 88, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ChefKontorjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChefKontorlabel))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(AgentIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AgentIDLabel))
-                                .addGap(36, 36, 36))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ChefOmradejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Chefomradelabel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(AgentIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AgentIDLabel))
+                            .addComponent(UppdateraKontorsChef))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ChefOmradejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(OmradejLabel2))
+                                .addGap(18, 18, 18)
+                                .addComponent(UppdateraOmradesChef)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(NamnTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(NamnLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(53, 53, 53)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(TelefonTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TelefonLabel))
                                 .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(AnstDatumTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(AnstDatumLabel))
-                                        .addGap(45, 45, 45)
-                                        .addComponent(AdminTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(AdminLabel))
-                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(AnstDatumTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AnstDatumLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(AdminLabel)
+                                    .addComponent(AdminTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(EpostTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EpostLabel)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ChefKontorjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(EpostLabel))
+                                .addGap(50, 50, 50))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(RegistreraAndraAgent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Agenter)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(66, 67, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -409,12 +445,12 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(LaggTill)
-                                    .addComponent(SparaAndringar)
+                                    .addComponent(UppdateraAgent)
                                     .addComponent(Rensa)
                                     .addComponent(TaBortAgent))
                                 .addGap(16, 16, 16))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton4)
+                                .addComponent(Avbryt)
                                 .addGap(25, 25, 25))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -432,23 +468,29 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     private void LaggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaggTillActionPerformed
         //Lägg till Agent
         
-        if(AgentIdTextfield.getText().equals("")||NamnTextfield.getText().equals("")|| TelefonTextfield.getText().equals("")||AnstDatumTextfield.getText().equals("")||AdminTextfield.getText().equals("")||EpostTextfield.getText().equals("")||LosenordTextfield.getText().equals("")||OmradeTextfield.getText().equals("")){
+        int confirmResult = JOptionPane.showConfirmDialog(this, "Vill du verkligen lägga till dessa data?", "Bekräfta", JOptionPane.YES_NO_OPTION);
+
+        if (confirmResult == JOptionPane.YES_OPTION) {
+            // Om användare trycker på "Ja"
             
-           //Om någon av fälten lämnas tomma
-           JOptionPane.showMessageDialog(this, "Var god fyll i all data!");
-        }else{
-           //Om all data fylls i
-           // Samlar data i String Arrays
-           String data[] = {AgentIdTextfield.getText(), NamnTextfield.getText(), TelefonTextfield.getText(), AnstDatumTextfield.getText(), AdminTextfield.getText(), EpostTextfield.getText(), LosenordTextfield.getText(), OmradeTextfield.getText()}; 
-        
-        
+            if (AgentIdTextfield.getText().equals("") || NamnTextfield.getText().equals("") || TelefonTextfield.getText().equals("") || AnstDatumTextfield.getText().equals("") || AdminTextfield.getText().equals("") || EpostTextfield.getText().equals("") || LosenordTextfield.getText().equals("") || OmradeTextfield.getText().equals("")) {
+       
+                // Om något av fälten lämnas tomma
+                
+        JOptionPane.showMessageDialog(this, "Var god fyll i all data!");
+            } else {
+                
+        // Om all data fylls i
+        // Samlar data i String Arrays
+        String data[] = {AgentIdTextfield.getText(), NamnTextfield.getText(), TelefonTextfield.getText(), AnstDatumTextfield.getText(), AdminTextfield.getText(), EpostTextfield.getText(), LosenordTextfield.getText(), OmradeTextfield.getText()}; 
+
         DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
-        //Adderar String array data
-        tblModel.addRow(data); //rad adderad
-        
-        //Lyckat-meddelande
+        // Adderar String array data
+        tblModel.addRow(data); // rad adderad
+
+        // Lyckat-meddelande
         JOptionPane.showMessageDialog(this, "Data tillagd!");
-        //Rensar textfält för ny uppgift
+        // Rensar textfält för ny uppgift
         AgentIdTextfield.setText("");
         NamnTextfield.setText("");
         TelefonTextfield.setText("");
@@ -457,53 +499,64 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         EpostTextfield.setText("");
         LosenordTextfield.setText("");
         OmradeTextfield.setText("");
+        }
+        } 
        
-      }
-        
     }//GEN-LAST:event_LaggTillActionPerformed
 
-    private void SparaAndringarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparaAndringarActionPerformed
+    private void UppdateraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UppdateraAgentActionPerformed
         //Uppdatera AgentInfo
        
-        if(AgentIdTextfield.getText().equals("")||NamnTextfield.getText().equals("")|| TelefonTextfield.getText().equals("")||AnstDatumTextfield.getText().equals("")||AdminTextfield.getText().equals("")||EpostTextfield.getText().equals("")||LosenordTextfield.getText().equals("")||OmradeTextfield.getText().equals(""))
-            
-           //Om någon av fälten lämnas tomma
-           {JOptionPane.showMessageDialog(this, "Var god välj rad från tabellen!");}
-        
-        else{DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
-        
-       String AgentID = AgentIdTextfield.getText();
-       String Namn = NamnTextfield.getText();
-       String Telefon = TelefonTextfield.getText();
-       String Anstallningsdatum = AnstDatumTextfield.getText();
-       String Admin = AdminTextfield.getText();
-       String Epost = EpostTextfield.getText();
-       String Losenord = LosenordTextfield.getText();
-       String Omrade = OmradeTextfield.getText();
-       
-       tblModel.setValueAt(AgentID, Table.getSelectedRow(), 0);
-       tblModel.setValueAt(Namn, Table.getSelectedRow(), 1);
-       tblModel.setValueAt(Telefon, Table.getSelectedRow(), 2);
-       tblModel.setValueAt(Anstallningsdatum, Table.getSelectedRow(), 3);
-       tblModel.setValueAt(Admin, Table.getSelectedRow(), 4);
-       tblModel.setValueAt(Epost, Table.getSelectedRow(), 5);
-       tblModel.setValueAt(Losenord, Table.getSelectedRow(), 6);
-       tblModel.setValueAt(Omrade, Table.getSelectedRow(), 7);
-       
-       JOptionPane.showMessageDialog(this, "Uppdatering lyckades!");
-        }
-        
-    }//GEN-LAST:event_SparaAndringarActionPerformed
+        int confirmResult = JOptionPane.showConfirmDialog(this, "Vill du verkligen uppdatera dessa data?", "Bekräfta", JOptionPane.YES_NO_OPTION);
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (confirmResult == JOptionPane.YES_OPTION) {
+            // Användaren tryckte på "Ja"
+            
+                if (AgentIdTextfield.getText().equals("") || NamnTextfield.getText().equals("") || TelefonTextfield.getText().equals("") || AnstDatumTextfield.getText().equals("") || AdminTextfield.getText().equals("") || EpostTextfield.getText().equals("") || LosenordTextfield.getText().equals("") || OmradeTextfield.getText().equals("")) {
+       
+                    // Om någon av fälten lämnas tomma
+             JOptionPane.showMessageDialog(this, "Var god fyll i all data!");
+        } else {
+                    
+        // Om all data fylls i
+        DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
+
+        String AgentID = AgentIdTextfield.getText();
+        String Namn = NamnTextfield.getText();
+        String Telefon = TelefonTextfield.getText();
+        String Anstallningsdatum = AnstDatumTextfield.getText();
+        String Admin = AdminTextfield.getText();
+        String Epost = EpostTextfield.getText();
+        String Losenord = LosenordTextfield.getText();
+        String Omrade = OmradeTextfield.getText();
+
+        tblModel.setValueAt(AgentID, Table.getSelectedRow(), 0);
+        tblModel.setValueAt(Namn, Table.getSelectedRow(), 1);
+        tblModel.setValueAt(Telefon, Table.getSelectedRow(), 2);
+        tblModel.setValueAt(Anstallningsdatum, Table.getSelectedRow(), 3);
+        tblModel.setValueAt(Admin, Table.getSelectedRow(), 4);
+        tblModel.setValueAt(Epost, Table.getSelectedRow(), 5);
+        tblModel.setValueAt(Losenord, Table.getSelectedRow(), 6);
+        tblModel.setValueAt(Omrade, Table.getSelectedRow(), 7);
+
+        JOptionPane.showMessageDialog(this, "Uppdatering lyckades!");
+        }
+        } 
+       
+    }//GEN-LAST:event_UppdateraAgentActionPerformed
+
+    private void AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvbrytActionPerformed
         //Avbryt
                   JFrame frame = new JFrame("Avbryt");
-        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+                  int userChoice = JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION);
+                  
+        if(userChoice == JOptionPane.YES_OPTION)
+            // Ifall användaren väljer "Ja"
         {
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_AvbrytActionPerformed
 
     private void TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentActionPerformed
         //Ta bort agent
@@ -512,25 +565,26 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         DefaultTableModel tblModel = (DefaultTableModel) Table.getModel();
         
         //Frågar om rad ska tas bort
-        //Tar bort rad
         
          JFrame frame = new JFrame("Ta bort");
-        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill ta bort agenten?", "Ta bort",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
-           
-        if(Table.getSelectedRowCount()==1){
-            //Om en rad är vald, så radera
+            int userChoice = JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill ta bort agenten?", "Ta bort",
+        JOptionPane.YES_NO_OPTION);
+
+            if (userChoice == JOptionPane.YES_OPTION) {
+                // Ifall användaren väljer "Ja"
+            if (Table.getSelectedRowCount() == 1) {
+                // Om en rad är vald, så radera
             tblModel.removeRow(Table.getSelectedRow());
-                        
-        }else{
-            if(Table.getRowCount()==0){
-                //Om tabellen är tom och saknar data så visas ett meddelande
-                JOptionPane.showMessageDialog(this, "Tabellen är tom");
-            }else{
-                //Om tabellen inte är tom men rad är inte vald eller flera rader är valda
-                JOptionPane.showMessageDialog(this, "Var god välj En rad");
+            } else {
+            if (Table.getRowCount() == 0) {
+            // Om tabellen är tom och saknar data så visas ett meddelande
+            JOptionPane.showMessageDialog(this, "Tabellen är tom");
+            } else {
+            // Om tabellen inte är tom men rad är inte vald eller flera rader är valda
+            JOptionPane.showMessageDialog(this, "Var god välj En rad från Agent-listan");
             }
-        }
+            }
+            }
         
     }//GEN-LAST:event_TaBortAgentActionPerformed
 
@@ -539,7 +593,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_AgentIdTextfieldActionPerformed
 
     private void VisaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAgentActionPerformed
-<<<<<<< HEAD
+
         try {
             // Ska visa alla registerade agenter
 
@@ -547,9 +601,9 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(RegistreringAndringavAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
-=======
+
         //Knapp för att visa alla registerade agenter
->>>>>>> d656df77fd7594e446ab6120e83a25b0cc0d680e
+
         
         String sql ="SELECT * FROM Agent";
         try{
@@ -608,8 +662,8 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         EpostTextfield.setText(null);
         LosenordTextfield.setText(null);
         OmradeTextfield.setText(null);
-        ChefKontorjTextField1.setText(null);
-        ChefOmradejTextField2.setText(null);
+        ChefOmradejTextField1.setText(null);
+        ChefKontorjTextField2.setText(null);
         
     }//GEN-LAST:event_RensaActionPerformed
 
@@ -617,7 +671,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         // Visar data över kontorschefer
         
          try {
-            // Ska visa alla registerade agenter
+            // Ska visa alla registerade kontorschefer
 
             con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
         } catch (SQLException ex) {
@@ -642,7 +696,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         // Visar data över områdeschefer
         
         try {
-            // Ska visa alla registerade agenter
+            // Ska visa alla registerade områdeschefer
 
             con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
         } catch (SQLException ex) {
@@ -663,9 +717,103 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         
     }//GEN-LAST:event_OmradeschefActionPerformed
 
-    private void ChefKontorjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChefKontorjTextField1ActionPerformed
+    private void ChefOmradejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChefOmradejTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ChefKontorjTextField1ActionPerformed
+    }//GEN-LAST:event_ChefOmradejTextField1ActionPerformed
+
+    private void UppdateraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UppdateraKontorsChefActionPerformed
+        // Uppdaterar kontorschef
+        
+        int confirmResult = JOptionPane.showConfirmDialog(this, "Vill du verkligen uppdatera dessa data?", "Bekräfta", JOptionPane.YES_NO_OPTION);
+
+        if (confirmResult == JOptionPane.YES_OPTION) {
+        // Användaren tryckte på "Ja"
+        
+        if (AgentIdTextfield.getText().equals("") || ChefKontorjTextField2.getText().equals("")) {
+        
+        // Om någon av fälten lämnas tomma
+        JOptionPane.showMessageDialog(this, "Var god välj rad från tabellen!");
+        } else {
+            
+        // Om all data fylls i
+        DefaultTableModel tblModel = (DefaultTableModel) TableKontorschef.getModel();
+
+        String AgentID = AgentIdTextfield.getText();
+        String Kontor = ChefKontorjTextField2.getText();
+
+        tblModel.setValueAt(AgentID, TableKontorschef.getSelectedRow(), 0);
+        tblModel.setValueAt(Kontor, TableKontorschef.getSelectedRow(), 1);
+
+        JOptionPane.showMessageDialog(this, "Uppdatering lyckades!");
+        }
+        }
+       
+    }//GEN-LAST:event_UppdateraKontorsChefActionPerformed
+
+    private void TableKontorschefMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableKontorschefMouseClicked
+        // Visar data i textfälten
+        
+        DefaultTableModel tblModel = (DefaultTableModel) TableKontorschef.getModel();
+        
+        // Visar data i valt textfält
+        
+        String tblAgent_ID = tblModel.getValueAt(TableKontorschef.getSelectedRow(),0).toString();
+        String tblKontor = tblModel.getValueAt(TableKontorschef.getSelectedRow(),1).toString();
+        
+        // Välj till textfält
+        
+        AgentIdTextfield.setText(tblAgent_ID);
+        ChefKontorjTextField2.setText(tblKontor);
+            
+    }//GEN-LAST:event_TableKontorschefMouseClicked
+
+    private void TableomradeschefMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableomradeschefMouseClicked
+        // Visar data i textfälten
+        
+        DefaultTableModel tblModel = (DefaultTableModel) Tableomradeschef.getModel();
+        
+        // Visar data i valt textfält
+        
+        String tblAgent_ID = tblModel.getValueAt(Tableomradeschef.getSelectedRow(),0).toString();
+        String tblOmråde = tblModel.getValueAt(Tableomradeschef.getSelectedRow(),1).toString();
+        
+        // Välj till textfält
+        
+        AgentIdTextfield.setText(tblAgent_ID);
+        ChefOmradejTextField1.setText(tblOmråde);
+            
+    }//GEN-LAST:event_TableomradeschefMouseClicked
+
+    private void UppdateraOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UppdateraOmradesChefActionPerformed
+        // Uppdaterar områdeschef
+        
+        
+        int confirmResult = JOptionPane.showConfirmDialog(this, "Vill du verkligen uppdatera dessa data?", "Bekräfta", JOptionPane.YES_NO_OPTION);
+
+        if (confirmResult == JOptionPane.YES_OPTION) {
+            
+        // Användaren tryckte på "Ja"
+        if (AgentIdTextfield.getText().equals("") || ChefOmradejTextField1.getText().equals("")) {
+            
+        // Om någon av fälten lämnas tomma
+        JOptionPane.showMessageDialog(this, "Var god välj rad från tabellen!");
+        } else {
+            
+        // Om all data fylls i
+        
+        DefaultTableModel tblModel = (DefaultTableModel) Tableomradeschef.getModel();
+
+        String AgentID = AgentIdTextfield.getText();
+        String Område = ChefOmradejTextField1.getText();
+
+        tblModel.setValueAt(AgentID, Tableomradeschef.getSelectedRow(), 0);
+        tblModel.setValueAt(Område, Tableomradeschef.getSelectedRow(), 1);
+
+        JOptionPane.showMessageDialog(this, "Uppdatering lyckades!");
+        }
+        }
+           
+    }//GEN-LAST:event_UppdateraOmradesChefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -711,9 +859,10 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     private javax.swing.JLabel Agenter;
     private javax.swing.JLabel AnstDatumLabel;
     private javax.swing.JTextField AnstDatumTextfield;
-    private javax.swing.JTextField ChefKontorjTextField1;
-    private javax.swing.JTextField ChefOmradejTextField2;
-    private javax.swing.JLabel Chefomradelabel;
+    private javax.swing.JButton Avbryt;
+    private javax.swing.JTextField ChefKontorjTextField2;
+    private javax.swing.JLabel ChefKontorlabel;
+    private javax.swing.JTextField ChefOmradejTextField1;
     private javax.swing.JLabel EpostLabel;
     private javax.swing.JTextField EpostTextfield;
     private javax.swing.JButton Kontorschef;
@@ -724,20 +873,21 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     private javax.swing.JTextField NamnTextfield;
     private javax.swing.JLabel OmradeLabel;
     private javax.swing.JTextField OmradeTextfield;
+    private javax.swing.JLabel OmradejLabel2;
     private javax.swing.JButton Omradeschef;
     private javax.swing.JLabel RegistreraAndraAgent;
     private javax.swing.JButton Rensa;
-    private javax.swing.JButton SparaAndringar;
     private javax.swing.JButton TaBortAgent;
     private javax.swing.JTable Table;
     private javax.swing.JTable TableKontorschef;
     private javax.swing.JTable Tableomradeschef;
     private javax.swing.JLabel TelefonLabel;
     private javax.swing.JTextField TelefonTextfield;
+    private javax.swing.JButton UppdateraAgent;
+    private javax.swing.JButton UppdateraKontorsChef;
+    private javax.swing.JButton UppdateraOmradesChef;
     private javax.swing.JButton VisaAgent;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
