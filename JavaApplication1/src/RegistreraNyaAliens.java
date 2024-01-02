@@ -1,26 +1,14 @@
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import java.time.LocalDate;
-import java.text.SimpleDateFormat;  
-import java.util.Date;  
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author adam0
- */
 public class RegistreraNyaAliens extends javax.swing.JFrame {
 
    private InfDB idb;
@@ -54,6 +42,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 
         jTextField4 = new javax.swing.JTextField();
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         telefon = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -74,7 +63,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         plats1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        registreringsDatum = new javax.swing.JTextField();
 
         jTextField4.setText("jTextField4");
 
@@ -172,9 +161,9 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(plats1);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        registreringsDatum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                registreringsDatumActionPerformed(evt);
             }
         });
 
@@ -225,7 +214,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lösenord, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField1)))
+                            .addComponent(registreringsDatum)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -272,7 +261,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(registreringsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -289,47 +278,23 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Registrera
-            String password = lösenord.getText();
+            String losenord = lösenord.getText();
             String namn1=namn.getText();
             String telefon1 = telefon.getText();
             int plats = plats1.getSelectedIndex();
             String agent = ansvarigagent.getText();
-            //String nextId = idb.getAutoIncrement("ALIEN","ALIEN_ID");
-//            String dagdatum = Integer.toString(ddatum);
-//            String mondatum = Integer.toString(mdatum);
-//            String yeardatum = Integer.toString(ydatum);
-            
-            String getAgentid = "SELECT AGENT_ID from AGENT where NAMN like '" + agent + "'";
-            String getAgentNamn = "SELECT NAMN from AGENT where NAMN like '" + agent + "'";
-            String hamtaAgentId=idb.fetchSingle(getAgentid);
-            String hamtaAgentNamn=idb.fetchSingle(getAgentNamn);
-int countLosen = password.length();
+            String id=alienid.getText();
+            String epost1=epost.getText();
+            String registreringsDatum1=registreringsDatum.getText();
+         boolean epostkorrekt=Validering.epostFromat(epost1);
 
-if (agent.equals(hamtaAgentNamn)) {
-    if (plats1 < 1 || namn.isBlank() || lösenord.isBlank()) {
-        JOptionPane.showMessageDialog(null, "Du måste fylla i alla obligatoriska fält");
-    } else if (countLosen < 6) {
-        JOptionPane.showMessageDialog(null, "Lösenordet är för kort, minst 6 tecken krävs");
-} else {
-    JOptionPane.showMessageDialog(null, "Agenten existerar inte i databasen. Kontrollera stavningen.");
-}
-   
-
-try {String alieninsertfraga = String.format(
-    "INSERT INTO alien VALUES (%s, '%s', '%s', '%s', '%s', %d, %s)",
-   
-  
-// Antag att idb.update hanterar din uppdateringslogik
-
-    if{
-        JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
-    };
+try {
+    String q2="Insert into alien('" + id + "', '" + registreringsDatum1 + "', '" + epost1 + "', '" + losenord + "', '"+namn1 + "', '" + telefon1 + "', '" + plats + "', '" + agent + "')";
+    
+idb.insert(q2);
 } catch (Exception e) {
-    e.printStackTrace();
-    // Hantera fel här
-}
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
-    }
+}
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -379,9 +344,9 @@ try {String alieninsertfraga = String.format(
         // TODO add your handling code here:
     }//GEN-LAST:event_plats1AncestorAdded
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void registreringsDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreringsDatumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_registreringsDatumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,6 +391,7 @@ try {String alieninsertfraga = String.format(
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -437,11 +403,11 @@ try {String alieninsertfraga = String.format(
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JFormattedTextField lösenord;
     private javax.swing.JFormattedTextField namn;
     private javax.swing.JComboBox<String> plats1;
+    private javax.swing.JTextField registreringsDatum;
     private javax.swing.JFormattedTextField telefon;
     // End of variables declaration//GEN-END:variables
 }
