@@ -197,13 +197,10 @@ public class InloggningAgenter extends javax.swing.JFrame {
     private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
         //Öppnar InformationAgenter (Login knapp)
        
-    if (jUser.getText().isEmpty()) {
+    if (jUser.getText().isEmpty()||jPassword.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
     }
-    else if (jPassword.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
-    } 
-    
+   
     try {
         String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
