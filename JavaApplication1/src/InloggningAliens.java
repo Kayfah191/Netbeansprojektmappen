@@ -210,13 +210,10 @@ initComponents();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //PreparedStatement statement = ;
  // TODO add your handling code here:
-    if (jUser.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
+    if (jUser.getText().isEmpty()&&jPassword.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post eller lösenord");
     }
-    
-    if (jPassword.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i Lösenord");
-    } 
+  
     
     try {
         String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());

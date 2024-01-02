@@ -539,7 +539,7 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_AgentIdTextfieldActionPerformed
 
     private void VisaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAgentActionPerformed
-<<<<<<< HEAD
+
         try {
             // Ska visa alla registerade agenter
 
@@ -547,9 +547,9 @@ public class RegistreringAndringavAgent extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(RegistreringAndringavAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
-=======
+
         //Knapp för att visa alla registerade agenter
->>>>>>> d656df77fd7594e446ab6120e83a25b0cc0d680e
+
         
         String sql ="SELECT * FROM Agent";
         try{

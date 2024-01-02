@@ -184,19 +184,24 @@ public class InloggningAdmin extends javax.swing.JFrame {
     try {if (adminnamn.getText().isEmpty()&& adminlösenord.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
     }
-        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = administrator like'%j%', \"%s\"", adminnamn.getText());
-        System.out.println(query);        
-        HashMap<String, String> rad3 =  idb.fetchRow(query);
-        //String Epost = rad.get("Epost");
-        String lösenord = rad3.get("Losenord");
+        String q1 = "select Agent_id, administrator from agent where epost = '" + adminnamn.getText() + "' and losenord = '" + adminlösenord.getText() + "';";
+        HashMap<String, String> rad3 =  idb.fetchRow(q1);
+        String lösenord = rad3.get("Lösenord");
         System.out.println("rad hittad");
-        if(adminlösenord.getText().equals(lösenord)) {
+        
+                if(adminlösenord.getText().equals(lösenord)&&rad3.get("Administrator").equals("J")) {
             InformationAdmin InfoAD = new InformationAdmin();
         InfoAD.show();  //öppnar informationsfönser till Admin
         //stänger tidigare fönster
         dispose(); 
         
         }
+//                else if(rad3.get("Administrator").equals("J")) {
+//            // Vi kommer hit om den som loggade in är administratör dvs administrator = J
+//        
+//        }     
+        
+
         else {
             throw new Exception();
         }
