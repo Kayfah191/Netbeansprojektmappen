@@ -181,21 +181,27 @@ public class InloggningAdmin extends javax.swing.JFrame {
 
          
     
-    try {if (adminnamn.getText().isEmpty()&& adminlösenord.getText().isEmpty()) {
+    try {
+        String test = adminnamn.getText();
+         String test2 = adminlösenord.getText();
+        if (test.isEmpty() || test2.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
-    }
-        String q1 = "select Agent_id, administrator from agent where epost = '" + adminnamn.getText() + "' and losenord = '" + adminlösenord.getText() + "';";
+    }String q1 = String.format("select Agent_id, administrator, Losenord, Epost from agent where Epost = \"%s\"", adminnamn.getText());
+//        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
+//                "' and losenord = '" + adminlösenord.getText() + "';";
         HashMap<String, String> rad3 =  idb.fetchRow(q1);
-        String lösenord = rad3.get("Lösenord");
+        String lösenord = rad3.get("Losenord");
         System.out.println("rad hittad");
         
-                if(adminlösenord.getText().equals(lösenord)&&rad3.get("Administrator").equals("J")) {
+                if(adminnamn.getText().equals(rad3.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad3.get("Administrator").equals("J")) {
             InformationAdmin InfoAD = new InformationAdmin();
         InfoAD.show();  //öppnar informationsfönser till Admin
         //stänger tidigare fönster
         dispose(); 
-        
         }
+        else if(adminnamn.getText().equals(rad3.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad3.get("Administrator").equals("N")){
+    JOptionPane.showMessageDialog(null, "Agent är inte admin");
+    }
 //                else if(rad3.get("Administrator").equals("J")) {
 //            // Vi kommer hit om den som loggade in är administratör dvs administrator = J
 //        
