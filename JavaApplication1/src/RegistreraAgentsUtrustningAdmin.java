@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -14,6 +15,7 @@ import oru.inf.InfException;
  */
 public class RegistreraAgentsUtrustningAdmin extends javax.swing.JFrame {
 private InfDB idb;
+
     /**
      * Creates new form RegistreraAgnetsUtrustningAdmin
      */
@@ -21,6 +23,7 @@ private InfDB idb;
         initComponents();
          try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+            fyllJbox();
 
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
@@ -77,7 +80,11 @@ private InfDB idb;
             }
         });
 
-        jbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jboxActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Välj det utrustning du vill ta bort");
 
@@ -159,23 +166,45 @@ private InfDB idb;
         // TODO add your handling code here:
     }//GEN-LAST:event_juidActionPerformed
 
+    private void fyllJbox (){
+      try{ ArrayList<String>q2;
+    String fraga = "select benamning from utrustning";
+    //jbox.removeAllItems();
+    q2=idb.fetchColumn(fraga);
+    for(String benamning : q2){
+        jbox.addItem(benamning);
+    }
+      }
+    catch(InfException e) {
+            JOptionPane.showMessageDialog(null, "Misslyckad , försök igen senare");
+            }
+       
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Avbryt
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-  int box=jbox.getSelectedIndex();
-try {
-    String q= "select *from utrusning where utrusnings_id=?"  ;
-idb.delete(q);
- JOptionPane.showMessageDialog(null, " Utrustning har tagits bort");
-} catch (InfException e) {
-        JOptionPane.showMessageDialog(null, "Misslyckad , försök igen senare");
-}
 
+try {
+    int box = jbox.getSelectedIndex();
+    if(box != -1) {
+        String q = "select *from utrusning where utrusnings_id=?";
+        idb.delete(q);
+        JOptionPane.showMessageDialog(null, "Utrustning har tagits bort");
+    } else {
+        JOptionPane.showMessageDialog(null, "Välj en utrustning att ta bort");
+    }
+} catch (InfException e) {
+    JOptionPane.showMessageDialog(null, "Misslyckad , försök igen senare");
+}
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jboxActionPerformed
 
     /**
      * @param args the command line arguments
