@@ -28,9 +28,11 @@ public class InformationAgenter extends javax.swing.JFrame {
     public InformationAgenter(String userID) {
         initComponents();
         this.userID = userID;
+      
         jLabel1.setText(" Välkommen " + userID);
         
-        //Lägg till metod för att ändra välkommen [Agent] till användarens id
+        jAgentID.setText("Agent ID: " + userID);
+        jAgentPlats.setText("Plats: ");
         
         
         
@@ -58,8 +60,8 @@ public class InformationAgenter extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jAgentID = new javax.swing.JLabel();
+        jAgentPlats = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -77,18 +79,17 @@ public class InformationAgenter extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
-        jAgent = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Välkommen [Agent]");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Agent ID:");
+        jAgentID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jAgentID.setText("Agent ID:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Plats:");
+        jAgentPlats.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jAgentPlats.setText("Plats:");
 
         jButton1.setText("Registrera ny Besökare");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -176,13 +177,6 @@ public class InformationAgenter extends javax.swing.JFrame {
             }
         });
 
-        jAgent.setText("jTextField1");
-        jAgent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAgentActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,12 +202,9 @@ public class InformationAgenter extends javax.swing.JFrame {
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9)))
                     .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addComponent(jAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jAgentID)
+                        .addComponent(jAgentPlats))
                     .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -245,11 +236,9 @@ public class InformationAgenter extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jAgentID)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
+                        .addComponent(jAgentPlats)
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -348,11 +337,6 @@ public class InformationAgenter extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentActionPerformed
-        // visar Agent
-        jAgent.getText();
-    }//GEN-LAST:event_jAgentActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -390,7 +374,8 @@ public class InformationAgenter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jAgent;
+    private javax.swing.JLabel jAgentID;
+    private javax.swing.JLabel jAgentPlats;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -400,8 +385,6 @@ public class InformationAgenter extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
