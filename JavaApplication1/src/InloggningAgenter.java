@@ -187,8 +187,10 @@ public class InloggningAgenter extends javax.swing.JFrame {
     private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
          //Avbrytknapp
                 JFrame frame = new JFrame("Avbryt");
-        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+        int ConfirmResult = JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION);
+                
+        if(ConfirmResult == JOptionPane.YES_OPTION);
         {
             System.exit(0);
         }
