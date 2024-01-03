@@ -1,5 +1,4 @@
 
-import com.mysql.cj.xdevapi.Table;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,12 +20,19 @@ import oru.inf.InfDB;
  */
 public class InformationAgenter extends javax.swing.JFrame {
     
+    public static String userID;
+  
         private InfDB idb;
-        Connection con;
+        Connection con;         //får inte använda con
     
-    
-    public InformationAgenter() {
+    public InformationAgenter(String userID) {
         initComponents();
+        this.userID = userID;
+        jLabel1.setText(" Välkommen " + userID);
+        
+        //Lägg till metod för att ändra välkommen [Agent] till användarens id
+        
+        
         
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
@@ -287,9 +293,8 @@ public class InformationAgenter extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Avbryt
                 JFrame frame = new JFrame("Avbryt");
-        int ConfirmResult = JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION);
-        if(ConfirmResult == JOptionPane.YES_OPTION);
+      if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
         {
             System.exit(0);
         }
@@ -318,7 +323,7 @@ public class InformationAgenter extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // Knapp för att visa besökare som Agenten är kontaktperson för
         
-        String sql ="SELECT * FROM Alien WHERE Agent_ID LIKE ?";
+        String sql ="SELECT * FROM Alien WHERE Agent_ID LIKE ";
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -379,7 +384,7 @@ public class InformationAgenter extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationAgenter().setVisible(true);
+                new InformationAgenter(userID).setVisible(true);
             }
         });
     }

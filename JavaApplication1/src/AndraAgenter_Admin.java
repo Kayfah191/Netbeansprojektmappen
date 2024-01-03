@@ -11,11 +11,14 @@ import javax.swing.JOptionPane;
  */
 public class AndraAgenter_Admin extends javax.swing.JFrame {
 
+     public String userID;
+    
     /**
      * Creates new form AndraAgenter
      */
     public AndraAgenter_Admin() {
         initComponents();
+        this.userID = userID;
     }
 
     /**
@@ -170,7 +173,7 @@ RegistreringAndringavAgent AndraAgent= new RegistreringAndringavAgent();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //Hämta Information Om Agenter
-        InformationAgenter InfoAgent= new InformationAgenter();
+        InformationAgenter InfoAgent= new InformationAgenter(userID);
         InfoAgent.show(); 
 
         
