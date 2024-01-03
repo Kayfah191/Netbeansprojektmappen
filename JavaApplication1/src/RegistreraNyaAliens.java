@@ -202,6 +202,10 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             String Epost = jEpost.getText();
             String RegDatum = jRegDatum.getText();
             String Plats = jPlats.getText();
+            if (Losenord.isEmpty() || Namn.isEmpty() ||Telefon.isEmpty() ||Ansvarig.isEmpty() ||
+            ID.isEmpty() ||Epost.isEmpty() ||RegDatum.isEmpty() || Plats.isEmpty()) {
+            // Visa ett meddelande om att fylla i alla fält
+            JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
 try {
     String q2="INSERT INTO alien VALUES('" + ID + "', '" + RegDatum + "', '" + Epost + "',"
             + " '" + Losenord + "', '"+ Namn + "', '" + Telefon + "', '" + Plats + "', '" + Ansvarig + "')";
@@ -211,6 +215,7 @@ idb.insert(q2);
 } catch (InfException e) {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

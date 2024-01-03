@@ -133,8 +133,11 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_juidActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-String uid=juid.getText();
+
+        String uid=juid.getText();
 String benamning=jbenamning.getText();
+if (uid.isEmpty() || benamning.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
 try {
     String q="INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";           
 idb.insert(q);
