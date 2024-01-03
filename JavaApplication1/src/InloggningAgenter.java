@@ -186,11 +186,9 @@ public class InloggningAgenter extends javax.swing.JFrame {
 
     private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
          //Avbrytknapp
-                JFrame frame = new JFrame("Avbryt");
-        int ConfirmResult = JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION);
-                
-        if(ConfirmResult == JOptionPane.YES_OPTION);
+              JFrame frame = new JFrame("Avbryt");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION)
         {
             System.exit(0);
         }
@@ -204,17 +202,20 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }
    
     try {
-        String query = String.format("SELECT Epost, Losenord FROM agent WHERE Epost = \"%s\"", jUser.getText());
+        String query = String.format("SELECT Agent_ID, Epost, Losenord FROM agent WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
+        
+        String userID = rad.get("Agent_ID");
+        
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         if(jPassword.getText().equals(lösenord)) {
-             InformationAgenter agentInfo = new InformationAgenter();
-        agentInfo.show();
+             InformationAgenter agentInfo = new InformationAgenter(userID);     //Tar med ID till nästa fönster
+        agentInfo.setVisible(true);  //.show();
         //Stänger tidigare fönster
-        dispose();
+        this.dispose();
         }
         else {
             throw new Exception();

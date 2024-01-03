@@ -157,7 +157,7 @@ public class InloggningVal extends javax.swing.JFrame {
         //Avbryt
                 JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION)
         {
             System.exit(0);
         }
