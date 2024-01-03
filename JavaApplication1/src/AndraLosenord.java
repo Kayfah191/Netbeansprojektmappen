@@ -15,12 +15,17 @@ import oru.inf.InfException;
  */
 public class AndraLosenord extends javax.swing.JFrame {
   private InfDB idb;
-    
+    private String userID;
     /**
      * Creates new form AndraLosenord
      */
     public AndraLosenord() {
         initComponents();
+        this.userID = userID;
+        this.idb = idb;
+        
+        jAgentID.setText("Agent ID: " + userID);
+//        jAgentPlats.setText("Plats: " + userPlace); 
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
 
@@ -45,6 +50,7 @@ public class AndraLosenord extends javax.swing.JFrame {
         nuvarandelösenord = new javax.swing.JTextField();
         nyttlösenord = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jAgentID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +80,8 @@ public class AndraLosenord extends javax.swing.JFrame {
             }
         });
 
+        jAgentID.setText("Användarens ID:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,12 +94,15 @@ public class AndraLosenord extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nyttlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nuvarandelösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nyttlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nuvarandelösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jButton1)))
@@ -102,7 +113,9 @@ public class AndraLosenord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jAgentID)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nuvarandelösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -127,34 +140,30 @@ public class AndraLosenord extends javax.swing.JFrame {
     }//GEN-LAST:event_nyttlösenordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if (nuvarandelösenord.getText().isEmpty()&&nyttlösenord.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll Textrutor");
-    }
-  
-       String nuvarandeLosenord=nuvarandelösenord.getText();
-       String nyttLosenord=nyttlösenord.getText();
-     try {String query = String.format("SELECT Losenord FROM agent WHERE Losenord = \"%s\"", nuvarandelösenord.getText());        
-        HashMap<String, String> rad =  idb.fetchRow(query);
-        String lösenord = rad.get("Losenord");
-        System.out.println("rad hittad");
-        if(nuvarandelösenord.getText().equals(lösenord)) {
-           idb.update(query);
-       
-         
-                    JOptionPane.showMessageDialog(null, "Lösenord har ändrats");
-        }
-        else {
-            throw new Exception();
-        }
-       
-        
-    } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Något gick fel");
 
+    // Hämta nuvarande lösenord och nytt lösenord från textrutorna
+    String Password = nuvarandelösenord.getText();
+    String newPassword = nyttlösenord.getText();
+
+    // Kontrollera om lösenordsfälten är tomma
+    if (Password.isEmpty() && newPassword.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Vänligen fyll i Textrutor");
     }
+    // Verifiera användaren med det aktuella lösenordet
+    
+        try {
+            String q="update agent VALUES('" +newPassword + "')";           
+idb.update(q);
+                JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats!");
+            }  
+        
+catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ett fel uppstod när lösenordet skulle uppdateras. Vänligen försök igen.");
+        }
+    
+
     }//GEN-LAST:event_jButton1ActionPerformed
-}
+
     /**
      * @param args the command line arguments
      */
@@ -191,6 +200,7 @@ public class AndraLosenord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jAgentID;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
