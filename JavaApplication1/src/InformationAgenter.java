@@ -4,10 +4,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,20 +23,22 @@ import oru.inf.InfDB;
 public class InformationAgenter extends javax.swing.JFrame {
     
     public static String userID;
+
   
-        private InfDB idb;
-        Connection con;         //får inte använda con
+    private InfDB idb;
+    Connection con;         //får inte använda con
     
     public InformationAgenter(String userID) {
         initComponents();
+        initializeUserInfo();
+        
         this.userID = userID;
+        this.idb = idb;
       
         jLabel1.setText(" Välkommen " + userID);
         
         jAgentID.setText("Agent ID: " + userID);
-        jAgentPlats.setText("Plats: ");
-        
-        
+//        jAgentPlats.setText("Plats: " + userPlace); 
         
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
@@ -372,6 +376,21 @@ public class InformationAgenter extends javax.swing.JFrame {
             }
         });
     }
+    
+     private void initializeUserInfo() {
+//         try{
+//              String query = "SELECT Omrade FROM agent WHERE Agent_ID = '" + userID + "'";
+//            HashMap<String, String> user = idb.fetchRow(query);
+//            
+//            if(user != null){
+//                String userPlace = user.get("Omrade");
+//                jAgentPlats.setText("Plats: " + userPlace);
+//            }
+//         }
+//         catch(InfException ex){
+//          System.out.println("Internt felmeddelande: " + ex.getMessage());
+//         }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAgentID;
@@ -395,4 +414,5 @@ public class InformationAgenter extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableKontakt;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -23,7 +23,6 @@ public class InloggningAgenter extends javax.swing.JFrame {
     public InloggningAgenter() {
         initComponents();
     
-        //Kommer att finnas i Main så behövs kanske inte
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
