@@ -194,7 +194,7 @@ initComponents();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Registrera Nya Aliens
-        RegistreraNyaAliensGammal NyAlien= new RegistreraNyaAliensGammal();
+        RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
         NyAlien.show(); 
         //Stänger tidigare fönster
         dispose();
