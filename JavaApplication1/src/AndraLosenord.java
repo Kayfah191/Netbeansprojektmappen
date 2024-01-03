@@ -152,7 +152,7 @@ public class AndraLosenord extends javax.swing.JFrame {
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "Något gick fel");
 
-        
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

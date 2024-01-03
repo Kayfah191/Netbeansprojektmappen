@@ -56,6 +56,11 @@ public class InformationAdmin extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("Utrustning");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Val för objektändring:");
@@ -145,6 +150,16 @@ public class InformationAdmin extends javax.swing.JFrame {
         //Stänga det tidigare fönstret
         dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+RegistreraAgentsUtrustningAdmin RegUtrusning = new RegistreraAgentsUtrustningAdmin();
+        RegUtrusning.show(); 
+        //Stänga det tidigare fönstret
+        dispose();  
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
