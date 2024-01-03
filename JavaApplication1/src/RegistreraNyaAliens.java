@@ -207,6 +207,7 @@ try {
             + " '" + Losenord + "', '"+ Namn + "', '" + Telefon + "', '" + Plats + "', '" + Ansvarig + "')";
              
 idb.insert(q2);
+ JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");
 } catch (InfException e) {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
