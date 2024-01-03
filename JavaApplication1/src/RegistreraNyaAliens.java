@@ -207,8 +207,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             // Visa ett meddelande om att fylla i alla fält
             JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
 try {
-    String q2="INSERT INTO alien VALUES('" + ID + "', '" + RegDatum + "', '" + Epost + "',"
-            + " '" + Losenord + "', '"+ Namn + "', '" + Telefon + "', '" + Plats + "', '" + Ansvarig + "')";
+    String q2="INSERT INTO alien VALUES('" + ID + "', '" + RegDatum + "', '" + Epost + "'," + " '" + Losenord + "', '"+ Namn + "', '" + Telefon + "', '" + Plats + "', '" + Ansvarig + "')";
              
 idb.insert(q2);
  JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");
