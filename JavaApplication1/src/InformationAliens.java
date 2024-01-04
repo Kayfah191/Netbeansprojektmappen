@@ -1,16 +1,7 @@
 
-import com.mysql.cj.xdevapi.Table;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -24,8 +15,7 @@ import oru.inf.InfException;
  */
 public class InformationAliens extends javax.swing.JFrame {
 private InfDB idb;
-    Connection con;
-
+    
     /**
      * Creates new form AlienInfo
      */
