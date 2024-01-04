@@ -67,6 +67,10 @@ public class TabortAgent extends javax.swing.JFrame {
                 .addComponent(btnTaBort)
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
+                .addGap(372, 372, 372)
+                .addComponent(lblTaBortAgent)
+                .addGap(0, 392, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
@@ -74,16 +78,12 @@ public class TabortAgent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(242, 242, 242)
-                                .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(298, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(372, 372, 372)
-                .addComponent(lblTaBortAgent)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel1)
+                            .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,11 +94,11 @@ public class TabortAgent extends javax.swing.JFrame {
                 .addComponent(lblEpost)
                 .addGap(26, 26, 26)
                 .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(129, 129, 129)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(132, 132, 132)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTaBort)
                     .addComponent(btnGaTillbaka))
@@ -110,36 +110,7 @@ public class TabortAgent extends javax.swing.JFrame {
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
 
-        if (Validering.textFaltHarVarde(txtEpost) && Validering.agentEpostFinns(txtEpost, idb) && Validering.inteMinEpost(txtEpost, epost)) {
-            int svar = JOptionPane.showConfirmDialog(null, "Är du säker på att du vill radera agenten ur systemet?", "Bekräfta radering", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
-
-            if (svar == 0) { // Kollar om man svara ja på bekräftelsen
-                try {
-                    String agentNamn = cbAllaAgenter.getSelectedItem().toString();
-                    String nyAgentID = idb.fetchSingle("select agent_id from agent where namn ='" + agentNamn + "'");
-                    String agentID = idb.fetchSingle("select Agent_ID from agent where epost ='" + txtEpost.getText() + "'");
-                    String namn = idb.fetchSingle("select namn from agent where epost='" + txtEpost.getText() + "'");
-                    String fraga = "update alien set ansvarig_agent=" + nyAgentID + " where ansvarig_agent =" + agentID;
-                    if (nyAgentID.equalsIgnoreCase(agentID)) {
-                        JOptionPane.showMessageDialog(null, "Du kan inte välja agenten du tar bort");
-
-                    } else {
-
-                        idb.update(fraga); // Ändrar vem som är ansvarig för agenten man tar borts aliens
-
-                        idb.delete("delete from faltagent where Agent_ID =" + agentID);     //
-                        idb.delete("delete from kontorschef where Agent_ID =" + agentID);   //Tar bort agenten från alla subklasser
-                        idb.delete("delete from omradeschef where Agent_ID =" + agentID);   //
-                        idb.delete("delete from innehar_utrustning where agent_id=" + agentID); //Tar bort utrustningen som agenten hade
-                        idb.delete("delete from agent where Agent_ID =" + agentID); // Tar bort agenten
-                        JOptionPane.showMessageDialog(null, namn + " är nu raderad ur systemet");
-                        dispose();
-                    }
-                } catch (Exception e) {
-                    JOptionPane.showConfirmDialog(null, e);
-                }
-            }
-        }
+  
     }//GEN-LAST:event_btnTaBortActionPerformed
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
