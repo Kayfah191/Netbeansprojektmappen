@@ -1,7 +1,9 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,10 +16,10 @@ import oru.inf.InfDB;
  */
 public class Validering {
 
-    private InfDB idb;
+    private static InfDB idb;
 
     public Validering (InfDB idb) {
-        this.idb = idb;
+        
     }
      public static boolean epostFromat(String epost1){  
      String epost = "^(.+)@(.+)$";
@@ -27,6 +29,27 @@ public class Validering {
         } 
             return resultat;
     
+    }
+       //KOllar ifall agenteposten finns
+    public static boolean agentEpost(JTextField rutaAttKolla, InfDB idb) {
+        Validering.idb=idb;
+        boolean finns = false;
+        ArrayList<String> epost;
+        try {
+            epost = idb.fetchColumn("select epost from agent");
+            for (String enEpost : epost) {
+                if (rutaAttKolla.getText().equalsIgnoreCase(enEpost)) {
+                    finns = true;
+                }
+            }
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Databas är inte kopplat");
+        }
+        if (finns == false) {
+            JOptionPane.showMessageDialog(null, "Eposten finns inte,vänligen kontrollera");
+        }
+
+        return finns;
     }
       //checks whether a text field is filled 
     public static boolean isFilled(JTextField field) {
@@ -48,7 +71,6 @@ public class Validering {
             return resultat;
     
     }
-            
             public static boolean stringFormat(String namn1, String namn2){
                 boolean stringFormat=false;
                 try{
@@ -85,6 +107,6 @@ public class Validering {
         }
         return result;
     }
-
 }
+
    
