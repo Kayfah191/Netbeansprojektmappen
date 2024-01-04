@@ -13,7 +13,6 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class Main {
-     private HashMap<String,RegistreraNyaAliens> list;
     private static InfDB idb;
     private String userId;
     
@@ -30,8 +29,8 @@ public class Main {
          } 
      }
      
-     public Main(String userId) {   //Kontruktor
+    
         
     }
    
-}
+

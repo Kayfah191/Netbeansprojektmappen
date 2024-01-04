@@ -175,27 +175,7 @@ private InfDB idb;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        try {
-            // Ska visa alla registerade agenter
-
-            con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
-        } catch (SQLException ex) {
-            Logger.getLogger(InformationAliens.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-        String sql ="SELECT * FROM alien WHERE epost = 'jUser.getText()";
-        try{
-            PreparedStatement pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-            DefaultTableModel model = (DefaultTableModel)Table1.getModel();
-            model.setRowCount(0);
-            while(rs.next()){
-            model.addRow(new String[] { rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8) }); 
-            }
-        }catch(Exception ex){
-            System.out.println("Error : " +ex.getMessage());
-        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
