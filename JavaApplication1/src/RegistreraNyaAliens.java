@@ -194,6 +194,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Registreringsknapp
+        
             String Losenord = jLosenord.getText();
             String Namn = jNamn.getText();
             String Telefon = jTelefon.getText();
