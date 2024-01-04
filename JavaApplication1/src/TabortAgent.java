@@ -25,21 +25,126 @@ public class TabortAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtEpost = new javax.swing.JTextField();
+        lblEpost = new javax.swing.JLabel();
+        lblTaBortAgent = new javax.swing.JLabel();
+        btnTaBort = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
+        cbAllaAgenter = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblEpost.setText("Epost");
+
+        lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTaBortAgent.setText("Ta bort Agent");
+
+        btnTaBort.setText("Ta bort");
+        btnTaBort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaBortActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Välj agent som tar över Aliens");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(53, 53, 53)
+                .addComponent(btnTaBort)
+                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(242, 242, 242)
+                                .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(298, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(372, 372, 372)
+                .addComponent(lblTaBortAgent)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(lblTaBortAgent)
+                .addGap(99, 99, 99)
+                .addComponent(lblEpost)
+                .addGap(26, 26, 26)
+                .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbAllaAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(129, 129, 129)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTaBort)
+                    .addComponent(btnGaTillbaka))
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
+
+        if (Validering.textFaltHarVarde(txtEpost) && Validering.agentEpostFinns(txtEpost, idb) && Validering.inteMinEpost(txtEpost, epost)) {
+            int svar = JOptionPane.showConfirmDialog(null, "Är du säker på att du vill radera agenten ur systemet?", "Bekräfta radering", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
+
+            if (svar == 0) { // Kollar om man svara ja på bekräftelsen
+                try {
+                    String agentNamn = cbAllaAgenter.getSelectedItem().toString();
+                    String nyAgentID = idb.fetchSingle("select agent_id from agent where namn ='" + agentNamn + "'");
+                    String agentID = idb.fetchSingle("select Agent_ID from agent where epost ='" + txtEpost.getText() + "'");
+                    String namn = idb.fetchSingle("select namn from agent where epost='" + txtEpost.getText() + "'");
+                    String fraga = "update alien set ansvarig_agent=" + nyAgentID + " where ansvarig_agent =" + agentID;
+                    if (nyAgentID.equalsIgnoreCase(agentID)) {
+                        JOptionPane.showMessageDialog(null, "Du kan inte välja agenten du tar bort");
+
+                    } else {
+
+                        idb.update(fraga); // Ändrar vem som är ansvarig för agenten man tar borts aliens
+
+                        idb.delete("delete from faltagent where Agent_ID =" + agentID);     //
+                        idb.delete("delete from kontorschef where Agent_ID =" + agentID);   //Tar bort agenten från alla subklasser
+                        idb.delete("delete from omradeschef where Agent_ID =" + agentID);   //
+                        idb.delete("delete from innehar_utrustning where agent_id=" + agentID); //Tar bort utrustningen som agenten hade
+                        idb.delete("delete from agent where Agent_ID =" + agentID); // Tar bort agenten
+                        JOptionPane.showMessageDialog(null, namn + " är nu raderad ur systemet");
+                        dispose();
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showConfirmDialog(null, e);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnTaBortActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +182,12 @@ public class TabortAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
+    private javax.swing.JButton btnTaBort;
+    private javax.swing.JComboBox<String> cbAllaAgenter;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblEpost;
+    private javax.swing.JLabel lblTaBortAgent;
+    private javax.swing.JTextField txtEpost;
     // End of variables declaration//GEN-END:variables
 }
