@@ -128,9 +128,8 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        JFrame frame = new JFrame("Ta bort Besökare");
-        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill ta bort denna Besökare?",
-                "Ta bort Besökare", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
+       TabortAlienAdmin tabortAlien= new  TabortAlienAdmin();
+       tabortAlien.show(); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -1,4 +1,5 @@
 
+import com.mysql.cj.xdevapi.Schema.Validation;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
@@ -199,6 +200,7 @@ private InfDB idb;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+  
 try {
    jbox.getSelectedItem();
 
