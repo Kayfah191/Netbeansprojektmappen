@@ -21,6 +21,10 @@ public class Validering {
 
     private static InfDB idb;
 
+    static boolean exist(JTextField txtEpost) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public Validering (InfDB idb) {
         
     }
