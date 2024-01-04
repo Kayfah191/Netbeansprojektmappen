@@ -1,5 +1,8 @@
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
@@ -107,6 +110,51 @@ public class Validering {
         }
         return result;
     }
+    
+    public static boolean losenordkoll(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        String pass = rutaAttKolla.getText();
+        if (pass.length() > 6 || pass.length() < 1) {
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Lösenordet ska vara mellan 1 till 6 tecken");
+        }
+        return resultat;
+    }
+    
+    public static boolean tillåtetdatum(JTextField rutaAttKolla) {
+        try {
+            String dateStr = rutaAttKolla.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
+            Date date = sdf.parse(dateStr);
+            return true;
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Fel format på datum");
+            return false;
+        }
+    }
+    
+    public static boolean agentEpostFinns(JTextField rutaAttKolla, InfDB idb) {
+        Validering.idb = idb;
+        boolean finns = false;
+        ArrayList<String> epost;
+        try {
+            epost = idb.fetchColumn("select epost from agent");
+            for (String enEpost : epost) {
+                if (rutaAttKolla.getText().equalsIgnoreCase(enEpost)) {
+                    finns = true;
+                }
+            }
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Databas fel");
+        }
+        if (finns == false) {
+            JOptionPane.showMessageDialog(null, "Eposten finns inte, var säker på att du stavat rätt");
+        }
+
+        return finns;
+    }
+    
 }
 
    

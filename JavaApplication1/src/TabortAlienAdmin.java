@@ -202,7 +202,7 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         idb.delete(queryDeleteAlien);
 
         JOptionPane.showMessageDialog(null, "Alienen " + namn + " " + " med alien-ID " + alienID + " har helt tagits bort från databasen.");
-    resetFields();
+  
     }
 } catch (InfException e) {
     JOptionPane.showMessageDialog(null, "Kan inte ta bort alien.");
@@ -210,11 +210,6 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
 }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-      private void resetFields() {
-          Filler.
-        Filler.updateStudentList(lista);
-        lblTitle.requestFocus();
-    }
     /**
      * @param args the command line arguments
      */
