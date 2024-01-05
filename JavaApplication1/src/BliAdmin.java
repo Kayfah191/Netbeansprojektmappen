@@ -21,8 +21,13 @@ private String epost;
      */
     public BliAdmin() {
         initComponents();
-        this.idb = idb;
-        this.epost = epost;
+    try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel");
+            System.out.println("Internet felmeddelande" + e.getMessage());
+        }
     }
 
     /**
@@ -34,10 +39,10 @@ private String epost;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Epost = new javax.swing.JTextField();
+        namn = new javax.swing.JTextField();
         lblEpost = new javax.swing.JLabel();
         Andra = new javax.swing.JButton();
-        cbAdmin = new javax.swing.JComboBox<>();
+        geAdmin = new javax.swing.JComboBox<>();
         lblAdministrator = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -45,7 +50,7 @@ private String epost;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblEpost.setText("Epost");
+        lblEpost.setText("Agent Namn");
 
         Andra.setText("Ändra");
         Andra.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +59,7 @@ private String epost;
             }
         });
 
-        cbAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VÄLJ", "JA", "NEJ" }));
+        geAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ja", "Nej" }));
 
         lblAdministrator.setText("Administratör?");
 
@@ -87,11 +92,11 @@ private String epost;
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Epost, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Andra))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(geAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAdministrator, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -111,8 +116,8 @@ private String epost;
                     .addComponent(lblAdministrator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Andra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
@@ -126,25 +131,26 @@ private String epost;
     }// </editor-fold>//GEN-END:initComponents
 
     private void AndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraActionPerformed
-        String agentEpost = Epost.getText();
-        String admin = cbAdmin.getSelectedItem().toString();
-
-        if (Validering.exists(agentEpost)) {
+        String agentNamn = namn.getText();
+        String admin = geAdmin.getSelectedItem().toString();
             try {
                 if (admin.equals("Ja")) {
-                    idb.update("update agent set Administrator='J' where epost ='" + agentEpost + "'"); 
+                    
+                    
+      String  q="update agent set Administrator='J' where namn ='" + agentNamn + "'"; 
+        idb.update(q);
               //ändrar en sträng i databasen till Ja
                 } else {
-                    idb.update("update agent set Administrator='N' where epost ='" + agentEpost + "'");  
+                    idb.update("update agent set Administrator='N' where namn ='" + agentNamn + "'");  
                        //ändrar en sträng i databasen till N
                 }
                 JOptionPane.showMessageDialog(null, "Adminstatus är ändrad");
                 dispose();
 
-            } catch (InfException e) {
-                JOptionPane.showMessageDialog(null, "Något gick, vänligen försök igen");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Misslyckad");
             }
-        }
+        
     }//GEN-LAST:event_AndraActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -203,12 +209,12 @@ private String epost;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Andra;
-    private javax.swing.JTextField Epost;
-    private javax.swing.JComboBox<String> cbAdmin;
+    private javax.swing.JComboBox<String> geAdmin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAdministrator;
     private javax.swing.JLabel lblEpost;
+    private javax.swing.JTextField namn;
     // End of variables declaration//GEN-END:variables
 }

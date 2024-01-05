@@ -136,7 +136,7 @@ public class TabortAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
-int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten ur systemet?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
+int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
 // Kollar om man svara ja på bekräftelsen
             if (fraga == 0) { 
                 try {   String agentNamn = boxAgenter.getSelectedItem().toString();

@@ -38,84 +38,32 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lista = new javax.swing.JList<>();
-        jPanel2 = new javax.swing.JPanel();
-        lblSelect = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        lblTitle = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        btnDelete = new javax.swing.JButton();
+        tNamn = new javax.swing.JTextField();
+        lblnamn = new javax.swing.JLabel();
+        lblTaBortAgent = new javax.swing.JLabel();
+        btnTaBort = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(lista);
+        lblnamn.setText("Namn på Alien");
 
-        lblSelect.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSelect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSelect.setText("VÄLJ ALIEN");
+        lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTaBortAgent.setText("Ta bort Alien");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-        );
-
-        lblTitle.setFont(new java.awt.Font("Harry P", 0, 24)); // NOI18N
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("TA BORT ALIEN FRÅN  DATABASE");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-
-        btnDelete.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnDelete.setText("TABORT");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnTaBort.setText("Ta bort");
+        btnTaBort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnTaBortActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        btnGaTillbaka.setText("Avbryt");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,27 +73,32 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnamn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTaBortAgent, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGaTillbaka)
+                            .addComponent(btnTaBort))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblTaBortAgent)
+                .addGap(53, 53, 53)
+                .addComponent(lblnamn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTaBort))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,58 +110,48 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-         if (Validering.exists(lista.getSelectedValue()))
-           try {
-    // Den valda alienens namn från listan över aliens, tillsammans med alien-ID, splittas och lagras i en String-array.
-    String[] alienDelar = lista.getSelectedValue().split(":*\\s");
-    // De indexerade delarna från alien-arrayen tilldelas tre lokala variabler som senare används i SQL-raderingsfrågorna.
-    String alienID = alienDelar[0];
-    String namn = alienDelar[1];
-    // Innan SQL-frågorna skickas till databasen för utförande, frågar applikationen användaren om att bekräfta raderingsåtgärden.
-    int dialogResult = JOptionPane.showOptionDialog(null, "Är du helt säker på att du vill ta bort " + namn + " " +  " från databasen?", "Bekräfta åtgärd", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Ja", "Nej"}, "Nej");
-    // Om användaren bekräftade raderingsåtgärden kommer applikationen att köra SQL-raderingsfrågor för alla berörda tabeller med eventuella främmande nycklar.
-    if (dialogResult == JOptionPane.YES_OPTION) {
-        /**
-        * På grund av det antal främmande nycklar som delas skickas först en fråga till
-        * databasen för att säkerställa om alienen i fråga verkligen
-        * är listad. Om de är det, kommer värdet för deras nyckel
-        * att sättas till null innan vi kan gå vidare för att radera
-        * resten av deras referenser.
-        */
-        String query1 = "SELECT Alien_id  FROM worm WHERE Alien_id  = " + alienID;
-        String queryDelete = "UPDATE worn SET Alien_id = NULL WHERE PREFEKT = " + alienID;
-        if (Validering.exists(idb.fetchSingle(query1))) {
-            idb.update(queryDelete);
-        }
-        String query2 = "SELECT Alien_id  FROM squid WHERE Alien_id  = " + alienID;
-        String queryDelete2 = "UPDATE squid SET Alien_id = NULL WHERE PREFEKT = " + alienID;
-        if (Validering.exists(idb.fetchSingle(query2))) {
-            idb.update(queryDelete2);
-        }
-          String query3 = "SELECT Alien_id  FROM boglodite  WHERE Alien_id  = " + alienID;
-        String queryDelete3 = "UPDATE boglodite  SET Alien_id = NULL WHERE PREFEKT = " + alienID;
-        if (Validering.exists(idb.fetchSingle(query3))) {
-            idb.update(queryDelete3);
-        }
-        String queryDeleteAlien = "DELETE FROM ALIEN WHERE ALIEN_ID = " + alienID;
-        idb.delete(queryDeleteAlien);
+    private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
+        int fraga = JOptionPane.showConfirmDialog(null, " vill radera alien?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
+        // Kollar om man svara ja på bekräftelsen
+        if (fraga == 0) {
+       try {
+    String alienID = idb.fetchSingle("SELECT Alien_id FROM alien WHERE namn = '" + tNamn.getText() + "'");
+//    String namn = idb.fetchSingle("SELECT namn FROM Alien WHERE namn = '" + tNamn.getText() + "'");
 
-        JOptionPane.showMessageDialog(null, "Alienen " + namn + " " + " med alien-ID " + alienID + " har helt tagits bort från databasen.");
-  
-    }
+    String q1 = "DELETE FROM squid WHERE Alien_id = " + alienID;
+    String q2 = "DELETE FROM boglodite WHERE Alien_id = " + alienID;
+    String q3 = "DELETE FROM worm WHERE Alien_id = " + alienID;
+    String q4 = "DELETE FROM alien WHERE Alien_id = " + alienID ;
+//idb.delete("delete from squid where Alien_id =" + alienID);     //raderar alien från alla subklasser av alien,
+//                idb.delete("delete from boglodite where Alien_id =" + alienID); // Om den inte finns i en subklass händer inget
+//                idb.delete("delete from worm where Alien_id =" + alienID);      //
+//                idb.delete("delete from alien where Alien_id =" + alienID); 
+
+    idb.delete(q1);
+    idb.delete(q2);
+    idb.delete(q3);
+    idb.delete(q4);
+
+    JOptionPane.showMessageDialog(null, " Alien är raderad");
+    dispose();
+
 } catch (InfException e) {
-    JOptionPane.showMessageDialog(null, "Kan inte ta bort alien.");
-    System.out.println(e.getMessage());
+    // Hantera eventuella undantag, till exempel visa ett felmeddelande.
+    JOptionPane.showMessageDialog(null, "radering av alien misslyckades.");
 }
-    }//GEN-LAST:event_btnDeleteActionPerformed
+        }
+    }//GEN-LAST:event_btnTaBortActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,14 +189,11 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnGaTillbaka;
+    private javax.swing.JButton btnTaBort;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblSelect;
-    private javax.swing.JLabel lblTitle;
-    private javax.swing.JList<String> lista;
+    private javax.swing.JLabel lblTaBortAgent;
+    private javax.swing.JLabel lblnamn;
+    private javax.swing.JTextField tNamn;
     // End of variables declaration//GEN-END:variables
 }

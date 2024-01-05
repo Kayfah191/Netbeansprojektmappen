@@ -33,12 +33,12 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblEpost" min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="Epost" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="namn" min="-2" pref="142" max="-2" attributes="0"/>
                           <Component id="Andra" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="geAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblAdministrator" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -65,8 +65,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Epost" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="namn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="geAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Andra" min="-2" max="-2" attributes="0"/>
@@ -81,11 +81,11 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="Epost">
+    <Component class="javax.swing.JTextField" name="namn">
     </Component>
     <Component class="javax.swing.JLabel" name="lblEpost">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Epost"/>
+        <Property name="text" type="java.lang.String" value="Agent Namn"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Andra">
@@ -96,13 +96,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndraActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbAdmin">
+    <Component class="javax.swing.JComboBox" name="geAdmin">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="V&#xc4;LJ"/>
-            <StringItem index="1" value="JA"/>
-            <StringItem index="2" value="NEJ"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Ja"/>
+            <StringItem index="1" value="Nej"/>
           </StringArray>
         </Property>
       </Properties>
