@@ -204,15 +204,16 @@ public class RegistreraAgent extends javax.swing.JFrame {
         String telefon = jTelefon.getText();
         String Epost = jEpost.getText();
         String Anstallningsdatum = jAnstDatum.getText();
-        String NamnpaOmrade = jbox.getSelectedItem().toString();
+        String NamnpaOmrade = jbox.getSelectedItem() != null ? jbox.getSelectedItem().toString() : "";
         String omrade = idb.fetchSingle("select omrades_id from omrade where benamning ='"+ NamnpaOmrade +"'");
                 int omradeID = Integer.parseInt(omrade);
         if (jLosenord.getText().isEmpty() || jNamn.getText().isEmpty() ||jTelefon.getText().isEmpty() ||
             jEpost.getText().isEmpty() ||jAnstDatum.getText().isEmpty()) {
             // Visa ett meddelande om att fylla i alla fält
             JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
-            String q1 = "insert into Agent values(" + nextID + "," + namn + "," + telefon + "," + Anstallningsdatum + "," + "'N'"  + "," + Epost +"," + losenord + "," + omradeID +")";
-                String q2 = "insert into faltagent values("+ nextID + ")";
+            String q1 = "INSERT INTO Agent VALUES('" + nextID + "','" + namn + "','" + telefon + "','" + Anstallningsdatum + "','N','" + Epost + "','" + losenord + "'," + omradeID + ")";
+            String q2 = "INSERT INTO faltagent VALUES('" + nextID + "')";
+
             idb.insert(q1);
             idb.insert(q2);
             JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");

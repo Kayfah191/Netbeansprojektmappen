@@ -48,6 +48,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         jbox = new javax.swing.JComboBox<>();
         intal = new javax.swing.JTextField();
         jKaliber = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         jLabel2.setText("Utrustnings_ID");
 
         juid.setEditable(false);
+        juid.setText("Auto");
         juid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 juidActionPerformed(evt);
@@ -96,6 +98,8 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
 
         jKaliber.setText("Kaliber (heltal)");
 
+        jLabel5.setText("Välj värde");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,18 +107,16 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -127,7 +129,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                                 .addComponent(juid)
                                 .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(intal, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {intal, jKaliber, jLabel2, jLabel3, jLabel4, jbenamning, jbox, juid});
@@ -152,7 +154,9 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jKaliber, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(intal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(intal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -175,49 +179,48 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_juidActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-try{
-    String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
-String benamning=jbenamning.getText();
-String redskap=intal.getText();
 if ( jbenamning.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
-String olikaVal = jbox.getSelectedItem().toString();
-  if (olikaVal.equals("Vapen")) {
+try{
+            String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
+        String benamning=jbenamning.getText();
+        String redskap=intal.getText();
+        String olikaVal = jbox.getSelectedItem().toString();
 
-                int kaliber = Integer.parseInt(intal.getText());
-                String q= "insert into Vapen values(" + uid + "," + kaliber + "')";
-                String q2="INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";           
-                idb.insert(q);
-                idb.insert(q2);
-                 JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");
-                 dispose();
-                 if (olikaVal.equals("Kommunikation")) {
+          if (olikaVal.equals("Vapen")) {
+            // int antalKaliber = Integer.parseInt(intal.getText()); // Kommenterad ut
+            String q = "INSERT INTO Vapen VALUES('" + uid + "', '" + redskap + "')";
+            String q2 = "INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";
 
-               String q3= "insert into utrustning values(" + uid + "," + benamning + ")";
+            idb.insert(q);
+            idb.insert(q2);
+            JOptionPane.showMessageDialog(null, "Överföring till databasen lyckades");
+            dispose();
+        }
+
+              else if (olikaVal.equals("Kommunikation")) {
+
+               String q3= "insert into utrustning values('" + uid + "', '"+ benamning + "')";
                             idb.insert(q3);
-                String q4="insert into Kommunikation values(" + uid + "," + redskap + ")";
+                String q4="insert into Kommunikation values('" + uid + "', '"+ redskap + "')";
                  idb.insert(q4);
                 JOptionPane.showMessageDialog(null," överföring till databasen lyckades");
                 dispose();
             }
-            if (olikaVal.equals("Teknik")) {
-                String q5="insert into utrustning values(" + uid + "," + benamning + "')";
+           else if (olikaVal.equals("Teknik")) {
+                String q5="insert into utrustning values('"+ uid + "', '"+ benamning + "')";
                 idb.insert(q5);
-                String q6="insert into Teknik values(" + uid + "," + redskap + "')";
+                String q6="insert into Teknik values('" + uid + "', '" + redskap + "')";
                 idb.insert(q6);
                          JOptionPane.showMessageDialog(null," överföring till databasen lyckades");
                             dispose();
-                        }
-        } 
+           }
+}
 
-                }
  catch (InfException e) 
          {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
-
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
@@ -225,7 +228,7 @@ String olikaVal = jbox.getSelectedItem().toString();
         if (olikaVal.equals("Vapen")) {
             jKaliber.setText("Kaliber (heltal)");
         } else if (olikaVal.equals("Kommunikation")) {
-            jKaliber.setText("overteknik");
+            jKaliber.setText("ÖverFörningsteknik");
         } else {
             jKaliber.setText("Kraftkälla");
         }
@@ -279,6 +282,7 @@ String olikaVal = jbox.getSelectedItem().toString();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jbenamning;
     private javax.swing.JComboBox<String> jbox;
     private javax.swing.JTextField juid;
