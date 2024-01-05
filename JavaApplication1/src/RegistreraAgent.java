@@ -196,9 +196,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Registreringsknapp
      try{   
-         String nextAID = idb.getAutoIncrement("Agent", "agent_ID");
+         String nextAID = idb.getAutoIncrement("agent", "agent_ID");
+              
 //här används .getAutoIncrement metoden för att få alien_ID, variabeln nextAID används i frågorna
-        
         String losenord = jLosenord.getText();
         String namn = jNamn.getText();
         String telefon = jTelefon.getText();
