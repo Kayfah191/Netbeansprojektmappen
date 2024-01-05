@@ -193,7 +193,7 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //Hämta Information Om Agenter
-        InformationAgenter InfoAgent= new InformationAgenter(userID);
+        VisaInfoOmAgent InfoAgent= new VisaInfoOmAgent();
         InfoAgent.show();   
     }//GEN-LAST:event_jButton2ActionPerformed
 
