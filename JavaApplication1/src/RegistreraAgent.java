@@ -112,7 +112,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                             .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel5)
@@ -196,7 +196,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Registreringsknapp
      try{   
-         String nextAID = idb.getAutoIncrement("agent", "agent_ID");
+        String nextID = idb.getAutoIncrement("agent", "agent_ID");
               
 //här används .getAutoIncrement metoden för att få alien_ID, variabeln nextAID används i frågorna
         String losenord = jLosenord.getText();
@@ -211,8 +211,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
             jEpost.getText().isEmpty() ||jAnstDatum.getText().isEmpty()) {
             // Visa ett meddelande om att fylla i alla fält
             JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
-            String q1 = "insert into Agent values(" + nextAID + "," + namn + "," + telefon + "," + Anstallningsdatum + "," + "'N'"  + "," + Epost +"," + losenord + "," + omradeID +")";
-                String q2 = "insert into faltagent values("+ nextAID + ")";
+            String q1 = "insert into Agent values(" + nextID + "," + namn + "," + telefon + "," + Anstallningsdatum + "," + "'N'"  + "," + Epost +"," + losenord + "," + omradeID +")";
+                String q2 = "insert into faltagent values("+ nextID + ")";
             idb.insert(q1);
             idb.insert(q2);
             JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");

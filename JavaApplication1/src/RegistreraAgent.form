@@ -32,7 +32,7 @@
                           <Component id="jTelefon" linkSize="1" pref="71" max="32767" attributes="0"/>
                           <Component id="jbox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="84" max="32767" attributes="0"/>
+                      <EmptySpace pref="76" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel9" linkSize="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" linkSize="1" min="-2" max="-2" attributes="0"/>
