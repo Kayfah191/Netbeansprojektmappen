@@ -34,9 +34,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="txtEpost" min="-2" pref="169" max="-2" attributes="0"/>
-                      <EmptySpace pref="52" max="32767" attributes="0"/>
-                      <Component id="lblBekraftaAndring" min="-2" max="-2" attributes="0"/>
+                      <Component id="jnamn" min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                      <Component id="andring" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -59,8 +59,8 @@
               <Component id="lblEpostNya" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblBekraftaAndring" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="andring" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jnamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="158" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -73,20 +73,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="lblBekraftaAndring">
+    <Component class="javax.swing.JButton" name="andring">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bekr&#xe4;fta &#xe4;ndring"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblBekraftaAndringActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andringActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEpostNya">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Epost p&#xe5; den nya kontorschefen"/>
+        <Property name="text" type="java.lang.String" value="Namn p&#xe5; den nya kontorschefen"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEpost">
+    <Component class="javax.swing.JTextField" name="jnamn">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

@@ -35,23 +35,23 @@ private InfDB idb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBekraftaAndring = new javax.swing.JButton();
+        andring = new javax.swing.JButton();
         lblEpostNya = new javax.swing.JLabel();
-        txtEpost = new javax.swing.JTextField();
+        jnamn = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblBekraftaAndring.setText("Bekräfta ändring");
-        lblBekraftaAndring.addActionListener(new java.awt.event.ActionListener() {
+        andring.setText("Ändra");
+        andring.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblBekraftaAndringActionPerformed(evt);
+                andringActionPerformed(evt);
             }
         });
 
-        lblEpostNya.setText("Epost på den nya kontorschefen");
+        lblEpostNya.setText("Namn på den nya kontorschefen");
 
         jButton1.setText("Avbryt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +83,9 @@ private InfDB idb;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addComponent(lblBekraftaAndring)
+                        .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addComponent(andring)
                         .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +102,8 @@ private InfDB idb;
                 .addComponent(lblEpostNya)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBekraftaAndring)
-                    .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(andring)
+                    .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -114,31 +114,36 @@ private InfDB idb;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblBekraftaAndringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblBekraftaAndringActionPerformed
-
-                try {
-                    String epost = txtEpost.getText();
-                    String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE epost =" + "'" + epost + "'");
-                    String namn = idb.fetchSingle("SELECT namn FROM Agent WHERE epost =" + "'" + epost + "'");
-                    if (Validering.exist(txtEpost)) {
-                        String nuvarandeChef = idb.fetchSingle("SELECT Agent_ID FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'"); // Tar fram nuvarande chefen
-                        idb.delete("DELETE FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'"); 
-// tar bort nuvarande chefen
-                        idb.insert("INSERT INTO Kontorschef VALUES(" + "'" + agentID + "'" + ", 'Örebrokontoret')"); 
-// lägger in nya agenten som chef
-                        idb.delete("DELETE FROM Faltagent WHERE Agent_ID = " + "'" + agentID + "'");
-                        //tar bort nya chefen från fältagent
-                        idb.insert("INSERT INTO Faltagent VALUES(" + "'" + nuvarandeChef + "'" + ")"); 
-// Lägger in gamla chefen som fältagent
-                        JOptionPane.showMessageDialog(null, "Du har nu gjort " + namn + " till den nya kontorschefen!");
-                        dispose();
-                    }
-                } catch (Exception e) {
-
-                }
-            
+    private void andringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andringActionPerformed
+       
         
-    }//GEN-LAST:event_lblBekraftaAndringActionPerformed
+        try {
+        String namn = jnamn.getText();
+        // Hämta Agent_ID 
+        String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE namn ='" + namn + "'");
+        // Hämta nuvarande kontorschef för Örebrokontoret
+        String nuvarandeChef = idb.fetchSingle("SELECT Agent_ID FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'");
+        // Uppdatera rollen som kontorschef för den valda agenten
+        String insertKontorschef = "INSERT INTO Kontorschef VALUES('" + agentID + "', 'Örebrokontoret')";
+        idb.insert(insertKontorschef);
+        String tabortKontorschef = "DELETE FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'";
+        idb.delete(tabortKontorschef);
+        String laggTillFaltagent = "INSERT INTO Faltagent VALUES('" + nuvarandeChef + "')";
+        idb.insert(laggTillFaltagent);
+
+        // Ta bort den valda agenten från fältagent
+        String tabortFaltagent = "DELETE FROM Faltagent WHERE Agent_ID = '" + agentID + "'";
+        idb.delete(tabortFaltagent);
+        // Visa bekräftelsemeddelande för användaren
+        JOptionPane.showMessageDialog(null," Ändring lyckades!");
+        dispose();
+    }
+    catch (Exception e) {
+        // Hantera eventuella undantag, till exempel visa ett felmeddelande.
+        JOptionPane.showMessageDialog(null, "Misslyckad: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_andringActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
  //Tillbakaknapp 
@@ -195,11 +200,11 @@ private InfDB idb;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton andring;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton lblBekraftaAndring;
+    private javax.swing.JTextField jnamn;
     private javax.swing.JLabel lblEpostNya;
-    private javax.swing.JTextField txtEpost;
     // End of variables declaration//GEN-END:variables
 }
