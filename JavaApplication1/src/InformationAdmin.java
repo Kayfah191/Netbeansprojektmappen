@@ -154,7 +154,7 @@ public class InformationAdmin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-RegistreraAgentsUtrustningAdmin RegUtrusning = new RegistreraAgentsUtrustningAdmin();
+utrustningAdmin RegUtrusning = new utrustningAdmin();
         RegUtrusning.show(); 
         //Stänga det tidigare fönstret
         dispose();  
