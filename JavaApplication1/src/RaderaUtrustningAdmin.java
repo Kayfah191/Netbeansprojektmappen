@@ -14,13 +14,13 @@ import oru.inf.InfException;
  *
  * @author Kayhan
  */
-public class RegistreraAgentsUtrustningAdmin extends javax.swing.JFrame {
+public class RaderaUtrustningAdmin extends javax.swing.JFrame {
 private InfDB idb;
 
     /**
      * Creates new form RegistreraAgnetsUtrustningAdmin
      */
-    public RegistreraAgentsUtrustningAdmin() {
+    public RaderaUtrustningAdmin() {
         initComponents();
          try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -250,21 +250,23 @@ idb.insert(q);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistreraAgentsUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RaderaUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistreraAgentsUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RaderaUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistreraAgentsUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RaderaUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistreraAgentsUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RaderaUtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistreraAgentsUtrustningAdmin().setVisible(true);
+                new RaderaUtrustningAdmin().setVisible(true);
             }
         });
     }
