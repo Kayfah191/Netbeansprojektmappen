@@ -45,9 +45,9 @@ private InfDB idb;
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jbox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jbox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,13 +67,13 @@ private InfDB idb;
             }
         });
 
+        jLabel5.setText("Välj det utrustning du vill ta bort");
+
         jbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jboxActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("Välj det utrustning du vill ta bort");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,15 +92,16 @@ private InfDB idb;
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(183, 183, 183)
                                 .addComponent(jLabel4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton3)
-                                            .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGap(7, 7, 7)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel5))))
                         .addGap(0, 161, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -146,12 +147,10 @@ private InfDB idb;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-  
+  Object olikaVal = jbox.getSelectedItem();
 try {
-    String selectedValue = jbox.getSelectedItem().toString();
-
     // Hämta Utrustnings_ID för det valda värdet
-    String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + selectedValue + "'");
+    String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + olikaVal + "'");
 
     // Radera raden från utrusning-tabellen
     idb.delete("DELETE FROM utrusning WHERE Utrustnings_ID = '" + utrustningsID + "'");
@@ -174,6 +173,7 @@ try {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jboxActionPerformed
 
