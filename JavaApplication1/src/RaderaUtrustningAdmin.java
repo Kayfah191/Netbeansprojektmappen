@@ -43,30 +43,15 @@ private InfDB idb;
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        juid = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jbenamning = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jbox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Registrering av utrustning till Agenter");
-
-        jLabel2.setText("Utrustnings_ID");
-
-        juid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                juidActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Benamning");
+        jLabel1.setText("Registrering av utrustning");
 
         jButton1.setText("Avbryt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,13 +75,6 @@ private InfDB idb;
 
         jLabel5.setText("Välj det utrustning du vill ta bort");
 
-        jButton2.setText("Lägg till utrustning");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,72 +90,40 @@ private InfDB idb;
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(183, 183, 183)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel4)))))
-                        .addGap(0, 125, Short.MAX_VALUE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jButton3)
+                                            .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(0, 161, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(juid))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jbenamning, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(juid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jbenamning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(89, 89, 89)
                 .addComponent(jButton1)
                 .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void juidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_juidActionPerformed
 
     private void fyllJbox (){
       try{ ArrayList<String>q2;
@@ -202,36 +148,34 @@ private InfDB idb;
 
   
 try {
-   jbox.getSelectedItem();
+    String selectedValue = jbox.getSelectedItem().toString();
 
-        String q =String.format("select *from utrusning where benamning= \"%s\"", jbox.getSelectedIndex()); 
-        idb.delete(q);
-        JOptionPane.showMessageDialog(null, "Utrustning har tagits bort");
-     
+    // Hämta Utrustnings_ID för det valda värdet
+    String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + selectedValue + "'");
+
+    // Radera raden från utrusning-tabellen
+    idb.delete("DELETE FROM utrusning WHERE Utrustnings_ID = '" + utrustningsID + "'");
+    
+    // Radera från andra tabeller baserat på Utrustnings_ID
+    idb.delete("DELETE FROM Teknik WHERE Utrustnings_ID = '" + utrustningsID + "'");
+    idb.delete("DELETE FROM Vapen WHERE Utrustnings_id = '" + utrustningsID + "'");
+    idb.delete("DELETE FROM Kommunikation WHERE Utrustnings_id = '" + utrustningsID + "'");
+    idb.delete("DELETE FROM Innehar_Utrustning WHERE Utrustnings_id = '" + utrustningsID + "'");
+    
+    // Radera från huvudtabellen
+    idb.delete("DELETE FROM Utrustning WHERE Utrustnings_ID = '" + utrustningsID + "'");
+
+    JOptionPane.showMessageDialog(null, "Utrustning har blivit raderad");
+    dispose();
 } catch (InfException e) {
-    JOptionPane.showMessageDialog(null, "Misslyckad , försök igen senare");
+    JOptionPane.showMessageDialog(null, "Misslyckad, försök igen senare");
 }
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jboxActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-          String uid=juid.getText();
-String benamning=jbenamning.getText();
-if (uid.isEmpty() || benamning.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
-try {
-    String q="INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";           
-idb.insert(q);
- JOptionPane.showMessageDialog(null, " överföring till databasen lyckades");
-} catch (InfException e) {
-        JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
-}
-
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,15 +217,10 @@ idb.insert(q);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jbenamning;
     private javax.swing.JComboBox<String> jbox;
-    private javax.swing.JTextField juid;
     // End of variables declaration//GEN-END:variables
 }

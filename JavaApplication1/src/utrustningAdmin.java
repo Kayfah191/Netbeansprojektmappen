@@ -84,7 +84,7 @@ public class utrustningAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-raderaUtrustning RegUtrusning = new raderaUtrustning();
+RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin();
         RegUtrusning.show(); 
         //Stänga det tidigare fönstret
         dispose();  
