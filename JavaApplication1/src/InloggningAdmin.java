@@ -164,16 +164,14 @@ public class InloggningAdmin extends javax.swing.JFrame {
         //Avbryt
                 JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION)
         {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-         
-    
+        //Loginknapp
     try {
         String test = adminnamn.getText();
          String test2 = adminlösenord.getText();
@@ -182,17 +180,19 @@ public class InloggningAdmin extends javax.swing.JFrame {
     }String q1 = String.format("select Agent_id, administrator, Losenord, Epost from agent where Epost = \"%s\"", adminnamn.getText());
 //        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
 //                "' and losenord = '" + adminlösenord.getText() + "';";
-        HashMap<String, String> rad3 =  idb.fetchRow(q1);
-        String lösenord = rad3.get("Losenord");
+        HashMap<String, String> rad =  idb.fetchRow(q1);
+        String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         
-                if(adminnamn.getText().equals(rad3.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad3.get("Administrator").equals("J")) {
-            InformationAdmin InfoAD = new InformationAdmin();
-        InfoAD.show();  //öppnar informationsfönser till Admin
+        String userID = rad.get("Agent_ID");
+        
+                if(adminnamn.getText().equals(rad.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad.get("Administrator").equals("J")) {
+            InformationAdmin InfoAD = new InformationAdmin(userID);
+        InfoAD.setVisible(true);  //öppnar informationsfönser till Admin
         //stänger tidigare fönster
         dispose(); 
         }
-        else if(adminnamn.getText().equals(rad3.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad3.get("Administrator").equals("N")){
+        else if(adminnamn.getText().equals(rad.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad.get("Administrator").equals("N")){
     JOptionPane.showMessageDialog(null, "Agent är inte admin");
     }
 //                else if(rad3.get("Administrator").equals("J")) {
@@ -208,8 +208,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
-
-        
+      System.out.println("Internt felmeddelande: " + e.getMessage());
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -174,7 +174,12 @@ initComponents();
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Avbryt
-        this.setVisible(false);
+                        JFrame frame = new JFrame("Avbryt");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -192,8 +197,11 @@ initComponents();
         //String Epost = rad.get("Epost");
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
+        
+        String userID = rad.get("Alien_ID");
+        
         if(jPassword.getText().equals(lösenord)) {
-             InformationAliens infoAlien = new InformationAliens();
+             InformationAliens infoAlien = new InformationAliens(userID);
         infoAlien.show();
         //Stänger tidigare fönster
         dispose();

@@ -51,10 +51,8 @@
                       </Group>
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="jAgentID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jAgentPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jAgentID" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jAgentPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>

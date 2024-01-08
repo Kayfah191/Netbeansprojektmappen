@@ -378,18 +378,18 @@ public class InformationAgenter extends javax.swing.JFrame {
     }
     
      private void initializeUserInfo() {
-//         try{
-//              String query = "SELECT Omrade FROM agent WHERE Agent_ID = '" + userID + "'";
-//            HashMap<String, String> user = idb.fetchRow(query);
-//            
-//            if(user != null){
-//                String userPlace = user.get("Omrade");
-//                jAgentPlats.setText("Plats: " + userPlace);
-//            }
-//         }
-//         catch(InfException ex){
-//          System.out.println("Internt felmeddelande: " + ex.getMessage());
-//         }
+         try{
+              String query = "SELECT Omrade FROM agent WHERE Agent_ID = '" + userID + "'";
+            HashMap<String, String> user = idb.fetchRow(query);
+            
+            if(user != null){
+                String userPlace = user.get("Omrade");
+                jAgentPlats.setText("Plats: " + userPlace);
+            }
+         }
+         catch(InfException ex){
+          System.out.println("Internt felmeddelande: " + ex.getMessage());
+         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

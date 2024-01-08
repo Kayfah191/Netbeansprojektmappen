@@ -13,11 +13,15 @@ import javax.swing.JOptionPane;
  */
 public class InformationAdmin extends javax.swing.JFrame {
 
+    public static String userID;
+    
     /**
      * Creates new form AdminVal
      */
-    public InformationAdmin() {
+    public InformationAdmin(String userID) {
         initComponents();
+        
+        this.userID = userID;
     }
 
     /**
@@ -193,7 +197,7 @@ utrustningAdmin RegUtrusning = new utrustningAdmin();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationAdmin().setVisible(true);
+                new InformationAdmin(userID).setVisible(true);
             }
         });
     }

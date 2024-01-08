@@ -69,7 +69,7 @@ public class AndraOmradesChef extends javax.swing.JFrame {
 
         namn.setText("Namn");
 
-        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.setText("Avbryt");
         btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGaTillbakaActionPerformed(evt);
@@ -101,7 +101,7 @@ public class AndraOmradesChef extends javax.swing.JFrame {
                             .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGaTillbaka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAndra)
@@ -172,9 +172,9 @@ public class AndraOmradesChef extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraActionPerformed
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
-  AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
-        tillAdminval.show();
-        //stänger tidigare fönster
+//  AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+//        tillAdminval.show();
+//        //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
 

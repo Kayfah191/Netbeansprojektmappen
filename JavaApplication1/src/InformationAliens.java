@@ -14,13 +14,17 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class InformationAliens extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+    public static String userID;
     
     /**
      * Creates new form AlienInfo
      */
-    public InformationAliens() {
+    public InformationAliens(String userID) {
         initComponents();
+        this.userID = userID;
+        
         
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
@@ -199,7 +203,7 @@ private InfDB idb;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationAliens().setVisible(true);
+                new InformationAliens(userID).setVisible(true);
             }
         });
     }

@@ -157,7 +157,7 @@ private String epost;
 //Avbryt
         JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_OPTION)== JOptionPane.YES_OPTION);
+                JOptionPane.YES_OPTION)== JOptionPane.YES_OPTION)
         {
             System.exit(0);
         }        // TODO add your handling code here:
