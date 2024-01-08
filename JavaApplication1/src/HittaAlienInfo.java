@@ -2,21 +2,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import javax.swing.JFrame;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
+import java.text.ParseException;
+import java.util.HashMap;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 /**
  *
  * @author Rikard Söderek
  */
 public class HittaAlienInfo extends javax.swing.JFrame {
+    
+    private InfDB idb;
 
     /**
      * Creates new form HittaAlienInfo
      */
     public HittaAlienInfo() {
         initComponents();
-    
+    try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+           System.out.println("Allt fungerar (hittills))");
+        }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
     }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,50 +47,34 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        franDatumSpinner = new javax.swing.JSpinner();
+        franLabel = new javax.swing.JLabel();
+        sokRasBox = new javax.swing.JComboBox<>();
+        rasLabel = new javax.swing.JLabel();
+        omradeLabel = new javax.swing.JLabel();
+        sokOmradesBox = new javax.swing.JComboBox<>();
+        tillLabel = new javax.swing.JLabel();
+        tillDatumSpinner = new javax.swing.JSpinner();
+        platsLabel = new javax.swing.JLabel();
+        sokPlatsBox = new javax.swing.JComboBox<>();
+        sokPlatsLabel = new javax.swing.JLabel();
+        listaAlienEfterPlatsButton = new javax.swing.JButton();
+        sokRasLabel = new javax.swing.JLabel();
+        valjAlienBox = new javax.swing.JComboBox<>();
+        sokAlienNamnTextField = new javax.swing.JTextField();
+        namnLabel = new javax.swing.JLabel();
+        sokAllInfoLabel = new javax.swing.JLabel();
+        valjLabel = new javax.swing.JLabel();
+        listaAliensefterDatumButton = new javax.swing.JButton();
+        sokAllInfoButton = new javax.swing.JButton();
+        listaAliensEfterRasButton = new javax.swing.JButton();
+        sokDatumLabel = new javax.swing.JLabel();
+        resultatTextArea = new javax.swing.JTextArea();
+        ListaAlien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Hitta Besökarinformation:");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Område:");
-
-        jTextField1.setText("1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Ras:");
-
-        jLabel4.setText("Registrerades mellan:");
-
-        jTextField2.setText("Boglodite");
-
-        jTextField3.setText("2009-12-17");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("och");
-
-        jTextField4.setText("2010-06-17");
 
         jButton1.setText("Hitta");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -86,75 +90,236 @@ public class HittaAlienInfo extends javax.swing.JFrame {
             }
         });
 
+        franDatumSpinner.setModel(new javax.swing.SpinnerDateModel());
+
+        franLabel.setText("Från:");
+
+        sokRasBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boglodite", "Squid", "Worm" }));
+
+        rasLabel.setText("Ras:");
+        rasLabel.setPreferredSize(null);
+
+        omradeLabel.setText("Område:");
+        omradeLabel.setPreferredSize(null);
+
+        sokOmradesBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokOmradesBoxActionPerformed(evt);
+            }
+        });
+
+        tillLabel.setText("Till:");
+
+        tillDatumSpinner.setModel(new javax.swing.SpinnerDateModel());
+
+        platsLabel.setText("Plats:");
+        platsLabel.setPreferredSize(null);
+
+        sokPlatsBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        sokPlatsBox.setEnabled(false);
+
+        sokPlatsLabel.setText("Lista aliens i område och plats");
+
+        listaAlienEfterPlatsButton.setText("Lista aliens");
+        listaAlienEfterPlatsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAlienEfterPlatsButtonActionPerformed(evt);
+            }
+        });
+
+        sokRasLabel.setText("Lista aliens av en viss ras");
+
+        valjAlienBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        valjAlienBox.setPreferredSize(new java.awt.Dimension(330, 26));
+        valjAlienBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valjAlienBoxActionPerformed(evt);
+            }
+        });
+
+        sokAlienNamnTextField.setName("sök..."); // NOI18N
+        sokAlienNamnTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokAlienNamnTextFieldActionPerformed(evt);
+            }
+        });
+
+        namnLabel.setText("Namn:");
+
+        sokAllInfoLabel.setText("Sök all information om enskild alien");
+
+        valjLabel.setText("Välj:");
+
+        listaAliensefterDatumButton.setText("Lista aliens");
+        listaAliensefterDatumButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAliensefterDatumButtonActionPerformed(evt);
+            }
+        });
+
+        sokAllInfoButton.setText("Sök alien");
+        sokAllInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokAllInfoButtonActionPerformed(evt);
+            }
+        });
+
+        listaAliensEfterRasButton.setText("Lista aliens");
+        listaAliensEfterRasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAliensEfterRasButtonActionPerformed(evt);
+            }
+        });
+
+        sokDatumLabel.setText("Lista aliens registrerade mellan datum");
+
+        resultatTextArea.setEditable(false);
+        resultatTextArea.setBackground(new java.awt.Color(255, 255, 255));
+        resultatTextArea.setColumns(20);
+        resultatTextArea.setRows(5);
+
+        ListaAlien.setText("Lista");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(sokPlatsLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(omradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(platsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(sokPlatsBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sokRasLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sokOmradesBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(sokDatumLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(ListaAlien)
+                                .addGap(137, 137, 137))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 251, Short.MAX_VALUE)
+                        .addComponent(listaAlienEfterPlatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(437, 437, 437))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namnLabel)
+                            .addComponent(valjLabel)
+                            .addComponent(tillLabel)
+                            .addComponent(franLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(valjAlienBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
+                                        .addComponent(sokAlienNamnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(71, 71, 71)
+                                        .addComponent(sokAllInfoButton))
+                                    .addComponent(sokAllInfoLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(franDatumSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tillDatumSpinner, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(listaAliensefterDatumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sokRasBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(listaAliensEfterRasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jLabel4)
-                .addGap(15, 15, 15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(sokPlatsLabel)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(omradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(listaAlienEfterPlatsButton)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 46, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(platsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(sokRasLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sokRasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(listaAliensEfterRasButton))))
+                        .addGap(31, 31, 31)
+                        .addComponent(sokDatumLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(franDatumSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(franLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap())))
+                            .addComponent(tillDatumSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tillLabel)
+                            .addComponent(listaAliensefterDatumButton))
+                        .addGap(25, 25, 25)
+                        .addComponent(sokAllInfoLabel)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(namnLabel)
+                            .addComponent(sokAlienNamnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sokAllInfoButton))
+                        .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ListaAlien)
+                        .addGap(28, 28, 28)
+                        .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valjAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valjLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     //Avbryt
@@ -168,9 +333,194 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                 "Besökarinformation", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void sokOmradesBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokOmradesBoxActionPerformed
+        String omradet = sokOmradesBox.getSelectedItem().toString();
+
+        try{
+            ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
+            DefaultComboBoxModel platserna = new DefaultComboBoxModel();
+            for(String omrade : platsIOmradeIDB){
+                platserna.addElement(omrade);
+            }
+            platserna.addElement("ALLA");
+            sokPlatsBox.setEnabled(true);
+            sokPlatsBox.setModel(platserna);
+        }
+        catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Fel ");
+            
+        }
+
+    }//GEN-LAST:event_sokOmradesBoxActionPerformed
+
+    private String sökAllInfo(int iD){
+        String resultatsträng = "";
+        String ras = "";
+        String extra = "";
+        try{
+        
+        if (idb.fetchSingle("SELECT ALIEN_ID FROM BOGLODITE WHERE ALIEN_ID = " + iD) != null){
+                        ras = "Boglodite";
+                        extra = "Antal boogies:\n  " + idb.fetchSingle("SELECT ANTAL_BOOGIES FROM BOGLODITE WHERE ALIEN_ID = " + iD);
+                    }
+                    else if(idb.fetchSingle("SELECT ALIEN_ID FROM SQUID WHERE ALIEN_ID = " + iD) != null){
+                        ras = "Squid";
+                        extra = "Antal armar:\n  " + idb.fetchSingle("SELECT ANTAL_ARMAR FROM SQUID WHERE ALIEN_ID = " + iD);                        
+                    }
+                    else if(idb.fetchSingle("SELECT ALIEN_ID FROM WORM WHERE ALIEN_ID = " + iD) != null){
+                        ras = "Worm";
+                    }    
+            
+            
+            
+            
+        HashMap<String, String> aliens = idb.fetchRow("SELECT * FROM ALIEN WHERE ALIEN_ID = " + iD);
+        resultatsträng = "Namn:\n  " + aliens.get("NAMN")
+            + "\nAlienID:\n  " + aliens.get("ALIEN_ID")
+            + "\nRegistreringsdatum:\n  " + aliens.get("REGISTRERINGSDATUM")
+            + "\nTelefon:\n  " + aliens.get("TELEFON")
+            + "\n----------"
+            + "\nRas:\n  " + ras
+            + "\n" + extra    
+            + "\n----------"
+            + "\nOmråde:\n  " + idb.fetchSingle("SELECT BENAMNING FROM OMRADE WHERE OMRADES_ID = (SELECT FINNS_I FROM PLATS WHERE PLATS_ID = " + Integer.parseInt(aliens.get("PLATS")) + ")")
+            + "\nPlats:\n  " + idb.fetchSingle("SELECT BENAMNING FROM PLATS WHERE PLATS_ID = " + Integer.parseInt(aliens.get("PLATS")))
+            + "\n----------"
+                
+            + "\nAnsvarig Agent:\n  " + idb.fetchSingle("SELECT NAMN FROM AGENT WHERE AGENT_ID = " + Integer.parseInt(aliens.get("ANSVARIG_AGENT")));
+        }
+        catch (InfException undantag){
+            JOptionPane.showMessageDialog(null, "Något gick fel med databasuppkopplingen!");
+            System.out.println("Något gick fel! " + undantag);
+        }
+        return resultatsträng;
+    }    
+    
+    private void sokAllInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokAllInfoButtonActionPerformed
+        sokAlienNamnTextFieldActionPerformed(evt);
+    }//GEN-LAST:event_sokAllInfoButtonActionPerformed
+
+    private void valjAlienBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valjAlienBoxActionPerformed
+        String[] alienSök = valjAlienBox.getSelectedItem().toString().split(" ");
+        int alienID = Integer.parseInt(alienSök[1]);
+        String allInfoOmAlien = sökAllInfo(alienID);
+        resultatTextArea.setText(allInfoOmAlien);
+    }//GEN-LAST:event_valjAlienBoxActionPerformed
+
+    private void sokAlienNamnTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokAlienNamnTextFieldActionPerformed
+        String resultatsträng = "";
+        try{
+            ArrayList<String> aliensLista = new ArrayList<String>();
+            aliensLista = idb.fetchColumn("SELECT ALIEN_ID FROM ALIEN WHERE NAMN = \'" + sokAlienNamnTextField.getText() + "\'");
+            if (aliensLista == null){
+                resultatsträng = "Ingen alien hittad!";
+                valjLabel.setVisible(false);
+                valjAlienBox.setVisible(false);
+            }
+            else if (aliensLista.size() == 1){
+                int alienID = Integer.parseInt((String) idb.fetchSingle("SELECT ALIEN_ID FROM ALIEN WHERE NAMN = \'" + sokAlienNamnTextField.getText() + "\'"));
+                resultatsträng = sökAllInfo(alienID);
+                valjLabel.setVisible(false);
+                valjAlienBox.setVisible(false);
+            }
+            else{
+                resultatsträng = "Var god specificera din sökning.";
+                ArrayList<HashMap<String,String>> aliens = idb.fetchRows("SELECT * FROM ALIEN WHERE NAMN = \'" + sokAlienNamnTextField.getText() + "\'");
+
+                DefaultComboBoxModel aliensForCBox = new DefaultComboBoxModel();
+                for(HashMap alien : aliens){
+                    String ras = "";
+                    String extra = "";
+                    if (idb.fetchSingle("SELECT ALIEN_ID FROM BOGLODITE WHERE ALIEN_ID = " + alien.get("ALIEN_ID")) != null){
+                        ras = "Boglodite";
+                        extra = " | Antal boogies: " + idb.fetchSingle("SELECT ANTAL_BOOGIES FROM BOGLODITE WHERE ALIEN_ID = " + alien.get("ALIEN_ID"));
+                    }
+                    else if(idb.fetchSingle("SELECT ALIEN_ID FROM SQUID WHERE ALIEN_ID = " + alien.get("ALIEN_ID")) != null){
+                        ras = "Squid";
+                        extra = " | Antal armar: " + idb.fetchSingle("SELECT ANTAL_ARMAR FROM SQUID WHERE ALIEN_ID = " + alien.get("ALIEN_ID"));
+                    }
+                    else if(idb.fetchSingle("SELECT ALIEN_ID FROM WORM WHERE ALIEN_ID = " + alien.get("ALIEN_ID")) != null){
+                        ras = "Worm";
+                    }
+                    String alienAlternativ = "ID: " + alien.get("ALIEN_ID") + " | Ras: " + ras + extra + " | Plats: " + idb.fetchSingle("SELECT BENAMNING FROM PLATS WHERE PLATS_ID = " + alien.get("PLATS"));
+                    aliensForCBox.addElement(alienAlternativ);
+                }
+                valjAlienBox.setModel(aliensForCBox);
+                valjLabel.setVisible(true);
+                valjAlienBox.setVisible(true);
+            }
+            resultatTextArea.setText(resultatsträng);
+            resultatTextArea.setCaretPosition(0);
+        }
+        catch(InfException undantag){
+            System.out.println("Något gick fel! " + undantag);
+        }
+    }//GEN-LAST:event_sokAlienNamnTextFieldActionPerformed
+
+    private void listaAliensefterDatumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAliensefterDatumButtonActionPerformed
+        try{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String franD = dateFormat.format(franDatumSpinner.getValue());
+            String tillD = dateFormat.format(tillDatumSpinner.getValue());
+
+            String resultatsträng = "";
+            ArrayList<String> alienMellanDatum = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE REGISTRERINGSDATUM BETWEEN \'" + franD + "\' AND \'" + tillD + "\'");
+            for (String alien : alienMellanDatum){
+                resultatsträng += alien + "\n";
+            }
+            resultatTextArea.setText(resultatsträng);
+        }
+        catch(InfException undantag){
+            System.out.println(undantag);
+        }
+    }//GEN-LAST:event_listaAliensefterDatumButtonActionPerformed
+
+    private void listaAliensEfterRasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAliensEfterRasButtonActionPerformed
+        try{
+            String sökRas = sokRasBox.getSelectedItem().toString().toUpperCase();
+            String resultatsträng = "";
+            ArrayList<String> rasAliens = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE ALIEN_ID IN (SELECT ALIEN_ID FROM " + sökRas + ")");
+            for (String rasAlien : rasAliens){
+                resultatsträng += rasAlien + "\n";
+            }
+            resultatTextArea.setText(resultatsträng);
+        }
+        catch(InfException undantag){
+            System.out.println("Något gick fel! " + undantag);
+        }
+    }//GEN-LAST:event_listaAliensEfterRasButtonActionPerformed
+
+    private void listaAlienEfterPlatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlienEfterPlatsButtonActionPerformed
+        resultatTextArea.setText("");
+        String resultatsträng = "";
+        String sökPlats = sokPlatsBox.getSelectedItem().toString();
+
+        ArrayList<String> alienPaPlats = new ArrayList<String>();
+
+        try{
+            if (sökPlats.equals("ALLA")){
+                sökPlats = sokOmradesBox.getSelectedItem().toString();
+                alienPaPlats = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE PLATS IN (SELECT PLATS_ID FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + sökPlats + "\'))");
+
+            }
+            else{
+                alienPaPlats = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE PLATS = (SELECT PLATS_ID FROM PLATS WHERE BENAMNING = \'" + sökPlats + "\')");
+            }
+
+            if (alienPaPlats == null || alienPaPlats.contains(null)){
+                resultatsträng = "Inga aliens på valda platsen!";
+            }
+            else{
+                for (String alien : alienPaPlats){
+                    resultatsträng += alien + "\n";
+                }
+            }
+            resultatTextArea.setText(resultatsträng);
+        }
+        catch(InfException undantag){
+
+        }
+    }//GEN-LAST:event_listaAlienEfterPlatsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,16 +558,31 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ListaAlien;
+    private javax.swing.JSpinner franDatumSpinner;
+    private javax.swing.JLabel franLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton listaAlienEfterPlatsButton;
+    private javax.swing.JButton listaAliensEfterRasButton;
+    private javax.swing.JButton listaAliensefterDatumButton;
+    private javax.swing.JLabel namnLabel;
+    private javax.swing.JLabel omradeLabel;
+    private javax.swing.JLabel platsLabel;
+    private javax.swing.JLabel rasLabel;
+    private javax.swing.JTextArea resultatTextArea;
+    private javax.swing.JTextField sokAlienNamnTextField;
+    private javax.swing.JButton sokAllInfoButton;
+    private javax.swing.JLabel sokAllInfoLabel;
+    private javax.swing.JLabel sokDatumLabel;
+    private javax.swing.JComboBox<String> sokOmradesBox;
+    private javax.swing.JComboBox<String> sokPlatsBox;
+    private javax.swing.JLabel sokPlatsLabel;
+    private javax.swing.JComboBox<String> sokRasBox;
+    private javax.swing.JLabel sokRasLabel;
+    private javax.swing.JSpinner tillDatumSpinner;
+    private javax.swing.JLabel tillLabel;
+    private javax.swing.JComboBox<String> valjAlienBox;
+    private javax.swing.JLabel valjLabel;
     // End of variables declaration//GEN-END:variables
 }
