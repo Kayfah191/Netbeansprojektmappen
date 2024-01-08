@@ -184,12 +184,12 @@ if ( jbenamning.getText().isEmpty()){
 try{
             String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
         String benamning=jbenamning.getText();
-        String redskap=intal.getText();
+        String redskap= intal.getText();
         String olikaVal = jbox.getSelectedItem().toString();
 
           if (olikaVal.equals("Vapen")) {
-            // int antalKaliber = Integer.parseInt(intal.getText()); // Kommenterad ut
-            String q = "INSERT INTO Vapen VALUES('" + uid + "', '" + redskap + "')";
+            int antalKaliber = Integer.parseInt(intal.getText()); 
+            String q = "INSERT INTO Vapen VALUES('" + uid + "', '" + antalKaliber + "')";
             String q2 = "INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";
 
             idb.insert(q);
@@ -198,7 +198,7 @@ try{
             dispose();
         }
 
-              else if (olikaVal.equals("Kommunikation")) {
+             if (olikaVal.equals("Kommunikation")) {
 
                String q3= "insert into utrustning values('" + uid + "', '"+ benamning + "')";
                             idb.insert(q3);
@@ -207,7 +207,7 @@ try{
                 JOptionPane.showMessageDialog(null," överföring till databasen lyckades");
                 dispose();
             }
-           else if (olikaVal.equals("Teknik")) {
+            if (olikaVal.equals("Teknik")) {
                 String q5="insert into utrustning values('"+ uid + "', '"+ benamning + "')";
                 idb.insert(q5);
                 String q6="insert into Teknik values('" + uid + "', '" + redskap + "')";

@@ -3,7 +3,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -28,137 +30,149 @@ public class Validering {
     public Validering (InfDB idb) {
         
     }
-     public static boolean epostFromat(String epost1){  
-     String epost = "^(.+)@(.+)$";
-      boolean resultat=false;
-        if(epost1.matches(epost)){
-            resultat=true;
-        } 
-            return resultat;
-    
-    }
-       //KOllar ifall agenteposten finns
-    public static boolean agentEpost(JTextField rutaAttKolla, InfDB idb) {
-        Validering.idb=idb;
-        boolean finns = false;
-        ArrayList<String> epost;
-        try {
-            epost = idb.fetchColumn("select epost from agent");
-            for (String enEpost : epost) {
-                if (rutaAttKolla.getText().equalsIgnoreCase(enEpost)) {
-                    finns = true;
-                }
-            }
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Databas är inte kopplat");
+      //Kollar om textfältet är tomt.
+    static public boolean textNotEmpty(JTextField txt){
+        if (txt.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Textfältet är tomt!");
+            txt.requestFocus();
+            return false;
         }
-        if (finns == false) {
-            JOptionPane.showMessageDialog(null, "Eposten finns inte,vänligen kontrollera");
-        }
-
-        return finns;
-    }
-      //checks whether a text field is filled 
-    public static boolean isFilled(JTextField field) {
-        boolean result = true;
-        if (field.getText().isEmpty()) {
-            result = false;
-            JOptionPane.showMessageDialog(null, "Please fill in all fields correctly.");
-            field.requestFocus();
-        }
-        return result;
-    }
-
-    public static boolean losenordFormat(String losenord1){
-        boolean resultat=false;
-        String lösenord="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{4,20}$";
-        if(losenord1.matches(lösenord)){
-            resultat=true;
-        } 
-            return resultat;
-    
-    }
-            public static boolean stringFormat(String namn1, String namn2){
-                boolean stringFormat=false;
-                try{
-     if (namn1.equalsIgnoreCase(namn2)){
-                       stringFormat =true;
-                }            
-                }   catch(Exception e){
-                            stringFormat =false;
-                 System.out.println("Något har gått fel");
-            }
-                 return stringFormat;
-            }
-            
-    //turns a string entirely into upper case
-    public static String upperCase(String word) {
-        word = word.substring(0).toUpperCase();
-        return word;
-    }
-
-    //restricts input to a single word
-    public static boolean oneWord(String words) {
-        boolean result = false;
-        if (words.matches("(\\w|Å|Ä|Ö|å|ä|ö)+")) {
-            result = true;
-        }
-        return result;
-    }
-
-    //checks whether an object is not null
-    public static boolean exists(Object object) {
-        boolean result = false;
-        if (object != null) {
-            result = true;
-        }
-        return result;
-    }
-    
-    public static boolean losenordkoll(JTextField rutaAttKolla) {
-        boolean resultat = true;
-        String pass = rutaAttKolla.getText();
-        if (pass.length() > 6 || pass.length() < 1) {
-            resultat = false;
-            JOptionPane.showMessageDialog(null, "Lösenordet ska vara mellan 1 till 6 tecken");
-        }
-        return resultat;
-    }
-    
-    public static boolean tillåtetdatum(JTextField rutaAttKolla) {
-        try {
-            String dateStr = rutaAttKolla.getText();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            sdf.setLenient(false);
-            Date date = sdf.parse(dateStr);
+        else {
             return true;
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Fel format på datum");
+        }
+    }
+    
+    //Kollar om inmatningen i textfält består av integers.
+    static public boolean textIsIntegers(JTextField txt){
+        try{
+            Integer.parseInt(txt.getText());
+            return true;
+        }
+        catch(NumberFormatException undantag){
+            JOptionPane.showMessageDialog(null, "Värdet måste bestå av endast heltal!");
+            txt.requestFocus();
+            return false;
+        }
+        
+    }
+    
+    // Kollar så inte lösenordsfältet är tomt.
+    static public boolean passwordNotEmpty(JPasswordField txt){
+        if (new String(txt.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(null, "Lösenordsfältet är tomt!");
+            txt.requestFocus();
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    
+    // Kollar om de nya lösenorden matchar varandra.
+    static public boolean newPasswordMatch(JPasswordField txt1, JPasswordField txt2){
+        if (new String(txt1.getPassword()).equals(new String(txt2.getPassword()))){
+            return true;
+        }
+        else{
+            txt1.requestFocus();
+            JOptionPane.showMessageDialog(null, "De nya lösenorden matchar inte!");
             return false;
         }
     }
     
-    public static boolean agentEpostFinns(JTextField rutaAttKolla, InfDB idb) {
-        Validering.idb = idb;
-        boolean finns = false;
-        ArrayList<String> epost;
-        try {
-            epost = idb.fetchColumn("select epost from agent");
-            for (String enEpost : epost) {
-                if (rutaAttKolla.getText().equalsIgnoreCase(enEpost)) {
-                    finns = true;
-                }
+    // Kollar formatet på ett textfält för att se om det överensstämmer med ett datum.
+    static public boolean checkDatumFormat(JTextField datumField){
+        String[] datum = datumField.getText().toString().split("-");
+        boolean allNumbers = true;
+        for (String datumet : datum){
+            try{
+                System.out.println(datumet);
+                int testInt = Integer.parseInt(datumet);
             }
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Databas fel");
+            catch( NumberFormatException undantag){
+                allNumbers = false;
+                System.out.println("Inte nummer");
+            }
         }
-        if (finns == false) {
-            JOptionPane.showMessageDialog(null, "Eposten finns inte, var säker på att du stavat rätt");
+        if (allNumbers && datum.length == 3 && datum[0].length() == 4 && datum[1].length() == 2 && datum[2].length() == 2){
+            return true;
         }
-
-        return finns;
+        else{
+            JOptionPane.showMessageDialog(null, "Datumformatet ska vara numeriskt, enligt detta format 'ÅÅÅ-MM-DD'.");
+            datumField.requestFocus();
+            return false;
+        }
+        
     }
     
+    // Kollar längden på inmatat telefonnummer så det inte överstiger 30 tecken.
+    static public boolean checkPhoneLength(JTextField txt){
+        if (txt.getText().toString().length() <= 30){
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Telefonnumret är för långt!");
+            return false;
+        }
+    }
+    // Kollar så längden på inmatat lösenord ej är för långt.
+    static public boolean passwordTextFieldLengthCheck(JTextField txt){
+        if (new String(txt.getText()).length() <= 6){
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Lösenordet är för långt! Max 6 tecken.");
+            txt.requestFocus();
+            return false;
+        }
+    }
+    //Kollar så längden på inmatat namn ej är för långt.
+    static public boolean nameTextFieldLengthCheck(JTextField txt){
+        if (new String(txt.getText()).length() <= 20){
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Namnet är för långt! Max 20 tecken.");
+            txt.requestFocus();
+            return false;
+        }
+    }
+    //Kollar om JComboBoxen är tom.
+    static public boolean JComboBoxNotEmpty(JComboBox box){
+        if (box.getSelectedItem().toString().equals("---")){
+            JOptionPane.showMessageDialog(null, "Inget valt i listan!");
+            box.requestFocus();
+            return false;
+        }
+        else{
+        return true;
+        }
+    }
+    
+    //Kollar om någon valts i komboboxen samt att det finns ett värde i en vald JTextField.
+    public static boolean iDIfyllt(JTextField txt, JComboBox box){
+        System.out.println(txt.getText());
+        if (txt.getText().isEmpty() || box.getSelectedItem().toString().equals("---")){
+            JOptionPane.showMessageDialog(null, "Inget valt i listan!");
+            box.requestFocus();
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+    }
+    
+    // Kollar om längden på lösenordet är högst 6 tecken.
+    static public boolean passwordLengthCheck(JPasswordField txt){
+        if (new String(txt.getPassword()).length() <= 6){
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Lösenordet är för långt! Max 6 tecken.");
+            txt.requestFocus();
+            return false;
+        }
+    }
 }
-
-   
+    

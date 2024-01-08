@@ -42,16 +42,111 @@ private InfDB idb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bodyPanel = new javax.swing.JPanel();
+        utrustningNamnLabel = new javax.swing.JLabel();
+        valjUtrustningLabel = new javax.swing.JLabel();
+        utrustningNamnTextField = new javax.swing.JTextField();
+        valjUtrustningBox = new javax.swing.JComboBox<>();
+        sokUtrustningButton = new javax.swing.JButton();
+        taBortUtrustningButton = new javax.swing.JButton();
+        avbrytButton = new javax.swing.JButton();
+        skiljeStreck2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jbox = new javax.swing.JComboBox<>();
+        valjUtrustningBox1 = new javax.swing.JComboBox<>();
+        TabortUtrustning = new javax.swing.JButton();
+
+        bodyPanel.setBackground(new java.awt.Color(170, 170, 170));
+        bodyPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        utrustningNamnLabel.setText("Namn:");
+
+        valjUtrustningLabel.setText("Välj utrustning:");
+
+        utrustningNamnTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                utrustningNamnTextFieldActionPerformed(evt);
+            }
+        });
+
+        valjUtrustningBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---" }));
+
+        sokUtrustningButton.setText("Sök");
+        sokUtrustningButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokUtrustningButtonActionPerformed(evt);
+            }
+        });
+
+        taBortUtrustningButton.setText("Ta bort utrustning");
+        taBortUtrustningButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortUtrustningButtonActionPerformed(evt);
+            }
+        });
+
+        avbrytButton.setText("Avbryt");
+        avbrytButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avbrytButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
+        bodyPanel.setLayout(bodyPanelLayout);
+        bodyPanelLayout.setHorizontalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(taBortUtrustningButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(avbrytButton)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(skiljeStreck2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valjUtrustningBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bodyPanelLayout.createSequentialGroup()
+                                .addComponent(valjUtrustningLabel)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
+                        .addComponent(utrustningNamnLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(utrustningNamnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sokUtrustningButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        bodyPanelLayout.setVerticalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(utrustningNamnLabel)
+                    .addComponent(utrustningNamnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sokUtrustningButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(skiljeStreck2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(valjUtrustningLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(valjUtrustningBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avbrytButton)
+                    .addComponent(taBortUtrustningButton))
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Registrering av utrustning");
+        jLabel1.setText("Radering av Utrustning");
 
         jButton1.setText("Avbryt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,18 +155,18 @@ private InfDB idb;
             }
         });
 
-        jButton3.setText("Ta Bort Utrustnug");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Välj det utrustning du vill ta bort");
+
+        valjUtrustningBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                valjUtrustningBox1ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Välj det utrustning du vill ta bort");
-
-        jbox.addActionListener(new java.awt.event.ActionListener() {
+        TabortUtrustning.setText("Ta bort Utrusning");
+        TabortUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jboxActionPerformed(evt);
+                TabortUtrustningActionPerformed(evt);
             }
         });
 
@@ -79,47 +174,42 @@ private InfDB idb;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TabortUtrustning)
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(jLabel4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel5))))
-                        .addGap(0, 161, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(valjUtrustningBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 212, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(89, 89, 89)
-                .addComponent(jButton1)
+                .addComponent(valjUtrustningBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(TabortUtrustning))
                 .addGap(19, 19, 19))
         );
 
@@ -132,7 +222,7 @@ private InfDB idb;
     //jbox.removeAllItems();
     q2=idb.fetchColumn(fraga);
     for(String benamning : q2){
-        jbox.addItem(benamning);
+        valjUtrustningBox1.addItem(benamning);
     }
       }
     catch(InfException e) {
@@ -147,7 +237,16 @@ private InfDB idb;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-  String olikaVal = jbox.getSelectedItem().toString();
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jboxActionPerformed
+
+    private void TabortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TabortUtrustningActionPerformed
+String olikaVal = valjUtrustningBox1.getSelectedItem().toString();
 try {
     // Hämta Utrustnings_ID för det valda värdet
     String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + olikaVal + "'");
@@ -169,13 +268,8 @@ try {
 } catch (InfException e) {
     JOptionPane.showMessageDialog(null, "Misslyckad, försök igen senare");
 }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
-
         // TODO add your handling code here:
-    }//GEN-LAST:event_jboxActionPerformed
+    }//GEN-LAST:event_TabortUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,11 +310,20 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton TabortUtrustning;
+    private javax.swing.JButton avbrytButton;
+    private javax.swing.JPanel bodyPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JComboBox<String> jbox;
+    private javax.swing.JSeparator skiljeStreck2;
+    private javax.swing.JButton sokUtrustningButton;
+    private javax.swing.JButton taBortUtrustningButton;
+    private javax.swing.JLabel utrustningNamnLabel;
+    private javax.swing.JTextField utrustningNamnTextField;
+    private javax.swing.JComboBox<String> valjUtrustningBox;
+    private javax.swing.JComboBox<String> valjUtrustningBox1;
+    private javax.swing.JLabel valjUtrustningLabel;
     // End of variables declaration//GEN-END:variables
 }
