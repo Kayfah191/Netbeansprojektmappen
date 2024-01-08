@@ -296,21 +296,21 @@ public class InformationAgenter extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Registrera Utrustning På Agenter
         RegistreringAgentUtrustning Regutrust= new RegistreringAgentUtrustning();
-        Regutrust.show(); 
+        Regutrust.setVisible(true); 
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         //Öppnar ett fönster för att hitta specifika besökare
         HittaAlienInfo Hittaalinfo= new HittaAlienInfo();
-        Hittaalinfo.show();    
+        Hittaalinfo.setVisible(true);    
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Registrera Nya Aliens
         RegistreraNyaAliens RegAlien= new RegistreraNyaAliens();
-        RegAlien.show(); 
+        RegAlien.setVisible(true); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
