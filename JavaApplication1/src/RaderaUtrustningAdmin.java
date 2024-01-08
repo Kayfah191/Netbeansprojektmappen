@@ -147,7 +147,7 @@ private InfDB idb;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-  Object olikaVal = jbox.getSelectedItem();
+  String olikaVal = jbox.getSelectedItem().toString();
 try {
     // Hämta Utrustnings_ID för det valda värdet
     String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + olikaVal + "'");
