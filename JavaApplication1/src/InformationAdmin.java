@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Rikard Söderek
  */
 public class InformationAdmin extends javax.swing.JFrame {
-
+    
     public static String userID;
     
     /**
@@ -20,7 +20,6 @@ public class InformationAdmin extends javax.swing.JFrame {
      */
     public InformationAdmin(String userID) {
         initComponents();
-        
         this.userID = userID;
     }
 
@@ -133,7 +132,7 @@ public class InformationAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //visa InloggningAgenter
         AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
-        alltOmAgent.show(); 
+        alltOmAgent.setVisible(true); 
         //Stänga det tidigare fönstret
         dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -151,7 +150,7 @@ public class InformationAdmin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //visa Info På Aliens
         AndraAliens_Admin InfoAlien = new AndraAliens_Admin();
-        InfoAlien.show(); 
+        InfoAlien.setVisible(true); 
         //Stänga det tidigare fönstret
         dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -159,7 +158,7 @@ public class InformationAdmin extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
 utrustningAdmin RegUtrusning = new utrustningAdmin();
-        RegUtrusning.show(); 
+        RegUtrusning.setVisible(true); 
         //Stänga det tidigare fönstret
         dispose();  
 

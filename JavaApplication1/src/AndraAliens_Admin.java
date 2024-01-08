@@ -4,15 +4,15 @@
  */
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
  */
+
 public class AndraAliens_Admin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AndraAliens_Admin
-     */
+    
     public AndraAliens_Admin() {
         initComponents();
     }
@@ -118,21 +118,21 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
      //Ändra Nya Aliens
         AndraAliens AndraAlien= new AndraAliens();
-        AndraAlien.show(); 
+        AndraAlien.setVisible(true); 
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      //Registrera Nya Besökare
         RegistreraNyaAliens NyAlien= new RegistreraNyaAliens();
-        NyAlien.show(); 
+        NyAlien.setVisible(true); 
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
        TabortAlienAdmin tabortAlien= new  TabortAlienAdmin();
-       tabortAlien.show(); 
+       tabortAlien.setVisible(true); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

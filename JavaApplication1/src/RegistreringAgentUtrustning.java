@@ -16,9 +16,13 @@ import oru.inf.InfException;
  * @author Rikard Söderek
  */
 public class RegistreringAgentUtrustning extends javax.swing.JFrame {
- private InfDB idb;
+ 
+    private InfDB idb;
+ 
     public RegistreringAgentUtrustning() {
         initComponents();
+        
+        
          try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
 

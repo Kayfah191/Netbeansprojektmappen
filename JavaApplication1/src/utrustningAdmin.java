@@ -9,11 +9,15 @@
  */
 public class utrustningAdmin extends javax.swing.JFrame {
 
+
+    
     /**
      * Creates new form utrusningAdmin
      */
     public utrustningAdmin() {
         initComponents();
+        
+        
     }
 
     /**
@@ -84,19 +88,21 @@ public class utrustningAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin();
+        //Radera utrustning
+        
+        RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin();
         RegUtrusning.show(); 
-        //Stänga det tidigare fönstret
+        
         dispose();  
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-RegistreringAgentUtrustning RegUtrusning = new RegistreringAgentUtrustning();
-        RegUtrusning.show(); 
-        //Stänga det tidigare fönstret
-        dispose();          // TODO add your handling code here:
+        //Registrera utrustning
+        
+        RegistreringAgentUtrustning RegUtrusning = new RegistreringAgentUtrustning();
+        RegUtrusning.setVisible(true); 
+        
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
