@@ -154,12 +154,12 @@ try {
                      // Agentens information presenteras i tabellen
         agentTabel.setValueAt(agent.get("Agent_ID"), 0, 0);               // Kolumn 1
         agentTabel.setValueAt(agent.get("Namn"), 0, 1);                   // Kolumn 2
-        agentTabel.setValueAt(agent.get("Epost"), 0, 2);                  // Kolumn 3
-        agentTabel.setValueAt(agent.get("Losenord"), 0, 3);               // Kolumn 4
-        agentTabel.setValueAt(agent.get("Telefon"), 0, 4);                // Kolumn 5
-        agentTabel.setValueAt(agent.get("Omrade"), 0, 5);                 // Kolumn 6
-        agentTabel.setValueAt(agent.get("Administrator"), 0, 6);          // Kolumn 7
-        agentTabel.setValueAt(agent.get("Anstallningsdatum"), 0, 7);      // Kolumn 8
+        agentTabel.setValueAt(agent.get("Epost"), 0, 5);                  // Kolumn 3
+        agentTabel.setValueAt(agent.get("Losenord"), 0, 6);               // Kolumn 4
+        agentTabel.setValueAt(agent.get("Telefon"), 0, 2);                // Kolumn 5
+        agentTabel.setValueAt(agent.get("Omrade"), 0, 7);                 // Kolumn 6
+        agentTabel.setValueAt(agent.get("Administrator"), 0, 4);          // Kolumn 7
+        agentTabel.setValueAt(agent.get("Anstallningsdatum"), 0, 3);      // Kolumn 8
 
             } 
             catch (Exception e) {
