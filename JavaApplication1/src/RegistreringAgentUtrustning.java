@@ -232,17 +232,16 @@ try{
         String olikaVal = jbox.getSelectedItem().toString();
         
         if (olikaVal.equals("Vapen")) {
-<<<<<<< HEAD
+
             jKaliber.setText("Vilken Kaliber (heltal)");
             
         } else if (olikaVal.equals("Kommunikationsmedel")) {
             jKaliber.setText("Typ av ÖverFörningsteknik");
-            
-=======
+
             jKaliber.setText("Kaliber (heltal)");
         } else if (olikaVal.equals("Kommunikation")) {
             jKaliber.setText("ÖverFörningsteknik");
->>>>>>> parent of ff49d7e (Massa ändringar)
+            
         } else {
             jKaliber.setText("Kraftkälla");
         }
