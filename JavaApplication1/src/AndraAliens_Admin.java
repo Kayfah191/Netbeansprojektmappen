@@ -119,7 +119,6 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
      //Ändra Nya Aliens
         AndraAliens AndraAlien= new AndraAliens();
         AndraAlien.setVisible(true); 
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

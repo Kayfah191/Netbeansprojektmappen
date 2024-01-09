@@ -14,13 +14,18 @@ import javax.swing.JOptionPane;
 public class InformationAdmin extends javax.swing.JFrame {
     
     public static String userID;
+    public static String userNamn;
     
     /**
      * Creates new form AdminVal
      */
-    public InformationAdmin(String userID) {
+    public InformationAdmin(String userID, String userNamn) {
         initComponents();
         this.userID = userID;
+        this.userNamn = userNamn;
+        
+        jLabel1.setText("Välkommen " + userNamn);
+        
     }
 
     /**
@@ -66,10 +71,10 @@ public class InformationAdmin extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Val för objektändring:");
+        jLabel1.setText("Välkommen [Agent]");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Välj typ av klass för ändring:");
+        jLabel2.setText("Välj vart du vill göra ändringar:");
 
         jButton4.setText("Avbryt");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +138,7 @@ public class InformationAdmin extends javax.swing.JFrame {
         //visa InloggningAgenter
         AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
         alltOmAgent.setVisible(true); 
-        //Stänga det tidigare fönstret
-        dispose();  
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -151,18 +155,14 @@ public class InformationAdmin extends javax.swing.JFrame {
         //visa Info På Aliens
         AndraAliens_Admin InfoAlien = new AndraAliens_Admin();
         InfoAlien.setVisible(true); 
-        //Stänga det tidigare fönstret
-        dispose();  
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-utrustningAdmin RegUtrusning = new utrustningAdmin();
+    utrustningAdmin RegUtrusning = new utrustningAdmin();
         RegUtrusning.setVisible(true); 
-        //Stänga det tidigare fönstret
-        dispose();  
-
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -196,7 +196,7 @@ utrustningAdmin RegUtrusning = new utrustningAdmin();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationAdmin(userID).setVisible(true);
+                new InformationAdmin(userID, userNamn).setVisible(true);
             }
         });
     }

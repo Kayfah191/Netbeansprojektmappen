@@ -319,6 +319,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_listaAliensefterDatumButtonActionPerformed
 
     private void listaAliensEfterRasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAliensEfterRasButtonActionPerformed
+        //Knapp för att lista aliens ras
         try{
             String sökRas = sokRasBox.getSelectedItem().toString().toUpperCase();
             String resultatsträng = "";
