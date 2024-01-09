@@ -100,6 +100,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         jLabel1.setText("Registrera ny agent");
 
+        jbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jboxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,6 +233,10 @@ public class RegistreraAgent extends javax.swing.JFrame {
         // Avbryt
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jboxActionPerformed
 
     /**
      * @param args the command line arguments
