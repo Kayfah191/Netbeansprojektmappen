@@ -205,11 +205,15 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
+        
         String olikaVal = jbox.getSelectedItem().toString();
+        
         if (olikaVal.equals("Vapen")) {
             jKaliber.setText("Vilken Kaliber (heltal)");
-        } else if (olikaVal.equals("Typ av Kommunikationsmedel")) {
+            
+        } else if (olikaVal.equals("Kommunikationsmedel")) {
             jKaliber.setText("Typ av ÖverFörningsteknik");
+            
         } else {
             jKaliber.setText("Typ av Kraftkälla");
         }
