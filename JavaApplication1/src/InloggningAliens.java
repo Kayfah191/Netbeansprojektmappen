@@ -49,14 +49,6 @@ initComponents();
         }
       
     }
-
-//try 
-//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mibdb?zeroDateTimeBehavior=CONVERT_TO_NULL", "mibdb", "InloggningAliens");
-//            st = (Statement) conn.createStatement();
-//            
-////       // Skapa en instans av DatabaseHandler vid skapandet av JFrame
- 
-      
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,38 +175,34 @@ initComponents();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//PreparedStatement statement = ;
- // TODO add your handling code here:
-    if (jUser.getText().isEmpty()&&jPassword.getText().isEmpty()) {
+        //Loggin knapp
+        
+    if (jUser.getText().isEmpty() || jPassword.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post eller lösenord");
     }
-  
     
     try {
         String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
+        
+        String userAlienID = rad.get("Alien_ID");
+        
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         
-        String userID = rad.get("Alien_ID");
-        
         if(jPassword.getText().equals(lösenord)) {
-             InformationAliens infoAlien = new InformationAliens(userID);
-        infoAlien.show();
-        //Stänger tidigare fönster
+             InformationAliens infoAlien = new InformationAliens(userAlienID);
+        infoAlien.setVisible(true);
         dispose();
         }
         else {
             throw new Exception();
         }
-       
-        
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
-
-        
+      System.out.println("Internt felmeddelande: " + e.getMessage());
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -222,7 +210,7 @@ initComponents();
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
-        //Stänger tidigare fönster
+        
         dispose();
 
     }//GEN-LAST:event_jButton4ActionPerformed

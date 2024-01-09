@@ -20,6 +20,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
      */
     public InloggningAdmin() {
         initComponents();
+        
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
@@ -76,7 +77,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Inloggning [Admin]");
+        jLabel1.setText("Välkommen");
 
         jButton4.setText("Avbryt");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +178,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
          String test2 = adminlösenord.getText();
         if (test.isEmpty() || test2.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
-    }String q1 = String.format("select Agent_id, administrator, Losenord, Epost from agent where Epost = \"%s\"", adminnamn.getText());
+    }String q1 = String.format("SELECT Agent_id, Namn, administrator, Losenord, Epost FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
 //        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
 //                "' and losenord = '" + adminlösenord.getText() + "';";
         HashMap<String, String> rad =  idb.fetchRow(q1);
@@ -185,9 +186,10 @@ public class InloggningAdmin extends javax.swing.JFrame {
         System.out.println("rad hittad");
         
         String userID = rad.get("Agent_ID");
+        String userNamn = rad.get("Namn");
         
                 if(adminnamn.getText().equals(rad.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad.get("Administrator").equals("J")) {
-            InformationAdmin InfoAD = new InformationAdmin(userID);
+            InformationAdmin InfoAD = new InformationAdmin(userID, userNamn);
         InfoAD.setVisible(true);  //öppnar informationsfönser till Admin
         //stänger tidigare fönster
         dispose(); 
