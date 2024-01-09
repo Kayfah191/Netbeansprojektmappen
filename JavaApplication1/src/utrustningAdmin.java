@@ -91,7 +91,9 @@ public class utrustningAdmin extends javax.swing.JFrame {
         //Radera utrustning
         
         RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin();
-        RegUtrusning.setVisible(true);  
+        RegUtrusning.show(); 
+        
+        dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -99,6 +101,8 @@ public class utrustningAdmin extends javax.swing.JFrame {
         
         RegistreringAgentUtrustning RegUtrusning = new RegistreringAgentUtrustning();
         RegUtrusning.setVisible(true); 
+        
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -162,7 +162,12 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
     //Avbryt
-    dispose();
+        JFrame frame = new JFrame("Avbryt");
+        if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

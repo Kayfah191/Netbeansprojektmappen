@@ -23,7 +23,6 @@ public class InformationAliens extends javax.swing.JFrame {
      */
     public InformationAliens(String userID) {
         initComponents();
-        
         this.userID = userID;
         
         

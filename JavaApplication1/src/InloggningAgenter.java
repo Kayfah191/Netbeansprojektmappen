@@ -22,7 +22,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
      */
     public InloggningAgenter() {
         initComponents();
-        
+    
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
@@ -169,10 +169,14 @@ public class InloggningAgenter extends javax.swing.JFrame {
 
     private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
         //Eposten som matas in
+
+        
     }//GEN-LAST:event_jUserActionPerformed
 
     private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
         //Lösenordet som matas in
+        
+        
     }//GEN-LAST:event_jPasswordActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -190,35 +194,33 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }//GEN-LAST:event_jExitBActionPerformed
 
     private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
-        //Loggin knapp
+        //Öppnar InformationAgenter (Login knapp)
        
-    if (jUser.getText().isEmpty() || jPassword.getText().isEmpty()) {
+    if (jUser.getText().isEmpty()||jPassword.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
     }
    
-    try { 
-        String query = String.format("SELECT Agent_ID, Epost, Losenord, Namn FROM agent WHERE Epost = \"%s\"", jUser.getText());
+    try {
+        String query = String.format("SELECT Agent_ID, Epost, Losenord FROM agent WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
         
         String userID = rad.get("Agent_ID");
-        String userNamn = rad.get("Namn");
         
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
-        
         if(jPassword.getText().equals(lösenord)) {
-             InformationAgenter agentInfo = new InformationAgenter(userID, userNamn);    
-        agentInfo.setVisible(true);
-        dispose();
+             InformationAgenter agentInfo = new InformationAgenter(userID);     //Tar med ID till nästa fönster
+        agentInfo.setVisible(true);  //.show();
+        //Stänger tidigare fönster
+        this.dispose();
         }
         else {
             throw new Exception();
         }
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
-      System.out.println("Internt felmeddelande: " + e.getMessage());
     }//GEN-LAST:event_jLogInBActionPerformed
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

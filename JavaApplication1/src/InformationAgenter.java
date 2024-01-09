@@ -1,8 +1,13 @@
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -17,26 +22,27 @@ import oru.inf.InfException;
  */
 public class InformationAgenter extends javax.swing.JFrame {
     
-    private InfDB idb;
     public static String userID;
-    public static String userNamn;
-    
-    public InformationAgenter(String userID, String userNamn) {
-        initComponents();
-         
-        this.idb = idb;
-        this.userID = userID;
-        this.userNamn = userNamn;
-        
-        
-        jLabel1.setText(" Välkommen " + userNamn);
-        
-        jAgentID.setText("Agent: " + "(" + userID + ")" + " " + userNamn);
 
+  
+    private InfDB idb;
+    Connection con;         //får inte använda con
+    
+    public InformationAgenter(String userID) {
+        initComponents();
+        initializeUserInfo();
         
-       
+        this.userID = userID;
+        this.idb = idb;
+      
+        jLabel1.setText(" Välkommen " + userID);
+        
+        jAgentID.setText("Agent ID: " + userID);
+//        jAgentPlats.setText("Plats: " + userPlace); 
+        
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/mibdb", "mibdba", "mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
         
@@ -44,6 +50,7 @@ public class InformationAgenter extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
+        
     }
 
     
@@ -309,6 +316,23 @@ public class InformationAgenter extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // Knapp för att visa besökare som Agenten är kontaktperson för
         
+        String sql ="SELECT * FROM Alien WHERE Agent_ID LIKE ";
+        try{
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)jTableKontakt.getModel();
+            model.setRowCount(0);
+            
+            while(rs.next()){
+            model.addRow(new String[] {
+                rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8) 
+                }); 
+            }
+        }
+        catch(SQLException ex){
+            System.out.println("Internt felmeddelande: " + ex.getMessage());
+        }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -348,11 +372,26 @@ public class InformationAgenter extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformationAgenter(userID, userNamn).setVisible(true);
+                new InformationAgenter(userID).setVisible(true);
             }
         });
     }
     
+     private void initializeUserInfo() {
+         try{
+              String query = "SELECT Omrade FROM agent WHERE Agent_ID = '" + userID + "'";
+            HashMap<String, String> user = idb.fetchRow(query);
+            
+            if(user != null){
+                String userPlace = user.get("Omrade");
+                jAgentPlats.setText("Plats: " + userPlace);
+            }
+         }
+         catch(InfException ex){
+          System.out.println("Internt felmeddelande: " + ex.getMessage());
+         }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAgentID;
     private javax.swing.JLabel jAgentPlats;
