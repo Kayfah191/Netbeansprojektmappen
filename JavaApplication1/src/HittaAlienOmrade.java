@@ -16,11 +16,12 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class HittaAlienOmrade extends javax.swing.JFrame {
- private InfDB idb;
+ 
+    private InfDB idb;
     /**
-     * Creates new form HittaAlienOmråde
+     * Creates new form HittaAlienOmrade
      */
-    public HittaAlienOmrade(InfDB idb) {
+    public HittaAlienOmrade() {
         initComponents();
         this.idb = idb;
         
@@ -125,7 +126,7 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
   String omradet = sokOmradesBox.getSelectedItem().toString();
         
         try{
-        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
+        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT Benamning FROM plats WHERE Finns_I = (SELECT Omrades_ID FROM omrade WHERE Benamning = \'" + omradet + "\')");
         DefaultComboBoxModel platserna = new DefaultComboBoxModel();
         for(String omrade : platsIOmradeIDB){
             platserna.addElement(omrade);
@@ -150,11 +151,11 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         try{
             if (sökPlats.equals("ALLA")){
                 sökPlats = sokOmradesBox.getSelectedItem().toString();
-                alienPaPlats = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE PLATS IN (SELECT PLATS_ID FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + sökPlats + "\'))");
+                alienPaPlats = idb.fetchColumn("SELECT Namn FROM alien WHERE Plats IN (SELECT Plats_ID FROM plats WHERE Finns_I = (SELECT Omrades_ID FROM omrade WHERE Benamning = \'" + sökPlats + "\'))");
 
             }
             else{
-                alienPaPlats = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE PLATS = (SELECT PLATS_ID FROM PLATS WHERE BENAMNING = \'" + sökPlats + "\')");
+                alienPaPlats = idb.fetchColumn("SELECT Namn FROM alien WHERE Plats = (SELECT Plats_ID FROM plats WHERE Benamning = \'" + sökPlats + "\')");
             }
 
             if (alienPaPlats == null || alienPaPlats.contains(null)){
