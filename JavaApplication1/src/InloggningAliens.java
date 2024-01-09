@@ -182,19 +182,18 @@ initComponents();
     }
     
     try {
-        String query = String.format("SELECT Epost, Losenord, Namn FROM alien WHERE Epost = \"%s\"", jUser.getText());
+        String query = String.format("SELECT Epost, Losenord FROM alien WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
         //String Epost = rad.get("Epost");
         
         String userAlienID = rad.get("Alien_ID");
-        String userAlienNamn = rad.get("Namn");
         
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         
         if(jPassword.getText().equals(lösenord)) {
-             InformationAliens infoAlien = new InformationAliens(userAlienID, userAlienNamn);
+             InformationAliens infoAlien = new InformationAliens(userAlienID);
         infoAlien.setVisible(true);
         dispose();
         }
