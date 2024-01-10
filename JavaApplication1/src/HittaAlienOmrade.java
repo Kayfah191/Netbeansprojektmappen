@@ -32,7 +32,7 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-        setOmradeJComboBox();
+        OmradeJComboBox();
         
     }
     //Lägger till alla platser in i comboboxe
@@ -45,19 +45,21 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblValjPlats = new javax.swing.JLabel();
-        lblRubrik = new javax.swing.JLabel();
+        lValjPlats = new javax.swing.JLabel();
+        Rubrik = new javax.swing.JLabel();
         sokOmradesBox = new javax.swing.JComboBox<>();
         sokPlatsBox = new javax.swing.JComboBox<>();
         resultatTextArea = new javax.swing.JTextArea();
         listaAlienEfterPlatsButton = new javax.swing.JButton();
+        lOmrade = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblValjPlats.setText("Välj plats");
+        lValjPlats.setText("Välj plats");
 
-        lblRubrik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblRubrik.setText("Visa Aliens i:");
+        Rubrik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Rubrik.setText("Visa Aliens");
 
         sokOmradesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,49 +87,65 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
             }
         });
 
+        lOmrade.setText("Område");
+
+        jButton2.setText("Avbryt");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblRubrik, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                .addGap(445, 445, 445))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(listaAlienEfterPlatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(213, 213, 213))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(Rubrik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lValjPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(listaAlienEfterPlatsButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(lblValjPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sokOmradesBox, 0, 162, Short.MAX_VALUE)
-                    .addComponent(sokPlatsBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lblRubrik)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addContainerGap()
+                .addComponent(Rubrik)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValjPlats)
-                    .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lOmrade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(listaAlienEfterPlatsButton)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lValjPlats)
+                    .addComponent(listaAlienEfterPlatsButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void setOmradeJComboBox(){
+private void OmradeJComboBox(){
         // fyller comboboxen med valt område i de comboxarna metoden används
         ArrayList<String> omradenIDB;
 try{
@@ -151,7 +169,7 @@ try{
         for(String omrade : platsIOmradeIDB){
             platserna.addElement(omrade);
         }
-        platserna.addElement("ALLA");
+//        platserna.addElement("ALLA");
         sokPlatsBox.setEnabled(true);
         sokPlatsBox.setModel(platserna);       
         }
@@ -172,8 +190,8 @@ try {
     
     alienInfo = idb.fetchRows(sqlFraga);
     
-    for (HashMap<String, String> a : alienInfo) {
-        resultatTextArea.append(a.get("Namn") + "\n");
+    for (HashMap<String, String> lista : alienInfo) {
+        resultatTextArea.append(lista.get("Namn") + "\n");
     }
 } catch (InfException ettUndantag) {
     JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -223,8 +241,10 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblRubrik;
-    private javax.swing.JLabel lblValjPlats;
+    private javax.swing.JLabel Rubrik;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel lOmrade;
+    private javax.swing.JLabel lValjPlats;
     private javax.swing.JButton listaAlienEfterPlatsButton;
     private javax.swing.JTextArea resultatTextArea;
     private javax.swing.JComboBox<String> sokOmradesBox;

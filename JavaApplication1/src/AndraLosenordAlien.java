@@ -13,18 +13,17 @@ import oru.inf.InfException;
  *
  * @author Rikard Söderek
  */
-public class AndraLosenord extends javax.swing.JFrame {
+public class AndraLosenordAlien extends javax.swing.JFrame {
   private InfDB idb;
     private String userID;
     /**
      * Creates new form AndraLosenord
      */
-    public AndraLosenord() {
+    public AndraLosenordAlien() {
         initComponents();
         this.userID = userID;
-        this.idb = idb;
         
-        jAgentID.setText("Agent ID: " + userID);
+        jAlienID.setText("Alien ID: " + userID);
 //        jAgentPlats.setText("Plats: " + userPlace); 
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -47,11 +46,11 @@ public class AndraLosenord extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        nuvarandelösenord = new javax.swing.JTextField();
-        nyttlösenord = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jAgentID = new javax.swing.JLabel();
+        nuvarandelosenord = new javax.swing.JTextField();
+        nyttlosenord = new javax.swing.JTextField();
+        andraknappen = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jAlienID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,26 +61,24 @@ public class AndraLosenord extends javax.swing.JFrame {
 
         jLabel3.setText("Nytt Lösenord");
 
-        nuvarandelösenord.addActionListener(new java.awt.event.ActionListener() {
+        nuvarandelosenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuvarandelösenordActionPerformed(evt);
+                nuvarandelosenordActionPerformed(evt);
             }
         });
 
-        nyttlösenord.addActionListener(new java.awt.event.ActionListener() {
+        nyttlosenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nyttlösenordActionPerformed(evt);
+                nyttlosenordActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Ändra Lösenord");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        andraknappen.setText("Ändra Lösenord");
+        andraknappen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                andraknappenActionPerformed(evt);
             }
         });
-
-        jAgentID.setText("Användarens ID:");
 
         jButton2.setText("Avbryt");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +86,9 @@ public class AndraLosenord extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jAlienID.setEditable(false);
+        jAlienID.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,43 +102,44 @@ public class AndraLosenord extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(andraknappen))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nyttlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nuvarandelösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jButton1)))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nyttlosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nuvarandelosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 110, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jAgentID)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
+                .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nuvarandelösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nuvarandelosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(nyttlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nyttlosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
-                .addComponent(jButton1)
+                .addComponent(andraknappen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -147,19 +148,19 @@ public class AndraLosenord extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nuvarandelösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuvarandelösenordActionPerformed
+    private void nuvarandelosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuvarandelosenordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nuvarandelösenordActionPerformed
+    }//GEN-LAST:event_nuvarandelosenordActionPerformed
 
-    private void nyttlösenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyttlösenordActionPerformed
+    private void nyttlosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyttlosenordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nyttlösenordActionPerformed
+    }//GEN-LAST:event_nyttlosenordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
 
     // Hämta nuvarande lösenord och nytt lösenord från textrutorna
-    String Password = nuvarandelösenord.getText();
-    String newPassword = nyttlösenord.getText();
+    String Password = nuvarandelosenord.getText();
+    String newPassword = nyttlosenord.getText();
 
     // Kontrollera om lösenordsfälten är tomma
     if (Password.isEmpty() && newPassword.isEmpty()) {
@@ -167,18 +168,16 @@ public class AndraLosenord extends javax.swing.JFrame {
     }
     // Verifiera användaren med det aktuella lösenordet
     
-        try {
-            String q="update agent VALUES('" +newPassword + "')";           
-idb.update(q);
-                JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats!");
-            }  
-        
-catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ett fel uppstod när lösenordet skulle uppdateras. Vänligen försök igen.");
+          try {
+         String sqlFraga = String.format("update alien set Losenord = '%s' where losenord = '%s'", nuvarandelosenord.getText(), nyttlosenord.getText());
+idb.update(sqlFraga);
+        JOptionPane.showMessageDialog(null, "Lösenord är ändrat");
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_andraknappenActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Avbryt
@@ -202,32 +201,33 @@ catch (Exception e) {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraLosenord().setVisible(true);
+                new AndraLosenordAlien().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jAgentID;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton andraknappen;
+    private javax.swing.JTextField jAlienID;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField nuvarandelösenord;
-    private javax.swing.JTextField nyttlösenord;
+    private javax.swing.JTextField nuvarandelosenord;
+    private javax.swing.JTextField nyttlosenord;
     // End of variables declaration//GEN-END:variables
 }

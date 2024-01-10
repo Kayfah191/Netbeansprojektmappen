@@ -62,11 +62,12 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jButton6" linkSize="5" min="-2" pref="215" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jButton6" linkSize="5" pref="215" max="32767" attributes="0"/>
                   <Component id="jButton1" linkSize="5" min="-2" pref="109" max="-2" attributes="0"/>
-                  <Component id="jButton4" linkSize="5" min="-2" pref="250" max="-2" attributes="0"/>
-                  <Component id="jButton2" linkSize="5" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                  <Component id="jButton4" linkSize="5" pref="250" max="32767" attributes="0"/>
+                  <Component id="jButton2" linkSize="5" alignment="1" pref="210" max="32767" attributes="0"/>
+                  <Component id="omradeChef" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -95,7 +96,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" linkSize="2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="omradeChef" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,6 +176,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="omradeChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Fram omr&#xe5;des Chef"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="omradeChefActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
