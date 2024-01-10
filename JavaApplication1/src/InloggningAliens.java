@@ -40,7 +40,7 @@ initComponents();
         //Kommer att finnas i Main så behövs kanske inte
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
-//            System.out.println("Allt fungerar (hittills))");
+            System.out.println("Allt fungerar (hittills))");
         }
         
         catch(InfException ex){

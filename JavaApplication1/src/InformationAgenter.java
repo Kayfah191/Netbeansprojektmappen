@@ -207,8 +207,8 @@ public class InformationAgenter extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         //Öppnar ett fönster för att hitta specifika besökare
-        HittaAlienInfo Hittaalinfo= new HittaAlienInfo();
-        Hittaalinfo.setVisible(true);    
+        HittaAlienInfo Hittaalinfo= new HittaAlienInfo(userID);
+        Hittaalinfo.setVisible(true);
         
     }//GEN-LAST:event_jButton6ActionPerformed
 

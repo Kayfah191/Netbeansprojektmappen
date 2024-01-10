@@ -51,8 +51,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jbox = new javax.swing.JComboBox<>();
         intal = new javax.swing.JTextField();
-        jKaliber = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jVarde = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,16 +99,14 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
             }
         });
 
-        jKaliber.setText("Kaliber (heltal)");
-
-        jLabel5.setText("Välj värde");
+        jVarde.setText("Kaliber (heltal): ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
@@ -118,10 +115,11 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jVarde, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
@@ -129,14 +127,13 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                                 .addComponent(jButton1))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jbenamning, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addComponent(jKaliber, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(juid)
                                 .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(intal, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {intal, jKaliber, jLabel2, jLabel3, jLabel4, jbenamning, jbox, juid});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {intal, jLabel2, jLabel3, jLabel4, jVarde, jbenamning, jbox, juid});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,12 +152,10 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jKaliber, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(intal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jVarde, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -168,7 +163,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {intal, jKaliber, jLabel2, jLabel3, jLabel4, jbenamning, jbox, juid});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {intal, jLabel2, jLabel3, jLabel4, jVarde, jbenamning, jbox, juid});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,18 +227,17 @@ try{
         String olikaVal = jbox.getSelectedItem().toString();
         
         if (olikaVal.equals("Vapen")) {
-
-            jKaliber.setText("Vilken Kaliber (heltal)");
+            jVarde.setText("Kaliber (heltal):");
+        } 
+        
+        else if (olikaVal.equals("Kommunikationsmedel")) {
+            jVarde.setText("Typ av ÖverFörningsteknik");
             
-        } else if (olikaVal.equals("Kommunikationsmedel")) {
-            jKaliber.setText("Typ av ÖverFörningsteknik");
-
-            jKaliber.setText("Kaliber (heltal)");
         } else if (olikaVal.equals("Kommunikation")) {
-            jKaliber.setText("ÖverFörningsteknik");
+            jVarde.setText("Överförningsteknik: ");
             
         } else {
-            jKaliber.setText("Kraftkälla");
+            jVarde.setText("Kraftkälla: ");
         }
     }//GEN-LAST:event_jboxActionPerformed
 
@@ -290,12 +284,11 @@ try{
     private javax.swing.JTextField intal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jKaliber;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jVarde;
     private javax.swing.JTextField jbenamning;
     private javax.swing.JComboBox<String> jbox;
     private javax.swing.JTextField juid;

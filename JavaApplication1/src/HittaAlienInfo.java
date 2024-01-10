@@ -22,12 +22,16 @@ import javax.swing.JFrame;
 public class HittaAlienInfo extends javax.swing.JFrame {
     
     private InfDB idb;
+    public static String userID;
 
     /**
      * Creates new form HittaAlienInfo
      */
-    public HittaAlienInfo() {
+    public HittaAlienInfo(String userID) {
         initComponents();
+        
+        this.userID = userID;
+        
     try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
            System.out.println("Allt fungerar (hittills))");
@@ -393,7 +397,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HittaAlienInfo().setVisible(true);
+                new HittaAlienInfo(userID).setVisible(true);
             }
         });
     }

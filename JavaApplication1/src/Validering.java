@@ -23,8 +23,8 @@ public class Validering {
 
     private static InfDB idb;
 
-    static boolean exist(JTextField txtEpost) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    static boolean exit(JTextField txtEpost) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Validering (InfDB idb) {
@@ -68,17 +68,7 @@ public class Validering {
         }
     }
     
-    // Kollar om de nya lösenorden matchar varandra.
-    static public boolean newPasswordMatch(JPasswordField txt1, JPasswordField txt2){
-        if (new String(txt1.getPassword()).equals(new String(txt2.getPassword()))){
-            return true;
-        }
-        else{
-            txt1.requestFocus();
-            JOptionPane.showMessageDialog(null, "De nya lösenorden matchar inte!");
-            return false;
-        }
-    }
+
     
     // Kollar formatet på ett textfält för att se om det överensstämmer med ett datum.
     static public boolean checkDatumFormat(JTextField datumField){
