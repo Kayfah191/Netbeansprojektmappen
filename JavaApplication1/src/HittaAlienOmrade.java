@@ -137,21 +137,21 @@ try{
         }
 }
     private void sokOmradesBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokOmradesBoxActionPerformed
-//  String omradet = sokOmradesBox.getSelectedItem().toString();
-//        
-//        try{
-//        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
-//        DefaultComboBoxModel platserna = new DefaultComboBoxModel();
-//        for(String omrade : platsIOmradeIDB){
-//            platserna.addElement(omrade);
-//        }
-//        platserna.addElement("ALLA");
-//        sokPlatsBox.setEnabled(true);
-//        sokPlatsBox.setModel(platserna);       
-//        }
-//        catch(InfException undantag){
-//            System.out.println("Fel med databas!" + undantag);
-//        }
+  String omradet = sokOmradesBox.getSelectedItem().toString();
+        
+        try{
+        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
+        DefaultComboBoxModel platserna = new DefaultComboBoxModel();
+        for(String omrade : platsIOmradeIDB){
+            platserna.addElement(omrade);
+        }
+        platserna.addElement("ALLA");
+        sokPlatsBox.setEnabled(true);
+        sokPlatsBox.setModel(platserna);       
+        }
+        catch(InfException undantag){
+            System.out.println("Fel med databas!" + undantag);
+        }
 //             
     }//GEN-LAST:event_sokOmradesBoxActionPerformed
     private void listaAlienEfterPlatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlienEfterPlatsButtonActionPerformed
