@@ -309,36 +309,30 @@ public class AndraAliens extends javax.swing.JFrame {
             HashMap<String, String> bogloditeData = idb.fetchRow("select * from boglodite where Alien_ID = " + id);
          
             
-//            Integer i = -1;
-            String i = jRas.getSelectedItem().toString();
-//            jRas.setSelectedIndex(i);
+            Integer i = -1;
+            jRas.setSelectedIndex(i);
             
-            if(i.equals(wormData)){
+            if(!wormData.isEmpty()){
+                jRas.setSelectedIndex(0);
                 jAttributLabel.setText("Längd (cm): ");
                 jAttribut.setText(wormData.get("Langd"));
             }
-            else if(i.equals(squidData)){
+            else if(!squidData.isEmpty()){
+                 jRas.setSelectedIndex(1);
                 jAttributLabel.setText("Mängden armar: ");
                 jAttribut.setText(squidData.get("Antal_Armar"));        
             }
-            else if(i.equals(bogloditeData)){
+            else if(!bogloditeData.isEmpty()){
+                 jRas.setSelectedIndex(2);
                 jAttributLabel.setText("Mängden Boogies: ");
                 jAttribut.setText(bogloditeData.get("Antal_Boogies"));
             }
-            
-//            String i = jRas.getSelectedItem().toString();
-//        
-//        if (i.equals("worm")) {
-//            jAttributLabel.setText("Längd i cm: ");
-//            
-//        } else if (i.equals("wquid")) {
-//            jAttributLabel.setText("Mängden armar: ");
-//            
-//        } else if(i.equals("woglodite")){
-//            jAttributLabel.setText("Antalet Boogies: ");
-//        }
-    
-            
+            else {
+            //Vid fall då ingen data hittades
+            jRas.setSelectedIndex(-1); // Inget valt
+            jAttributLabel.setText("");
+            jAttribut.setText("");
+}           
             System.out.println("Hämtningen av alien lyckades");
         }
         catch(InfException e){
