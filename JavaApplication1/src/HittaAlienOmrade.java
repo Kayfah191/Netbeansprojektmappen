@@ -168,7 +168,7 @@ try {
     String omrade = sokOmradesBox.getSelectedItem().toString();
     String platsen = sokPlatsBox.getSelectedItem().toString();
     
-    String sqlFraga = "SELECT Namn FROM Alien JOIN Plats ON Alien.Plats = Plats.Plats_ID WHERE Benamning = '" + omrade + "' AND Plats.Benamning = '" + platsen + "'";
+    String sqlFraga = "SELECT Namn FROM Alien JOIN Plats ON Alien.Plats = Plats.Plats_ID WHERE Plats.Benamning = '" + platsen + "'";
     
     alienInfo = idb.fetchRows(sqlFraga);
     
