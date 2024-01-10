@@ -45,23 +45,28 @@ public class AndringAgent extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblAndraAgent = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldEpostAttAndra = new javax.swing.JTextField();
-        lblNamn = new javax.swing.JLabel();
-        jTextField4Namn = new javax.swing.JTextField();
-        lblEpost = new javax.swing.JLabel();
-        txtTelefon = new javax.swing.JTextField();
-        lblDatum = new javax.swing.JLabel();
-        jTextField1AnstDatum = new javax.swing.JTextField();
-        lblEpostPaAgent = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField6Epost = new javax.swing.JTextField();
-        lblLosenord = new javax.swing.JLabel();
-        jTextField3Losenord = new javax.swing.JTextField();
-        btnSparaAgent = new javax.swing.JButton();
-        btnGaTillbaka = new javax.swing.JButton();
-        cbOmrade = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        txtlösenord = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtanställning = new javax.swing.JTextField();
+        txtnamn = new javax.swing.JTextField();
+        txtområde = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        txttelefon = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtansvAdmin = new javax.swing.JTextField();
+        visaKnapp = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtepost = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnGaTillbaka = new javax.swing.JButton();
+        sparaÄndringarKnapp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,36 +74,55 @@ public class AndringAgent extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 15, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
 
         lblAndraAgent.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblAndraAgent.setText("Uppdatera agent");
 
-        jLabel3.setText("Agentens nuvarande Epost");
+        jLabel7.setText("Namn :");
 
-        lblNamn.setText("Namn");
+        jLabel2.setText("Agent_ID :");
 
-        lblEpost.setText("Telefon");
-
-        lblDatum.setText("Anställningsdatum:");
-
-        lblEpostPaAgent.setText("Epost");
-
-        jLabel1.setText("(yyyy-mm-dd)");
-
-        lblLosenord.setText("Lösenord");
-
-        btnSparaAgent.setText("Spara");
-        btnSparaAgent.addActionListener(new java.awt.event.ActionListener() {
+        txtid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSparaAgentActionPerformed(evt);
+                txtidActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Telefon :");
+
+        jLabel6.setText("Anställningsdatum :");
+
+        jLabel10.setText("Område :");
+
+        jLabel11.setText("Admin Status :");
+
+        jLabel9.setText("Lösenord :");
+
+        txtID.setEditable(false);
+
+        jLabel8.setText("Epost :");
+
+        visaKnapp.setBackground(new java.awt.Color(204, 255, 255));
+        visaKnapp.setText("Visa ");
+        visaKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visaKnappActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Välj Agent_ID :");
+
+        txtepost.setEditable(false);
+
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel1.setText("YYYY-MM-DD");
 
         btnGaTillbaka.setText("Gå tillbaka");
         btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
@@ -107,119 +131,185 @@ public class AndringAgent extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Område:");
+        sparaÄndringarKnapp.setText("Spara");
+        sparaÄndringarKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sparaÄndringarKnappActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtanställning, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txttelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtansvAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtepost, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtområde, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAndraAgent)
-                            .addComponent(jLabel2)
-                            .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEpost)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtTelefon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                .addComponent(jTextField4Namn, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(lblNamn)
-                            .addComponent(jTextFieldEpostAttAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEpostPaAgent)
-                                    .addComponent(jTextField6Epost, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLosenord)
-                                    .addComponent(jTextField3Losenord)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lblDatum)
-                                            .addGap(64, 64, 64))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jTextField1AnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(6, 6, 6)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGaTillbaka)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSparaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(79, 79, 79))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblAndraAgent))
+                                .addGap(18, 18, 18)
+                                .addComponent(visaKnapp)
+                                .addGap(18, 18, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGaTillbaka)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sparaÄndringarKnapp)
+                        .addGap(23, 23, 23)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtID, txtanställning, txtansvAdmin, txtepost, txtlösenord, txtnamn, txtområde, txttelefon});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAndraAgent)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldEpostAttAndra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEpostPaAgent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6Epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(46, 46, 46)
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNamn)
-                            .addComponent(lblLosenord))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4)
+                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(visaKnapp))
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4Namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3Losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lblEpost)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(lblDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1AnstDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtnamn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txttelefon)
+                            .addComponent(jLabel5))
+                        .addGap(5, 5, 5)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSparaAgent)
-                            .addComponent(btnGaTillbaka))))
+                            .addComponent(jLabel6)
+                            .addComponent(txtanställning))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtansvAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtepost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtlösenord)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtområde)
+                            .addComponent(jLabel10))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGaTillbaka)
+                            .addComponent(sparaÄndringarKnapp)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSparaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSparaAgentActionPerformed
-
-    }//GEN-LAST:event_btnSparaAgentActionPerformed
-
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+         AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+        tillAdminval.show();
+        //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
+
+    private void sparaÄndringarKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparaÄndringarKnappActionPerformed
+        // TODO add your handling code here:
+try {
+    // Skapar en SQL-fråga för att uppdatera agentinformation i databasen
+    String fragaTillDatabas = String.format("UPDATE agent " + " SET Namn = '%s'," + " Telefon = '%s'," + " Anstallningsdatum = '%s',"
+        + " Administrator = '%s',"
+        + " Epost = '%s',"
+        + " Losenord = '%s',"
+        + " Omrade = '%s'"
+        + " WHERE Agent_ID = %s",
+        txtnamn.getText(), txttelefon.getText(), txtanställning.getText(), txtansvAdmin.getText(), txtepost.getText(), txtlösenord.getText(), txtområde.getText(), txtid.getText());
+    
+    // Utför SQL UPDATE-operationen genom att skicka frågan till databasen
+    idb.update(fragaTillDatabas);
+
+    // Visar en bekräftelse att agentens information har uppdaterats
+    JOptionPane.showMessageDialog(null, "Agentens uppgifter är uppdaterad");
+} catch (InfException e) {
+    // Hanterar eventuella databasfel genom att skriva ut felmeddelandet
+    System.out.println(e.getMessage());
+    JOptionPane.showMessageDialog(null, e.getMessage());
+}
+
+    }//GEN-LAST:event_sparaÄndringarKnappActionPerformed
+
+    private void visaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaKnappActionPerformed
+        // TODO add your handling code here
+        try {
+            String ID = txtid.getText();
+            String fråga = "select * from agent where Agent_ID = " + ID;
+            //Hämtar sql frågan
+            var svar = idb.fetchRow(fråga);
+
+            //Hämtar all information från databasen
+            txtID.setText(svar.get("Agent_ID"));
+            txtnamn.setText(svar.get("Namn"));
+            txttelefon.setText(svar.get("Telefon"));
+            txtanställning.setText(svar.get("Anstallningsdatum"));
+            txtansvAdmin.setText(svar.get("Administrator"));
+            txtepost.setText(svar.get("Epost"));
+            txtlösenord.setText(svar.get("Losenord"));
+            txtområde.setText(svar.get("Omrade"));
+
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_visaKnappActionPerformed
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,23 +348,28 @@ public class AndringAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGaTillbaka;
-    private javax.swing.JButton btnSparaAgent;
-    private javax.swing.JComboBox<String> cbOmrade;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1AnstDatum;
-    private javax.swing.JTextField jTextField3Losenord;
-    private javax.swing.JTextField jTextField4Namn;
-    private javax.swing.JTextField jTextField6Epost;
-    private javax.swing.JTextField jTextFieldEpostAttAndra;
     private javax.swing.JLabel lblAndraAgent;
-    private javax.swing.JLabel lblDatum;
-    private javax.swing.JLabel lblEpost;
-    private javax.swing.JLabel lblEpostPaAgent;
-    private javax.swing.JLabel lblLosenord;
-    private javax.swing.JLabel lblNamn;
-    private javax.swing.JTextField txtTelefon;
+    private javax.swing.JButton sparaÄndringarKnapp;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtanställning;
+    private javax.swing.JTextField txtansvAdmin;
+    private javax.swing.JTextField txtepost;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtlösenord;
+    private javax.swing.JTextField txtnamn;
+    private javax.swing.JTextField txtområde;
+    private javax.swing.JTextField txttelefon;
+    private javax.swing.JButton visaKnapp;
     // End of variables declaration//GEN-END:variables
 }
