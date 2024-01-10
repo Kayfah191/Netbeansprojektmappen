@@ -39,9 +39,9 @@
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="lblValjPlats" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="sokOmradesBox" min="-2" pref="336" max="-2" attributes="0"/>
-                  <Component id="sokPlatsBox" min="-2" pref="108" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="sokOmradesBox" pref="162" max="32767" attributes="0"/>
+                  <Component id="sokPlatsBox" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>

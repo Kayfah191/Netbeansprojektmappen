@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -16,14 +17,22 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class HittaAlienOmrade extends javax.swing.JFrame {
- 
-    private InfDB idb;
+ private InfDB idb;
     /**
-     * Creates new form HittaAlienOmrade
+     * Creates new form HittaAlienOmråde
      */
     public HittaAlienOmrade() {
         initComponents();
-        this.idb = idb;
+         try{
+            idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
+            System.out.println("Allt fungerar (hittills))");
+        }
+        
+        catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+        setOmradeJComboBox();
         
     }
     //Lägger till alla platser in i comboboxe
@@ -50,7 +59,6 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         lblRubrik.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblRubrik.setText("Visa Aliens i:");
 
-        sokOmradesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sokOmradesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sokOmradesBoxActionPerformed(evt);
@@ -59,6 +67,11 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
 
         sokPlatsBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         sokPlatsBox.setEnabled(false);
+        sokPlatsBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokPlatsBoxActionPerformed(evt);
+            }
+        });
 
         resultatTextArea.setEditable(false);
         resultatTextArea.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,56 +90,63 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblRubrik, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sokOmradesBox, 0, 433, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(lblValjPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99)
-                        .addComponent(sokPlatsBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(lblRubrik, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addGap(445, 445, 445))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(listaAlienEfterPlatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(213, 213, 213))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(lblValjPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sokOmradesBox, 0, 162, Short.MAX_VALUE)
+                    .addComponent(sokPlatsBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblRubrik))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(lblValjPlats))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(lblRubrik)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValjPlats)
+                    .addComponent(sokPlatsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(listaAlienEfterPlatsButton)
                 .addGap(18, 18, 18)
                 .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private void setOmradeJComboBox(){
+        // fyller comboboxen med valt område i de comboxarna metoden används
+        ArrayList<String> omradenIDB;
+try{
+    String fraga="SELECT BENAMNING FROM OMRADE";
+        omradenIDB = idb.fetchColumn(fraga);
+        for(String omrade : omradenIDB){
+            sokOmradesBox.addItem(omrade);
+        }
+//        valdComboBox.setModel(omradena);       
+        }
+        catch(InfException undantag){
+            System.out.println("Fel med databas!" + undantag);
+        }
+}
     private void sokOmradesBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokOmradesBoxActionPerformed
   String omradet = sokOmradesBox.getSelectedItem().toString();
         
         try{
-        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT Benamning FROM plats WHERE Finns_I = (SELECT Omrades_ID FROM omrade WHERE Benamning = \'" + omradet + "\')");
+        ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
         DefaultComboBoxModel platserna = new DefaultComboBoxModel();
         for(String omrade : platsIOmradeIDB){
             platserna.addElement(omrade);
@@ -138,41 +158,33 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         catch(InfException undantag){
             System.out.println("Fel med databas!" + undantag);
         }
-             
+//             
     }//GEN-LAST:event_sokOmradesBoxActionPerformed
-
     private void listaAlienEfterPlatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlienEfterPlatsButtonActionPerformed
         resultatTextArea.setText("");
-        String resultatsträng = "";
-        String sökPlats = sokPlatsBox.getSelectedItem().toString();
+    ArrayList<HashMap<String, String>> alienInfo;
 
-        ArrayList<String> alienPaPlats = new ArrayList<String>();
-
-        try{
-            if (sökPlats.equals("ALLA")){
-                sökPlats = sokOmradesBox.getSelectedItem().toString();
-                alienPaPlats = idb.fetchColumn("SELECT Namn FROM alien WHERE Plats IN (SELECT Plats_ID FROM plats WHERE Finns_I = (SELECT Omrades_ID FROM omrade WHERE Benamning = \'" + sökPlats + "\'))");
-
-            }
-            else{
-                alienPaPlats = idb.fetchColumn("SELECT Namn FROM alien WHERE Plats = (SELECT Plats_ID FROM plats WHERE Benamning = \'" + sökPlats + "\')");
-            }
-
-            if (alienPaPlats == null || alienPaPlats.contains(null)){
-                resultatsträng = "Inga aliens på valda platsen!";
-            }
-            else{
-                for (String alien : alienPaPlats){
-                    resultatsträng += alien + "\n";
-                }
-            }
-            resultatTextArea.setText(resultatsträng);
-        }
-        catch(InfException undantag){
-
-        }
-
+try {
+    String omrade = sokOmradesBox.getSelectedItem().toString();
+    String platsen = sokPlatsBox.getSelectedItem().toString();
+    
+    String sqlFraga = "SELECT Namn FROM Alien JOIN Plats ON Alien.Plats = Plats.Plats_ID WHERE Benamning = '" + omrade + "' AND Plats.Benamning = '" + platsen + "'";
+    
+    alienInfo = idb.fetchRows(sqlFraga);
+    
+    for (HashMap<String, String> a : alienInfo) {
+        resultatTextArea.append(a.get("Namn") + "\n");
+    }
+} catch (InfException ettUndantag) {
+    JOptionPane.showMessageDialog(null, "Databasfel!");
+    System.out.println("Internt felmeddelande: " + ettUndantag.getMessage());
+}
+       
     }//GEN-LAST:event_listaAlienEfterPlatsButtonActionPerformed
+
+    private void sokPlatsBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokPlatsBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sokPlatsBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +217,7 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
+               new HittaAlienOmrade().setVisible(true);
             }
         });
     }
