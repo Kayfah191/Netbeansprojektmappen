@@ -5,11 +5,6 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author Rikard Söderek
@@ -108,15 +103,15 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             }
         });
 
-        lTelefon.setText("Telefon");
+        lTelefon.setText("Telefon:");
 
-        lDatum.setText("Datum ");
+        lDatum.setText("Datum:");
 
-        lRas.setText("Ras");
+        lRas.setText("Ras:");
 
-        lEpost.setText("Epost");
+        lEpost.setText("Epost:");
 
-        textAntalArma.setText("Antal armar");
+        textAntalArma.setText("Antal armar:");
 
         antalArmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,11 +119,11 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             }
         });
 
-        lLosenord.setText("Lösenord");
+        lLosenord.setText("Lösenord:");
 
-        lAnsvarigAlien.setText("Ansvarig Agent");
+        lAnsvarigAlien.setText("Ansvarig Agent:");
 
-        lNamn.setText("Namn");
+        lNamn.setText("Namn:");
 
         lPlats.setText("Plats");
 
@@ -146,7 +141,8 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("(yyyy-mm-dd)");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel2.setText("(ÅÅÅÅ-MM-DD)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,16 +183,15 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jNamn)
-                                        .addComponent(jEpost)
-                                        .addComponent(jLosenord)
-                                        .addComponent(jTelefon)
-                                        .addComponent(antalArmar)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(20, 20, 20)
-                                            .addComponent(jLabel2))
-                                        .addComponent(jDatum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jNamn)
+                                            .addComponent(jEpost)
+                                            .addComponent(jLosenord)
+                                            .addComponent(jTelefon)
+                                            .addComponent(antalArmar)
+                                            .addComponent(jDatum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
@@ -246,7 +241,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addComponent(ansvarigAgentBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(platsbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lPlats))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(btnAddAlien))
@@ -266,22 +261,26 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         try {
                 // Hämta nästa autoinkrementvärde för alien_ID från databasen
                 String nextAID = idb.getAutoIncrement("Alien", "alien_ID");
+                
                 // Hämta och formatera användarinput från GUI-komponenter
                 String epost = "'" + jEpost.getText() + "'";
                 String datum = "'" + jDatum.getText() + "'";
                 String namn = "'" + jNamn.getText() + "'";
                 String losenord = "'" + jLosenord.getText() + "'";
                 String telefon = "'" + jTelefon.getText() + "'";
+                
                 // Hämta vald agent och plats
                 String ansvarigAgent = "'" + ansvarigAgentBox.getSelectedItem().toString() + "'";
                 int AgentID = Integer.parseInt(idb.fetchSingle("select Agent_ID from agent where Namn=" + ansvarigAgent));
                 String plats = "'" + platsbox.getSelectedItem().toString() + "'";
                 int platsID = Integer.parseInt(idb.fetchSingle("select Plats_ID from plats where Benamning=" + plats));
+                
                 // Hämta vald ras
                 String olikaval = rasBox.getSelectedItem().toString();
 
                 // Skapa SQL-fråga för att lägga till alien i databasen
                 String fraga = "insert into Alien values(" + nextAID + "," + datum + "," + epost + "," + losenord + "," + namn + "," + telefon + "," + platsID + "," + AgentID + ")";
+                
                 // Hämta antalet armar
                 int antal = Integer.parseInt(antalArmar.getText());
 
@@ -315,14 +314,14 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddAlienActionPerformed
 
     private void rasBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasBoxActionPerformed
- String olikaval = rasBox.getSelectedItem().toString();
+    String olikaval = rasBox.getSelectedItem().toString();
        if (olikaval.equals("Squid")) {
-            textAntalArma.setText("Antal Armar");
+            textAntalArma.setText("Antal Armar: ");
         } else if (olikaval.equals("Boglodite")) {
-            textAntalArma.setText("Antal Boogies");
+            textAntalArma.setText("Antal Boogies: ");
         } else {
             textAntalArma.setText("Längd");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_rasBoxActionPerformed
 
     private void antalArmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antalArmarActionPerformed
