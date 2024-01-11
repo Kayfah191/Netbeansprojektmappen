@@ -63,28 +63,36 @@ public class Validering {
     }
     
     //Validerar format på inmatat datum
-    public static boolean valDatumFormat(JTextField date){
-              String[] datum = date.getText().split("-");
-        boolean allNumbers = true;
-        for (String datumet : datum){
-            try{
-                System.out.println(datumet);
-                int testInt = Integer.parseInt(datumet);
-            }
-            catch( NumberFormatException ex){
-                allNumbers = false;
-                JOptionPane.showMessageDialog(null, "Använd ändas nummer");
-                System.out.println("Inte nummer");
-            }
-        }
-        if (allNumbers && datum.length == 3 && datum[0].length() == 4 && datum[1].length() == 2 && datum[2].length() == 2){
-            return true;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Datumformatet ska vara numeriskt, enligt detta format 'ÅÅÅÅ-MM-DD'.");
-            date.requestFocus();
+    public static boolean valDatumFormat(String date){
+        String dateRegex = "\\d{4}-\\d{2}-\\d{2}$";
+        if(!date.matches(dateRegex)){
+            JOptionPane.showMessageDialog(null, "Datumformatet måste vara i ÅÅÅÅ-MM-DD");
             return false;
         }
+        else {
+            return true;
+        }
+//              String[] datum = date.getText().split("-");
+//        boolean allNumbers = true;
+//        for (String datumet : datum){
+//            try{
+//                System.out.println(datumet);
+//                int testInt = Integer.parseInt(datumet);
+//            }
+//            catch( NumberFormatException ex){
+//                allNumbers = false;
+//                JOptionPane.showMessageDialog(null, "Använd ändas nummer");
+//                System.out.println("Inte nummer");
+//            }
+//        }
+//        if (allNumbers && datum.length == 3 && datum[0].length() == 4 && datum[1].length() == 2 && datum[2].length() == 2){
+//            return true;
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Datumformatet ska vara numeriskt, enligt detta format 'ÅÅÅÅ-MM-DD'.");
+//            date.requestFocus();
+//            return false;
+//        }
     }
     
     //Validera längd på Lösenord    
