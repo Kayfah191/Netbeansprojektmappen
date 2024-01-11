@@ -17,13 +17,16 @@ import oru.inf.InfException;
 public class AndraAliens extends javax.swing.JFrame {
 
     private InfDB idb;
+    public static String userID;
     
     /**
      * Creates new form AndraInfoAlien
      */
-    public AndraAliens() {
+    public AndraAliens(String userID) {
         initComponents();
+        
         this.idb = idb;
+        this.userID = userID;
         
           try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
@@ -277,6 +280,7 @@ public class AndraAliens extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -423,7 +427,7 @@ public class AndraAliens extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraAliens().setVisible(true);
+                new AndraAliens(userID).setVisible(true);
             }
         });
     }

@@ -18,10 +18,12 @@ import oru.inf.InfException;
 public class RegistreringAgentUtrustning extends javax.swing.JFrame {
  
     private InfDB idb;
+    public static String userID;
  
-    public RegistreringAgentUtrustning() {
+    public RegistreringAgentUtrustning(String userID) {
         initComponents();
         
+        this.userID = userID;
         
          try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -170,6 +172,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {intal, jLabel2, jLabel3, jLabel4, jVarde, jbenamning, jbox, juid});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -279,7 +282,7 @@ try{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistreringAgentUtrustning().setVisible(true);
+                new RegistreringAgentUtrustning(userID).setVisible(true);
             }
         });
     }

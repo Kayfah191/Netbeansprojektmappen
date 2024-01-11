@@ -144,6 +144,7 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 private void OmradeJComboBox(){
         // fyller comboboxen med valt område i de comboxarna metoden används

@@ -7,17 +7,17 @@
  *
  * @author Kayhan
  */
-public class utrustningAdmin extends javax.swing.JFrame {
+public class UtrustningAdmin extends javax.swing.JFrame {
 
-
+public static String userID;
     
     /**
      * Creates new form utrusningAdmin
      */
-    public utrustningAdmin() {
+    public UtrustningAdmin(String userID) {
         initComponents();
         
-        
+        this.userID = userID;
     }
 
     /**
@@ -104,19 +104,20 @@ public class utrustningAdmin extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Radera utrustning
         
-        RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin();
+        RaderaUtrustningAdmin RegUtrusning = new RaderaUtrustningAdmin(userID);
         RegUtrusning.setVisible(true);  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Registrera utrustning
         
-        RegistreringAgentUtrustning RegUtrusning = new RegistreringAgentUtrustning();
+        RegistreringAgentUtrustning RegUtrusning = new RegistreringAgentUtrustning(userID);
         RegUtrusning.setVisible(true); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -142,21 +143,23 @@ public class utrustningAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(utrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(utrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(utrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(utrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UtrustningAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new utrustningAdmin().setVisible(true);
+                new UtrustningAdmin(userID).setVisible(true);
             }
         });
     }

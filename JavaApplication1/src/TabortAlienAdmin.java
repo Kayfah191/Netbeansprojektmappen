@@ -13,12 +13,18 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class TabortAlienAdmin extends javax.swing.JFrame {
- private InfDB idb;
+ 
+    private InfDB idb;
+    public static String userID;
+    
     /**
      * Creates new form TabortAlienAdmin
      */
-    public TabortAlienAdmin() {
+    public TabortAlienAdmin(String userID) {
         initComponents();
+        
+        this.userID = userID;
+        
          try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
 
@@ -38,7 +44,7 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tNamn = new javax.swing.JTextField();
+        jID = new javax.swing.JTextField();
         lblnamn = new javax.swing.JLabel();
         lblTaBortAgent = new javax.swing.JLabel();
         btnTaBort = new javax.swing.JButton();
@@ -46,10 +52,10 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblnamn.setText("Namn på Alien");
+        lblnamn.setText("Ange Besökares ID:");
 
-        lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTaBortAgent.setText("Ta bort Alien");
+        lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTaBortAgent.setText("Radera Besökare från databasen");
 
         btnTaBort.setText("Ta bort");
         btnTaBort.addActionListener(new java.awt.event.ActionListener() {
@@ -73,31 +79,30 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblnamn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTaBortAgent, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnGaTillbaka)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTaBort)
-                        .addGap(12, 12, 12))))
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTaBortAgent)
+                            .addComponent(lblnamn))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(lblTaBortAgent)
-                .addGap(53, 53, 53)
+                .addGap(35, 35, 35)
                 .addComponent(lblnamn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGaTillbaka)
                     .addComponent(btnTaBort))
@@ -118,6 +123,7 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
@@ -125,13 +131,13 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         // Kollar om man svara ja på bekräftelsen
         if (fraga == 0) {
        try {
-    String alienID = idb.fetchSingle("SELECT Alien_id FROM alien WHERE namn = '" + tNamn.getText() + "'");
+    String alienID = idb.fetchSingle("SELECT Alien_ID FROM alien WHERE Alien_ID = '" + jID.getText() + "'");
 //    String namn = idb.fetchSingle("SELECT namn FROM Alien WHERE namn = '" + tNamn.getText() + "'");
 
-    String q1 = "DELETE FROM squid WHERE Alien_id = " + alienID;
-    String q2 = "DELETE FROM boglodite WHERE Alien_id = " + alienID;
-    String q3 = "DELETE FROM worm WHERE Alien_id = " + alienID;
-    String q4 = "DELETE FROM alien WHERE Alien_id = " + alienID ;
+    String q1 = "DELETE FROM squid WHERE Alien_ID = " + alienID;
+    String q2 = "DELETE FROM boglodite WHERE Alien_ID = " + alienID;
+    String q3 = "DELETE FROM worm WHERE Alien_ID = " + alienID;
+    String q4 = "DELETE FROM alien WHERE Alien_ID = " + alienID ;
 //idb.delete("delete from squid where Alien_id =" + alienID);     //raderar alien från alla subklasser av alien,
 //                idb.delete("delete from boglodite where Alien_id =" + alienID); // Om den inte finns i en subklass händer inget
 //                idb.delete("delete from worm where Alien_id =" + alienID);      //
@@ -186,7 +192,7 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TabortAlienAdmin().setVisible(true);
+                new TabortAlienAdmin(userID).setVisible(true);
             }
         });
     }
@@ -194,9 +200,9 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnTaBort;
+    private javax.swing.JTextField jID;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTaBortAgent;
     private javax.swing.JLabel lblnamn;
-    private javax.swing.JTextField tNamn;
     // End of variables declaration//GEN-END:variables
 }
