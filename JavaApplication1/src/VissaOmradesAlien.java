@@ -15,12 +15,18 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class VissaOmradesAlien extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+    public static String userAlienID;
+    
     /**
      * Creates new form VissaOmradesChef_Admin
      */
-    public VissaOmradesAlien() {
+    public VissaOmradesAlien(String userAlienID) {
         initComponents();
+        
+        this.userAlienID = userAlienID;
+        
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
@@ -52,13 +58,13 @@ private InfDB idb;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Områdes Chef");
+        jLabel1.setText("Områdes-chef");
 
         textAreaAlien.setColumns(20);
         textAreaAlien.setRows(5);
         jScrollPane1.setViewportView(textAreaAlien);
 
-        jLabel2.setText("Skriv ditt ID för att kunna se ditt Områdes chef");
+        jLabel2.setText("Skriv in ditt ID för att kunna se din Områdes-chef");
 
         jLabel3.setText("ID:");
 
@@ -83,8 +89,11 @@ private InfDB idb;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)))
                 .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -102,8 +111,9 @@ private InfDB idb;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -122,28 +132,32 @@ private InfDB idb;
 
     private void visaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaKnappActionPerformed
 String alienID1 = alienID.getSelectedText();
- textAreaAlien.setText("");
+        textAreaAlien.setText("");
+        
+        try {
+                String fraga = "select agent.namn, agent.telefon, agent.epost  " +
+                   "FROM agent " +
+                   "join omradeschef on agent.agent_id = omradeschef.agent_id " +
+                   "join omrade on omradeschef.omrade = omrade.omrades_id " +
+                   "join plats on omrade.omrades_id = plats.finns_i " +
+                   "join alien on plats.finns_i = alien.alien_id " +
+                   "WHERE alien.Alien_ID = " + alienID1;
 
-  try {
-     String fraga = "SELECT agent.Namn, agent.Telefon, agent.Epost" +
-"FROM alien" +"INNER JOIN plats ON plats.Plats_ID = alien.Plats"  +
-"INNER JOIN omrade ON omrade.Omrades_ID = plats.Finns_I"  +
-"INNER JOIN omradeschef ON omradeschef.Omrade = omrade.Omrades_ID" +
-"INNER JOIN agent ON agent.Agent_ID = omradeschef.Agent_ID" +
-"WHERE alien.Alien_ID = " + alienID.getSelectedText();
+    System.out.println("SQL Query: " + fraga);
+    
+    var lista = idb.fetchRow(fraga);
 
-//             + "select namn,epost,telefon from agent where agent_id in (select agent_id from omradeschef where omrade in(select omrades_id from omrade where benamning =(select benamning from omrade where omrades_id in (select finns_i from plats where plats_id in (select plats from alien where alien_id='" + alienID.getSelectedText()+ "')))))"; 
+    if (lista != null) {
+        textAreaAlien.append("Namn: " + lista.get("Namn") + "\n");
+        textAreaAlien.append("Epost: " + lista.get("Epost") + "\n");
+        textAreaAlien.append("Telefon: " + lista.get("Telefon") + "\n");
+    } else {
+        textAreaAlien.append("Ingen områdeschef hittades för detta alien ID.\n");
+    }
 
-            var lista = idb.fetchRow(fraga);
-         
-textAreaAlien.append(lista.get("Namn") + "\n");
-        textAreaAlien.append(lista.get("Epost") + "\n");
-        textAreaAlien.append(lista.get("Telefon") + "\n");
-               
-     }
-catch (InfException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+} catch (InfException e) {
+    JOptionPane.showMessageDialog(null, e.getMessage());
+}
 
             
     }//GEN-LAST:event_visaKnappActionPerformed
@@ -184,7 +198,7 @@ catch (InfException e) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VissaOmradesAlien().setVisible(true);
+                new VissaOmradesAlien(userAlienID).setVisible(true);
             }
         });
     }
