@@ -14,12 +14,15 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class SokFramOmradesChefAgent extends javax.swing.JFrame {
-private InfDB idb;
-    /**
-     * Creates new form SokFramOmradesChefAgent
-     */
-    public SokFramOmradesChefAgent() {
+
+    private InfDB idb;
+    public static String userID;
+    
+    public SokFramOmradesChefAgent(String userID) {
         initComponents();
+        
+        this.userID = userID;
+        
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
@@ -165,7 +168,7 @@ private InfDB idb;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SokFramOmradesChefAgent().setVisible(true);
+                new SokFramOmradesChefAgent(userID).setVisible(true);
             }
         });
     }

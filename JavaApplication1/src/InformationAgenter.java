@@ -245,13 +245,13 @@ public class InformationAgenter extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Hitta alien område
-        HittaAlienOmrade hittaPlats = new HittaAlienOmrade();
+        HittaAlienOmrade hittaPlats = new HittaAlienOmrade(userID);
         hittaPlats.setVisible(true);
         // TODO add your handling code here
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void omradeChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeChefActionPerformed
-SokFramOmradesChefAgent omradeChef = new SokFramOmradesChefAgent();
+SokFramOmradesChefAgent omradeChef = new SokFramOmradesChefAgent(userID);
         omradeChef.setVisible(true);        
 // TODO add your handling code here:
     }//GEN-LAST:event_omradeChefActionPerformed
