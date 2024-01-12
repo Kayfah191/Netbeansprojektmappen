@@ -260,7 +260,8 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnAddAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAlienActionPerformed
- 
+    if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
+            Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
         try {
                 // Hämta nästa autoinkrementvärde för alien_ID från databasen
                 String nextAID = idb.getAutoIncrement("Alien", "alien_ID");
@@ -313,7 +314,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
 
-
+    }
     }//GEN-LAST:event_btnAddAlienActionPerformed
 
     private void rasBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasBoxActionPerformed

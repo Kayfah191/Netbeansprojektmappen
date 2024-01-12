@@ -185,8 +185,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_juidActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-if ( jbenamning.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
+  if (Validering.textNotEmpty(jbenamning) && Validering.textNotEmpty(intal)){
 try{
             String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
         String benamning=jbenamning.getText();
@@ -227,6 +226,7 @@ try{
          {
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
+  }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed

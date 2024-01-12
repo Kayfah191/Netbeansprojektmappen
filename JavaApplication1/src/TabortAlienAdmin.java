@@ -132,16 +132,11 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         if (fraga == 0) {
        try {
     String alienID = idb.fetchSingle("SELECT Alien_ID FROM alien WHERE Alien_ID = '" + jID.getText() + "'");
-//    String namn = idb.fetchSingle("SELECT namn FROM Alien WHERE namn = '" + tNamn.getText() + "'");
 
     String q1 = "DELETE FROM squid WHERE Alien_ID = " + alienID;
     String q2 = "DELETE FROM boglodite WHERE Alien_ID = " + alienID;
     String q3 = "DELETE FROM worm WHERE Alien_ID = " + alienID;
     String q4 = "DELETE FROM alien WHERE Alien_ID = " + alienID ;
-//idb.delete("delete from squid where Alien_id =" + alienID);     //raderar alien från alla subklasser av alien,
-//                idb.delete("delete from boglodite where Alien_id =" + alienID); // Om den inte finns i en subklass händer inget
-//                idb.delete("delete from worm where Alien_id =" + alienID);      //
-//                idb.delete("delete from alien where Alien_id =" + alienID); 
 
     idb.delete(q1);
     idb.delete(q2);

@@ -200,6 +200,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Registreringsknapp
+       if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
+            Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
+             
      try{   
         String nextID = idb.getAutoIncrement("agent", "agent_ID");
               
@@ -225,6 +228,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
         }
+       }
+             
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

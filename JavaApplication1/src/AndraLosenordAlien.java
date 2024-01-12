@@ -157,15 +157,12 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_nyttlosenordActionPerformed
 
     private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
-
+ 
     // Hämta nuvarande lösenord och nytt lösenord från textrutorna
     String Password = nuvarandelosenord.getText();
     String newPassword = nyttlosenord.getText();
 
-    // Kontrollera om lösenordsfälten är tomma
-    if (Password.isEmpty() && newPassword.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i Textrutor");
-    }
+ 
   
         try {
             String updatePasswordQuery = String.format("UPDATE alien SET Losenord = '%s' WHERE Losenord = '%s'", newPassword, Password);
@@ -174,6 +171,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+  
 
 
 

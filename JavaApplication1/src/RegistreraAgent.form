@@ -38,10 +38,8 @@
                                   <Component id="jLabel6" linkSize="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jNamn" pref="150" max="32767" attributes="0"/>
                                   <Component id="jTelefon" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jbox" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel8" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jbox" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel8" linkSize="1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
