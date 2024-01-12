@@ -1,5 +1,7 @@
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
@@ -24,13 +26,7 @@ public class InformationAliens extends javax.swing.JFrame {
      */
     public InformationAliens(String userAlienID, String userAlienNamn) {
         initComponents();
-        
-        this.userAlienID = userAlienID;
-        this.userAlienNamn = userAlienNamn;
-        
-        jLabel1.setText("Välkommen " + userAlienNamn + "!");
-        
-        try{
+           try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
@@ -40,8 +36,35 @@ public class InformationAliens extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
         
-    
+//        this.userAlienID = userAlienID;
+//        this.userAlienNamn = userAlienNamn;
+        
+        jLabel1.setText("Välkommen " + userAlienNamn + "!");
+        this.userAlienID = userAlienID;
+        this.userAlienNamn = userAlienNamn;
+//          try {
+//            
+//            alienIDLabel.setText(userAlienID);
+//            alienNamnLabel.setText(idb.fetchSingle("SELECT NAMN FROM ALIEN WHERE ALIEN_ID = " + userAlienID));
+//            alienPlatsLabel.setText(idb.fetchSingle("SELECT BENAMNING FROM PLATS WHERE PLATS_ID = (SELECT PLATS FROM ALIEN WHERE ALIEN_ID = " + userAlienID + ")"));            
+//            alienTelefonLabel.setText(idb.fetchSingle("SELECT TELEFON FROM ALIEN WHERE ALIEN_ID = " + userAlienID));
+//            
+//            HashMap<String,String> omradesChefen = idb.fetchRow(("SELECT * FROM AGENT WHERE AGENT_ID = (SELECT AGENT_ID FROM OMRADESCHEF WHERE OMRADE = (SELECT FINNS_I FROM PLATS JOIN ALIEN ON PLATS.PLATS_ID=ALIEN.PLATS WHERE ALIEN_ID = " + userAlienID + "))"));
+//            ocIDLabel.setText(omradesChefen.get("AGENT_ID"));
+//            ocNamnLabel.setText(omradesChefen.get("NAMN"));
+//            ocTelefonLabel.setText(omradesChefen.get("TELEFON"));            
+//     
+//        }
+//        catch (InfException undantag){
+//            JOptionPane.showMessageDialog(null, "Någonting gick fel!");
+//            System.out.println(undantag);
+//        }
+        
     }
+
+        
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +82,26 @@ public class InformationAliens extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        inloggadAlienPanel = new javax.swing.JPanel();
+        inloggadAlienIDLabel = new javax.swing.JLabel();
+        inloggadAlienNamnLabel = new javax.swing.JLabel();
+        inloggadAlienTelefonLabel = new javax.swing.JLabel();
+        inloggadAlienPlatsLabel = new javax.swing.JLabel();
+        alienIDLabel = new javax.swing.JLabel();
+        alienNamnLabel = new javax.swing.JLabel();
+        alienTelefonLabel = new javax.swing.JLabel();
+        alienPlatsLabel = new javax.swing.JLabel();
+        skiljeStreck3 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        agentID = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        omradesChefIDLabel = new javax.swing.JTextField();
+        omradesChefTelefonLabel = new javax.swing.JTextField();
+        omradesChefNamnLabel = new javax.swing.JTextField();
+        ocIDLabel = new javax.swing.JTextField();
+        ocNamnLabel = new javax.swing.JTextField();
+        ocTelefonLabel = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,6 +136,18 @@ public class InformationAliens extends javax.swing.JFrame {
             }
         });
 
+        inloggadAlienPanel.setPreferredSize(new java.awt.Dimension(210, 166));
+
+        inloggadAlienIDLabel.setText("AlienID:");
+
+        inloggadAlienNamnLabel.setText("Namn:");
+
+        inloggadAlienTelefonLabel.setText("Telefon:");
+
+        inloggadAlienPlatsLabel.setText("Plats:");
+
+        skiljeStreck3.setForeground(new java.awt.Color(255, 255, 255));
+
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setText("Ändra lösenord");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +156,113 @@ public class InformationAliens extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout inloggadAlienPanelLayout = new javax.swing.GroupLayout(inloggadAlienPanel);
+        inloggadAlienPanel.setLayout(inloggadAlienPanelLayout);
+        inloggadAlienPanelLayout.setHorizontalGroup(
+            inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(inloggadAlienPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inloggadAlienPanelLayout.createSequentialGroup()
+                        .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inloggadAlienPlatsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inloggadAlienNamnLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inloggadAlienTelefonLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alienNamnLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(alienTelefonLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(alienPlatsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(inloggadAlienPanelLayout.createSequentialGroup()
+                        .addComponent(inloggadAlienIDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(alienIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(skiljeStreck3))
+                .addContainerGap())
+        );
+        inloggadAlienPanelLayout.setVerticalGroup(
+            inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inloggadAlienPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(inloggadAlienIDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(alienIDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(skiljeStreck3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(alienNamnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inloggadAlienNamnLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(alienTelefonLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inloggadAlienTelefonLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(inloggadAlienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(alienPlatsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inloggadAlienPlatsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jButton4.setText("visa info");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        omradesChefIDLabel.setText("id");
+        omradesChefIDLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omradesChefIDLabelActionPerformed(evt);
+            }
+        });
+
+        omradesChefTelefonLabel.setText("telefom");
+        omradesChefTelefonLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omradesChefTelefonLabelActionPerformed(evt);
+            }
+        });
+
+        omradesChefNamnLabel.setText("namn");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(omradesChefIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(omradesChefTelefonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(omradesChefNamnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ocTelefonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocNamnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(omradesChefIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(omradesChefTelefonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocNamnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(omradesChefNamnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocTelefonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,44 +270,60 @@ public class InformationAliens extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 73, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3))
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inloggadAlienPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(agentID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton4))))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
                         .addGap(40, 40, 40)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(25, 25, 25))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(agentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(25, 25, 25))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(inloggadAlienPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(77, 77, 77)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(315, 271));
+        setSize(new java.awt.Dimension(353, 494));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,7 +340,7 @@ public class InformationAliens extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             
         
-        VissaOmradesAlien VisaOmradesChef = new VissaOmradesAlien(userAlienID);
+        VissaOmradesChefAlien VisaOmradesChef = new VissaOmradesChefAlien(userAlienID);
         VisaOmradesChef.setVisible(true);    
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -172,6 +349,38 @@ public class InformationAliens extends javax.swing.JFrame {
    AndraLosenordAlien andralosenord = new AndraLosenordAlien();
         andralosenord.setVisible(true);       
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+String agentId=agentID.getText();
+//  HashMap<String, String> omradesChefen;
+//              String fraga = "select namn,epost,telefon from agent where agent_id in (select agent_id from omradeschef where omrade in(select omrades_id from omrade where benamning =(select benamning from omrade where omrades_id in (select finns_i from plats where plats_id in (select plats from alien where alien_id='" + agentId + "')))))";
+//       
+        try {
+            
+            alienIDLabel.setText(agentId);
+            alienNamnLabel.setText(idb.fetchSingle("SELECT NAMN FROM ALIEN WHERE ALIEN_ID = " + agentId));
+            alienPlatsLabel.setText(idb.fetchSingle("SELECT BENAMNING FROM PLATS WHERE PLATS_ID = (SELECT PLATS FROM ALIEN WHERE ALIEN_ID = " + agentId + ")"));            
+            alienTelefonLabel.setText(idb.fetchSingle("SELECT TELEFON FROM ALIEN WHERE ALIEN_ID = " + agentId));
+            
+          
+       HashMap<String,String> omradesChefen = idb.fetchRow(("SELECT * FROM AGENT WHERE AGENT_ID = (SELECT AGENT_ID FROM OMRADESCHEF WHERE OMRADE = (SELECT FINNS_I FROM PLATS JOIN ALIEN ON PLATS.PLATS_ID=ALIEN.PLATS WHERE ALIEN_ID = " + agentId + "))"));
+            ocIDLabel.setText(omradesChefen.get("AGENT_ID"));
+            ocNamnLabel.setText(omradesChefen.get("NAMN"));
+            ocTelefonLabel.setText(omradesChefen.get("TELEFON"));             
+        }
+        catch (InfException undantag){
+            JOptionPane.showMessageDialog(null, "Någonting gick fel!");
+            System.out.println(undantag);
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void omradesChefIDLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradesChefIDLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_omradesChefIDLabelActionPerformed
+
+    private void omradesChefTelefonLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradesChefTelefonLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_omradesChefTelefonLabelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,13 +419,32 @@ public class InformationAliens extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField agentID;
+    private javax.swing.JLabel alienIDLabel;
+    private javax.swing.JLabel alienNamnLabel;
+    private javax.swing.JLabel alienPlatsLabel;
+    private javax.swing.JLabel alienTelefonLabel;
+    private javax.swing.JLabel inloggadAlienIDLabel;
+    private javax.swing.JLabel inloggadAlienNamnLabel;
+    private javax.swing.JPanel inloggadAlienPanel;
+    private javax.swing.JLabel inloggadAlienPlatsLabel;
+    private javax.swing.JLabel inloggadAlienTelefonLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField ocIDLabel;
+    private javax.swing.JTextField ocNamnLabel;
+    private javax.swing.JTextField ocTelefonLabel;
+    private javax.swing.JTextField omradesChefIDLabel;
+    private javax.swing.JTextField omradesChefNamnLabel;
+    private javax.swing.JTextField omradesChefTelefonLabel;
+    private javax.swing.JSeparator skiljeStreck3;
     // End of variables declaration//GEN-END:variables
 }

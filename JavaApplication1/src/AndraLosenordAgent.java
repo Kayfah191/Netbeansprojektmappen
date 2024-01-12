@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -12,19 +10,17 @@ import oru.inf.InfException;
 
 /**
  *
- * @author Rikard Söderek
+ * @author Kayhan
  */
-public class AndraLosenordAlien extends javax.swing.JFrame {
-  private InfDB idb;
-    private String userID;
-    /**
-     * Creates new form AndraLosenord
-     */
-    public AndraLosenordAlien() {
+public class AndraLosenordAgent extends javax.swing.JFrame {
+private InfDB idb;
+ private String userID;
+   
+    public AndraLosenordAgent() {
         initComponents();
         this.userID = userID;
         
-        jAlienID.setText("Alien ID: " + userID);
+        jAgentID.setText("Agent ID: " + userID);
 //        jAgentPlats.setText("Plats: " + userPlace); 
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -44,16 +40,38 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        andraknappen = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jAgentID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         nuvarandelosenord = new javax.swing.JTextField();
         nyttlosenord = new javax.swing.JTextField();
-        andraknappen = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jAlienID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        andraknappen.setText("Ändra Lösenord");
+        andraknappen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                andraknappenActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Avbryt");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jAgentID.setEditable(false);
+        jAgentID.setBackground(new java.awt.Color(204, 204, 204));
+        jAgentID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAgentIDActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Ändring av lösenord:");
@@ -73,23 +91,6 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 nyttlosenordActionPerformed(evt);
             }
         });
-
-        andraknappen.setText("Ändra Lösenord");
-        andraknappen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraknappenActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jAlienID.setEditable(false);
-        jAlienID.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,8 +112,8 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                             .addComponent(nuvarandelosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(120, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -126,7 +127,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -135,7 +136,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(nyttlosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 115, Short.MAX_VALUE))
+                .addGap(0, 165, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,8 +146,34 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
+
+        // Hämta nuvarande lösenord och nytt lösenord från textrutorna
+        String Password = nuvarandelosenord.getText();
+        String newPassword = nyttlosenord.getText();
+
+        // Kontrollera om lösenordsfälten är tomma
+        if (Password.isEmpty() && newPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Vänligen fyll i Textrutor");
+        }
+        // Verifiera användaren med det aktuella lösenordet
+
+        try {
+            String sqlFraga = String.format("UPDATE agent SET Losenord = '%s' WHERE Losenord = '%s'", newPassword, Password);
+            idb.update(sqlFraga);
+            JOptionPane.showMessageDialog(null, "Lösenord är ändrat");
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+    }//GEN-LAST:event_andraknappenActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Avbryt
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void nuvarandelosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuvarandelosenordActionPerformed
         // TODO add your handling code here:
@@ -156,33 +183,9 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nyttlosenordActionPerformed
 
-    private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
-
-    // Hämta nuvarande lösenord och nytt lösenord från textrutorna
-    String Password = nuvarandelosenord.getText();
-    String newPassword = nyttlosenord.getText();
-
-    // Kontrollera om lösenordsfälten är tomma
-    if (Password.isEmpty() && newPassword.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i Textrutor");
-    }
-  
-        try {
-            String updatePasswordQuery = String.format("UPDATE alien SET Losenord = '%s' WHERE Losenord = '%s'", newPassword, Password);
-            idb.update(updatePasswordQuery);
-            JOptionPane.showMessageDialog(null, "Lösenord är ändrat");
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-
-
-
-    }//GEN-LAST:event_andraknappenActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Avbryt
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jAgentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAgentIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,28 +204,27 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraLosenordAlien().setVisible(true);
+                new AndraLosenordAgent().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton andraknappen;
-    private javax.swing.JTextField jAlienID;
+    private javax.swing.JTextField jAgentID;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
