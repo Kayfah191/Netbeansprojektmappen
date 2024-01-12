@@ -144,8 +144,8 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
                         .addComponent(jButton9)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(170, 170, 170))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1RegistreraAgent, jButton2HamtaInfoAgent, jButton3AndraAgent, jButton4TaBortAgent, jButton5GorTillAdmin, jButton6AndraKontorsChef, jButton7AndraOmradesChef});

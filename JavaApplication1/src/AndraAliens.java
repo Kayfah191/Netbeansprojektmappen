@@ -308,7 +308,7 @@ public class AndraAliens extends javax.swing.JFrame {
         // Visa-knapp
         clearFields();
         
-      //  if(Validering.textNotEmpty(jID)){
+        if(Validering.textNotEmpty(jHamtatID)){
             try{
                 //Hämtar datan från en alien med IDt som skrivs in
                 String id = jHamtatID.getText();
@@ -316,7 +316,7 @@ public class AndraAliens extends javax.swing.JFrame {
                 System.out.println(fraga);
                 HashMap<String, String> svar = idb.fetchRow(fraga);
             
-           
+            if (svar != null && svar.containsKey("Alien_ID")){
                 //Lägger in datan från databasen in i textfielden
                 jID.setText(svar.get("Alien_ID"));
                 jNamn.setText(svar.get("Namn"));
@@ -326,10 +326,10 @@ public class AndraAliens extends javax.swing.JFrame {
                 jPlats.setText(svar.get("Plats"));
                 jRegDatum.setText(svar.get("Registreringsdatum"));       
                 jAnsvarig.setText(svar.get("Ansvarig_Agent"));
-                
-        
-            
-            
+                 }
+            else{
+                 JOptionPane.showMessageDialog(null, "Ingen Besökare med det ID hittades");
+            }
                 
             //Hämtar datan från de olika rasernas tabeller (worm, squid, boglodite) som hör till den alien var id skrevs in
             HashMap<String, String> wormData = idb.fetchRow("select * from worm where Alien_ID = " + id);
@@ -367,7 +367,7 @@ public class AndraAliens extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
-        //}
+      }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRasActionPerformed
