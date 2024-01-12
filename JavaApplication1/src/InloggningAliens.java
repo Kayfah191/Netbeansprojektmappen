@@ -187,10 +187,12 @@ initComponents();
     }//GEN-LAST:event_avbrytKnappActionPerformed
 
     private void loggaInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggaInKnappActionPerformed
-        //Loggin knapp
+        //Logga in-knapp för att logga in
         
+        // En validering utförs för att kontrollera om textfält för användarnamn (jUser) och lösenord (jPassword) inte är tomma och lösenordet inte är tomt
     if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
     try {
+        // En SQL-fråga skapas för att hämta ut information om en alien baserat på det angivna användarnamnet från textfältet jUser
         String query = String.format("SELECT Epost, Losenord, Namn FROM alien WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
@@ -202,6 +204,7 @@ initComponents();
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         
+        // Kontroll utförs om det lösenord som är angivet från ett textfält (jPassword) matchar det lösenord som är förväntat (lösenord)
         if(jPassword.getText().equals(lösenord)) {
              InformationAliens infoAlien = new InformationAliens(userAlienID, userAlienNamn);
         infoAlien.setVisible(true);

@@ -109,8 +109,8 @@ public class Validering {
             date.requestFocus();
             return false;
         }
+
     }
-    
     //Validera längd på Lösenord    
     public static boolean valPasswordLength(String password){
         
@@ -120,6 +120,7 @@ public class Validering {
         }
         else{
            return true;
+
         }
     }
 //             

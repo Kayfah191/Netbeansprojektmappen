@@ -174,15 +174,20 @@ public class InloggningAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_avbrytKnappActionPerformed
 
     private void loggInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggInKnappActionPerformed
-     if (Validering.textNotEmpty(adminnamn)&& Validering.passwordNotEmpty(adminlösenord)){
+        //Logga in-knapp för att logga in
+        
+        // Validering av textfältet utförs för admin-namn och lösenord
+        if (Validering.textNotEmpty(adminnamn)&& Validering.passwordNotEmpty(adminlösenord)){
     try {
+        // Värdet hämtas från textfält för admin-namn och lösenord för att testas
         String test = adminnamn.getText();
          String test2 = adminlösenord.getText();
-       
+      
        // JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
+        // En SQL-fråga för att hämta ut information om en agent baserat på det admin-namn som angivs
+
     String q1 = String.format("SELECT Agent_id, Namn, administrator, Losenord, Epost FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
-//        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
-//                "' and losenord = '" + adminlösenord.getText() + "';";
+
         HashMap<String, String> rad =  idb.fetchRow(q1);
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
