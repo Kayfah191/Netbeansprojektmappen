@@ -34,9 +34,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="Avbryt" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="listaAlienEfterPlatsButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="VisaAlienEfterPlatsButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -74,8 +74,8 @@
               <Component id="resultatTextArea" min="-2" pref="150" max="-2" attributes="0"/>
               <EmptySpace pref="20" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="listaAlienEfterPlatsButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Avbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="VisaAlienEfterPlatsButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -130,12 +130,12 @@
         <Property name="rows" type="int" value="5"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="listaAlienEfterPlatsButton">
+    <Component class="javax.swing.JButton" name="VisaAlienEfterPlatsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaAlienEfterPlatsButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VisaAlienEfterPlatsButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lOmrade">
@@ -143,7 +143,7 @@
         <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="Avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>

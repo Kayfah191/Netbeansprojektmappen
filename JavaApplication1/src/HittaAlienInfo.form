@@ -23,27 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="namnLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jnamn" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="visaInfo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="Avbryt" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="AlienIDLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jAlienID" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="visaInfo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="jScrollPaneInfo" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -52,7 +51,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                              <Component id="listaAliensefterDatumButton" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="VisaAliensefterDatumButton" min="-2" pref="72" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -62,7 +61,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="sokRasBox" min="-2" pref="128" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="listaAliensEfterRasButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="VisaAliensEfterRasButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="sokRasLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="sokDatumLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -86,7 +85,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoBesökare" min="-2" max="-2" attributes="0"/>
                           <Component id="sokAllInfoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -99,7 +98,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="InfoBesökare" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -108,7 +107,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rasLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="sokRasBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="listaAliensEfterRasButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="VisaAliensEfterRasButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="sokDatumLabel" min="-2" max="-2" attributes="0"/>
@@ -127,7 +126,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="listaAliensefterDatumButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="VisaAliensefterDatumButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -140,26 +139,26 @@
               <Component id="sokAllInfoLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="namnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jnamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AlienIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="visaInfo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPaneInfo" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="Avbryt" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="Avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AvbrytActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="franDatumSpinner">
@@ -213,7 +212,7 @@
         <Property name="text" type="java.lang.String" value="Lista aliens av en viss ras"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="namnLabel">
+    <Component class="javax.swing.JLabel" name="AlienIDLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ange ID:"/>
       </Properties>
@@ -223,20 +222,20 @@
         <Property name="text" type="java.lang.String" value="S&#xf6;k all information om enskild alien"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="listaAliensefterDatumButton">
+    <Component class="javax.swing.JButton" name="VisaAliensefterDatumButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaAliensefterDatumButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VisaAliensefterDatumButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="listaAliensEfterRasButton">
+    <Component class="javax.swing.JButton" name="VisaAliensEfterRasButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaAliensEfterRasButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VisaAliensEfterRasButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="sokDatumLabel">
@@ -254,9 +253,9 @@
         <Property name="rows" type="int" value="5"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jnamn">
+    <Component class="javax.swing.JTextField" name="jAlienID">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jnamnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jAlienIDActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPaneInfo">
@@ -266,7 +265,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="alienTabel">
+        <Component class="javax.swing.JTable" name="alienTable">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -299,7 +298,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visaInfoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="InfoBes&#xf6;kare">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>

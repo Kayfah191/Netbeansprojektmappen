@@ -40,22 +40,22 @@ private String epost;
     private void initComponents() {
 
         namn = new javax.swing.JTextField();
-        lblEpost = new javax.swing.JLabel();
-        Andra = new javax.swing.JButton();
+        AgentNamn = new javax.swing.JLabel();
+        Spara = new javax.swing.JButton();
         geAdmin = new javax.swing.JComboBox<>();
         lblAdministrator = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Avbryt = new javax.swing.JButton();
+        GaTillbaka = new javax.swing.JButton();
+        AdminStatusAgenter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblEpost.setText("Agent Namn");
+        AgentNamn.setText("Agent-namn");
 
-        Andra.setText("Spara");
-        Andra.addActionListener(new java.awt.event.ActionListener() {
+        Spara.setText("Spara");
+        Spara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AndraActionPerformed(evt);
+                SparaActionPerformed(evt);
             }
         });
 
@@ -63,22 +63,22 @@ private String epost;
 
         lblAdministrator.setText("Administratör?");
 
-        jButton1.setText("Avbryt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Avbryt.setText("Avbryt");
+        Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AvbrytActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gå tillbaka");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        GaTillbaka.setText("Gå tillbaka");
+        GaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                GaTillbakaActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Ändra administratörsstatus hos Agenter");
+        AdminStatusAgenter.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AdminStatusAgenter.setText("Ändra administratörsstatus hos Agenter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +87,7 @@ private String epost;
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,25 +96,25 @@ private String epost;
                 .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(GaTillbaka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(Avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Andra)
+                .addComponent(Spara)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(AdminStatusAgenter)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(AdminStatusAgenter)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEpost)
+                    .addComponent(AgentNamn)
                     .addComponent(lblAdministrator))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -122,9 +122,9 @@ private String epost;
                     .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(Andra))
+                    .addComponent(Avbryt)
+                    .addComponent(GaTillbaka)
+                    .addComponent(Spara))
                 .addContainerGap())
         );
 
@@ -132,9 +132,15 @@ private String epost;
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraActionPerformed
+    private void SparaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparaActionPerformed
+        // Spara-knapp
+        
+        // Agentens namn hämtas från textfältet namn
         String agentNamn = namn.getText();
+        // Värdet hämtas från det valda alternativet i JComboBox-en geAdmin som sedan konverterar det till en sträng
         String admin = geAdmin.getSelectedItem().toString();
+        
+            // Uppdrag utförs om agenten har adminbehörighet.
             try {
                 if (admin.equals("Ja")) {
                     
@@ -153,26 +159,28 @@ private String epost;
                 JOptionPane.showMessageDialog(null, "Misslyckad");
             }
         
-    }//GEN-LAST:event_AndraActionPerformed
+    }//GEN-LAST:event_SparaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//Avbryt
+    private void AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvbrytActionPerformed
+        // Avbryt-knapp
+        
         JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
                 JOptionPane.YES_OPTION)== JOptionPane.YES_OPTION)
         {
             System.exit(0);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AvbrytActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  //Tillbakaknapp 
+    private void GaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaActionPerformed
+        //Tillbaka-knapp 
+        
         AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_GaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,13 +218,13 @@ private String epost;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Andra;
+    private javax.swing.JLabel AdminStatusAgenter;
+    private javax.swing.JLabel AgentNamn;
+    private javax.swing.JButton Avbryt;
+    private javax.swing.JButton GaTillbaka;
+    private javax.swing.JButton Spara;
     private javax.swing.JComboBox<String> geAdmin;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAdministrator;
-    private javax.swing.JLabel lblEpost;
     private javax.swing.JTextField namn;
     // End of variables declaration//GEN-END:variables
 }

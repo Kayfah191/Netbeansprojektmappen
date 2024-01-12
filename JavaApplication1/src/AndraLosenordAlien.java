@@ -49,8 +49,8 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         nuvarandelosenord = new javax.swing.JTextField();
         nyttlosenord = new javax.swing.JTextField();
-        andraknappen = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        andralosenordknappen = new javax.swing.JButton();
+        jButton2Avbryt = new javax.swing.JButton();
         jAlienID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,17 +74,17 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
             }
         });
 
-        andraknappen.setText("Ändra Lösenord");
-        andraknappen.addActionListener(new java.awt.event.ActionListener() {
+        andralosenordknappen.setText("Ändra Lösenord");
+        andralosenordknappen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraknappenActionPerformed(evt);
+                andralosenordknappenActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2Avbryt.setText("Avbryt");
+        jButton2Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2AvbrytActionPerformed(evt);
             }
         });
 
@@ -115,9 +115,9 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButton2Avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(andraknappen)
+                .addComponent(andralosenordknappen)
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -139,8 +139,8 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(andraknappen)
-                    .addComponent(jButton2))
+                    .addComponent(andralosenordknappen)
+                    .addComponent(jButton2Avbryt))
                 .addContainerGap())
         );
 
@@ -156,31 +156,30 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nyttlosenordActionPerformed
 
-    private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
+    private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
  
-    // Hämta nuvarande lösenord och nytt lösenord från textrutorna
+    // Hämtar nuvarande lösenord och nytt lösenord från textrutorna
     String Password = nuvarandelosenord.getText();
     String newPassword = nyttlosenord.getText();
 
  
-  
+        // Utför en SQL-fråga för att ändra lösenordet i alien-tabellen.
         try {
             String updatePasswordQuery = String.format("UPDATE alien SET Losenord = '%s' WHERE Losenord = '%s'", newPassword, Password);
             idb.update(updatePasswordQuery);
             JOptionPane.showMessageDialog(null, "Lösenord är ändrat");
+            
+        // Fångar och hanterar undantaget InfException som kan uppstå vid databasrelaterade fel samt
+        // visar ett felmeddelande i en informationsruta (JOptionPane) med undantagets meddelande.
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-  
+    }//GEN-LAST:event_andralosenordknappenActionPerformed
 
-
-
-    }//GEN-LAST:event_andraknappenActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AvbrytActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2AvbrytActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,9 +218,9 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton andraknappen;
+    private javax.swing.JButton andralosenordknappen;
     private javax.swing.JTextField jAlienID;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton2Avbryt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

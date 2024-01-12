@@ -37,13 +37,13 @@ public class AndraOmradesChef extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        btnAndra = new javax.swing.JButton();
+        btnSpara = new javax.swing.JButton();
         jnamn = new javax.swing.JTextField();
         omradenummer = new javax.swing.JTextField();
         omrade = new javax.swing.JLabel();
         namn = new javax.swing.JLabel();
-        btnGaTillbaka = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        btnAvbryta = new javax.swing.JButton();
+        OmradesChef = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jMenu1.setText("File");
@@ -54,10 +54,10 @@ public class AndraOmradesChef extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAndra.setText("Spara");
-        btnAndra.addActionListener(new java.awt.event.ActionListener() {
+        btnSpara.setText("Spara");
+        btnSpara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAndraActionPerformed(evt);
+                btnSparaActionPerformed(evt);
             }
         });
 
@@ -65,15 +65,15 @@ public class AndraOmradesChef extends javax.swing.JFrame {
 
         namn.setText("Namn");
 
-        btnGaTillbaka.setText("Avbryt");
-        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        btnAvbryta.setText("Avbryt");
+        btnAvbryta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGaTillbakaActionPerformed(evt);
+                btnAvbrytaActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Ändra områderchef");
+        OmradesChef.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        OmradesChef.setText("Ändra områdeschef");
 
         jLabel3.setText("Skriv in områdesnummer:");
 
@@ -97,13 +97,13 @@ public class AndraOmradesChef extends javax.swing.JFrame {
                 .addGap(0, 24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGaTillbaka)
+                .addComponent(btnAvbryta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAndra)
+                .addComponent(btnSpara)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(OmradesChef)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -115,7 +115,7 @@ public class AndraOmradesChef extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)
+                        .addComponent(OmradesChef)
                         .addGap(47, 47, 47)
                         .addComponent(namn))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -129,8 +129,8 @@ public class AndraOmradesChef extends javax.swing.JFrame {
                     .addComponent(omradenummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAndra)
-                    .addComponent(btnGaTillbaka))
+                    .addComponent(btnSpara)
+                    .addComponent(btnAvbryta))
                 .addContainerGap())
         );
 
@@ -140,10 +140,11 @@ public class AndraOmradesChef extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraActionPerformed
+    private void btnSparaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSparaActionPerformed
         //Ändrar områdeschef i ett specifikt område
        
-        int svar = JOptionPane.showConfirmDialog(null, "Är du säker på att du vill ändra Områdeschef", "Bekräfta ändring", JOptionPane.YES_NO_OPTION); // Bekräftelse ruta
+        // Bekräftelse-ruta
+        int svar = JOptionPane.showConfirmDialog(null, "Är du säker på att du vill ändra Områdeschef", "Bekräfta ändring", JOptionPane.YES_NO_OPTION); 
 
             if (svar == 0) {    //Kollar om man svara ja i bekräftelsen
                 try {
@@ -169,14 +170,14 @@ public class AndraOmradesChef extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_btnAndraActionPerformed
+    }//GEN-LAST:event_btnSparaActionPerformed
 
-    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+    private void btnAvbrytaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvbrytaActionPerformed
 //  AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
 //        tillAdminval.show();
 //        //stänger tidigare fönster
         dispose();
-    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+    }//GEN-LAST:event_btnAvbrytaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,9 +215,9 @@ public class AndraOmradesChef extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAndra;
-    private javax.swing.JButton btnGaTillbaka;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel OmradesChef;
+    private javax.swing.JButton btnAvbryta;
+    private javax.swing.JButton btnSpara;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

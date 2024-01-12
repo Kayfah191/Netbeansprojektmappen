@@ -40,8 +40,8 @@ private InfDB idb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        andraknappen = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        andralosenordknappen = new javax.swing.JButton();
+        jButton2Avbryt = new javax.swing.JButton();
         jAgentID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -51,17 +51,17 @@ private InfDB idb;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        andraknappen.setText("Ändra Lösenord");
-        andraknappen.addActionListener(new java.awt.event.ActionListener() {
+        andralosenordknappen.setText("Ändra Lösenord");
+        andralosenordknappen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraknappenActionPerformed(evt);
+                andralosenordknappenActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2Avbryt.setText("Avbryt");
+        jButton2Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2AvbrytActionPerformed(evt);
             }
         });
 
@@ -116,9 +116,9 @@ private InfDB idb;
                 .addContainerGap(120, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButton2Avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(andraknappen)
+                .addComponent(andralosenordknappen)
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -140,15 +140,15 @@ private InfDB idb;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(andraknappen)
-                    .addComponent(jButton2))
+                    .addComponent(andralosenordknappen)
+                    .addComponent(jButton2Avbryt))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void andraknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraknappenActionPerformed
+    private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
 
         // Hämta nuvarande lösenord och nytt lösenord från textrutorna
         String Password = nuvarandelosenord.getText();
@@ -158,22 +158,25 @@ private InfDB idb;
         if (Password.isEmpty() && newPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Vänligen fyll i Textrutor");
         }
-        // Verifiera användaren med det aktuella lösenordet
-
-        try {
+        
+        // Utför en SQL-fråga för att ändra lösenordet i agent-tabellen.
+        try { 
             String sqlFraga = String.format("UPDATE agent SET Losenord = '%s' WHERE Losenord = '%s'", newPassword, Password);
             idb.update(sqlFraga);
             JOptionPane.showMessageDialog(null, "Lösenord är ändrat");
+            
+        // Fångar och hanterar undantaget InfException som kan uppstå vid databasrelaterade fel samt
+        // visar ett felmeddelande i en informationsruta (JOptionPane) med undantagets meddelande.
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
-    }//GEN-LAST:event_andraknappenActionPerformed
+    }//GEN-LAST:event_andralosenordknappenActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AvbrytActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2AvbrytActionPerformed
 
     private void nuvarandelosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuvarandelosenordActionPerformed
         // TODO add your handling code here:
@@ -223,9 +226,9 @@ private InfDB idb;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton andraknappen;
+    private javax.swing.JButton andralosenordknappen;
     private javax.swing.JTextField jAgentID;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton2Avbryt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

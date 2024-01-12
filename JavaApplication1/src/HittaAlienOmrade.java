@@ -51,9 +51,9 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         sokOmradesBox = new javax.swing.JComboBox<>();
         sokPlatsBox = new javax.swing.JComboBox<>();
         resultatTextArea = new javax.swing.JTextArea();
-        listaAlienEfterPlatsButton = new javax.swing.JButton();
+        VisaAlienEfterPlatsButton = new javax.swing.JButton();
         lOmrade = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        Avbryt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,16 +81,16 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         resultatTextArea.setColumns(20);
         resultatTextArea.setRows(5);
 
-        listaAlienEfterPlatsButton.setText("Visa");
-        listaAlienEfterPlatsButton.addActionListener(new java.awt.event.ActionListener() {
+        VisaAlienEfterPlatsButton.setText("Visa");
+        VisaAlienEfterPlatsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaAlienEfterPlatsButtonActionPerformed(evt);
+                VisaAlienEfterPlatsButtonActionPerformed(evt);
             }
         });
 
         lOmrade.setText("Område");
 
-        jButton2.setText("Avbryt");
+        Avbryt.setText("Avbryt");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,9 +106,9 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(145, 145, 145)
-                                .addComponent(jButton2)
+                                .addComponent(Avbryt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(listaAlienEfterPlatsButton))
+                                .addComponent(VisaAlienEfterPlatsButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(sokOmradesBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,8 +136,8 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
                 .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(listaAlienEfterPlatsButton))
+                    .addComponent(Avbryt)
+                    .addComponent(VisaAlienEfterPlatsButton))
                 .addContainerGap())
         );
 
@@ -160,7 +160,11 @@ try{
         }
 }
     private void sokOmradesBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokOmradesBoxActionPerformed
-  String omradet = sokOmradesBox.getSelectedItem().toString();
+        //JCombo-box för område
+        
+        // Det valda området hämtas från en JComboBox och hämtar platsnamnen för det valda området från databasen
+        // Skapar en ComboBoxModel och fyller den med de hämtade platsnamnen för att uppdatera ComboBoxen för platser
+        String omradet = sokOmradesBox.getSelectedItem().toString();
         
         try{
         ArrayList<String> platsIOmradeIDB = idb.fetchColumn("SELECT BENAMNING FROM PLATS WHERE FINNS_I = (SELECT OMRADES_ID FROM OMRADE WHERE BENAMNING = \'" + omradet + "\')");
@@ -172,19 +176,25 @@ try{
         sokPlatsBox.setEnabled(true);
         sokPlatsBox.setModel(platserna);       
         }
+        // Databasoperationer som har eventuella fel hanteras och skrivs ut
         catch(InfException undantag){
             System.out.println("Fel med databas!" + undantag);
         }
 //             
     }//GEN-LAST:event_sokOmradesBoxActionPerformed
-    private void listaAlienEfterPlatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlienEfterPlatsButtonActionPerformed
+    private void VisaAlienEfterPlatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAlienEfterPlatsButtonActionPerformed
+       //Visa alien-knapp efter plats
+        
+        // Rensar resultatområdet och försöker hämta och visa namnen på aliens baserat på det valda området och platsen.
         resultatTextArea.setText("");
     ArrayList<HashMap<String, String>> alienInfo;
 
-try {
+    try {
     String omrade = sokOmradesBox.getSelectedItem().toString();
     String platsen = sokPlatsBox.getSelectedItem().toString();
     
+     // En SQL-fråga utförs som ansluter Alien- och Plats-tabellerna för att hämta Alien-namn där platsens benämning matchar det valda området och platsen
+     // Namn på aliens visas i resultatområdet
     String sqlFraga = "SELECT Namn FROM Alien JOIN Plats ON Alien.Plats = Plats.Plats_ID WHERE Plats.Benamning = '" + platsen + "'";
     
     alienInfo = idb.fetchRows(sqlFraga);
@@ -192,12 +202,13 @@ try {
     for (HashMap<String, String> lista : alienInfo) {
         resultatTextArea.append(lista.get("Namn") + "\n");
     }
+    // Databasoperationer som har eventuella fel hanteras och visar felmeddelande i en dialogruta samt skriver ut ett felmeddelande
 } catch (InfException ettUndantag) {
     JOptionPane.showMessageDialog(null, "Databasfel!");
     System.out.println("Internt felmeddelande: " + ettUndantag.getMessage());
 }
        
-    }//GEN-LAST:event_listaAlienEfterPlatsButtonActionPerformed
+    }//GEN-LAST:event_VisaAlienEfterPlatsButtonActionPerformed
 
     private void sokPlatsBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokPlatsBoxActionPerformed
         // TODO add your handling code here:
@@ -240,11 +251,11 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Avbryt;
     private javax.swing.JLabel Rubrik;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton VisaAlienEfterPlatsButton;
     private javax.swing.JLabel lOmrade;
     private javax.swing.JLabel lValjPlats;
-    private javax.swing.JButton listaAlienEfterPlatsButton;
     private javax.swing.JTextArea resultatTextArea;
     private javax.swing.JComboBox<String> sokOmradesBox;
     private javax.swing.JComboBox<String> sokPlatsBox;
