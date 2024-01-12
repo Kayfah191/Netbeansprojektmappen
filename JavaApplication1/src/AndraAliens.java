@@ -1,9 +1,10 @@
 
 import java.util.HashMap;
 import javax.swing.JOptionPane;
+import mib.Validering;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import mib.Validering;
+
 
 
 /**
@@ -49,8 +50,8 @@ public class AndraAliens extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1AndraBesökare = new javax.swing.JLabel();
-        jLabel2ID = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jHamtatID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -69,9 +70,9 @@ public class AndraAliens extends javax.swing.JFrame {
         jRegDatum = new javax.swing.JTextField();
         jAnsvarig = new javax.swing.JTextField();
         jAttribut = new javax.swing.JTextField();
-        jButton1Spara = new javax.swing.JButton();
-        jButton2Avbryt = new javax.swing.JButton();
-        jButton3VisaID = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jRas = new javax.swing.JComboBox<>();
         jPlats = new javax.swing.JTextField();
         jID = new javax.swing.JTextField();
@@ -90,11 +91,11 @@ public class AndraAliens extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1AndraBesökare.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1AndraBesökare.setText("Ändra information på Besökare");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Ändra information på Besökare");
 
-        jLabel2ID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2ID.setText("Ange Besökares ID:");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Ange Besökares ID:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("ID: ");
@@ -129,24 +130,24 @@ public class AndraAliens extends javax.swing.JFrame {
         jEpost.setEditable(false);
         jEpost.setBackground(new java.awt.Color(235, 235, 235));
 
-        jButton1Spara.setText("Spara");
-        jButton1Spara.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Spara");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1SparaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2Avbryt.setText("Avbryt");
-        jButton2Avbryt.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Avbryt");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2AvbrytActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3VisaID.setText("Visa");
-        jButton3VisaID.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Visa");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3VisaIDActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -168,8 +169,8 @@ public class AndraAliens extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1AndraBesökare)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(0, 294, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -198,27 +199,25 @@ public class AndraAliens extends javax.swing.JFrame {
                                 .addComponent(jLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2ID)
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jHamtatID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3VisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jAttributLabel)
                             .addComponent(jLabel8)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
+                            .addComponent(jLabel7))
+                        .addGap(33, 201, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jAttributLabel)
-                                .addGap(34, 34, 34)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel13)
@@ -229,20 +228,16 @@ public class AndraAliens extends javax.swing.JFrame {
                                     .addComponent(jPlats)
                                     .addComponent(jRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2Avbryt)
+                                .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
-                                .addComponent(jButton1)))))
-=======
-                                .addComponent(jButton1Spara)))))
->>>>>>> d531e194cc591c118aa688283e976c5f53ca3423
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton1)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1AndraBesökare)
+                .addComponent(jLabel1)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -261,12 +256,12 @@ public class AndraAliens extends javax.swing.JFrame {
                                     .addComponent(jEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2ID)
+                                        .addComponent(jLabel2)
                                         .addComponent(jHamtatID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton3VisaID))
-                                    .addComponent(jLabel7))
+                                        .addComponent(jButton3)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel10)
                                 .addGap(88, 88, 88)))
@@ -285,8 +280,8 @@ public class AndraAliens extends javax.swing.JFrame {
                                 .addComponent(jAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1Spara)
-                            .addComponent(jButton2Avbryt)))
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -309,14 +304,11 @@ public class AndraAliens extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3VisaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3VisaIDActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Visa-knapp
-        
-        //Rensar fälten
         clearFields();
         
-        if (Validering.textNotEmpty(jHamtatID) && Validering.valDatumFormat(jRegDatum)) {
-           // && Validering.valDatumFormat(jRegDatum()
+        
             try{
                 //Hämtar datan från en alien med IDt som skrivs in
                 String id = jHamtatID.getText();
@@ -324,7 +316,7 @@ public class AndraAliens extends javax.swing.JFrame {
                 System.out.println(fraga);
                 HashMap<String, String> svar = idb.fetchRow(fraga);
             
-            if (svar != null && svar.containsKey("Alien_ID")) { 
+           
                 //Lägger in datan från databasen in i textfielden
                 jID.setText(svar.get("Alien_ID"));
                 jNamn.setText(svar.get("Namn"));
@@ -334,33 +326,30 @@ public class AndraAliens extends javax.swing.JFrame {
                 jPlats.setText(svar.get("Plats"));
                 jRegDatum.setText(svar.get("Registreringsdatum"));       
                 jAnsvarig.setText(svar.get("Ansvarig_Agent"));
-                }
-            else{
-                 JOptionPane.showMessageDialog(null, "Ingen Besökare med det ID hittades");
-            }
-              
+                
+        
+            
+            
+                
             //Hämtar datan från de olika rasernas tabeller (worm, squid, boglodite) som hör till den alien var id skrevs in
             HashMap<String, String> wormData = idb.fetchRow("select * from worm where Alien_ID = " + id);
             HashMap<String, String> squidData = idb.fetchRow("select * from squid where Alien_ID = " + id);
             HashMap<String, String> bogloditeData = idb.fetchRow("select * from boglodite where Alien_ID = " + id);
          
-            // Skapar en heltalsvariabel 'i' och tilldelar den värdet -1.
+            
             Integer i = -1;
             jRas.setSelectedIndex(i);
             
-            // Kontrollerar om wormData inte är tomt.
             if(!wormData.isEmpty()){
                 jRas.setSelectedIndex(0);
                 jAttributLabel.setText("Längd (cm): ");
                 jAttribut.setText(wormData.get("Langd"));
             }
-            // Om wormData är tomt, kontrolleras om squidData är tomt.
             else if(!squidData.isEmpty()){
                  jRas.setSelectedIndex(1);
                 jAttributLabel.setText("Mängden armar: ");
                 jAttribut.setText(squidData.get("Antal_Armar"));        
             }
-            // Om varken wormData eller squidData är tomma, kontrolleras om bogloditeData är tomt.
             else if(!bogloditeData.isEmpty()){
                  jRas.setSelectedIndex(2);
                 jAttributLabel.setText("Mängden Boogies: ");
@@ -378,32 +367,27 @@ public class AndraAliens extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
-     }  
-    }//GEN-LAST:event_jButton3VisaIDActionPerformed
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRasActionPerformed
         // Val av ras (alternativ)
     }//GEN-LAST:event_jRasActionPerformed
 
-    private void jButton2AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AvbrytActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton2AvbrytActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1SparaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SparaActionPerformed
-        // Spara-knapp
-        
-          // Hämtar texten från textfältet jID och tilldelar värdet till variabeln ID.
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Spara
           String ID = jID.getText();
         
-        try {   // Skapar ett SQL-kommando för att uppdatera data i tabellen "alien" baserat på Alien_ID.
+        try {
                 var kommando = String.format("update alien " + " set Namn =  '%s'," + " Telefon = '%s'," + " Registreringsdatum = '%s'," + " Losenord = '%s'" + " where Alien_ID = %s", 
                         jNamn.getText(), jTelefon.getText(), jRegDatum.getText(), jLosenord.getText(), jID.getText());
-                
-            // Utför uppdateringen i databasen med det skapade SQL-kommandot.
             idb.update(kommando);
             
-            // Skapar SQL-kommandon för att ta bort relaterade poster i worm, squid och boglodite tabellerna baserat på Alien_ID.
             String deleteWorm = String.format("DELETE FROM worm WHERE Alien_ID = %s", ID);
             String deleteSquid = String.format("DELETE FROM squid WHERE Alien_ID = %s", ID);
             String deleteBoglodite = String.format("DELETE FROM boglodite WHERE Alien_ID = %s", ID);
@@ -420,11 +404,9 @@ public class AndraAliens extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
         
-    }//GEN-LAST:event_jButton1SparaActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void clearFields() {
-        
-    //Metod för att rensa fälten
     jID.setText("");
     jNamn.setText("");
     jEpost.setText("");
@@ -491,17 +473,17 @@ public class AndraAliens extends javax.swing.JFrame {
     private javax.swing.JTextField jAnsvarig;
     private javax.swing.JTextField jAttribut;
     private javax.swing.JLabel jAttributLabel;
-    private javax.swing.JButton jButton1Spara;
-    private javax.swing.JButton jButton2Avbryt;
-    private javax.swing.JButton jButton3VisaID;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JTextField jEpost;
     private javax.swing.JTextField jHamtatID;
     private javax.swing.JTextField jID;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel1AndraBesökare;
-    private javax.swing.JLabel jLabel2ID;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

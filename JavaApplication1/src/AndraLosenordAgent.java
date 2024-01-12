@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import mib.Validering;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -149,7 +150,7 @@ private InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
-
+if(Validering.textNotEmpty(nuvarandelosenord)&& Validering.textNotEmpty(nyttlosenord)){
         // Hämta nuvarande lösenord och nytt lösenord från textrutorna
         String Password = nuvarandelosenord.getText();
         String newPassword = nyttlosenord.getText();
@@ -170,6 +171,7 @@ private InfDB idb;
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+}
 
     }//GEN-LAST:event_andralosenordknappenActionPerformed
 

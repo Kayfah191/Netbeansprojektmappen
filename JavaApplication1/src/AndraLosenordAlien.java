@@ -4,6 +4,7 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import mib.Validering;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -157,7 +158,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_nyttlosenordActionPerformed
 
     private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
- 
+ if(Validering.textNotEmpty(nuvarandelosenord)&& Validering.textNotEmpty(jAlienID)){
     // Hämtar nuvarande lösenord och nytt lösenord från textrutorna
     String Password = nuvarandelosenord.getText();
     String newPassword = nyttlosenord.getText();
@@ -174,6 +175,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+ }
     }//GEN-LAST:event_andralosenordknappenActionPerformed
 
     private void jButton2AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AvbrytActionPerformed
