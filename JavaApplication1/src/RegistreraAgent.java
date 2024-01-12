@@ -201,13 +201,16 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Registreringsknapp
+        
+        // En validering utförs för att kontrollera om textfälten för namn (jNamn) och telefon (jTelefon) inte är tomma
+        // samtidigt som en längdvalidering utförs för namnet och telefonnummeret med hjälp av validerings-metoderna
        if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
             Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
              
      try{   
         String nextID = idb.getAutoIncrement("agent", "agent_ID");
               
-//här används .getAutoIncrement metoden för att få alien_ID, variabeln nextAID används i frågorna
+        // Här används .getAutoIncrement metoden för att få alien_ID, variabeln nextAID används i frågorna
         String losenord = jLosenord.getText();
         String namn = jNamn.getText();
         String telefon = jTelefon.getText();

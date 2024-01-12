@@ -185,10 +185,12 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }//GEN-LAST:event_avbrytKnappActionPerformed
 
     private void loggInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggInKnappActionPerformed
-        //Loggin knapp
+        //Logga in-knapp för att logga in
+        
+        // Validering av textfältet utförs för agent-namn och lösenord
     if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
    
-    try { 
+    try { //// En SQL-fråga för att hämta ut information om en agent baserat på det användarnamn som angivs
         String query = String.format("SELECT Agent_ID, Epost, Losenord, Namn FROM agent WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
@@ -200,6 +202,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         String lösenord = rad.get("Losenord");
         System.out.println("rad hittad");
         
+        // Ett angivet lösenord kontrolleras om textfältet jPassword matchar det förväntade lösenordet.
         if(jPassword.getText().equals(lösenord)) {
              InformationAgenter agentInfo = new InformationAgenter(userID, userNamn);    
         agentInfo.setVisible(true);

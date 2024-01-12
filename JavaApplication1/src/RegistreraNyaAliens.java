@@ -261,7 +261,11 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     }//GEN-LAST:event_avbrytActionPerformed
 
     private void registreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraActionPerformed
-    if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
+        // Knapp för att registrera en ny alien
+        
+        // En validering utförs för att kontrollera om textfälten för namn (jNamn) och telefon (jTelefon) inte är tomma
+        // samtidigt som en längdvalidering utförs för namnet och telefonnumret med hjälp av validerings-metoderna
+        if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
             Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
         try {
                 // Hämta nästa autoinkrementvärde för alien_ID från databasen
