@@ -1,4 +1,5 @@
 
+import mib.Validering;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;

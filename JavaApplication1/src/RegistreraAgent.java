@@ -1,3 +1,4 @@
+import mib.Validering;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
