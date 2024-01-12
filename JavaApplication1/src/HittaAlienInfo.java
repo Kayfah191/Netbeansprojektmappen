@@ -52,7 +52,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        Avbryt = new javax.swing.JButton();
         franDatumSpinner = new javax.swing.JSpinner();
         franLabel = new javax.swing.JLabel();
         sokRasBox = new javax.swing.JComboBox<>();
@@ -60,24 +60,24 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         tillLabel = new javax.swing.JLabel();
         tillDatumSpinner = new javax.swing.JSpinner();
         sokRasLabel = new javax.swing.JLabel();
-        namnLabel = new javax.swing.JLabel();
+        AlienIDLabel = new javax.swing.JLabel();
         sokAllInfoLabel = new javax.swing.JLabel();
-        listaAliensefterDatumButton = new javax.swing.JButton();
-        listaAliensEfterRasButton = new javax.swing.JButton();
+        VisaAliensefterDatumButton = new javax.swing.JButton();
+        VisaAliensEfterRasButton = new javax.swing.JButton();
         sokDatumLabel = new javax.swing.JLabel();
         resultatTextArea = new javax.swing.JTextArea();
-        jnamn = new javax.swing.JTextField();
+        jAlienID = new javax.swing.JTextField();
         jScrollPaneInfo = new javax.swing.JScrollPane();
-        alienTabel = new javax.swing.JTable();
+        alienTable = new javax.swing.JTable();
         visaInfo = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        InfoBesökare = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Avbryt.setText("Avbryt");
+        Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AvbrytActionPerformed(evt);
             }
         });
 
@@ -96,21 +96,21 @@ public class HittaAlienInfo extends javax.swing.JFrame {
 
         sokRasLabel.setText("Lista aliens av en viss ras");
 
-        namnLabel.setText("Ange ID:");
+        AlienIDLabel.setText("Ange ID:");
 
         sokAllInfoLabel.setText("Sök all information om enskild alien");
 
-        listaAliensefterDatumButton.setText("Visa");
-        listaAliensefterDatumButton.addActionListener(new java.awt.event.ActionListener() {
+        VisaAliensefterDatumButton.setText("Visa");
+        VisaAliensefterDatumButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaAliensefterDatumButtonActionPerformed(evt);
+                VisaAliensefterDatumButtonActionPerformed(evt);
             }
         });
 
-        listaAliensEfterRasButton.setText("Visa");
-        listaAliensEfterRasButton.addActionListener(new java.awt.event.ActionListener() {
+        VisaAliensEfterRasButton.setText("Visa");
+        VisaAliensEfterRasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaAliensEfterRasButtonActionPerformed(evt);
+                VisaAliensEfterRasButtonActionPerformed(evt);
             }
         });
 
@@ -121,14 +121,14 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         resultatTextArea.setColumns(20);
         resultatTextArea.setRows(5);
 
-        jnamn.addActionListener(new java.awt.event.ActionListener() {
+        jAlienID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jnamnActionPerformed(evt);
+                jAlienIDActionPerformed(evt);
             }
         });
 
-        alienTabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        alienTabel.setModel(new javax.swing.table.DefaultTableModel(
+        alienTable.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        alienTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null}
             },
@@ -144,8 +144,8 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        alienTabel.setRowHeight(40);
-        jScrollPaneInfo.setViewportView(alienTabel);
+        alienTable.setRowHeight(40);
+        jScrollPaneInfo.setViewportView(alienTable);
 
         visaInfo.setText("Visa info");
         visaInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -154,30 +154,29 @@ public class HittaAlienInfo extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Hitta information om specifika Besökare");
+        InfoBesökare.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        InfoBesökare.setText("Hitta information om specifika Besökare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(namnLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(visaInfo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Avbryt))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(AlienIDLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(visaInfo)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPaneInfo)
                         .addContainerGap())
@@ -185,7 +184,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(223, 223, 223)
-                                .addComponent(listaAliensefterDatumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(VisaAliensefterDatumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +193,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(sokRasBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
-                                        .addComponent(listaAliensEfterRasButton))
+                                        .addComponent(VisaAliensEfterRasButton))
                                     .addComponent(sokRasLabel)
                                     .addComponent(sokDatumLabel)
                                     .addGroup(layout.createSequentialGroup()
@@ -210,7 +209,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(InfoBesökare)
                             .addComponent(sokAllInfoLabel))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -218,7 +217,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(InfoBesökare)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -227,7 +226,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sokRasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listaAliensEfterRasButton))
+                            .addComponent(VisaAliensEfterRasButton))
                         .addGap(35, 35, 35)
                         .addComponent(sokDatumLabel)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +241,7 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                                     .addComponent(tillLabel)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(listaAliensefterDatumButton))))
+                                .addComponent(VisaAliensefterDatumButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(resultatTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -250,13 +249,13 @@ public class HittaAlienInfo extends javax.swing.JFrame {
                 .addComponent(sokAllInfoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namnLabel)
-                    .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AlienIDLabel)
+                    .addComponent(jAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(visaInfo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPaneInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton2)
+                .addComponent(Avbryt)
                 .addContainerGap())
         );
 
@@ -264,29 +263,40 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvbrytActionPerformed
     //Avbryt
       dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_AvbrytActionPerformed
 
     private String sökAllInfo(int iD){
+        //Metod för att söka upp all Alien-info
+        
+        //Sträng-variablar för att lagra inforation om dessa
         String resultatsträng = "";
         String ras = "";
         String extra = "";
+        
         try{
         
+            // Ser om Alien_ID tillhör en Boglodite och stämmer det hämtas information
         if (idb.fetchSingle("SELECT ALIEN_ID FROM BOGLODITE WHERE ALIEN_ID = " + iD) != null){
                         ras = "Boglodite";
                         extra = "Antal boogies:\n  " + idb.fetchSingle("SELECT ANTAL_BOOGIES FROM BOGLODITE WHERE ALIEN_ID = " + iD);
                     }
+                    // Ser om Alien_ID tillhör en Squid och stämmer det hämtas information
                     else if(idb.fetchSingle("SELECT ALIEN_ID FROM SQUID WHERE ALIEN_ID = " + iD) != null){
                         ras = "Squid";
                         extra = "Antal armar:\n  " + idb.fetchSingle("SELECT ANTAL_ARMAR FROM SQUID WHERE ALIEN_ID = " + iD);                        
                     }
+                    // Ser om Alien_ID tillhör en Worm och stämmer det hämtas information
                     else if(idb.fetchSingle("SELECT ALIEN_ID FROM WORM WHERE ALIEN_ID = " + iD) != null){
                         ras = "Worm";
                     }    
+        
+        // Rad hämtas från Alien-tabellen i databasen och är baserat på det Alien_ID:et som skrivs in
         HashMap<String, String> aliens = idb.fetchRow("SELECT * FROM ALIEN WHERE ALIEN_ID = " + iD);
+        
+        // Information sammanställs från den rad som hämtas och skapar en resultatsträng
         resultatsträng = "Namn:\n  " + aliens.get("NAMN")
             + "\nAlienID:\n  " + aliens.get("ALIEN_ID")
             + "\nRegistreringsdatum:\n  " + aliens.get("REGISTRERINGSDATUM")
@@ -308,14 +318,22 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         return resultatsträng;
     }    
     
-    private void listaAliensefterDatumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAliensefterDatumButtonActionPerformed
+    private void VisaAliensefterDatumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAliensefterDatumButtonActionPerformed
+        //Visa Aliens-knapp efter datum
+        
         try{
+            // Det som händer är att en SimpleDateFormat konverterar och formaterar datum till strängar med formatet "yyyy-MM-dd".
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // frånDatumSpinner och tillDatumSpinner konverteras och formateras till strängar med det datumformatet som angivs
             String franD = dateFormat.format(franDatumSpinner.getValue());
             String tillD = dateFormat.format(tillDatumSpinner.getValue());
 
+            //Lagra resultatet från databas-frågan
             String resultatsträng = "";
+            // En lista av alien-namn hämtas från Alien-tabellen där registreringsdatumet ligger inom det datuminvervall som angivs
             ArrayList<String> alienMellanDatum = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE REGISTRERINGSDATUM BETWEEN \'" + franD + "\' AND \'" + tillD + "\'");
+            
+            // Varje alien i listan loopas igenom vilket skapar resultatsträngen
             for (String alien : alienMellanDatum){
                 resultatsträng += alien + "\n";
             }
@@ -324,13 +342,18 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         catch(InfException undantag){
             System.out.println(undantag);
         }
-    }//GEN-LAST:event_listaAliensefterDatumButtonActionPerformed
+    }//GEN-LAST:event_VisaAliensefterDatumButtonActionPerformed
 
-    private void listaAliensEfterRasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAliensEfterRasButtonActionPerformed
+    private void VisaAliensEfterRasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaAliensEfterRasButtonActionPerformed
+        // Visa-knapp för aliens efter ras
+        
+        // Namn hämtas och visas på aliens baserat på rasen som väljs i sökRasBox
         try{
             String sökRas = sokRasBox.getSelectedItem().toString().toUpperCase();
             String resultatsträng = "";
             ArrayList<String> rasAliens = idb.fetchColumn("SELECT NAMN FROM ALIEN WHERE ALIEN_ID IN (SELECT ALIEN_ID FROM " + sökRas + ")");
+            
+            // Varje alien i listan loopas igenom vilket skapar resultatsträngen
             for (String rasAlien : rasAliens){
                 resultatsträng += rasAlien + "\n";
             }
@@ -339,30 +362,31 @@ public class HittaAlienInfo extends javax.swing.JFrame {
         catch(InfException undantag){
             System.out.println("Något gick fel! " + undantag);
         }
-    }//GEN-LAST:event_listaAliensEfterRasButtonActionPerformed
+    }//GEN-LAST:event_VisaAliensEfterRasButtonActionPerformed
 
-    private void jnamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jnamnActionPerformed
+    private void jAlienIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlienIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jnamnActionPerformed
+    }//GEN-LAST:event_jAlienIDActionPerformed
 
     private void visaInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaInfoActionPerformed
         HashMap<String, String> alien; // Information om agenten lagras i en HashMap
 
         try {
-            String alienID = jnamn.getText(); //
+            // Alien ID hämtas från ett textfältet jAlienID
+            String alienID = jAlienID.getText(); //
 
             String fraga = "SELECT * FROM alien WHERE Alien_ID ='" + alienID + "'";
             alien = idb.fetchRow(fraga); // Variabeln agent = Visar en rad med information om agenten
 
             // Agentens information presenteras i tabellen
-            alienTabel.setValueAt(alien.get("Alien_ID"), 0, 0);               // Kolumn 1
-            alienTabel.setValueAt(alien.get("Namn"), 0, 4);                   // Kolumn 2
-            alienTabel.setValueAt(alien.get("Epost"), 0, 2);                  // Kolumn 3
-            alienTabel.setValueAt(alien.get("Losenord"), 0, 3);               // Kolumn 4
-            alienTabel.setValueAt(alien.get("Telefon"), 0, 5);                // Kolumn 5
-            alienTabel.setValueAt(alien.get("Plats"), 0, 6);                 // Kolumn 6
-            alienTabel.setValueAt(alien.get("Registreringsdatum"), 0, 1);          // Kolumn 7
-            alienTabel.setValueAt(alien.get("Ansvarig_Agent"), 0, 7);      // Kolumn 8
+            alienTable.setValueAt(alien.get("Alien_ID"), 0, 0);               // Kolumn 1
+            alienTable.setValueAt(alien.get("Namn"), 0, 4);                   // Kolumn 2
+            alienTable.setValueAt(alien.get("Epost"), 0, 2);                  // Kolumn 3
+            alienTable.setValueAt(alien.get("Losenord"), 0, 3);               // Kolumn 4
+            alienTable.setValueAt(alien.get("Telefon"), 0, 5);                // Kolumn 5
+            alienTable.setValueAt(alien.get("Plats"), 0, 6);                 // Kolumn 6
+            alienTable.setValueAt(alien.get("Registreringsdatum"), 0, 1);          // Kolumn 7
+            alienTable.setValueAt(alien.get("Ansvarig_Agent"), 0, 7);      // Kolumn 8
 
         }
         catch (Exception e) {
@@ -407,16 +431,16 @@ public class HittaAlienInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable alienTabel;
+    private javax.swing.JLabel AlienIDLabel;
+    private javax.swing.JButton Avbryt;
+    private javax.swing.JLabel InfoBesökare;
+    private javax.swing.JButton VisaAliensEfterRasButton;
+    private javax.swing.JButton VisaAliensefterDatumButton;
+    private javax.swing.JTable alienTable;
     private javax.swing.JSpinner franDatumSpinner;
     private javax.swing.JLabel franLabel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jAlienID;
     private javax.swing.JScrollPane jScrollPaneInfo;
-    private javax.swing.JTextField jnamn;
-    private javax.swing.JButton listaAliensEfterRasButton;
-    private javax.swing.JButton listaAliensefterDatumButton;
-    private javax.swing.JLabel namnLabel;
     private javax.swing.JLabel rasLabel;
     private javax.swing.JTextArea resultatTextArea;
     private javax.swing.JLabel sokAllInfoLabel;

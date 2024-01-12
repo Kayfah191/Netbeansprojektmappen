@@ -80,7 +80,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel10" min="-2" pref="58" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtområde" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="txtPlats" min="-2" pref="203" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel11" min="-2" pref="94" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtnamn" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtområde" alignment="3" max="32767" attributes="0"/>
+                  <Component id="txtPlats" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -215,7 +215,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtnamn">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtomr&#xe5;de">
+    <Component class="javax.swing.JTextField" name="txtPlats">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>

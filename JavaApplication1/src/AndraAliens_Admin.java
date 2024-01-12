@@ -29,39 +29,39 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton1RegistreraNyAlien = new javax.swing.JButton();
+        jButton2AndraInfoAlien = new javax.swing.JButton();
+        jButton3TaBortAlien = new javax.swing.JButton();
+        jButton4Avbryt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Registrera ny alien");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1RegistreraNyAlien.setText("Registrera ny alien");
+        jButton1RegistreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1RegistreraNyAlienActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ändra information om alien");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2AndraInfoAlien.setText("Ändra information om alien");
+        jButton2AndraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2AndraInfoAlienActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Ta bort alien");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton3TaBortAlien.setText("Ta bort alien");
+        jButton3TaBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3TaBortAlienActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Avbryt");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButton4Avbryt.setText("Avbryt");
+        jButton4Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton4AvbrytActionPerformed(evt);
             }
         });
 
@@ -77,13 +77,13 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
+                            .addComponent(jButton3TaBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1RegistreraNyAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2AndraInfoAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
                         .addGap(95, 95, 95))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4Avbryt)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -96,13 +96,13 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(74, 74, 74)
-                .addComponent(jButton2)
+                .addComponent(jButton2AndraInfoAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jButton1RegistreraNyAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButton3TaBortAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(jButton4Avbryt)
                 .addContainerGap())
         );
 
@@ -110,35 +110,35 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-//Avbryt
+    private void jButton4AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4AvbrytActionPerformed
+        //Avbryt
                        JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
                 JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
         {
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton4AvbrytActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     //Ändra Nya Aliens
+    private void jButton2AndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AndraInfoAlienActionPerformed
+        //Skickas till AndraAliens
         AndraAliens AndraAlien= new AndraAliens(userID);
         AndraAlien.setVisible(true); 
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2AndraInfoAlienActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     //Registrera Nya Besökare
+    private void jButton1RegistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RegistreraNyAlienActionPerformed
+        //Skickas till RegistreraNyaAliens
         RegistreraNyaAliens NyAlien= new RegistreraNyaAliens(userID);
         NyAlien.setVisible(true); 
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1RegistreraNyAlienActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    private void jButton3TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3TaBortAlienActionPerformed
+        //Skickas till TabortAlienAdmin
        TabortAlienAdmin tabortAlien= new  TabortAlienAdmin(userID);
        tabortAlien.setVisible(true); 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3TaBortAlienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,10 +191,10 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton1RegistreraNyAlien;
+    private javax.swing.JButton jButton2AndraInfoAlien;
+    private javax.swing.JButton jButton3TaBortAlien;
+    private javax.swing.JButton jButton4Avbryt;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

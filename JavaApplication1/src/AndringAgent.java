@@ -54,7 +54,7 @@ public class AndringAgent extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtanställning = new javax.swing.JTextField();
         txtnamn = new javax.swing.JTextField();
-        txtområde = new javax.swing.JTextField();
+        txtPlats = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         txttelefon = new javax.swing.JTextField();
@@ -176,7 +176,7 @@ public class AndringAgent extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtområde, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -215,7 +215,7 @@ public class AndringAgent extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtnamn)
                     .addComponent(jLabel10)
-                    .addComponent(txtområde))
+                    .addComponent(txtPlats))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtepost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,14 +246,16 @@ public class AndringAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
-         AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+         //Skickas till AndraAgenter_Admin
+        
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     private void sparaÄndringarKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparaÄndringarKnappActionPerformed
-        // TODO add your handling code here:
+        // Spara-knapp
 try {
     // Skapar en SQL-fråga för att uppdatera agentinformation i databasen
     String fragaTillDatabas = String.format("UPDATE agent " + " SET Namn = '%s'," + " Telefon = '%s'," + " Anstallningsdatum = '%s',"
@@ -262,7 +264,7 @@ try {
         + " Losenord = '%s',"
         + " Omrade = '%s'"
         + " WHERE Agent_ID = %s",
-        txtnamn.getText(), txttelefon.getText(), txtanställning.getText(), txtansvAdmin.getText(), txtepost.getText(), txtlösenord.getText(), txtområde.getText(), txtid.getText());
+        txtnamn.getText(), txttelefon.getText(), txtanställning.getText(), txtansvAdmin.getText(), txtepost.getText(), txtlösenord.getText(), txtPlats.getText(), txtid.getText());
     
     // Utför SQL UPDATE-operationen genom att skicka frågan till databasen
     idb.update(fragaTillDatabas);
@@ -278,11 +280,12 @@ try {
     }//GEN-LAST:event_sparaÄndringarKnappActionPerformed
 
     private void visaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaKnappActionPerformed
-        // TODO add your handling code here
+        // Visa-knapp
+        
+        // Hämtar information om en agent baserat på AgentID som skrivs in
         try {
             String ID = txtid.getText();
             String fråga = "select * from agent where Agent_ID = " + ID;
-            //Hämtar sql frågan
             var svar = idb.fetchRow(fråga);
 
             //Hämtar all information från databasen
@@ -293,8 +296,9 @@ try {
             txtansvAdmin.setText(svar.get("Administrator"));
             txtepost.setText(svar.get("Epost"));
             txtlösenord.setText(svar.get("Losenord"));
-            txtområde.setText(svar.get("Omrade"));
-
+            txtPlats.setText(svar.get("Omrade"));
+        
+        //Hanterar eventuella undantag
         } catch (InfException e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -355,13 +359,13 @@ try {
     private javax.swing.JLabel lblAndraAgent;
     private javax.swing.JButton sparaÄndringarKnapp;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtPlats;
     private javax.swing.JTextField txtanställning;
     private javax.swing.JTextField txtansvAdmin;
     private javax.swing.JTextField txtepost;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtlösenord;
     private javax.swing.JTextField txtnamn;
-    private javax.swing.JTextField txtområde;
     private javax.swing.JTextField txttelefon;
     private javax.swing.JButton visaKnapp;
     // End of variables declaration//GEN-END:variables

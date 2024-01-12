@@ -35,40 +35,40 @@ private InfDB idb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        andring = new javax.swing.JButton();
-        lblEpostNya = new javax.swing.JLabel();
-        jnamn = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Spara = new javax.swing.JButton();
+        lblKontorsChef = new javax.swing.JLabel();
+        jnamnKontorsChef = new javax.swing.JTextField();
+        Avbryt = new javax.swing.JButton();
+        jButton2GaTillbaka = new javax.swing.JButton();
+        AndraKontorschef = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        andring.setText("Spara");
-        andring.addActionListener(new java.awt.event.ActionListener() {
+        Spara.setText("Spara");
+        Spara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andringActionPerformed(evt);
+                SparaActionPerformed(evt);
             }
         });
 
-        lblEpostNya.setText("Namn på den nya kontorschefen");
+        lblKontorsChef.setText("Namn på den nya kontorschefen");
 
-        jButton1.setText("Avbryt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Avbryt.setText("Avbryt");
+        Avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AvbrytActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gå tillbaka");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2GaTillbaka.setText("Gå tillbaka");
+        jButton2GaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2GaTillbakaActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Ändra kontorschef");
+        AndraKontorschef.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AndraKontorschef.setText("Ändra kontorschef");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,20 +78,20 @@ private InfDB idb;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jnamnKontorsChef, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 134, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(jButton2GaTillbaka)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(Avbryt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(andring))
+                                .addComponent(Spara))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEpostNya)
-                                    .addComponent(jLabel2))
+                                    .addComponent(lblKontorsChef)
+                                    .addComponent(AndraKontorschef))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -99,20 +99,20 @@ private InfDB idb;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(AndraKontorschef)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(lblEpostNya)
+                        .addComponent(lblKontorsChef)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jnamnKontorsChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 114, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(andring))
+                            .addComponent(Avbryt)
+                            .addComponent(jButton2GaTillbaka)
+                            .addComponent(Spara))
                         .addContainerGap())))
         );
 
@@ -120,16 +120,14 @@ private InfDB idb;
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void andringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andringActionPerformed
-       
+    private void SparaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparaActionPerformed
+        // Spara-knapp
         
+        // Uppdrag för att ändra roller för agenter och kontorschefer som finns i databasen.
         try {
-        String namn = jnamn.getText();
-        // Hämta Agent_ID 
+        String namn = jnamnKontorsChef.getText();
         String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE namn ='" + namn + "'");
-        // Hämta nuvarande kontorschef för Örebrokontoret
         String nuvarandeChef = idb.fetchSingle("SELECT Agent_ID FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'");
-        // Uppdatera rollen som kontorschef för den valda agenten
         String insertKontorschef = "INSERT INTO Kontorschef VALUES('" + agentID + "', 'Örebrokontoret')";
         idb.insert(insertKontorschef);
         String tabortKontorschef = "DELETE FROM Kontorschef WHERE Kontorsbeteckning = 'Örebrokontoret'";
@@ -149,21 +147,21 @@ private InfDB idb;
         JOptionPane.showMessageDialog(null, "Misslyckad: " + e.getMessage());
 }
 
-    }//GEN-LAST:event_andringActionPerformed
+    }//GEN-LAST:event_SparaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2GaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2GaTillbakaActionPerformed
  //Tillbakaknapp 
         AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2GaTillbakaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvbrytActionPerformed
         //Avbryt
      dispose();   
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AvbrytActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,11 +199,11 @@ private InfDB idb;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton andring;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jnamn;
-    private javax.swing.JLabel lblEpostNya;
+    private javax.swing.JLabel AndraKontorschef;
+    private javax.swing.JButton Avbryt;
+    private javax.swing.JButton Spara;
+    private javax.swing.JButton jButton2GaTillbaka;
+    private javax.swing.JTextField jnamnKontorsChef;
+    private javax.swing.JLabel lblKontorsChef;
     // End of variables declaration//GEN-END:variables
 }
