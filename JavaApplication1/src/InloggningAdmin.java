@@ -179,7 +179,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         String test = adminnamn.getText();
          String test2 = adminlösenord.getText();
        
-        JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
+       // JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
     String q1 = String.format("SELECT Agent_id, Namn, administrator, Losenord, Epost FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
 //        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
 //                "' and losenord = '" + adminlösenord.getText() + "';";

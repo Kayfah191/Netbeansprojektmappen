@@ -152,16 +152,16 @@ public class InformationAdmin extends javax.swing.JFrame {
 
     private void agentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentActionPerformed
         //visa InloggningAgenter
-        AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin();
+        AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin(userID, userNamn);
         alltOmAgent.setVisible(true); 
-        dispose();
+        //dispose();
     }//GEN-LAST:event_agentActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         //Avbryt
                 JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
-                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION)
         {
             System.exit(0);
         }
@@ -171,14 +171,14 @@ public class InformationAdmin extends javax.swing.JFrame {
         //visa Info På Aliens
         AndraAliens_Admin InfoAlien = new AndraAliens_Admin(userID);
         InfoAlien.setVisible(true); 
-        dispose();
+        //dispose();
     }//GEN-LAST:event_alienActionPerformed
 
     private void utrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utrustningActionPerformed
 
     UtrustningAdmin RegUtrusning = new UtrustningAdmin(userID);
         RegUtrusning.setVisible(true); 
-        dispose();
+        //dispose();
     }//GEN-LAST:event_utrustningActionPerformed
 
     /**

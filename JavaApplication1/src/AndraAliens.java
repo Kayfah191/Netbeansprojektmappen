@@ -5,7 +5,7 @@ import mib.Validering;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-
+//
 
 /**
  *
@@ -308,7 +308,7 @@ public class AndraAliens extends javax.swing.JFrame {
         // Visa-knapp
         clearFields();
         
-        
+      //  if(Validering.textNotEmpty(jID)){
             try{
                 //Hämtar datan från en alien med IDt som skrivs in
                 String id = jHamtatID.getText();
@@ -367,7 +367,7 @@ public class AndraAliens extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
-       
+        //}
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRasActionPerformed

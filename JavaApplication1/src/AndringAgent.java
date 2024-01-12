@@ -15,12 +15,17 @@ import oru.inf.InfException;
 public class AndringAgent extends javax.swing.JFrame {
     
     private InfDB idb;
+    public static String userID;
+    public static String userNamn;
 
     /**
      * Creates new form AndringAgent
      */
-    public AndringAgent() {
+    public AndringAgent(String userID, String userNamn) {
         initComponents();
+        
+        this.userID = userID;
+        this.userNamn = userNamn;
         
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
@@ -248,7 +253,7 @@ public class AndringAgent extends javax.swing.JFrame {
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
          //Skickas till AndraAgenter_Admin
         
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
@@ -339,7 +344,7 @@ try {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndringAgent().setVisible(true);
+                new AndringAgent(userID, userNamn).setVisible(true);
             }
         });
     }

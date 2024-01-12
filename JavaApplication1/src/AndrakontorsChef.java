@@ -14,12 +14,20 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class AndrakontorsChef extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+    public static String userID;
+    public static String userNamn;
+    
     /**
      * Creates new form AndrakontorsChef
      */
-    public AndrakontorsChef() {
+    public AndrakontorsChef(String userID, String userNamn) {
         initComponents();
+        
+        this.userID = userID;
+        this.userNamn = userNamn;
+        
         try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
 //            System.out.println("Allt fungerar (hittills))");
@@ -151,7 +159,7 @@ private InfDB idb;
 
     private void jButton2GaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2GaTillbakaActionPerformed
  //Tillbakaknapp 
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
@@ -193,7 +201,7 @@ private InfDB idb;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndrakontorsChef().setVisible(true);
+                new AndrakontorsChef(userID, userNamn).setVisible(true);
             }
         });
     }

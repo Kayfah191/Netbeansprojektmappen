@@ -195,12 +195,12 @@ try{
 // Oika val i combobox
           if (olikaVal.equals("Vapen")) {
             int antalKaliber = Integer.parseInt(intal.getText()); 
-            String q = "INSERT INTO Vapen VALUES('" + uid + "', '" + antalKaliber + "')";
-            String q2 = "INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";
+            String q = "INSERT INTO utrustning VALUES('" + uid + "', '" + benamning + "')";
+            String q2 = "INSERT INTO Vapen VALUES('" + uid + "', '" + antalKaliber + "')";
 
             idb.insert(q);
             idb.insert(q2);
-            JOptionPane.showMessageDialog(null, "Överföring till databasen lyckades");
+            JOptionPane.showMessageDialog(null, "Registreringen till databasen lyckades");
             dispose();
         }
 
@@ -210,7 +210,7 @@ try{
                             idb.insert(q3);
                 String q4="insert into Kommunikation values('" + uid + "', '"+ redskap + "')";
                  idb.insert(q4);
-                JOptionPane.showMessageDialog(null," överföring till databasen lyckades");
+                JOptionPane.showMessageDialog(null,"Registreringen till databasen lyckades");
                 dispose();
             }
             if (olikaVal.equals("Teknik")) {
@@ -218,14 +218,14 @@ try{
                 idb.insert(q5);
                 String q6="insert into Teknik values('" + uid + "', '" + redskap + "')";
                 idb.insert(q6);
-                         JOptionPane.showMessageDialog(null," överföring till databasen lyckades");
+                         JOptionPane.showMessageDialog(null,"Registreringen till databasen lyckades");
                             dispose();
            }
 }
 
  catch (InfException e) 
          {
-        JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
+        JOptionPane.showMessageDialog(null, "Registreringen till databasen misslyckades, försök igen");
 }
   }
     }//GEN-LAST:event_laggTillActionPerformed

@@ -11,14 +11,16 @@ import javax.swing.JOptionPane;
  */
 public class AndraAgenter_Admin extends javax.swing.JFrame {
 
-     public String userID;
+     public static String userID;
+     public static String userNamn;
     
     /**
      * Creates new form AndraAgenter
      */
-    public AndraAgenter_Admin() {
+    public AndraAgenter_Admin(String userID, String userNamn) {
         initComponents();
         this.userID = userID;
+        this.userNamn = userNamn;
     }
 
     /**
@@ -39,6 +41,7 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jButton3AndraAgent = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +111,13 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Öppna Agent-sidan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,8 +139,13 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton9)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(170, 170, 170))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1RegistreraAgent, jButton2HamtaInfoAgent, jButton3AndraAgent, jButton4TaBortAgent, jButton5GorTillAdmin, jButton6AndraKontorsChef, jButton7AndraOmradesChef});
@@ -154,7 +169,9 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
                 .addComponent(jButton6AndraKontorsChef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4TaBortAgent)
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(24, 24, 24)
                 .addComponent(jButton9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -200,7 +217,7 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     private void jButton6AndraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6AndraKontorsChefActionPerformed
         //Skickas till AndrakontorsChef
         
-        AndrakontorsChef andraChef= new AndrakontorsChef();
+        AndrakontorsChef andraChef= new AndrakontorsChef(userID, userNamn);
         andraChef.show();       
     }//GEN-LAST:event_jButton6AndraKontorsChefActionPerformed
 
@@ -214,9 +231,14 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     private void jButton3AndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AndraAgentActionPerformed
         //Skickas till AndringAgent
         
-        AndringAgent andraAgent= new AndringAgent();
+        AndringAgent andraAgent= new AndringAgent(userID, userNamn);
         andraAgent.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3AndraAgentActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        InformationAgenter InfoAgent = new InformationAgenter(userID, userNamn);
+        InfoAgent.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,12 +301,13 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraAgenter_Admin().setVisible(true);
+                new AndraAgenter_Admin(userID, userNamn).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1RegistreraAgent;
     private javax.swing.JButton jButton2HamtaInfoAgent;
     private javax.swing.JButton jButton3AndraAgent;

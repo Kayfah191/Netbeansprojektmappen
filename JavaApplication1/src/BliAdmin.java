@@ -14,8 +14,13 @@ import oru.inf.InfException;
  * @author Kayhan
  */
 public class BliAdmin extends javax.swing.JFrame {
-private InfDB idb;
-private String epost;
+
+    private InfDB idb;
+    private String epost;
+    public static String userID;
+    public static String userNamn;
+    
+    
     /**
      * Creates new form BliAdmin
      */
@@ -175,7 +180,7 @@ private String epost;
     private void GaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaActionPerformed
         //Tillbaka-knapp 
         
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin();
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();

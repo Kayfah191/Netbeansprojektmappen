@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import oru.inf.InfDB;
-import oru.inf.InfException;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -110,10 +109,6 @@ public class Validering {
             date.requestFocus();
             return false;
         }
-<<<<<<< HEAD:JavaApplication1/src/Validering.java
-        else {
-            return true;
-=======
     }
     
     //Validera längd på Lösenord    
@@ -125,7 +120,6 @@ public class Validering {
         }
         else{
            return true;
->>>>>>> e5277d8ebe852d57f9390685038628c8ff6787eb:JavaApplication1/src/mib/Validering.java
         }
     }
 //             
