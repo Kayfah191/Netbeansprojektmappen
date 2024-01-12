@@ -50,7 +50,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         sokKnapp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textrutaAnsvarigAgent = new javax.swing.JTextArea();
-        jExitB = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +70,10 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         textrutaAnsvarigAgent.setRows(5);
         jScrollPane1.setViewportView(textrutaAnsvarigAgent);
 
-        jExitB.setText("Avbryt");
-        jExitB.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jExitBActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jExitB)
+                .addComponent(avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -111,7 +111,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jExitB)
+                    .addComponent(avbryt)
                     .addComponent(sokKnapp))
                 .addContainerGap())
         );
@@ -121,9 +121,10 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokKnappActionPerformed
-
+if(Validering.comboBoxNotEmpty(omradeBox)){
         String omrade = omradeBox.getSelectedItem().toString();
         try{
+            // hämatar OmrådesChef
             String OmradeChef = ChefForOmrade(omrade);
 
             textrutaAnsvarigAgent.setText("Områdeschefen för " + omrade + " är: " + OmradeChef + "");
@@ -131,12 +132,13 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databas funkar ej");
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
+}
     }//GEN-LAST:event_sokKnappActionPerformed
 
-    private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         //Avbrytknapp
         dispose();
-    }//GEN-LAST:event_jExitBActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +177,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel OmradesChef;
-    private javax.swing.JButton jExitB;
+    private javax.swing.JButton avbryt;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> omradeBox;
     private javax.swing.JButton sokKnapp;

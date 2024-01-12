@@ -71,7 +71,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
         lTelefon = new javax.swing.JLabel();
         jTelefon = new javax.swing.JTextField();
         jNamn = new javax.swing.JTextField();
@@ -87,7 +87,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         lNamn = new javax.swing.JLabel();
         lPlats = new javax.swing.JLabel();
         jDatum = new javax.swing.JTextField();
-        btnAddAlien = new javax.swing.JButton();
+        registrera = new javax.swing.JButton();
         rasBox = new javax.swing.JComboBox<>();
         platsbox = new javax.swing.JComboBox<>();
         ansvarigAgentBox = new javax.swing.JComboBox<>();
@@ -99,10 +99,10 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registering av nya Besökare:");
 
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -130,10 +130,10 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
 
         lPlats.setText("Plats");
 
-        btnAddAlien.setText("Registrera");
-        btnAddAlien.addActionListener(new java.awt.event.ActionListener() {
+        registrera.setText("Registrera");
+        registrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddAlienActionPerformed(evt);
+                registreraActionPerformed(evt);
             }
         });
 
@@ -191,9 +191,9 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAddAlien)
+                .addComponent(registrera)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -245,8 +245,8 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
                     .addComponent(lPlats))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnAddAlien))
+                    .addComponent(avbryt)
+                    .addComponent(registrera))
                 .addContainerGap())
         );
 
@@ -254,12 +254,12 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
-    private void btnAddAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAlienActionPerformed
+    private void registreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraActionPerformed
     if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
             Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
         try {
@@ -315,7 +315,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
             }
 
     }
-    }//GEN-LAST:event_btnAddAlienActionPerformed
+    }//GEN-LAST:event_registreraActionPerformed
 
     private void rasBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasBoxActionPerformed
     String olikaval = rasBox.getSelectedItem().toString();
@@ -371,8 +371,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ansvarigAgentBox;
     private javax.swing.JTextField antalArmar;
-    private javax.swing.JButton btnAddAlien;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton avbryt;
     private javax.swing.JTextField jDatum;
     private javax.swing.JTextField jEpost;
     private javax.swing.JLabel jLabel1;
@@ -390,6 +389,7 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
     private javax.swing.JLabel lTelefon;
     private javax.swing.JComboBox<String> platsbox;
     private javax.swing.JComboBox<String> rasBox;
+    private javax.swing.JButton registrera;
     private javax.swing.JLabel textAntalArma;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,7 +40,7 @@ try {
         jLabel2 = new javax.swing.JLabel();
         jnamn = new javax.swing.JTextField();
         visaInfo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,10 +82,10 @@ try {
             }
         });
 
-        jButton1.setText("Avbryt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -102,20 +102,16 @@ try {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(visaInfo))
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 478, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPaneInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(avbryt)
+                            .addComponent(jScrollPaneInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(16, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,11 +124,11 @@ try {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(visaInfo)))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPaneInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPaneInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(avbryt)
+                .addContainerGap())
         );
 
         pack();
@@ -143,13 +139,13 @@ try {
         // TODO add your handling code here:
     }//GEN-LAST:event_jnamnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
     dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
     private void visaInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaInfoActionPerformed
  HashMap<String, String> agent; // Information om agenten lagras i en HashMap
-        
+        if(Validering.textNotEmpty(jnamn)){
             try {
                 String agentNamn = jnamn.getText(); // 
 
@@ -157,14 +153,14 @@ try {
                 agent = idb.fetchRow(fraga); // Variabeln agent = Visar en rad med information om agenten
 
                      // Agentens information presenteras i tabellen
-        agentTabel.setValueAt(agent.get("Agent_ID"), 0, 0);               // Kolumn 1
-        agentTabel.setValueAt(agent.get("Namn"), 0, 1);                   // Kolumn 2
-        agentTabel.setValueAt(agent.get("Epost"), 0, 5);                  // Kolumn 3
-        agentTabel.setValueAt(agent.get("Losenord"), 0, 6);               // Kolumn 4
-        agentTabel.setValueAt(agent.get("Telefon"), 0, 2);                // Kolumn 5
-        agentTabel.setValueAt(agent.get("Omrade"), 0, 7);                 // Kolumn 6
-        agentTabel.setValueAt(agent.get("Administrator"), 0, 4);          // Kolumn 7
-        agentTabel.setValueAt(agent.get("Anstallningsdatum"), 0, 3);      // Kolumn 8
+        agentTabel.setValueAt(agent.get("Agent_ID"), 0, 0);            
+        agentTabel.setValueAt(agent.get("Namn"), 0, 1);                   
+        agentTabel.setValueAt(agent.get("Epost"), 0, 5);                 
+        agentTabel.setValueAt(agent.get("Losenord"), 0, 6);               
+        agentTabel.setValueAt(agent.get("Telefon"), 0, 2);                
+        agentTabel.setValueAt(agent.get("Omrade"), 0, 7);                 
+        agentTabel.setValueAt(agent.get("Administrator"), 0, 4);          
+        agentTabel.setValueAt(agent.get("Anstallningsdatum"), 0, 3);      
 
             } 
             catch (InfException e) {
@@ -172,7 +168,7 @@ try {
                 System.out.println("Internt felmeddelande: " + e.getMessage());
             }
         
-      
+        }
     }//GEN-LAST:event_visaInfoActionPerformed
 
     /**
@@ -212,7 +208,7 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable agentTabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton avbryt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPaneInfo;

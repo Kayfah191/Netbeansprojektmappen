@@ -61,10 +61,10 @@ initComponents();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        loggaInKnapp = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        avbrytKnapp = new javax.swing.JButton();
+        gaTillbaka = new javax.swing.JButton();
         jUser = new javax.swing.JTextField();
         jPassword = new javax.swing.JPasswordField();
 
@@ -76,27 +76,27 @@ initComponents();
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Lösenord:");
 
-        jButton1.setText("Logga in");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loggaInKnapp.setText("Logga in");
+        loggaInKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loggaInKnappActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("E-post/Användarnamn:");
 
-        jButton3.setText("Avbryt");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        avbrytKnapp.setText("Avbryt");
+        avbrytKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                avbrytKnappActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Gå tillbaka");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        gaTillbaka.setText("Gå tillbaka");
+        gaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                gaTillbakaActionPerformed(evt);
             }
         });
 
@@ -127,11 +127,11 @@ initComponents();
                                         .addGap(6, 6, 6)
                                         .addComponent(jUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton4)
+                                        .addComponent(gaTillbaka)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3)))
+                                        .addComponent(avbrytKnapp)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(loggaInKnapp)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,9 +157,9 @@ initComponents();
                 .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
+                    .addComponent(loggaInKnapp)
+                    .addComponent(gaTillbaka)
+                    .addComponent(avbrytKnapp))
                 .addContainerGap())
         );
 
@@ -175,7 +175,7 @@ initComponents();
         // TODO add your handling code here:
     }//GEN-LAST:event_jlösenActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void avbrytKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytKnappActionPerformed
         //Avbryt
                         JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
@@ -183,20 +183,17 @@ initComponents();
         {
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_avbrytKnappActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loggaInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggaInKnappActionPerformed
         //Loggin knapp
         
-    if (jUser.getText().isEmpty() || jPassword.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post eller lösenord");
-    }
-    
+    if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
     try {
         String query = String.format("SELECT Epost, Losenord, Namn FROM alien WHERE Epost = \"%s\"", jUser.getText());
         System.out.println(query);        
         HashMap<String, String> rad =  idb.fetchRow(query);
-        //String Epost = rad.get("Epost");
+        //Epost matcher ett lösenord så ska användaren kunna Logga in
         
         String userAlienID = rad.get("Alien_ID");
         String userAlienNamn = rad.get("Namn");
@@ -216,16 +213,17 @@ initComponents();
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
       System.out.println("Internt felmeddelande: " + e.getMessage());
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+}
+    }//GEN-LAST:event_loggaInKnappActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void gaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaTillbakaActionPerformed
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
         
         dispose();
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_gaTillbakaActionPerformed
 
     private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
         // TODO add your handling code here:
@@ -267,13 +265,13 @@ initComponents();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton avbrytKnapp;
+    private javax.swing.JButton gaTillbaka;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jUser;
+    private javax.swing.JButton loggaInKnapp;
     // End of variables declaration//GEN-END:variables
 }

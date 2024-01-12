@@ -32,9 +32,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
-                      <Component id="btnGaTillbaka" min="-2" max="-2" attributes="0"/>
+                      <Component id="avbryt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnTaBort" min="-2" max="-2" attributes="0"/>
+                      <Component id="taBort" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -72,8 +72,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnTaBort" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnGaTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="taBort" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avbryt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -96,20 +96,20 @@
         <Property name="text" type="java.lang.String" value="Ta bort Agent"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnTaBort">
+    <Component class="javax.swing.JButton" name="taBort">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaBortActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnGaTillbaka">
+    <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGaTillbakaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="boxAgenter">

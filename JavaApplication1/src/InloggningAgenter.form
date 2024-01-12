@@ -43,13 +43,13 @@
                               <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="gaTillbaka" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jExitB" min="-2" max="-2" attributes="0"/>
+                              <Component id="avbrytKnapp" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLogInB" min="-2" max="-2" attributes="0"/>
+                      <Component id="loggInKnapp" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -83,9 +83,9 @@
               <Component id="jPassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="115" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLogInB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jExitB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="loggInKnapp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avbrytKnapp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="gaTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -137,28 +137,28 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jLogInB">
+    <Component class="javax.swing.JButton" name="loggInKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Logga in"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLogInBActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loggInKnappActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jExitB">
+    <Component class="javax.swing.JButton" name="avbrytKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jExitBActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytKnappActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="gaTillbaka">
       <Properties>
         <Property name="text" type="java.lang.String" value="G&#xe5; tillbaka"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gaTillbakaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

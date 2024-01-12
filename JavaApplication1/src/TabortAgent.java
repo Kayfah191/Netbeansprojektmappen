@@ -54,8 +54,8 @@ public class TabortAgent extends javax.swing.JFrame {
         tNamn = new javax.swing.JTextField();
         lblnamn = new javax.swing.JLabel();
         lblTaBortAgent = new javax.swing.JLabel();
-        btnTaBort = new javax.swing.JButton();
-        btnGaTillbaka = new javax.swing.JButton();
+        taBort = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
         boxAgenter = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
@@ -66,17 +66,17 @@ public class TabortAgent extends javax.swing.JFrame {
         lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTaBortAgent.setText("Ta bort Agent");
 
-        btnTaBort.setText("Ta bort");
-        btnTaBort.addActionListener(new java.awt.event.ActionListener() {
+        taBort.setText("Ta bort");
+        taBort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTaBortActionPerformed(evt);
+                taBortActionPerformed(evt);
             }
         });
 
-        btnGaTillbaka.setText("Avbryt");
-        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGaTillbakaActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -97,9 +97,9 @@ public class TabortAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 88, Short.MAX_VALUE)
-                        .addComponent(btnGaTillbaka)
+                        .addComponent(avbryt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTaBort))
+                        .addComponent(taBort))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTaBortAgent)
@@ -129,8 +129,8 @@ public class TabortAgent extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTaBort)
-                    .addComponent(btnGaTillbaka))
+                    .addComponent(taBort)
+                    .addComponent(avbryt))
                 .addContainerGap())
         );
 
@@ -138,8 +138,9 @@ public class TabortAgent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
-int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
+    private void taBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortActionPerformed
+if(Validering.textNotEmpty(tNamn)){
+        int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
 // Kollar om man svara ja på bekräftelsen
             if (fraga == 0) { 
                 try {   String agentNamn = boxAgenter.getSelectedItem().toString();
@@ -167,12 +168,14 @@ int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten?", "Bekrä
         }
         
             }
+}
 
-    }//GEN-LAST:event_btnTaBortActionPerformed
 
-    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+    }//GEN-LAST:event_taBortActionPerformed
+
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         dispose();
-    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
     private void boxAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAgenterActionPerformed
         // TODO add your handling code here:
@@ -214,13 +217,13 @@ int fraga = JOptionPane.showConfirmDialog(null, " vill radera agenten?", "Bekrä
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton avbryt;
     private javax.swing.JComboBox<String> boxAgenter;
-    private javax.swing.JButton btnGaTillbaka;
-    private javax.swing.JButton btnTaBort;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTaBortAgent;
     private javax.swing.JLabel lblnamn;
     private javax.swing.JTextField tNamn;
+    private javax.swing.JButton taBort;
     // End of variables declaration//GEN-END:variables
 }

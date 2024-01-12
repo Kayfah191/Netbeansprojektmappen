@@ -47,8 +47,8 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         jID = new javax.swing.JTextField();
         lblnamn = new javax.swing.JLabel();
         lblTaBortAgent = new javax.swing.JLabel();
-        btnTaBort = new javax.swing.JButton();
-        btnGaTillbaka = new javax.swing.JButton();
+        taBort = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,17 +57,17 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         lblTaBortAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTaBortAgent.setText("Radera Besökare från databasen");
 
-        btnTaBort.setText("Ta bort");
-        btnTaBort.addActionListener(new java.awt.event.ActionListener() {
+        taBort.setText("Ta bort");
+        taBort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTaBortActionPerformed(evt);
+                taBortActionPerformed(evt);
             }
         });
 
-        btnGaTillbaka.setText("Avbryt");
-        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGaTillbakaActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -83,9 +83,9 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
                         .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGaTillbaka)
+                        .addComponent(avbryt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTaBort)
+                        .addComponent(taBort)
                         .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +104,8 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
                 .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGaTillbaka)
-                    .addComponent(btnTaBort))
+                    .addComponent(avbryt)
+                    .addComponent(taBort))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -126,7 +126,8 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTaBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortActionPerformed
+    private void taBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortActionPerformed
+       if(Validering.textNotEmpty(jID)){ 
         int fraga = JOptionPane.showConfirmDialog(null, " vill radera alien?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
         // Kollar om man svara ja på bekräftelsen
         if (fraga == 0) {
@@ -151,11 +152,12 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null, "radering av alien misslyckades.");
 }
         }
-    }//GEN-LAST:event_btnTaBortActionPerformed
+       }
+    }//GEN-LAST:event_taBortActionPerformed
 
-    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         dispose();
-    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,11 +195,11 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGaTillbaka;
-    private javax.swing.JButton btnTaBort;
+    private javax.swing.JButton avbryt;
     private javax.swing.JTextField jID;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTaBortAgent;
     private javax.swing.JLabel lblnamn;
+    private javax.swing.JButton taBort;
     // End of variables declaration//GEN-END:variables
 }

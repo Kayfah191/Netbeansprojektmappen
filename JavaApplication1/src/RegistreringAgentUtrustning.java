@@ -44,12 +44,12 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         juid = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jbenamning = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        laggTill = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jbox = new javax.swing.JComboBox<>();
         intal = new javax.swing.JTextField();
@@ -60,10 +60,10 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registrering av utrustning till Agenter:");
 
-        jButton1.setText("Avbryt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -79,10 +79,10 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
 
         jLabel3.setText("Benamning");
 
-        jButton2.setText("Lägg till utrustning");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        laggTill.setText("Lägg till utrustning");
+        laggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                laggTillActionPerformed(evt);
             }
         });
 
@@ -133,9 +133,9 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(avbryt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(laggTill)))
                 .addContainerGap())
         );
 
@@ -164,8 +164,8 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
                     .addComponent(jVarde, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(laggTill)
+                    .addComponent(avbryt))
                 .addContainerGap())
         );
 
@@ -175,23 +175,23 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         // Avbryt
      dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
     private void juidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_juidActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void laggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laggTillActionPerformed
   if (Validering.textNotEmpty(jbenamning) && Validering.textNotEmpty(intal)){
 try{
             String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
         String benamning=jbenamning.getText();
         String redskap= intal.getText();
         String olikaVal = jbox.getSelectedItem().toString();
-
+// Oika val i combobox
           if (olikaVal.equals("Vapen")) {
             int antalKaliber = Integer.parseInt(intal.getText()); 
             String q = "INSERT INTO Vapen VALUES('" + uid + "', '" + antalKaliber + "')";
@@ -227,7 +227,7 @@ try{
         JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
 }
   }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_laggTillActionPerformed
 
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
         
@@ -236,13 +236,12 @@ try{
         if (olikaVal.equals("Vapen")) {
             jVarde.setText("Kaliber (heltal):");
         } 
-        
         else if (olikaVal.equals("Kommunikationsmedel")) {
             jVarde.setText("Typ av ÖverFörningsteknik");
             
         } else if (olikaVal.equals("Kommunikation")) {
             jVarde.setText("Överförningsteknik: ");
-            
+          
         } else {
             jVarde.setText("Kraftkälla: ");
         }
@@ -288,9 +287,8 @@ try{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton avbryt;
     private javax.swing.JTextField intal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -299,5 +297,6 @@ try{
     private javax.swing.JTextField jbenamning;
     private javax.swing.JComboBox<String> jbox;
     private javax.swing.JTextField juid;
+    private javax.swing.JButton laggTill;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,9 +50,9 @@ public class InloggningAgenter extends javax.swing.JFrame {
         jUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPassword = new javax.swing.JPasswordField();
-        jLogInB = new javax.swing.JButton();
-        jExitB = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        loggInKnapp = new javax.swing.JButton();
+        avbrytKnapp = new javax.swing.JButton();
+        gaTillbaka = new javax.swing.JButton();
 
         jButton3.setText("Avbryt");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -86,24 +86,24 @@ public class InloggningAgenter extends javax.swing.JFrame {
             }
         });
 
-        jLogInB.setText("Logga in");
-        jLogInB.addActionListener(new java.awt.event.ActionListener() {
+        loggInKnapp.setText("Logga in");
+        loggInKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLogInBActionPerformed(evt);
+                loggInKnappActionPerformed(evt);
             }
         });
 
-        jExitB.setText("Avbryt");
-        jExitB.addActionListener(new java.awt.event.ActionListener() {
+        avbrytKnapp.setText("Avbryt");
+        avbrytKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jExitBActionPerformed(evt);
+                avbrytKnappActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gå tillbaka");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        gaTillbaka.setText("Gå tillbaka");
+        gaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                gaTillbakaActionPerformed(evt);
             }
         });
 
@@ -120,11 +120,11 @@ public class InloggningAgenter extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 35, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(gaTillbaka)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jExitB)))
+                                .addComponent(avbrytKnapp)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLogInB))
+                        .addComponent(loggInKnapp))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -151,9 +151,9 @@ public class InloggningAgenter extends javax.swing.JFrame {
                 .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLogInB)
-                    .addComponent(jExitB)
-                    .addComponent(jButton2))
+                    .addComponent(loggInKnapp)
+                    .addComponent(avbrytKnapp)
+                    .addComponent(gaTillbaka))
                 .addContainerGap())
         );
 
@@ -173,7 +173,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jExitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitBActionPerformed
+    private void avbrytKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytKnappActionPerformed
          //Avbrytknapp
               JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
@@ -181,14 +181,11 @@ public class InloggningAgenter extends javax.swing.JFrame {
         {
             System.exit(0);
         }
-    }//GEN-LAST:event_jExitBActionPerformed
+    }//GEN-LAST:event_avbrytKnappActionPerformed
 
-    private void jLogInBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInBActionPerformed
+    private void loggInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggInKnappActionPerformed
         //Loggin knapp
-       
-    if (jUser.getText().isEmpty() || jPassword.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Vänligen fyll i E-post");
-    }
+    if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
    
     try { 
         String query = String.format("SELECT Agent_ID, Epost, Losenord, Namn FROM agent WHERE Epost = \"%s\"", jUser.getText());
@@ -213,15 +210,16 @@ public class InloggningAgenter extends javax.swing.JFrame {
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
       System.out.println("Internt felmeddelande: " + e.getMessage());
-    }//GEN-LAST:event_jLogInBActionPerformed
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_loggInKnappActionPerformed
+    }
+    private void gaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaTillbakaActionPerformed
         //Tillbakaknapp till InloggningVal (gå tillbaka)
             InloggningVal LogInVal = new InloggningVal();
             LogInVal.show();
         
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_gaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,14 +260,14 @@ public class InloggningAgenter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton avbrytKnapp;
+    private javax.swing.JButton gaTillbaka;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jExitB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton jLogInB;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jUser;
+    private javax.swing.JButton loggInKnapp;
     // End of variables declaration//GEN-END:variables
 }

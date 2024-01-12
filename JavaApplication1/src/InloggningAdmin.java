@@ -44,11 +44,11 @@ public class InloggningAdmin extends javax.swing.JFrame {
         adminnamn = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         adminlösenord = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        loggInKnapp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        avbrytKnapp = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        gaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,30 +69,30 @@ public class InloggningAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Logga in");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loggInKnapp.setText("Logga in");
+        loggInKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loggInKnappActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Inloggning [Admin]");
 
-        jButton4.setText("Avbryt");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        avbrytKnapp.setText("Avbryt");
+        avbrytKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                avbrytKnappActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("E-post/Användarnamn:");
 
-        jButton2.setText("Gå tillbaka");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        gaTillbaka.setText("Gå tillbaka");
+        gaTillbaka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                gaTillbakaActionPerformed(evt);
             }
         });
 
@@ -112,11 +112,11 @@ public class InloggningAdmin extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(0, 46, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(gaTillbaka)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4)))
+                                .addComponent(avbrytKnapp)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(loggInKnapp))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(adminnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,9 +141,9 @@ public class InloggningAdmin extends javax.swing.JFrame {
                 .addComponent(adminlösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(loggInKnapp)
+                    .addComponent(avbrytKnapp)
+                    .addComponent(gaTillbaka))
                 .addContainerGap())
         );
 
@@ -161,7 +161,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_adminlösenordActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void avbrytKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytKnappActionPerformed
         //Avbryt
                 JFrame frame = new JFrame("Avbryt");
         if(JOptionPane.showConfirmDialog(frame, "Är du säker på att du vill avbryta?", "Avbryt",
@@ -169,16 +169,16 @@ public class InloggningAdmin extends javax.swing.JFrame {
         {
             System.exit(0);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_avbrytKnappActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Loginknapp
+    private void loggInKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggInKnappActionPerformed
+     if (Validering.textNotEmpty(adminnamn)&& Validering.passwordNotEmpty(adminlösenord)){
     try {
         String test = adminnamn.getText();
          String test2 = adminlösenord.getText();
-        if (test.isEmpty() || test2.isEmpty()) {
+       
         JOptionPane.showMessageDialog(null, "Vänligen fyll dina uppgifter");
-    }String q1 = String.format("SELECT Agent_id, Namn, administrator, Losenord, Epost FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
+    String q1 = String.format("SELECT Agent_id, Namn, administrator, Losenord, Epost FROM agent WHERE Epost = \"%s\"", adminnamn.getText());
 //        String q1 = "select Agent_id, administrator from agent where Epost = \"%s\"", adminnamn.getText());
 //                "' and losenord = '" + adminlösenord.getText() + "';";
         HashMap<String, String> rad =  idb.fetchRow(q1);
@@ -187,7 +187,6 @@ public class InloggningAdmin extends javax.swing.JFrame {
         
         String userID = rad.get("Agent_ID");
         String userNamn = rad.get("Namn");
-        
                 if(adminnamn.getText().equals(rad.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad.get("Administrator").equals("J")) {
             InformationAdmin InfoAD = new InformationAdmin(userID, userNamn);
         InfoAD.setVisible(true);  //öppnar informationsfönser till Admin
@@ -197,30 +196,24 @@ public class InloggningAdmin extends javax.swing.JFrame {
         else if(adminnamn.getText().equals(rad.get("Epost")) && adminlösenord.getText().equals(lösenord)&& rad.get("Administrator").equals("N")){
     JOptionPane.showMessageDialog(null, "Agent är inte admin");
     }
-//                else if(rad3.get("Administrator").equals("J")) {
+
 //            // Vi kommer hit om den som loggade in är administratör dvs administrator = J
 //        
-//        }     
-        
-
-        else {
-            throw new Exception();
-        }
-       
-        
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "kontrollera epost eller lösenord");
       System.out.println("Internt felmeddelande: " + e.getMessage());
-    }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+}
+     }
+    }//GEN-LAST:event_loggInKnappActionPerformed
+
+    private void gaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaTillbakaActionPerformed
         //Tillbakaknapp till InloggningVal
         InloggningVal LogInVal = new InloggningVal();
         LogInVal.show();
         //stänger tidigare fönster
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_gaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,11 +253,11 @@ public class InloggningAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField adminlösenord;
     private javax.swing.JTextField adminnamn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton avbrytKnapp;
+    private javax.swing.JButton gaTillbaka;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton loggInKnapp;
     // End of variables declaration//GEN-END:variables
 }

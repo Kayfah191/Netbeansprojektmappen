@@ -56,17 +56,17 @@ public class InformationAgenter extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jAgentID = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registreraAlien = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        registreraUtrustning = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        hittaAlien = new javax.swing.JButton();
+        alienPlats = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         omradeChef = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         andraLosenord = new javax.swing.JButton();
+        gaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,21 +76,19 @@ public class InformationAgenter extends javax.swing.JFrame {
         jAgentID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jAgentID.setText("Agent ID:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Registrera ny Besökare");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registreraAlien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registreraAlien.setText("Registrera ny Besökare");
+        registreraAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registreraAlienActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Spara");
-
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Registrera utrustning");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        registreraUtrustning.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registreraUtrustning.setText("Registrera utrustning");
+        registreraUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                registreraUtrustningActionPerformed(evt);
             }
         });
 
@@ -101,19 +99,19 @@ public class InformationAgenter extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton6.setText("Hitta Besökare");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        hittaAlien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        hittaAlien.setText("Hitta Besökare");
+        hittaAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                hittaAlienActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Visa Besökares plats");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        alienPlats.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        alienPlats.setText("Visa Besökares plats");
+        alienPlats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                alienPlatsActionPerformed(evt);
             }
         });
 
@@ -138,6 +136,13 @@ public class InformationAgenter extends javax.swing.JFrame {
             }
         });
 
+        gaTillbaka.setText("Gå tillbaka");
+        gaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gaTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,10 +152,10 @@ public class InformationAgenter extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(hittaAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(registreraAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registreraUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(alienPlats, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(omradeChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraLosenord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -160,6 +165,10 @@ public class InformationAgenter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -171,20 +180,16 @@ public class InformationAgenter extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jAgentID)
-                        .addContainerGap(259, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addContainerGap())))
+                        .addContainerGap(260, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gaTillbaka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton4, jButton6});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {alienPlats, hittaAlien, registreraAlien, registreraUtrustning});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,30 +201,30 @@ public class InformationAgenter extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
+                .addComponent(hittaAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(alienPlats)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
+                        .addComponent(registreraUtrustning))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel2)
                         .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(registreraAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(omradeChef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(andraLosenord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(gaTillbaka))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton4, jButton6});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {alienPlats, hittaAlien, registreraAlien, registreraUtrustning});
 
         pack();
         setLocationRelativeTo(null);
@@ -235,32 +240,32 @@ public class InformationAgenter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void registreraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraUtrustningActionPerformed
         //Registrera Utrustning På Agenter
         RegistreringAgentUtrustning Regutrust= new RegistreringAgentUtrustning(userID);
         Regutrust.setVisible(true); 
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_registreraUtrustningActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void hittaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hittaAlienActionPerformed
         //Öppnar ett fönster för att hitta specifika besökare
         HittaAlienInfo Hittaalinfo= new HittaAlienInfo(userID);
         Hittaalinfo.setVisible(true);
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_hittaAlienActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienActionPerformed
         //Registrera Nya Aliens
         RegistreraNyaAliens RegAlien= new RegistreraNyaAliens(userID);
         RegAlien.setVisible(true); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_registreraAlienActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void alienPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienPlatsActionPerformed
         //Hitta alien område
         HittaAlienOmrade hittaPlats = new HittaAlienOmrade(userID);
         hittaPlats.setVisible(true);
         // TODO add your handling code here
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_alienPlatsActionPerformed
 
     private void omradeChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeChefActionPerformed
 SokFramOmradesChefAgent omradeChef = new SokFramOmradesChefAgent(userID);
@@ -273,6 +278,10 @@ SokFramOmradesChefAgent omradeChef = new SokFramOmradesChefAgent(userID);
         andralosenord.setVisible(true); 
 // TODO add your handling code here:
     }//GEN-LAST:event_andraLosenordActionPerformed
+
+    private void gaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gaTillbakaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,19 +320,19 @@ SokFramOmradesChefAgent omradeChef = new SokFramOmradesChefAgent(userID);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton alienPlats;
     private javax.swing.JButton andraLosenord;
+    private javax.swing.JButton gaTillbaka;
+    private javax.swing.JButton hittaAlien;
     private javax.swing.JLabel jAgentID;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JButton omradeChef;
+    private javax.swing.JButton registreraAlien;
+    private javax.swing.JButton registreraUtrustning;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -89,15 +89,14 @@ public class Validering {
         }
     }
     
-    //Kollar om lösenord är tom
-    public static boolean valPasswordFieldNotEmpty(JPasswordField password){
-        if(password.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Lösenord är tomt!");
-            password.requestFocus();
+     static public boolean comboBoxNotEmpty(JComboBox box){
+        if (box.getSelectedItem().toString().equals("---")){
+            JOptionPane.showMessageDialog(null, "Inget valt i listan!");
+            box.requestFocus();
             return false;
         }
         else{
-            return true;
+        return true;
         }
     }
     
@@ -111,40 +110,9 @@ public class Validering {
         else {
             return true;
         }
-//              String[] datum = date.getText().split("-");
-//        boolean allNumbers = true;
-//        for (String datumet : datum){
-//            try{
-//                System.out.println(datumet);
-//                int testInt = Integer.parseInt(datumet);
-//            }
-//            catch( NumberFormatException ex){
-//                allNumbers = false;
-//                JOptionPane.showMessageDialog(null, "Använd ändas nummer");
-//                System.out.println("Inte nummer");
-//            }
-//        }
-//        if (allNumbers && datum.length == 3 && datum[0].length() == 4 && datum[1].length() == 2 && datum[2].length() == 2){
-//            return true;
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Datumformatet ska vara numeriskt, enligt detta format 'ÅÅÅÅ-MM-DD'.");
-//            date.requestFocus();
-//            return false;
-//        }
     }
-    
-    //Validera längd på Lösenord    
-    public static boolean valPasswordLength(String password){
-        
-        if(password.length() > 7){
-             JOptionPane.showMessageDialog(null, "Lösenordet måsta vara 6 karaktärer eller mindre");
-            return false;
-        }
-        else{
-           return true;
-        }
-    }
+//             
+   
       public static boolean inteMinEpost(JTextField rutaAttKolla, String epost) {
         boolean resultat = true;
         if (rutaAttKolla.getText().equalsIgnoreCase(epost)) {

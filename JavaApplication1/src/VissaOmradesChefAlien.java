@@ -45,7 +45,7 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        avbrytknapp = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -54,17 +54,17 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
         jtelefon = new javax.swing.JTextField();
         jEpost = new javax.swing.JTextField();
         jnamn = new javax.swing.JTextField();
-        Hamta = new javax.swing.JButton();
+        hamta = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setText("Skriv in ditt ID för att se din områdeschef");
 
-        jButton1.setText("Avbryt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        avbrytknapp.setText("Avbryt");
+        avbrytknapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                avbrytknappActionPerformed(evt);
             }
         });
 
@@ -77,10 +77,16 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
 
         jLabel6.setText("Telefon :");
 
-        Hamta.setText("Hämta");
-        Hamta.addActionListener(new java.awt.event.ActionListener() {
+        jtelefon.setEditable(false);
+
+        jEpost.setEditable(false);
+
+        jnamn.setEditable(false);
+
+        hamta.setText("Hämta");
+        hamta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HamtaActionPerformed(evt);
+                hamtaActionPerformed(evt);
             }
         });
 
@@ -93,41 +99,40 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jnamn)
-                            .addComponent(jtelefon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(jEpost, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jnamn)
+                                    .addComponent(jtelefon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                    .addComponent(jEpost, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Hamta)
+                .addComponent(hamta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(avbrytknapp)
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,22 +150,24 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Hamta)
-                    .addComponent(jButton1))
+                    .addComponent(hamta)
+                    .addComponent(avbrytknapp))
                 .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void avbrytknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytknappActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_avbrytknappActionPerformed
 
-    private void HamtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HamtaActionPerformed
-String id=jID.getText();
+    private void hamtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hamtaActionPerformed
+if(Validering.textNotEmpty(jID)){
+        String id=jID.getText();
         try {
+            // Hämta områdeschefens information från databasen med hjälp av en HashMap.
           HashMap<String,String> omradesChefen = idb.fetchRow(("SELECT * FROM AGENT WHERE AGENT_ID = (SELECT AGENT_ID FROM OMRADESCHEF WHERE OMRADE = (SELECT FINNS_I FROM PLATS JOIN ALIEN ON PLATS.PLATS_ID=ALIEN.PLATS WHERE ALIEN_ID = " + id + "))"));
 
             //Visar informationen som hämtades ifrån Databasen i de boxarna
@@ -172,11 +179,10 @@ String id=jID.getText();
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_HamtaActionPerformed
+}
+    }//GEN-LAST:event_hamtaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -213,8 +219,8 @@ String id=jID.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Hamta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton avbrytknapp;
+    private javax.swing.JButton hamta;
     private javax.swing.JTextField jEpost;
     private javax.swing.JTextField jID;
     private javax.swing.JLabel jLabel2;

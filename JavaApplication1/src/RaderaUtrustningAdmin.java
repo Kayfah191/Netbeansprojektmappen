@@ -46,8 +46,8 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        raderaknapp = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,17 +62,17 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ta bort");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        raderaknapp.setText("Ta bort");
+        raderaknapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                raderaknappActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Avbryt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -90,9 +90,9 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(avbryt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(raderaknapp)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -106,8 +106,8 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(raderaknapp)
+                    .addComponent(avbryt))
                 .addContainerGap())
         );
 
@@ -130,14 +130,14 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
             }
     }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         // Avbryt
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void raderaknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raderaknappActionPerformed
         // Ta bort-knappen
-                
+         if(Validering.comboBoxNotEmpty(jComboBox1)){       
         String olikaVal = jComboBox1.getSelectedItem().toString();
                 
         try {
@@ -163,9 +163,9 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Misslyckad borttagning, försök igen");
             System.out.println("Internt felmeddelenade: " + e.getMessage());
         }
+         }
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_raderaknappActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -207,10 +207,10 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton avbryt;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton raderaknapp;
     // End of variables declaration//GEN-END:variables
 }
