@@ -59,6 +59,7 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
         namnBox = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,8 +121,11 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +133,9 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(idBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,18 +168,30 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 String id=idBox.getText();
-        try {
-          HashMap<String,String> omradesChefen = idb.fetchRow(("SELECT * FROM AGENT WHERE AGENT_ID = (SELECT AGENT_ID FROM OMRADESCHEF WHERE OMRADE = (SELECT FINNS_I FROM PLATS JOIN ALIEN ON PLATS.PLATS_ID=ALIEN.PLATS WHERE ALIEN_ID = " + id + "))"));
+//        try {
+//          HashMap<String,String> omradesChefen = idb.fetchRow(("SELECT * FROM AGENT WHERE AGENT_ID = (SELECT AGENT_ID FROM OMRADESCHEF WHERE OMRADE = (SELECT FINNS_I FROM PLATS JOIN ALIEN ON PLATS.PLATS_ID=ALIEN.PLATS WHERE ALIEN_ID = " + id + "))"));
+//
+//            //Visar informationen som hämtades ifrån Databasen i de boxarna
+//            namnBox.setText(omradesChefen.get("Namn"));
+//            epostBox.setText(omradesChefen.get("Epost"));
+//            telefonBox.setText(omradesChefen.get("Telefon"));
+//
+//        } catch (InfException e) {
+//            System.out.println(e.getMessage());
+//            JOptionPane.showMessageDialog(null, e.getMessage());
+//        }
+ try{
+            String anvNamn = JOptionPane.showInputDialog("Ange ditt användarnamn:");
 
-            //Visar informationen som hämtades ifrån Databasen i de boxarna
-            namnBox.setText(omradesChefen.get("Namn"));
-            epostBox.setText(omradesChefen.get("Epost"));
-            telefonBox.setText(omradesChefen.get("Telefon"));
-
-        } catch (InfException e) {
-            System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+            
+             String mysqlFråga = "select NAMN from AGENT where AGENT_ID in (select AGENT_ID from OMRADESCHEF where OMRADE in (select FINNS_I from PLATS where PLATS_ID in (select PLATS from ALIEN where Namn = '" + anvNamn + "')))";
+             String områdeschef = idb.fetchSingle(mysqlFråga);
+             txt.setText(områdeschef);
+             
+               }catch(InfException ex){
+            JOptionPane.showMessageDialog(null, "Områdeschef finns inte");
+            System.out.println("Felaktiga uppgifter, försök igen." + ex.getMessage());
+               }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -227,5 +245,6 @@ String id=idBox.getText();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField namnBox;
     private javax.swing.JTextField telefonBox;
+    private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
