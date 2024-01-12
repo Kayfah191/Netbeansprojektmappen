@@ -3,7 +3,7 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-
+import mib.Validering;
 
 
 /**
@@ -208,14 +208,17 @@ public class AndraAliens extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jAttributLabel)
                             .addComponent(jLabel8)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel7)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jAttributLabel)
+                                .addGap(34, 34, 34)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel13)
@@ -228,8 +231,8 @@ public class AndraAliens extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addContainerGap())))
+                                .addComponent(jButton1)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +309,8 @@ public class AndraAliens extends javax.swing.JFrame {
         // Visa-knapp
         clearFields();
         
-        if (Validering.textNotEmpty(jHamtatID)) {
+        if (Validering.textNotEmpty(jHamtatID) && Validering.valDatumFormat(jRegDatum)) {
+           // && Validering.valDatumFormat(jRegDatum()
             try{
                 //Hämtar datan från en alien med IDt som skrivs in
                 String id = jHamtatID.getText();
@@ -314,7 +318,7 @@ public class AndraAliens extends javax.swing.JFrame {
                 System.out.println(fraga);
                 HashMap<String, String> svar = idb.fetchRow(fraga);
             
-            if (svar != null && svar.containsKey("Alien_ID") || Validering.valDatumFormat(jRegDatum.getText())) { 
+            if (svar != null && svar.containsKey("Alien_ID")) { 
                 //Lägger in datan från databasen in i textfielden
                 jID.setText(svar.get("Alien_ID"));
                 jNamn.setText(svar.get("Namn"));

@@ -1,18 +1,14 @@
+package mib;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-//Vad som valideras:
-//- Om textruta är tom
-//- Om Användarnamn är tom
-//- Om lösenord är tom
-//
-//- Om datumformatet är rätt (ÅÅÅÅ-MM-DD)
-//
-//- Längd på lösenord
 
 
 
@@ -101,14 +97,35 @@ public class Validering {
     }
     
     //Validerar format på inmatat datum
-    public static boolean valDatumFormat(String date){
-        String dateRegex = "\\d{4}-\\d{2}-\\d{2}$";
-        if(!date.matches(dateRegex)){
-            JOptionPane.showMessageDialog(null, "Datumformatet måste vara i ÅÅÅÅ-MM-DD");
+    public static boolean valDatumFormat(JTextField date){
+         String dateText = date.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        try {
+            // Försöker parsa texten till ett LocalDate-objekt enligt formatter
+            LocalDate.parse(dateText, formatter);
+            return true;
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(null, "Datumformatet ska vara 'ÅÅÅÅ-MM-DD'");
+            date.requestFocus();
             return false;
         }
+<<<<<<< HEAD:JavaApplication1/src/Validering.java
         else {
             return true;
+=======
+    }
+    
+    //Validera längd på Lösenord    
+    public static boolean valPasswordLength(String password){
+        
+        if(password.length() > 7){
+             JOptionPane.showMessageDialog(null, "Lösenordet måsta vara 6 karaktärer eller mindre");
+            return false;
+        }
+        else{
+           return true;
+>>>>>>> e5277d8ebe852d57f9390685038628c8ff6787eb:JavaApplication1/src/mib/Validering.java
         }
     }
 //             
