@@ -29,39 +29,39 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1RegistreraNyAlien = new javax.swing.JButton();
-        jButton2AndraInfoAlien = new javax.swing.JButton();
-        jButton3TaBortAlien = new javax.swing.JButton();
-        jButton4Avbryt = new javax.swing.JButton();
+        registreraNyAlien = new javax.swing.JButton();
+        andraInfoAlien = new javax.swing.JButton();
+        taBortAlien = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1RegistreraNyAlien.setText("Registrera ny alien");
-        jButton1RegistreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
+        registreraNyAlien.setText("Registrera ny alien");
+        registreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1RegistreraNyAlienActionPerformed(evt);
+                registreraNyAlienActionPerformed(evt);
             }
         });
 
-        jButton2AndraInfoAlien.setText("Ändra information om alien");
-        jButton2AndraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
+        andraInfoAlien.setText("Ändra information om alien");
+        andraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2AndraInfoAlienActionPerformed(evt);
+                andraInfoAlienActionPerformed(evt);
             }
         });
 
-        jButton3TaBortAlien.setText("Ta bort alien");
-        jButton3TaBortAlien.addActionListener(new java.awt.event.ActionListener() {
+        taBortAlien.setText("Ta bort alien");
+        taBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3TaBortAlienActionPerformed(evt);
+                taBortAlienActionPerformed(evt);
             }
         });
 
-        jButton4Avbryt.setText("Avbryt");
-        jButton4Avbryt.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4AvbrytActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
@@ -77,13 +77,13 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3TaBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1RegistreraNyAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2AndraInfoAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
+                            .addComponent(taBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registreraNyAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(andraInfoAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
                         .addGap(95, 95, 95))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4Avbryt)))
+                        .addComponent(avbryt)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -96,13 +96,13 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(74, 74, 74)
-                .addComponent(jButton2AndraInfoAlien)
+                .addComponent(andraInfoAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1RegistreraNyAlien)
+                .addComponent(registreraNyAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3TaBortAlien)
+                .addComponent(taBortAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jButton4Avbryt)
+                .addComponent(avbryt)
                 .addContainerGap())
         );
 
@@ -110,30 +110,30 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4AvbrytActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         //Avbryt
        dispose();
-    }//GEN-LAST:event_jButton4AvbrytActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
-    private void jButton2AndraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2AndraInfoAlienActionPerformed
+    private void andraInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraInfoAlienActionPerformed
         //Skickas till AndraAliens
         AndraAliens AndraAlien= new AndraAliens(userID);
         AndraAlien.setVisible(true); 
         
-    }//GEN-LAST:event_jButton2AndraInfoAlienActionPerformed
+    }//GEN-LAST:event_andraInfoAlienActionPerformed
 
-    private void jButton1RegistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RegistreraNyAlienActionPerformed
+    private void registreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraNyAlienActionPerformed
         //Skickas till RegistreraNyaAliens
         RegistreraNyaAliens NyAlien= new RegistreraNyaAliens(userID);
         NyAlien.setVisible(true); 
         
-    }//GEN-LAST:event_jButton1RegistreraNyAlienActionPerformed
+    }//GEN-LAST:event_registreraNyAlienActionPerformed
 
-    private void jButton3TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3TaBortAlienActionPerformed
+    private void taBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAlienActionPerformed
         //Skickas till TabortAlienAdmin
        TabortAlienAdmin tabortAlien= new  TabortAlienAdmin(userID);
        tabortAlien.setVisible(true); 
-    }//GEN-LAST:event_jButton3TaBortAlienActionPerformed
+    }//GEN-LAST:event_taBortAlienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,10 +186,10 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1RegistreraNyAlien;
-    private javax.swing.JButton jButton2AndraInfoAlien;
-    private javax.swing.JButton jButton3TaBortAlien;
-    private javax.swing.JButton jButton4Avbryt;
+    private javax.swing.JButton andraInfoAlien;
+    private javax.swing.JButton avbryt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton registreraNyAlien;
+    private javax.swing.JButton taBortAlien;
     // End of variables declaration//GEN-END:variables
 }

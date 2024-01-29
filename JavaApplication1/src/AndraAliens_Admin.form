@@ -28,15 +28,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton3TaBortAlien" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1RegistreraNyAlien" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton2AndraInfoAlien" alignment="0" pref="281" max="32767" attributes="0"/>
+                          <Component id="taBortAlien" alignment="0" max="32767" attributes="0"/>
+                          <Component id="registreraNyAlien" alignment="0" max="32767" attributes="0"/>
+                          <Component id="andraInfoAlien" alignment="0" pref="281" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton4Avbryt" min="-2" max="-2" attributes="0"/>
+                      <Component id="avbryt" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -54,49 +54,49 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-              <Component id="jButton2AndraInfoAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="andraInfoAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1RegistreraNyAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="registreraNyAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton3TaBortAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="taBortAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="101" max="32767" attributes="0"/>
-              <Component id="jButton4Avbryt" min="-2" max="-2" attributes="0"/>
+              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1RegistreraNyAlien">
+    <Component class="javax.swing.JButton" name="registreraNyAlien">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera ny alien"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1RegistreraNyAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registreraNyAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2AndraInfoAlien">
+    <Component class="javax.swing.JButton" name="andraInfoAlien">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra information om alien"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2AndraInfoAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraInfoAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3TaBortAlien">
+    <Component class="javax.swing.JButton" name="taBortAlien">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort alien"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3TaBortAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4Avbryt">
+    <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4AvbrytActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

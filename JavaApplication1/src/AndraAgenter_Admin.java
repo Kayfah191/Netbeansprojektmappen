@@ -32,89 +32,89 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1RegistreraAgent = new javax.swing.JButton();
-        jButton2HamtaInfoAgent = new javax.swing.JButton();
-        jButton4TaBortAgent = new javax.swing.JButton();
-        jButton5GorTillAdmin = new javax.swing.JButton();
-        jButton6AndraKontorsChef = new javax.swing.JButton();
-        jButton7AndraOmradesChef = new javax.swing.JButton();
+        registreraAgent = new javax.swing.JButton();
+        hamtaInfoAgent = new javax.swing.JButton();
+        taBortAgent = new javax.swing.JButton();
+        gorTillAdmin = new javax.swing.JButton();
+        andraKontorsChef = new javax.swing.JButton();
+        andraOmradesChef = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton3AndraAgent = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        avbryt = new javax.swing.JButton();
+        andraAgent = new javax.swing.JButton();
+        oppnaAgentSidan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1RegistreraAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1RegistreraAgent.setText("Registrera agent");
-        jButton1RegistreraAgent.addActionListener(new java.awt.event.ActionListener() {
+        registreraAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registreraAgent.setText("Registrera agent");
+        registreraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1RegistreraAgentActionPerformed(evt);
+                registreraAgentActionPerformed(evt);
             }
         });
 
-        jButton2HamtaInfoAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2HamtaInfoAgent.setText("Hämta information om agent");
-        jButton2HamtaInfoAgent.addActionListener(new java.awt.event.ActionListener() {
+        hamtaInfoAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        hamtaInfoAgent.setText("Hämta information om agent");
+        hamtaInfoAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2HamtaInfoAgentActionPerformed(evt);
+                hamtaInfoAgentActionPerformed(evt);
             }
         });
 
-        jButton4TaBortAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4TaBortAgent.setText("Ta bort agent");
-        jButton4TaBortAgent.addActionListener(new java.awt.event.ActionListener() {
+        taBortAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        taBortAgent.setText("Ta bort agent");
+        taBortAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4TaBortAgentActionPerformed(evt);
+                taBortAgentActionPerformed(evt);
             }
         });
 
-        jButton5GorTillAdmin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5GorTillAdmin.setText("Gör till admin");
-        jButton5GorTillAdmin.addActionListener(new java.awt.event.ActionListener() {
+        gorTillAdmin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gorTillAdmin.setText("Gör till admin");
+        gorTillAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5GorTillAdminActionPerformed(evt);
+                gorTillAdminActionPerformed(evt);
             }
         });
 
-        jButton6AndraKontorsChef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton6AndraKontorsChef.setText("Ändra kontorschef");
-        jButton6AndraKontorsChef.addActionListener(new java.awt.event.ActionListener() {
+        andraKontorsChef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        andraKontorsChef.setText("Ändra kontorschef");
+        andraKontorsChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6AndraKontorsChefActionPerformed(evt);
+                andraKontorsChefActionPerformed(evt);
             }
         });
 
-        jButton7AndraOmradesChef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton7AndraOmradesChef.setText("Ändra områdeschef");
-        jButton7AndraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
+        andraOmradesChef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        andraOmradesChef.setText("Ändra områdeschef");
+        andraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7AndraOmradesChefActionPerformed(evt);
+                andraOmradesChefActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Ändra information om Agenter:");
 
-        jButton9.setText("Avbryt");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        avbryt.setText("Avbryt");
+        avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                avbrytActionPerformed(evt);
             }
         });
 
-        jButton3AndraAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3AndraAgent.setText("Ändra Agent");
-        jButton3AndraAgent.addActionListener(new java.awt.event.ActionListener() {
+        andraAgent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        andraAgent.setText("Ändra Agent");
+        andraAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3AndraAgentActionPerformed(evt);
+                andraAgentActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Öppna Agent-sidan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        oppnaAgentSidan.setText("Öppna Agent-sidan");
+        oppnaAgentSidan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                oppnaAgentSidanActionPerformed(evt);
             }
         });
 
@@ -126,29 +126,25 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(157, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(335, Short.MAX_VALUE)
+                .addComponent(avbryt)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4TaBortAgent)
-                    .addComponent(jButton6AndraKontorsChef)
-                    .addComponent(jButton7AndraOmradesChef)
-                    .addComponent(jButton3AndraAgent)
-                    .addComponent(jButton2HamtaInfoAgent)
-                    .addComponent(jButton1RegistreraAgent)
-                    .addComponent(jButton5GorTillAdmin))
+                    .addComponent(oppnaAgentSidan, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taBortAgent)
+                    .addComponent(andraKontorsChef)
+                    .addComponent(andraOmradesChef)
+                    .addComponent(andraAgent)
+                    .addComponent(hamtaInfoAgent)
+                    .addComponent(registreraAgent)
+                    .addComponent(gorTillAdmin))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1RegistreraAgent, jButton2HamtaInfoAgent, jButton3AndraAgent, jButton4TaBortAgent, jButton5GorTillAdmin, jButton6AndraKontorsChef, jButton7AndraOmradesChef});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {andraAgent, andraKontorsChef, andraOmradesChef, gorTillAdmin, hamtaInfoAgent, registreraAgent, taBortAgent});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,23 +152,23 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
-                .addComponent(jButton1RegistreraAgent)
+                .addComponent(registreraAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5GorTillAdmin)
+                .addComponent(gorTillAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2HamtaInfoAgent)
+                .addComponent(hamtaInfoAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3AndraAgent)
+                .addComponent(andraAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7AndraOmradesChef)
+                .addComponent(andraOmradesChef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6AndraKontorsChef)
+                .addComponent(andraKontorsChef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4TaBortAgent)
+                .addComponent(taBortAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(oppnaAgentSidan)
                 .addGap(24, 24, 24)
-                .addComponent(jButton9)
+                .addComponent(avbryt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -180,65 +176,65 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1RegistreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1RegistreraAgentActionPerformed
+    private void registreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentActionPerformed
         //Skickas till RegistreraAgent
         
         RegistreraAgent agentReg= new RegistreraAgent();
         agentReg.show(); 
-    }//GEN-LAST:event_jButton1RegistreraAgentActionPerformed
+    }//GEN-LAST:event_registreraAgentActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
     //Avbryt
     dispose();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_avbrytActionPerformed
 
-    private void jButton5GorTillAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5GorTillAdminActionPerformed
+    private void gorTillAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gorTillAdminActionPerformed
         //Skickas till BliAdmin
         
         BliAdmin GeAdmin= new BliAdmin();
        GeAdmin.show(); 
 
         
-    }//GEN-LAST:event_jButton5GorTillAdminActionPerformed
+    }//GEN-LAST:event_gorTillAdminActionPerformed
 
-    private void jButton2HamtaInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2HamtaInfoAgentActionPerformed
+    private void hamtaInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hamtaInfoAgentActionPerformed
         //Skickas till VisaInfoOmAgent
         VisaInfoOmAgent InfoAgent= new VisaInfoOmAgent();
         InfoAgent.show();   
-    }//GEN-LAST:event_jButton2HamtaInfoAgentActionPerformed
+    }//GEN-LAST:event_hamtaInfoAgentActionPerformed
 
-    private void jButton4TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4TaBortAgentActionPerformed
+    private void taBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAgentActionPerformed
         //Skickas till TabortAgent
         
         TabortAgent tabort= new TabortAgent();
         tabort.show(); 
-    }//GEN-LAST:event_jButton4TaBortAgentActionPerformed
+    }//GEN-LAST:event_taBortAgentActionPerformed
 
-    private void jButton6AndraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6AndraKontorsChefActionPerformed
+    private void andraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKontorsChefActionPerformed
         //Skickas till AndrakontorsChef
         
         AndrakontorsChef andraChef= new AndrakontorsChef(userID, userNamn);
         andraChef.show();       
-    }//GEN-LAST:event_jButton6AndraKontorsChefActionPerformed
+    }//GEN-LAST:event_andraKontorsChefActionPerformed
 
-    private void jButton7AndraOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7AndraOmradesChefActionPerformed
+    private void andraOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraOmradesChefActionPerformed
         //Skickas till AndraOmradesChef
         
         AndraOmradesChef andraChef= new AndraOmradesChef();
         andraChef.show();        
-    }//GEN-LAST:event_jButton7AndraOmradesChefActionPerformed
+    }//GEN-LAST:event_andraOmradesChefActionPerformed
 
-    private void jButton3AndraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AndraAgentActionPerformed
+    private void andraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraAgentActionPerformed
         //Skickas till AndringAgent
         
         AndringAgent andraAgent= new AndringAgent(userID, userNamn);
         andraAgent.show();         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3AndraAgentActionPerformed
+    }//GEN-LAST:event_andraAgentActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void oppnaAgentSidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oppnaAgentSidanActionPerformed
         InformationAgenter InfoAgent = new InformationAgenter(userID, userNamn);
         InfoAgent.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_oppnaAgentSidanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,15 +303,15 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton1RegistreraAgent;
-    private javax.swing.JButton jButton2HamtaInfoAgent;
-    private javax.swing.JButton jButton3AndraAgent;
-    private javax.swing.JButton jButton4TaBortAgent;
-    private javax.swing.JButton jButton5GorTillAdmin;
-    private javax.swing.JButton jButton6AndraKontorsChef;
-    private javax.swing.JButton jButton7AndraOmradesChef;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton andraAgent;
+    private javax.swing.JButton andraKontorsChef;
+    private javax.swing.JButton andraOmradesChef;
+    private javax.swing.JButton avbryt;
+    private javax.swing.JButton gorTillAdmin;
+    private javax.swing.JButton hamtaInfoAgent;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton oppnaAgentSidan;
+    private javax.swing.JButton registreraAgent;
+    private javax.swing.JButton taBortAgent;
     // End of variables declaration//GEN-END:variables
 }

@@ -122,9 +122,9 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jButton2Avbryt" min="-2" max="-2" attributes="0"/>
+                              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1Spara" min="-2" max="-2" attributes="0"/>
+                              <Component id="spara" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -193,8 +193,8 @@
                       </Group>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton1Spara" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2Avbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spara" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="avbryt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -342,20 +342,20 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jAttribut">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1Spara">
+    <Component class="javax.swing.JButton" name="spara">
       <Properties>
         <Property name="text" type="java.lang.String" value="Spara"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1SparaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sparaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2Avbryt">
+    <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2AvbrytActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3VisaID">

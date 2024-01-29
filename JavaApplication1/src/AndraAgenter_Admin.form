@@ -28,31 +28,24 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="157" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="335" max="32767" attributes="0"/>
+              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton4TaBortAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton6AndraKontorsChef" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton7AndraOmradesChef" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3AndraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2HamtaInfoAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1RegistreraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5GorTillAdmin" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="oppnaAgentSidan" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                  <Component id="taBortAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="andraKontorsChef" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="andraOmradesChef" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="andraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="hamtaInfoAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="registreraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="gorTillAdmin" linkSize="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" pref="197" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,30 +55,30 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="jButton1RegistreraAgent" min="-2" max="-2" attributes="0"/>
+              <Component id="registreraAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton5GorTillAdmin" min="-2" max="-2" attributes="0"/>
+              <Component id="gorTillAdmin" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2HamtaInfoAgent" min="-2" max="-2" attributes="0"/>
+              <Component id="hamtaInfoAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton3AndraAgent" min="-2" max="-2" attributes="0"/>
+              <Component id="andraAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton7AndraOmradesChef" min="-2" max="-2" attributes="0"/>
+              <Component id="andraOmradesChef" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton6AndraKontorsChef" min="-2" max="-2" attributes="0"/>
+              <Component id="andraKontorsChef" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton4TaBortAgent" min="-2" max="-2" attributes="0"/>
+              <Component id="taBortAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="oppnaAgentSidan" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1RegistreraAgent">
+    <Component class="javax.swing.JButton" name="registreraAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -93,10 +86,10 @@
         <Property name="text" type="java.lang.String" value="Registrera agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1RegistreraAgentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registreraAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2HamtaInfoAgent">
+    <Component class="javax.swing.JButton" name="hamtaInfoAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -104,10 +97,10 @@
         <Property name="text" type="java.lang.String" value="H&#xe4;mta information om agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2HamtaInfoAgentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hamtaInfoAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4TaBortAgent">
+    <Component class="javax.swing.JButton" name="taBortAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -115,10 +108,10 @@
         <Property name="text" type="java.lang.String" value="Ta bort agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4TaBortAgentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5GorTillAdmin">
+    <Component class="javax.swing.JButton" name="gorTillAdmin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -126,10 +119,10 @@
         <Property name="text" type="java.lang.String" value="G&#xf6;r till admin"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5GorTillAdminActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gorTillAdminActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6AndraKontorsChef">
+    <Component class="javax.swing.JButton" name="andraKontorsChef">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -137,10 +130,10 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6AndraKontorsChefActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraKontorsChefActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7AndraOmradesChef">
+    <Component class="javax.swing.JButton" name="andraOmradesChef">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -148,7 +141,7 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschef"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7AndraOmradesChefActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraOmradesChefActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -159,15 +152,15 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra information om Agenter:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3AndraAgent">
+    <Component class="javax.swing.JButton" name="andraAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -175,15 +168,15 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra Agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3AndraAgentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="oppnaAgentSidan">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xd6;ppna Agent-sidan"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oppnaAgentSidanActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
