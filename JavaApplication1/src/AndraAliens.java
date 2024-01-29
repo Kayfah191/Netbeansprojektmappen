@@ -39,7 +39,6 @@ public class AndraAliens extends javax.swing.JFrame {
         jRas.addItem("Squid");
         jRas.addItem("Boglodite");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -309,7 +308,7 @@ public class AndraAliens extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Visa-knapp
         clearFields();
-        
+       
         if(Validering.textNotEmpty(jHamtatID)){
             try{
                 //Hämtar datan från en alien med IDt som skrivs in

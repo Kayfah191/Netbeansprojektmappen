@@ -122,8 +122,7 @@ public class Validering {
            return true;
 
         }
-    }
-//             
+    }        
    
       public static boolean inteMinEpost(JTextField rutaAttKolla, String epost) {
         boolean resultat = true;
