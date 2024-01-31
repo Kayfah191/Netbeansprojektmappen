@@ -183,7 +183,7 @@ try {
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
         //Skickas till AndraAgenter_Admin
 
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID);
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();

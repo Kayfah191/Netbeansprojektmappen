@@ -181,7 +181,7 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         //Skickas till RegistreraAgent
         
         RegistreraAgent agentReg= new RegistreraAgent();
-        agentReg.show(); 
+        agentReg.setVisible(true); 
     }//GEN-LAST:event_registreraAgentActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
@@ -193,43 +193,43 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
         //Skickas till BliAdmin
         
         BliAdmin GeAdmin= new BliAdmin();
-       GeAdmin.show(); 
+       GeAdmin.setVisible(true); 
 
         
     }//GEN-LAST:event_gorTillAdminActionPerformed
 
     private void hamtaInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hamtaInfoAgentActionPerformed
         //Skickas till VisaInfoOmAgent
-        VisaInfoOmAgent InfoAgent= new VisaInfoOmAgent();
-        InfoAgent.show();   
+        VisaInfoOmAgent InfoAgent= new VisaInfoOmAgent(userID, userNamn);
+        InfoAgent.setVisible(true);   
     }//GEN-LAST:event_hamtaInfoAgentActionPerformed
 
     private void taBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAgentActionPerformed
         //Skickas till TabortAgent
         
-        TabortAgent tabort= new TabortAgent();
-        tabort.show(); 
+        TabortAgent tabort= new TabortAgent(userID, userNamn);
+        tabort.setVisible(true); 
     }//GEN-LAST:event_taBortAgentActionPerformed
 
     private void andraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKontorsChefActionPerformed
         //Skickas till AndrakontorsChef
         
         AndrakontorsChef andraChef= new AndrakontorsChef(userID, userNamn);
-        andraChef.show();       
+        andraChef.setVisible(true);       
     }//GEN-LAST:event_andraKontorsChefActionPerformed
 
     private void andraOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraOmradesChefActionPerformed
         //Skickas till AndraOmradesChef
         
         AndraOmradesChef andraChef= new AndraOmradesChef();
-        andraChef.show();        
+        andraChef.setVisible(true);        
     }//GEN-LAST:event_andraOmradesChefActionPerformed
 
     private void andraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraAgentActionPerformed
         //Skickas till AndringAgent
         
         AndringAgent andraAgent= new AndringAgent(userID, userNamn);
-        andraAgent.show();         // TODO add your handling code here:
+        andraAgent.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_andraAgentActionPerformed
 
     private void oppnaAgentSidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oppnaAgentSidanActionPerformed

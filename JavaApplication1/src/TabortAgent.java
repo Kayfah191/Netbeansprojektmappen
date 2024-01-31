@@ -9,12 +9,18 @@ import mib.Validering;
  * @author Kayhan
  */
 public class TabortAgent extends javax.swing.JFrame {
-   private InfDB idb;
-   public static String userID;
    
-    public TabortAgent(String userID) {
+    private InfDB idb;
+   
+    public static String userID;
+   public static String userNamn;
+   
+    public TabortAgent(String userID, String userNamn) {
         initComponents();
-        this.userID=userID;
+        
+        this.userID = userID;
+        this.userNamn = userNamn;
+        
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
@@ -181,7 +187,7 @@ if(Validering.valTextNotEmpty(tNamn)){
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
         //Skickas till AndraAgenter_Admin
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID);
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
         tillAdminval.show();
         //stänger tidigare fönster
         dispose();
@@ -217,7 +223,7 @@ if(Validering.valTextNotEmpty(tNamn)){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TabortAgent(userID).setVisible(true);
+                new TabortAgent(userID, userNamn).setVisible(true);
             }
         });
     }
