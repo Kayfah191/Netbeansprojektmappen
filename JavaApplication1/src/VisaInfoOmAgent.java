@@ -146,7 +146,7 @@ try {
 
     private void visaInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaInfoActionPerformed
  HashMap<String, String> agent; // Information om agenten lagras i en HashMap
-        if(Validering.textNotEmpty(jnamn)){
+        if(Validering.valTextNotEmpty(jnamn)){
             try {
                 String agentNamn = jnamn.getText(); // 
 

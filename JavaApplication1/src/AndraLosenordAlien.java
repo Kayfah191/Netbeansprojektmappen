@@ -158,7 +158,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_nyttlosenordActionPerformed
 
     private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
- if(Validering.textNotEmpty(nuvarandelosenord)&& Validering.textNotEmpty(jAlienID)){
+ if(Validering.valTextNotEmpty(nuvarandelosenord)&& Validering.valTextNotEmpty(jAlienID)){
     // Hämtar nuvarande lösenord och nytt lösenord från textrutorna
     String Password = nuvarandelosenord.getText();
     String newPassword = nyttlosenord.getText();

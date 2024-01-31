@@ -5,10 +5,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import mib.Validering;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 
 /**
  *
@@ -138,7 +135,7 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
 
     private void raderaknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raderaknappActionPerformed
         // Ta bort-knappen
-         if(Validering.comboBoxNotEmpty(jComboBox1)){       
+        
         String olikaVal = jComboBox1.getSelectedItem().toString();
                 
         try {
@@ -164,7 +161,7 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Misslyckad borttagning, försök igen");
             System.out.println("Internt felmeddelenade: " + e.getMessage());
         }
-         }
+         
         
     }//GEN-LAST:event_raderaknappActionPerformed
 

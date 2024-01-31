@@ -1,5 +1,5 @@
 package mib;
-import java.util.HashMap;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -20,7 +20,7 @@ public class Main {
          
          try {
              idb = new InfDB("mibdb","3306","mibdba","mibkey");
-              System.out.println("Allt fungerar (hittills))");
+              System.out.println("Allt fungerar (hittills)");
          }
          
          catch (InfException ex) {

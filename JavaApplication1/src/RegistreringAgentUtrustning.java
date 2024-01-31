@@ -186,7 +186,7 @@ public class RegistreringAgentUtrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_juidActionPerformed
 
     private void laggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laggTillActionPerformed
-  if (Validering.textNotEmpty(jbenamning) && Validering.textNotEmpty(intal)){
+  if (Validering.valTextNotEmpty(jbenamning) && Validering.valTextNotEmpty(intal)){
 try{
             String uid= idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
         String benamning=jbenamning.getText();

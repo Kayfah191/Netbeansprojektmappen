@@ -165,7 +165,7 @@ public class VissaOmradesChefAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_avbrytknappActionPerformed
 
     private void hamtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hamtaActionPerformed
-if(Validering.textNotEmpty(jID)){
+if(Validering.valTextNotEmpty(jID)){
         String id=jID.getText();
         try {
             // Hämta områdeschefens information från databasen med hjälp av en HashMap.

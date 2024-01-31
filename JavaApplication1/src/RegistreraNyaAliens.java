@@ -265,8 +265,8 @@ public class RegistreraNyaAliens extends javax.swing.JFrame {
         
         // En validering utförs för att kontrollera om textfälten för namn (jNamn) och telefon (jTelefon) inte är tomma
         // samtidigt som en längdvalidering utförs för namnet och telefonnumret med hjälp av validerings-metoderna
-        if (Validering.textNotEmpty(jNamn) && Validering.textNotEmpty(jTelefon) &&
-            Validering.nameTextFieldLengthCheck(jNamn) && Validering.checkPhoneLength(jTelefon)){
+        if (Validering.valTextNotEmpty(jNamn) && Validering.valTextNotEmpty(jTelefon) &&
+            Validering.valPhoneLength(jTelefon)){
         try {
                 // Hämta nästa autoinkrementvärde för alien_ID från databasen
                 String nextAID = idb.getAutoIncrement("Alien", "alien_ID");

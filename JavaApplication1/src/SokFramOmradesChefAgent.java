@@ -118,7 +118,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokKnappActionPerformed
-if(Validering.comboBoxNotEmpty(omradeBox)){
+
         String omrade = omradeBox.getSelectedItem().toString();
         try{
             // hämatar OmrådesChef
@@ -129,7 +129,6 @@ if(Validering.comboBoxNotEmpty(omradeBox)){
             JOptionPane.showMessageDialog(null, "Databas funkar ej");
             System.out.println("Internt felmeddelande: " + e.getMessage());
         }
-}
     }//GEN-LAST:event_sokKnappActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed

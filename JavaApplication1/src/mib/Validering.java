@@ -22,7 +22,7 @@ public class Validering {
     }
     
     //Kollar om textruan är tom
-   static public boolean textNotEmpty(JTextField txt){
+   static public boolean valTextNotEmpty(JTextField txt){
         if (txt.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Textfältet är tomt!");
             txt.requestFocus();
@@ -32,17 +32,8 @@ public class Validering {
             return true;
         }
     }
-      static public boolean passwordLengthCheck(JPasswordField txt){
-        if (new String(txt.getPassword()).length() <= 6){
-            return true;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Lösenordet är för långt! Max 6 tecken.");
-            txt.requestFocus();
-            return false;
-        }
-    }
-      static public boolean checkPhoneLength(JTextField txt){
+   
+      static public boolean valPhoneLength(JTextField txt){
         if (txt.getText().toString().length() <= 30){
             return true;
         }
@@ -51,17 +42,9 @@ public class Validering {
             return false;
         }
       }
-         static public boolean nameTextFieldLengthCheck(JTextField txt){
-        if (new String(txt.getText()).length() <= 20){
-            return true;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Namnet är för långt! Max 20 tecken.");
-            txt.requestFocus();
-            return false;
-        }
-         }
-           static public boolean passwordNotEmpty(JPasswordField txt){
+         
+        //Kollar om lösenordet är tom 
+           static public boolean valPasswordNotEmpty(JPasswordField txt){
         if (new String(txt.getPassword()).isEmpty()){
             JOptionPane.showMessageDialog(null, "Lösenordsfältet är tomt!");
             txt.requestFocus();
@@ -73,7 +56,7 @@ public class Validering {
     }
     
     //Kollar om användarnamn är tom
-    public static boolean valUsername(JTextField username){
+    public static boolean valUsernameNotEmpty(JTextField username){
         if(username.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Användarnamn är tomt!");
             username.requestFocus();
@@ -81,17 +64,6 @@ public class Validering {
         }
         else {
             return true;
-        }
-    }
-    
-     static public boolean comboBoxNotEmpty(JComboBox box){
-        if (box.getSelectedItem().toString().equals("---")){
-            JOptionPane.showMessageDialog(null, "Inget valt i listan!");
-            box.requestFocus();
-            return false;
-        }
-        else{
-        return true;
         }
     }
     

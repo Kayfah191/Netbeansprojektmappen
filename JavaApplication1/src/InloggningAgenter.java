@@ -188,7 +188,7 @@ public class InloggningAgenter extends javax.swing.JFrame {
         //Logga in-knapp för att logga in
         
         // Validering av textfältet utförs för agent-namn och lösenord
-    if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
+    if (Validering.valTextNotEmpty(jUser)&& Validering.valPasswordNotEmpty(jPassword)){
    
     try { //// En SQL-fråga för att hämta ut information om en agent baserat på det användarnamn som angivs
         String query = String.format("SELECT Agent_ID, Epost, Losenord, Namn FROM agent WHERE Epost = \"%s\"", jUser.getText());

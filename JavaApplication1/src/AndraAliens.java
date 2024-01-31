@@ -309,7 +309,7 @@ public class AndraAliens extends javax.swing.JFrame {
         // Visa-knapp
         clearFields();
        
-        if(Validering.textNotEmpty(jHamtatID)){
+        if(Validering.valTextNotEmpty(jHamtatID)){
             try{
                 //Hämtar datan från en alien med IDt som skrivs in
                 String id = jHamtatID.getText();

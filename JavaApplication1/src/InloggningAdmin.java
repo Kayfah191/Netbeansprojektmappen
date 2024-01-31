@@ -177,7 +177,7 @@ public class InloggningAdmin extends javax.swing.JFrame {
         //Logga in-knapp för att logga in
         
         // Validering av textfältet utförs för admin-namn och lösenord
-        if (Validering.textNotEmpty(adminnamn)&& Validering.passwordNotEmpty(adminlösenord)){
+        if (Validering.valTextNotEmpty(adminnamn)&& Validering.valPasswordNotEmpty(adminlösenord)){
     try {
         // Värdet hämtas från textfält för admin-namn och lösenord för att testas
         String test = adminnamn.getText();

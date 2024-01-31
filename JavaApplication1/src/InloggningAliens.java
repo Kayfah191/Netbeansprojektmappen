@@ -190,7 +190,7 @@ initComponents();
         //Logga in-knapp för att logga in
         
         // En validering utförs för att kontrollera om textfält för användarnamn (jUser) och lösenord (jPassword) inte är tomma och lösenordet inte är tomt
-    if (Validering.textNotEmpty(jUser)&& Validering.passwordNotEmpty(jPassword)){
+    if (Validering.valTextNotEmpty(jUser)&& Validering.valPasswordNotEmpty(jPassword)){
     try {
         // En SQL-fråga skapas för att hämta ut information om en alien baserat på det angivna användarnamnet från textfältet jUser
         String query = String.format("SELECT Epost, Losenord, Namn FROM alien WHERE Epost = \"%s\"", jUser.getText());

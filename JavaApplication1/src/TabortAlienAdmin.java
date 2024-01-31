@@ -128,7 +128,7 @@ public class TabortAlienAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void taBortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortActionPerformed
-       if(Validering.textNotEmpty(jID)){ 
+       if(Validering.valTextNotEmpty(jID)){ 
         int fraga = JOptionPane.showConfirmDialog(null, " vill radera alien?", "Bekräfta", JOptionPane.YES_NO_OPTION); //Bekräftelse ruta
         // Kollar om man svara ja på bekräftelsen
         if (fraga == 0) {

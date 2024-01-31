@@ -150,7 +150,7 @@ private InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void andralosenordknappenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordknappenActionPerformed
-if(Validering.textNotEmpty(nuvarandelosenord)&& Validering.textNotEmpty(nyttlosenord)){
+if(Validering.valTextNotEmpty(nuvarandelosenord)&& Validering.valTextNotEmpty(nyttlosenord)){
         // Hämta nuvarande lösenord och nytt lösenord från textrutorna
         String Password = nuvarandelosenord.getText();
         String newPassword = nyttlosenord.getText();
