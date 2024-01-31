@@ -91,6 +91,11 @@ public class HittaAlienOmrade extends javax.swing.JFrame {
         lOmrade.setText("Område");
 
         Avbryt.setText("Avbryt");
+        Avbryt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AvbrytActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,6 +218,11 @@ try{
     private void sokPlatsBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokPlatsBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sokPlatsBoxActionPerformed
+
+    private void AvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvbrytActionPerformed
+        //Avbryt
+        dispose();
+    }//GEN-LAST:event_AvbrytActionPerformed
 
     /**
      * @param args the command line arguments

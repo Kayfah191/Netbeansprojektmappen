@@ -91,7 +91,7 @@ public class AndraAliens extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1AndraBesökare.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1AndraBesökare.setText("Ändra information på Besökare");
+        jLabel1AndraBesökare.setText("Ändra information på Besökare:");
 
         jLabel2ID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2ID.setText("Ange Besökares ID:");
@@ -136,7 +136,7 @@ public class AndraAliens extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Avbryt");
+        jButton2.setText("Stäng");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

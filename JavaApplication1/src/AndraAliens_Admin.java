@@ -37,6 +37,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        registreraNyAlien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         registreraNyAlien.setText("Registrera ny alien");
         registreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +45,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
             }
         });
 
+        andraInfoAlien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         andraInfoAlien.setText("Ändra information om alien");
         andraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +53,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
             }
         });
 
+        taBortAlien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         taBortAlien.setText("Ta bort alien");
         taBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +61,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
             }
         });
 
-        avbryt.setText("Avbryt");
+        avbryt.setText("Stäng");
         avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 avbrytActionPerformed(evt);
@@ -101,7 +104,7 @@ public class AndraAliens_Admin extends javax.swing.JFrame {
                 .addComponent(registreraNyAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(taBortAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(avbryt)
                 .addContainerGap())
         );

@@ -147,6 +147,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Avbryt"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AvbrytActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

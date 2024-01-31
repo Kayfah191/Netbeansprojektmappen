@@ -35,15 +35,15 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="oppnaAgentSidan" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
-                  <Component id="taBortAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="andraKontorsChef" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="andraOmradesChef" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="andraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="hamtaInfoAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="registreraAgent" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="gorTillAdmin" linkSize="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="taBortAgent" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="andraKontorsChef" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="andraOmradesChef" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="andraAgent" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="hamtaInfoAgent" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="registreraAgent" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="gorTillAdmin" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="oppnaAgentSidan" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -154,7 +154,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Avbryt"/>
+        <Property name="text" type="java.lang.String" value="St&#xe4;ng"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
@@ -173,7 +173,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="oppnaAgentSidan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xd6;ppna Agent-sidan"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="G&#xe5; till Agent-sidan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oppnaAgentSidanActionPerformed"/>
