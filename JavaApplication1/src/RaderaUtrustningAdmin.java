@@ -15,10 +15,11 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
 
     private InfDB idb;
     public static String userID;
+      public static String userNamn;
     
-    public RaderaUtrustningAdmin(String userID) {
+    public RaderaUtrustningAdmin(String userID, String userNamn) {
         initComponents();
-        
+        this.userNamn=userNamn;
         this.userID = userID;
         
          try {
@@ -46,6 +47,7 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         raderaknapp = new javax.swing.JButton();
         avbryt = new javax.swing.JButton();
+        btnGaTillbaka2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,10 +69,17 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
             }
         });
 
-        avbryt.setText("Avbryt");
+        avbryt.setText("Stänga");
         avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 avbrytActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka2.setText("Gå tillbaka");
+        btnGaTillbaka2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbaka2ActionPerformed(evt);
             }
         });
 
@@ -84,13 +93,16 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(raderaknapp)))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(avbryt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(raderaknapp)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,11 +113,13 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(raderaknapp)
-                    .addComponent(avbryt))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(raderaknapp))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avbryt)
+                    .addComponent(btnGaTillbaka2))
                 .addContainerGap())
         );
 
@@ -136,8 +150,7 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
     private void raderaknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raderaknappActionPerformed
         // Ta bort-knappen
         
-        String olikaVal = jComboBox1.getSelectedItem().toString();
-                
+        String olikaVal = jComboBox1.getSelectedItem().toString();         
         try {
             // Hämta Utrustnings_ID för det valda värdet
             String utrustningsID = idb.fetchSingle("SELECT Utrustnings_ID FROM utrusning WHERE benamning = '" + olikaVal + "'");
@@ -169,6 +182,15 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void btnGaTillbaka2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbaka2ActionPerformed
+        //Skickas till AndraAgenter_Admin
+
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
+        tillAdminval.show();
+        //stänger tidigare fönster
+        dispose();
+    }//GEN-LAST:event_btnGaTillbaka2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,13 +221,16 @@ public class RaderaUtrustningAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RaderaUtrustningAdmin(userID).setVisible(true);
+                new RaderaUtrustningAdmin(userID, userNamn).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton avbryt;
+    private javax.swing.JButton btnGaTillbaka;
+    private javax.swing.JButton btnGaTillbaka1;
+    private javax.swing.JButton btnGaTillbaka2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

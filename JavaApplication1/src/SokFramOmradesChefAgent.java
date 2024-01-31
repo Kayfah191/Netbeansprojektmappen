@@ -14,10 +14,11 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
 
     private InfDB idb;
     public static String userID;
+    public static String userNamn;
     
-    public SokFramOmradesChefAgent(String userID) {
+    public SokFramOmradesChefAgent(String userID,String userNamn) {
         initComponents();
-        
+        this.userNamn=userNamn;
         this.userID = userID;
         
          try{
@@ -148,7 +149,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_avbrytActionPerformed
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
-  InformationAgenter tillAgentval = new InformationAgenter(userID);
+  InformationAgenter tillAgentval = new InformationAgenter(userID,userNamn);
         tillAgentval.show();
         //stänger tidigare fönster
         dispose();     
@@ -184,7 +185,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SokFramOmradesChefAgent(userID).setVisible(true);
+                new SokFramOmradesChefAgent(userID,userNamn).setVisible(true);
             }
         });
     }
