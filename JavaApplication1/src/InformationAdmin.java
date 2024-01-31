@@ -44,6 +44,7 @@ public class InformationAdmin extends javax.swing.JFrame {
         avbryt = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         gaTillbaka = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +81,14 @@ public class InformationAdmin extends javax.swing.JFrame {
 
         gaTillbaka.setText("Gå tillbaka");
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setText("Utrustning");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,18 +110,17 @@ public class InformationAdmin extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(107, 107, 107)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(158, 158, 158)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(alien)
-                                    .addComponent(agent))))
+                                .addComponent(jLabel2)))
                         .addGap(0, 106, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(alien, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agent, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {agent, alien});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -120,13 +128,15 @@ public class InformationAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(agent)
                 .addGap(18, 18, 18)
                 .addComponent(alien)
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(avbryt)
                     .addComponent(gaTillbaka))
@@ -141,7 +151,7 @@ public class InformationAdmin extends javax.swing.JFrame {
         //visa InloggningAgenter
         AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin(userID, userNamn);
         alltOmAgent.setVisible(true); 
-        //dispose();
+        
     }//GEN-LAST:event_agentActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
@@ -158,8 +168,15 @@ public class InformationAdmin extends javax.swing.JFrame {
         //visa Info På Aliens
         AndraAliens_Admin InfoAlien = new AndraAliens_Admin(userID);
         InfoAlien.setVisible(true); 
-        //dispose();
+       
     }//GEN-LAST:event_alienActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Går till UtrustningAdmin
+        UtrustningAdmin utrustningVal = new UtrustningAdmin(userID);
+        utrustningVal.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,6 +219,7 @@ public class InformationAdmin extends javax.swing.JFrame {
     private javax.swing.JButton alien;
     private javax.swing.JButton avbryt;
     private javax.swing.JButton gaTillbaka;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
