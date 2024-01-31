@@ -32,7 +32,7 @@
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jnamn" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="agentID" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="visaInfo" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -42,7 +42,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="avbryt" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="btnGaTillbaka" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="jScrollPaneInfo" min="-2" pref="712" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -60,14 +64,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jnamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="agentID" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="visaInfo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPaneInfo" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace pref="48" max="32767" attributes="0"/>
-              <Component id="avbryt" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="avbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGaTillbaka" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -119,9 +126,9 @@
         <Property name="text" type="java.lang.String" value="Ange Agent ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jnamn">
+    <Component class="javax.swing.JTextField" name="agentID">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jnamnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agentIDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="visaInfo">
@@ -134,10 +141,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="avbryt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Avbryt"/>
+        <Property name="text" type="java.lang.String" value="St&#xe4;ng"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGaTillbaka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xe5; tillbaka"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGaTillbakaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

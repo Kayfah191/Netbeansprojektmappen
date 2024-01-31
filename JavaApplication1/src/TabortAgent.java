@@ -4,37 +4,28 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import mib.Validering;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author Kayhan
  */
 public class TabortAgent extends javax.swing.JFrame {
    private InfDB idb;
-    /**
-     * Creates new form TabortAgent
-     */
-    public TabortAgent() {
+   public static String userID;
+   
+    public TabortAgent(String userID) {
         initComponents();
+        this.userID=userID;
          try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
-        
         catch(InfException ex){
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-       
         fyllbox();
     }
-
-    //Lägger in alla agenters namn i en combobox
+//Lägger in alla agenters namn i en combobox
     private void fyllbox() {
           String agentjbox = "Select namn from agent";
         ArrayList<String> allaAgenter;
@@ -59,6 +50,7 @@ public class TabortAgent extends javax.swing.JFrame {
         avbryt = new javax.swing.JButton();
         boxAgenter = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +81,13 @@ public class TabortAgent extends javax.swing.JFrame {
 
         jLabel1.setText("Välj agent som tar över Aliens");
 
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,21 +95,22 @@ public class TabortAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTaBortAgent)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 88, Short.MAX_VALUE)
-                        .addComponent(avbryt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(boxAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(taBort))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTaBortAgent)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(lblnamn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(boxAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(tNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(11, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(avbryt)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,13 +125,13 @@ public class TabortAgent extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(boxAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(taBort)
-                    .addComponent(avbryt))
+                    .addComponent(boxAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taBort))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avbryt)
+                    .addComponent(btnGaTillbaka))
                 .addContainerGap())
         );
 
@@ -167,11 +167,8 @@ if(Validering.valTextNotEmpty(tNamn)){
                 } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Misslyckad överföring till databasen, försök igen senare");
         }
-        
             }
 }
-
-
     }//GEN-LAST:event_taBortActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
@@ -181,6 +178,14 @@ if(Validering.valTextNotEmpty(tNamn)){
     private void boxAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAgenterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxAgenterActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        //Skickas till AndraAgenter_Admin
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID);
+        tillAdminval.show();
+        //stänger tidigare fönster
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +217,7 @@ if(Validering.valTextNotEmpty(tNamn)){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TabortAgent().setVisible(true);
+                new TabortAgent(userID).setVisible(true);
             }
         });
     }
@@ -220,6 +225,7 @@ if(Validering.valTextNotEmpty(tNamn)){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton avbryt;
     private javax.swing.JComboBox<String> boxAgenter;
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTaBortAgent;
