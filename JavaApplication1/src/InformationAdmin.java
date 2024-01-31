@@ -149,7 +149,7 @@ public class InformationAdmin extends javax.swing.JFrame {
 
     private void agentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentActionPerformed
         //visa InloggningAgenter
-        AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin(userID);
+        AndraAgenter_Admin alltOmAgent = new AndraAgenter_Admin(userID, userNamn);
         alltOmAgent.setVisible(true); 
         
     }//GEN-LAST:event_agentActionPerformed
