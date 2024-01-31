@@ -31,9 +31,9 @@ public class InloggningVal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        agent = new javax.swing.JButton();
+        alien = new javax.swing.JButton();
+        admin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         avbryt = new javax.swing.JButton();
 
@@ -53,27 +53,27 @@ public class InloggningVal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Inloggning:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Agent");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        agent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        agent.setText("Agent");
+        agent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                agentActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setText("Alien");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        alien.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        alien.setText("Alien");
+        alien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                alienActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setText("Admin");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        admin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        admin.setText("Admin");
+        admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                adminActionPerformed(evt);
             }
         });
 
@@ -106,14 +106,14 @@ public class InloggningVal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(admin)
+                                    .addComponent(agent)
+                                    .addComponent(alien, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 49, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {admin, agent, alien});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +123,11 @@ public class InloggningVal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(agent)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(alien)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(admin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(avbryt)
                 .addContainerGap())
@@ -137,29 +137,29 @@ public class InloggningVal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void agentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentActionPerformed
         //Öppna InloggningAgenter
         InloggningAgenter LogInAG = new InloggningAgenter();
         LogInAG.show(); //visa InloggningAgenter
         //Stänga det tidigare fönstret
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_agentActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void alienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienActionPerformed
         //Öppna InloggningAliens
         InloggningAliens LogInAL = new InloggningAliens();
         LogInAL.show(); //visa InloggningAliens
         //Stänga det tidigare fönstret
         dispose(); 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_alienActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
         //Öppna InloggningAdmin
         InloggningAdmin LogInAD = new InloggningAdmin();
         LogInAD.show(); //visa InloggningAdmin
         //Stänga det tidigare fönstret
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_adminActionPerformed
 
     private void avbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytActionPerformed
         //Avbryt
@@ -208,10 +208,10 @@ public class InloggningVal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton admin;
+    private javax.swing.JButton agent;
+    private javax.swing.JButton alien;
     private javax.swing.JButton avbryt;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
