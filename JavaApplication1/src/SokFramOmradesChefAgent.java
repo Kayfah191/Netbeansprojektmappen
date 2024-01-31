@@ -24,7 +24,6 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
-        
         catch(InfException ex){
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -48,6 +47,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textrutaAnsvarigAgent = new javax.swing.JTextArea();
         avbryt = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,10 +67,17 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         textrutaAnsvarigAgent.setRows(5);
         jScrollPane1.setViewportView(textrutaAnsvarigAgent);
 
-        avbryt.setText("Avbryt");
+        avbryt.setText("Stäng");
         avbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 avbrytActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
             }
         });
 
@@ -79,20 +86,24 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(omradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(avbryt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(OmradesChef)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(omradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnGaTillbaka)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(avbryt)
+                        .addGap(12, 12, 12))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,15 +113,16 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(omradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(omradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sokKnapp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(avbryt)
-                    .addComponent(sokKnapp))
-                .addContainerGap())
+                    .addComponent(btnGaTillbaka)
+                    .addComponent(avbryt)))
         );
 
         pack();
@@ -123,7 +135,6 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         try{
             // hämatar OmrådesChef
             String OmradeChef = ChefForOmrade(omrade);
-
             textrutaAnsvarigAgent.setText("Områdeschefen för " + omrade + " är: " + OmradeChef + "");
         } catch (InfException e){
             JOptionPane.showMessageDialog(null, "Databas funkar ej");
@@ -135,6 +146,13 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
         //Avbrytknapp
         dispose();
     }//GEN-LAST:event_avbrytActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+  InformationAgenter tillAgentval = new InformationAgenter(userID);
+        tillAgentval.show();
+        //stänger tidigare fönster
+        dispose();     
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +192,7 @@ public class SokFramOmradesChefAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel OmradesChef;
     private javax.swing.JButton avbryt;
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> omradeBox;
     private javax.swing.JButton sokKnapp;
