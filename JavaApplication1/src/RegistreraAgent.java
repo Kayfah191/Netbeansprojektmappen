@@ -16,24 +16,24 @@ import oru.inf.InfException;
 public class RegistreraAgent extends javax.swing.JFrame {
     
     private InfDB idb;
-    /**
-     * Creates new form RegistreraAgent
-     */
-    public RegistreraAgent() {
+    public static String userID;
+    public static String userNamn;
+ 
+ 
+    public RegistreraAgent(String userID) {
         initComponents();
+         this.userNamn=userNamn;
+        this.userID = userID;
       try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
 //            System.out.println("Allt fungerar (hittills))");
         }
-        
         catch(InfException ex){
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
       fylljbox();
-        
     }
-    
     //Metod för att fylla ComboBox
     private void fylljbox() {
         String fraga = "select benamning from Omrade";
@@ -67,6 +67,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         jNamn = new javax.swing.JTextField();
         jbox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +89,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         jLabel3.setText("E-post:");
 
-        jButton2.setText("Avbryt");
+        jButton2.setText("Stäng");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -108,6 +109,13 @@ public class RegistreraAgent extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Registrering för nya Agenter");
 
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,10 +134,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jNamn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(jTelefon)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jbox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel10)
@@ -139,12 +146,15 @@ public class RegistreraAgent extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jAnstDatum)
                                     .addComponent(jLosenord)
-                                    .addComponent(jEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(16, 16, 16))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 291, Short.MAX_VALUE)
-                                .addComponent(jButton2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnGaTillbaka)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
 
@@ -179,7 +189,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(jButton2)
+                            .addComponent(btnGaTillbaka))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -205,7 +216,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         // En validering utförs för att kontrollera om textfälten för namn (jNamn) och telefon (jTelefon) inte är tomma
         // samtidigt som en längdvalidering utförs för namnet och telefonnummeret med hjälp av validerings-metoderna
        if (Validering.valTextNotEmpty(jNamn) && Validering.valTextNotEmpty(jTelefon) &&
-           Validering.valPhoneLength(jTelefon)){
+           Validering.valPhoneLength(jTelefon)&& Validering.valDatumFormat(jAnstDatum)&& Validering.valTextNotEmpty(jEpost)){
              
      try{   
         String nextID = idb.getAutoIncrement("agent", "agent_ID");
@@ -219,10 +230,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
         String NamnpaOmrade = jbox.getSelectedItem() != null ? jbox.getSelectedItem().toString() : "";
         String omrade = idb.fetchSingle("select omrades_id from omrade where benamning ='"+ NamnpaOmrade +"'");
                 int omradeID = Integer.parseInt(omrade);
-        if (jLosenord.getText().isEmpty() || jNamn.getText().isEmpty() ||jTelefon.getText().isEmpty() ||
-            jEpost.getText().isEmpty() ||jAnstDatum.getText().isEmpty()) {
-            // Visa ett meddelande om att fylla i alla fält
-            JOptionPane.showMessageDialog(this, "Vänligen fyll i alla rutor.");}
             String q1 = "INSERT INTO Agent VALUES('" + nextID + "','" + namn + "','" + telefon + "','" + Anstallningsdatum + "','N','" + Epost + "','" + losenord + "'," + omradeID + ")";
             String q2 = "INSERT INTO faltagent VALUES('" + nextID + "')";
 
@@ -244,6 +251,14 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jboxActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        //Skickas till AndraAgenter_Admin
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
+        tillAdminval.show();
+        //stänger tidigare fönster
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,12 +290,13 @@ public class RegistreraAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistreraAgent().setVisible(true);
+                new RegistreraAgent(userID).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JTextField jAnstDatum;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

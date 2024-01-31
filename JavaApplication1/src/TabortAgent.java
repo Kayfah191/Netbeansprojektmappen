@@ -21,7 +21,7 @@ public class TabortAgent extends javax.swing.JFrame {
         this.userID = userID;
         this.userNamn = userNamn;
         
-         try{
+        try{
             idb = new InfDB("mibdb", "3306", "mibdba","mibkey");
             System.out.println("Allt fungerar (hittills))");
         }
@@ -187,8 +187,10 @@ if(Validering.valTextNotEmpty(tNamn)){
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
         //Skickas till AndraAgenter_Admin
-        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID, userNamn);
-        tillAdminval.show();
+
+        AndraAgenter_Admin tillAdminval = new AndraAgenter_Admin(userID,userNamn);
+        tillAdminval.setVisible(true);
+        
         //stänger tidigare fönster
         dispose();
     }//GEN-LAST:event_btnGaTillbakaActionPerformed

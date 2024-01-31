@@ -180,7 +180,7 @@ public class AndraAgenter_Admin extends javax.swing.JFrame {
     private void registreraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentActionPerformed
         //Skickas till RegistreraAgent
         
-        RegistreraAgent agentReg= new RegistreraAgent();
+        RegistreraAgent agentReg= new RegistreraAgent(userID);
         agentReg.setVisible(true); 
     }//GEN-LAST:event_registreraAgentActionPerformed
 
